@@ -1,0 +1,41 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+\usepackage{amsmath,amsthm}
+\usepackage{amsfonts,amssymb,latexsym}
+\usepackage{enumerate}
+
+\begin{document}
+
+!`Hola \ldots mundo, desde \LaTeX!
+
+¡Hola ... mundo!
+
+% \begin{equation}
+% \alpha, \sum \quad \int_{a}^{b}
+% \end{equation}
+
+\begin{equation}
+  \label{eq:primera}
+  \sum_{i=1}^{n}\frac{1}{i},\qquad\text{ donde } n \text{ es natural }
+\end{equation}
+como decíamos en la ecuación (\ref{eq:primera})
+
+\begin{enumerate}[i)]
+\item El segundo item \label{segundo}
+\item El primer item \label{primer}
+\item El tercer item \label{tercer} hace referencia al item \ref{primer}
+\end{enumerate}
+
+me estoy refiriendo al item \ref{segundo}
+
+\begin{itemize}
+\item A
+\item B
+\item C
+\item D
+\item E
+\end{itemize}
+
+\end{document}
