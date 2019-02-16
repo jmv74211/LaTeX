@@ -65,7 +65,7 @@ Al compilar se obtienen varios documentos:
 
 - `.aux` Fichero auxiliar que contiene la información sobre las referencias, la bibliografía, el índice, etc..
 
-- `-toc`
+- `-toc`: Almacena todas las cabeceras de sección. Es leído en la siguiente compilación para producir el índice general.
 
 - `dvi, .pdf` Posibles resultados de la compilación.
 
@@ -142,12 +142,12 @@ Aquí `clase` indica el tipo de documento por crear.La distribución de
 LaTeX proporciona clases adicionales para otros documentos, incluyendo cartas y diapositivas (presentaciones).El Cuadro 1.1 lista
 las clases de documentos explicadas en esta introducción.
 
-![img](fig1.1)
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig1.1.png)
 
 El parámetro `opciones` personaliza el comportamiento de la clase. Las opciones tienen que separarse por comas.Las opciones más comunes para las clases de documento habituales se listan en el Cuadro 1.2.
 
 
-![img](fig1.2)
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig1.2.png)
 
 Ejemplo: Un fichero de entrada para un documento LaTeX podría empezar con la línea:
 
@@ -174,7 +174,7 @@ LaTeX soporta tres combinaciones predefinidas de cabeceras y pies de página, ll
 
 El cuadro 1.3 lista los estilos de página predefinidos.
 
-![img](fig1.3)
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig1.3.png)
 
 También es posible cambiar el estilo de la página actual con la orden:
 
@@ -189,3 +189,127 @@ de entrada en varias partes que puede reunir al compilarlo. LaTeX tiene dos órd
 
 Puede usar esta orden en el cuerpo del documento para insertar el
 contenido de otro fichero llamado nombre-de-fichero.tex. Tenga en cuenta que LaTeX comenzará una nueva página antes de procesar el material proveniente de nombre-de-fichero.tex.
+
+---
+
+# Composición de textos
+
+L A TEX se diferencia de otros sistemas de composición en que sólo tiene
+que decirle tal estructura. La forma tipográfica del texto se deriva según las
+“reglas” dadas en el fichero de clase del documento y en los varios ficheros de
+estilo usados.
+
+**La unidad básica de texto es el párrafo**.
+
+## Saltos de línea y página
+
+En casos concretos puede ser necesario ordenar a L A TEX que salte de línea:
+
+    \\ ó \newline
+
+comienza una nueva línea sin comenzar un nuevo párrafo.
+
+    \\*
+
+además prohíbe un salto de página tras el salto forzado de línea.
+
+    \newpage
+
+comienza una nueva página.
+
+    \linebreak[n], \nolinebreak[n], \pagebreak[n], \nopagebreak[n]
+
+producen un salto de línea, impiden un salto de línea, producen un salto
+de página, o impiden un salto de página, respectivamene. Permiten al autor
+ajustar sus efectos mediante el argumento opcional n, al que puede asignarse
+un número entre cero y cuatro. Poniendo n a un valor menor que 4, deja
+a L A TEX la opción de no hacer caso de su orden si el resultado tiene mal
+aspecto.
+
+**Si realmente quiere iniciar una nueva línea, use la orden “newline”.**
+
+## Comillas
+
+No use " para las comillas como haría con una máquina de escribir.
+En tipografía hay comillas especiales de apertura y cierre. En L A TEX, use
+dos \` (acentos graves) para abrir comillas y dos ' (apóstrofos) para cerrar
+comillas inglesas. Para comillas inglesas simples basta con poner una de cada
+una.
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/comillas1.png)
+
+Tenga en cuenta que el apóstrofo aparece en el código fuente anterior
+como un acento agudo (simétrico al grave).
+En la tipografía española, las comillas tradicionales son « y ». La versión
+española debería ser así:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/comillas2.png)
+
+## Puntos suspensivos
+
+En una máquina de escribir, una coma o un punto ocupa el mismo espacio
+que cualquier otra letra. En tipografía, estos caracteres ocupan muy poco
+espacio y casi se pegan a la letra anterior. En tipografía española esto no es
+un problema, porque los ‘puntos suspensivos’ van casi juntos. En tipografía
+inglesa no, así que en lugar de escribir tres puntos use la orden:
+
+    \ldots
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/ldots.png)
+
+## Acentos y caracteres especiales
+
+L A TEX soporta el uso de acentos y caracteres especiales para muchos
+idiomas. El cuadro 2.2 muestra todo tipo de acentos aplicados a la letra o.
+Por supuesto también funcionan con otras letras (vocales o consonantes).
+Para situar un acento sobre una i o una j, hay que quitar sus puntos.
+Esto se consigue escribiendo \i y \j.
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.2.png)
+
+## Soporte para otros idiomas
+
+Si su sistema ya está configurado adecuadamente, puede activar el paquete
+babel añadiendo la orden:
+
+    \usepackage[idioma]{babel}
+
+Babel activará automáticamente las reglas de silabación para el idioma que escoja.
+
+Si carga babel con múltiples idiomas:
+
+    \usepackage[idiomaA,idiomaB]{babel}
+
+entonces el último idioma en la lista de opciones será el activo (es decir, idiomaB); puede usar la orden para cambiar el idioma activo.
+
+    \selectlanguage{idiomaA}
+
+La mayoría de los sistemas de ordenador modernos le permiten escribir
+letras de diferentes alfabetos directamente desde el teclado. Para manejar
+varias codificaciones de entrada usadas por diferentes grupos de idiomas en
+diferentes plataformas L A TEX emplea el paquete **inputenc**:
+
+    \usepackage[codificación]{inputenc}
+
+Si tiene un documento multilingüe con codificaciones que entran en
+conflicto, considere el uso de unicode a través de la codificación **utf-8**.
+
+    \usepackage[utf8]{inputenc}
+
+
+Cuando se requieren caracteres
+acentuados, TEX los crea combinando un carácter normal con un acento.
+Aunque el resultado parece perfecto, este enfoque impide que la silabación au-
+tomática funcione en palabras que contienen caracteres acentuados. Además,
+algunas letras latinas no pueden crearse combinando un carácter normal con
+un acento; sin mencionar los casos de alfabetos no latinos, como el griego o
+el cirílico.
+
+Para evitar estos inconvenientes, se crearon varias fundiciones de 8 bites
+similares a CM. Las fundiciones Extended Cork (EC) en la codificación
+**T1** contienen letras y signos de puntuación para la mayoría de los idiomas
+europeos basados en el alfabeto latino.
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.3.png
+
+---
