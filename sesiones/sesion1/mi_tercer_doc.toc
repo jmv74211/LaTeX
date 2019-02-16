@@ -1,0 +1,4 @@
+\babel@toc {spanish}{}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{1}% 
+\contentsline {section}{\numberline {2}Que trata de la condici\IeC {\'o}n y ejercicio del famoso hidalgo D. Quijote de la Mancha}{1}% 
+\contentsline {section}{\numberline {3}Que trata de la primera salida que de su tierra hizo el ingenioso D. Quijote}{4}% 

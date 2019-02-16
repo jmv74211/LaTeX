@@ -13,11 +13,11 @@ TEX es un programa destinado a la composición de documentos que contienen texto
 
 **NO** es un editor de texto sino un procesador de macros y lenguaje de programación.
 
-## ¿Qué es LaTex?
+## ¿Qué es LaTeX?
 
-LATEX es un conjunto de macros para TEX debido originalmente a Leslie Lamport para facilitar el uso de TEX.
+LaTeX es un conjunto de macros para TEX debido originalmente a Leslie Lamport para facilitar el uso de TEX.
 
-LATEX está disponible en la mayoría de las plataformas usuales. La distribuciones más populares son:
+LaTeX está disponible en la mayoría de las plataformas usuales. La distribuciones más populares son:
 
 - MiKTEX (MS Windows)
 - MacTEX (OSX)
@@ -25,7 +25,7 @@ LATEX está disponible en la mayoría de las plataformas usuales. La distribucio
 
 ## Editores
 
-El programa (editor) que usemos para escribir un documento es independiente de LATEX aunque existen algunos editores más adaptados a su uso que incluyen atajos para algunas acciones usuales.
+El programa (editor) que usemos para escribir un documento es independiente de LaTeX aunque existen algunos editores más adaptados a su uso que incluyen atajos para algunas acciones usuales.
 
 Los más comunes son:
 
@@ -65,6 +65,8 @@ Al compilar se obtienen varios documentos:
 
 - `.aux` Fichero auxiliar que contiene la información sobre las referencias, la bibliografía, el índice, etc..
 
+- `-toc`
+
 - `dvi, .pdf` Posibles resultados de la compilación.
 
 - `.log` Mensajes del compilador..toc, .lof, .lot Información relativa a índices, lista de figuras y lista de tablas.
@@ -91,20 +93,99 @@ Tras descargar y descomprimir el archivo, se abrirá una ventana titulada **Inst
 
 [Referencia](https://wildunix.es/posts/instalar-tex-live-en-ubuntu-mac-os-y-windows/)
 
+# Manual básico para aprender LaTeX en 139 minutos
+
+Enlace --> https://tobi.oetiker.ch/lshort/lshort.pdf
+
 ---
 
-### Anotaciones
+# Estructura del fichero de entrada
 
-- Tex es un lenguaje que se programa. Se mezcla texto con código.
+Cuando LaTeX procesa un fichero de entrada, espera que siga una
+cierta estructura. Así, todo fichero de entrada ha de comenzar con la orden
 
-- Plataforma online :  [Overleaf](https://www.overleaf.com/). Overleaf nos permite trabajar de forma simultánea y cooperativa con otros usuarios.
+    \documentclass{...}
 
-Hay dos compiladores de TeX: TeX Live y MikText.
+Esto indica qué tipo de documento pretende usted escribir. Después, puede
+incluir órdenes que influyen el estilo de todo el documento, o puede cargar
+paquetes que añaden nuevas prestaciones al sistema LaTeX. Para cargar un
+paquete use la orden:
 
-Se recomienda TeX Live. es una distribucción multiplataforma.
+    \usepackage{...}
 
-Si se usa TeX live, se recomienda usar como editor [TeXstudio](https://www.texstudio.org/).
+Cuando todo el trabajo de preparación está hecho, comience a escribir el
+cuerpo del texto con la orden
 
-- Al compilar se van a generar una serie de ficheros auxiliares como: .toc, .aux, .log
+    \begin{document}
 
-- El objetivo final es conseguir un archivo pdf
+El área entre **\documentclass** y **\begin{document}** se llama preámbulo.
+Ahora escriba el texto mezclado con órdenes LaTeX útiles. Al final del
+documento añada la orden
+
+    \end{document}
+
+que dice a LaTeX que termine el trabajo. Cualquier cosa que siga a esta orden
+será ignorada por LaTeX.
+
+---
+
+# Aspecto del documento
+
+## Clase de documento
+
+La primera información que LaTeX necesita saber cuando procesa un
+fichero de entrada es el tipo de documento que el autor quiere crear. Esto se indica con la orden \documentclass.
+
+    \documentclass[opciones]{clase}
+
+Aquí `clase` indica el tipo de documento por crear.La distribución de
+LaTeX proporciona clases adicionales para otros documentos, incluyendo cartas y diapositivas (presentaciones).El Cuadro 1.1 lista
+las clases de documentos explicadas en esta introducción.
+
+![img](fig1.1)
+
+El parámetro `opciones` personaliza el comportamiento de la clase. Las opciones tienen que separarse por comas.Las opciones más comunes para las clases de documento habituales se listan en el Cuadro 1.2.
+
+
+![img](fig1.2)
+
+Ejemplo: Un fichero de entrada para un documento LaTeX podría empezar con la línea:
+
+    \documentclass[11pt,twoside,a4paper]{article}
+
+que manda a LaTeX componer el documento como un artículo con un tamaño de fundición básica de once puntos, y producir un documento adecuado para imprimir a doble cara en papel A4.
+
+## Paquetes
+
+Mientras escribe su documento, probablemente halle que hay algunas
+áreas donde el LaTeX básico no puede resolver su problema. Si quiere incluir gráficos, texto en color o código fuente de un fichero en su documento, necesita mejorar las capacidades de LaTeX. Tales mejoras se introducen con paquetes. Los paquetes se activan con la orden:
+
+    \usepackage[opciones]{paquete}
+
+donde paquete es el nombre del paquete y opciones es una lista de palabras clave que activan funciones especiales del paquete.
+
+La orden `texdoc` se usa para acceder a información sobre paquetes.
+
+## Estilos de página
+
+LaTeX soporta tres combinaciones predefinidas de cabeceras y pies de página, llamadas estilos de página. El parámetro estilo de la orden define cuál emplearse.
+
+    \pagestyle{estilo}
+
+El cuadro 1.3 lista los estilos de página predefinidos.
+
+![img](fig1.3)
+
+También es posible cambiar el estilo de la página actual con la orden:
+
+    \thispagestyle{estilo}
+
+## Inclusión de ficheros
+
+uando trabaje en proyectos grandes, puede servirle dividir el fichero
+de entrada en varias partes que puede reunir al compilarlo. LaTeX tiene dos órdenes que lo ayudan a hacerlo.
+
+    \include{nombre-de-fichero}
+
+Puede usar esta orden en el cuerpo del documento para insertar el
+contenido de otro fichero llamado nombre-de-fichero.tex. Tenga en cuenta que LaTeX comenzará una nueva página antes de procesar el material proveniente de nombre-de-fichero.tex.
