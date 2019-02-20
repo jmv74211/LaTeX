@@ -5,6 +5,42 @@
 
 ---
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+# Tabla de contenidos
+
+- [Introducción](#introducci%C3%B3n)
+  - [¿Qué es TEX?](#%C2%BFqu%C3%A9-es-tex)
+  - [¿Qué es LaTeX?](#%C2%BFqu%C3%A9-es-latex)
+  - [Editores](#editores)
+  - [Ventajas e inconvenientes](#ventajas-e-inconvenientes)
+  - [Posibles usos](#posibles-usos)
+    - [Ficheros resultantes tras la compilación](#ficheros-resultantes-tras-la-compilaci%C3%B3n)
+- [Instalación de TeX Live en Ubuntu](#instalaci%C3%B3n-de-tex-live-en-ubuntu)
+- [Manual básico para aprender LaTeX en 139 minutos](#manual-b%C3%A1sico-para-aprender-latex-en-139-minutos)
+- [Estructura del fichero de entrada](#estructura-del-fichero-de-entrada)
+- [Aspecto del documento](#aspecto-del-documento)
+  - [Clase de documento](#clase-de-documento)
+  - [Paquetes](#paquetes)
+  - [Estilos de página](#estilos-de-p%C3%A1gina)
+  - [Inclusión de ficheros](#inclusi%C3%B3n-de-ficheros)
+- [Composición de textos](#composici%C3%B3n-de-textos)
+  - [Saltos de línea y página](#saltos-de-l%C3%ADnea-y-p%C3%A1gina)
+  - [Comillas](#comillas)
+  - [Puntos suspensivos](#puntos-suspensivos)
+  - [Acentos y caracteres especiales](#acentos-y-caracteres-especiales)
+  - [Soporte para otros idiomas](#soporte-para-otros-idiomas)
+- [Títulos, capítulos y secciones](#t%C3%ADtulos-cap%C3%ADtulos-y-secciones)
+  - [Título del documento](#t%C3%ADtulo-del-documento)
+  - [Tabla de índices de contenidos](#tabla-de-%C3%ADndices-de-contenidos)
+  - [Referencias cruzadas](#referencias-cruzadas)
+  - [Notas al pie de página](#notas-al-pie-de-p%C3%A1gina)
+  - [Énfasis del texto](#%C3%A9nfasis-del-texto)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+---
+
 # Introducción
 
 ## ¿Qué es TEX?
@@ -182,7 +218,7 @@ También es posible cambiar el estilo de la página actual con la orden:
 
 ## Inclusión de ficheros
 
-uando trabaje en proyectos grandes, puede servirle dividir el fichero
+Cuando trabaje en proyectos grandes, puede servirle dividir el fichero
 de entrada en varias partes que puede reunir al compilarlo. LaTeX tiene dos órdenes que lo ayudan a hacerlo.
 
     \include{nombre-de-fichero}
@@ -194,7 +230,7 @@ contenido de otro fichero llamado nombre-de-fichero.tex. Tenga en cuenta que LaT
 
 # Composición de textos
 
-L A TEX se diferencia de otros sistemas de composición en que sólo tiene
+LaTeX se diferencia de otros sistemas de composición en que sólo tiene
 que decirle tal estructura. La forma tipográfica del texto se deriva según las
 “reglas” dadas en el fichero de clase del documento y en los varios ficheros de
 estilo usados.
@@ -203,7 +239,7 @@ estilo usados.
 
 ## Saltos de línea y página
 
-En casos concretos puede ser necesario ordenar a L A TEX que salte de línea:
+En casos concretos puede ser necesario ordenar a LaTeX que salte de línea:
 
     \\ ó \newline
 
@@ -223,7 +259,7 @@ producen un salto de línea, impiden un salto de línea, producen un salto
 de página, o impiden un salto de página, respectivamene. Permiten al autor
 ajustar sus efectos mediante el argumento opcional n, al que puede asignarse
 un número entre cero y cuatro. Poniendo n a un valor menor que 4, deja
-a L A TEX la opción de no hacer caso de su orden si el resultado tiene mal
+a LaTeX la opción de no hacer caso de su orden si el resultado tiene mal
 aspecto.
 
 **Si realmente quiere iniciar una nueva línea, use la orden “newline”.**
@@ -231,7 +267,7 @@ aspecto.
 ## Comillas
 
 No use " para las comillas como haría con una máquina de escribir.
-En tipografía hay comillas especiales de apertura y cierre. En L A TEX, use
+En tipografía hay comillas especiales de apertura y cierre. En LaTeX, use
 dos \` (acentos graves) para abrir comillas y dos ' (apóstrofos) para cerrar
 comillas inglesas. Para comillas inglesas simples basta con poner una de cada
 una.
@@ -259,7 +295,7 @@ inglesa no, así que en lugar de escribir tres puntos use la orden:
 
 ## Acentos y caracteres especiales
 
-L A TEX soporta el uso de acentos y caracteres especiales para muchos
+LaTeX soporta el uso de acentos y caracteres especiales para muchos
 idiomas. El cuadro 2.2 muestra todo tipo de acentos aplicados a la letra o.
 Por supuesto también funcionan con otras letras (vocales o consonantes).
 Para situar un acento sobre una i o una j, hay que quitar sus puntos.
@@ -287,7 +323,7 @@ entonces el último idioma en la lista de opciones será el activo (es decir, id
 La mayoría de los sistemas de ordenador modernos le permiten escribir
 letras de diferentes alfabetos directamente desde el teclado. Para manejar
 varias codificaciones de entrada usadas por diferentes grupos de idiomas en
-diferentes plataformas L A TEX emplea el paquete **inputenc**:
+diferentes plataformas LaTeX emplea el paquete **inputenc**:
 
     \usepackage[codificación]{inputenc}
 
@@ -310,6 +346,111 @@ similares a CM. Las fundiciones Extended Cork (EC) en la codificación
 **T1** contienen letras y signos de puntuación para la mayoría de los idiomas
 europeos basados en el alfabeto latino.
 
-![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.3.png
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.3.png)
+
+---
+
+# Títulos, capítulos y secciones
+
+Las siguientes órdenes de sección están disponibles para la clase article:
+
+    \section{...}
+    \subsection{...}
+    \subsubsection{...}
+    \paragraph{...}
+    \subparagraph{...}
+
+Si se quiere dividir el documento en partes sin influir en la numeración de secciones o capítulos se puede usar:
+
+    \part{...}
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/part1.png)
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/part2.png)
+
+Cuando trabaje con las clases report o book, estará disponible una orden de sección adicional
+
+    \chapter{...}
+
+Todas las órdenes de sección listadas anteriormente tienen una versión
+“estrella”. Se trata de órdenes con el mismo nombre pero seguido de un
+asterisco \*. Generan encabezados de sección que no aparecen en el índice general
+y que no se numeran. La orden \section{Ayuda}, por ejemplo,
+tendría una versión estrella así:
+
+    \section*{Ayuda}
+
+Normalmente los encabezados aparecen en el índice general exactamente
+como se introducen en el texto. A veces no es posible, porque el encabezado
+es demasiado largo y no cabe en el índice general. La entrada para el índice
+general puede indicarse como un argumento opcional antes del encabezado
+real.
+
+    \chapter[Título para el índice general]{Un largo
+    y aburrido título que aparecerá en el texto}
+
+## Título del documento
+
+El título de todo el documento se genera con la orden:
+
+    \maketitle
+
+El contenido del título tiene que definirse mediante las órdenes:
+
+    \title{...}, \author{...} y opcionalmente \date{...}
+
+Antes de llamar a `\maketitle`, en el argumento de `\author`, puede poner
+varios nombres separados por órdenes `\and`.
+
+Un ejemplo de esto puede ser:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.4.png)
+
+
+## Tabla de índices de contenidos
+
+L A TEX crea un índice general tomando los encabezados de sección y los
+números de página del último ciclo de compilación del documento. La orden:
+
+    \tableofcontents
+
+## Referencias cruzadas
+
+En libros, informes y artículos, hay a menudo referencias cruzadas a
+figuras, cuadros y trozos especiales de texto. L A TEX proporciona las siguientes
+órdenes para referenciar:
+
+    \label{marcador}, \ref{marcador} y \pageref{marcador}
+
+donde **marcador** es un identificador escogido por el usuario. L A TEX rem-
+plaza `\ref` por el número de la sección, subsección, figura, tabla o teorema
+tras el que se sitúa la orden `\label` correspondiente. `\pageref` imprime el
+número de página de la página donde la orden `\label` se sitúa.
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.5.png)
+
+## Notas al pie de página
+
+Con la orden:
+
+    \footnote{texto al pie}
+
+Se imprime una nota al pie de la página actual. Deben ponerse las notas 12
+tras la parabra u oración a la que se refieren. Las notas que se refieran a una
+sentencia o parte de ella deben por tanto ponerse tras la coma o el punto:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.6.png)
+
+## Énfasis del texto
+
+Si un texto se escribe a máquina las palabras importantes se enfatizan
+subrayándolas.
+
+    \underline{texto}
+
+En los libros impresos, sin embargo, las palabras se enfatizan componién-
+dolas con una fundición cursiva. L A TEX enfatiza texto con la orden:
+
+    \emph{texto}
 
 ---
