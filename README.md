@@ -5,17 +5,17 @@
 
 ---
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 # Tabla de contenidos
 
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 - [Introducción](#introducci%C3%B3n)
   - [¿Qué es TEX?](#%C2%BFqu%C3%A9-es-tex)
   - [¿Qué es LaTeX?](#%C2%BFqu%C3%A9-es-latex)
   - [Editores](#editores)
   - [Ventajas e inconvenientes](#ventajas-e-inconvenientes)
   - [Posibles usos](#posibles-usos)
-    - [Ficheros resultantes tras la compilación](#ficheros-resultantes-tras-la-compilaci%C3%B3n)
+  - [Ficheros resultantes tras la compilación](#ficheros-resultantes-tras-la-compilaci%C3%B3n)
 - [Instalación de TeX Live en Ubuntu](#instalaci%C3%B3n-de-tex-live-en-ubuntu)
 - [Manual básico para aprender LaTeX en 139 minutos](#manual-b%C3%A1sico-para-aprender-latex-en-139-minutos)
 - [Estructura del fichero de entrada](#estructura-del-fichero-de-entrada)
@@ -36,6 +36,15 @@
   - [Referencias cruzadas](#referencias-cruzadas)
   - [Notas al pie de página](#notas-al-pie-de-p%C3%A1gina)
   - [Énfasis del texto](#%C3%A9nfasis-del-texto)
+- [Entornos](#entornos)
+  - [Listas (itemize, enumerate y description)](#listas-itemize-enumerate-y-description)
+  - [Alineación (flushleft, flushright y center)](#alineaci%C3%B3n-flushleft-flushright-y-center)
+  - [Citas](#citas)
+  - [Resumen (abstract)](#resumen-abstract)
+  - [Citas literales (verbatim)](#citas-literales-verbatim)
+  - [Tablas (tabular)](#tablas-tabular)
+  - [Elementos deslizantes](#elementos-deslizantes)
+  - [Pie de elemento deslizante](#pie-de-elemento-deslizante)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -93,7 +102,7 @@ Los más comunes son:
 - libros,apuntes,
 - posters, presentaciones, etc
 
-### Ficheros resultantes tras la compilación
+## Ficheros resultantes tras la compilación
 
 `.tex` El documento fuente es un fichero de texto que contiene tanto el texto como las instrucciones para formatear ese texto. Se puede crear con cualquier editor de textos.
 
@@ -409,7 +418,7 @@ Un ejemplo de esto puede ser:
 
 ## Tabla de índices de contenidos
 
-L A TEX crea un índice general tomando los encabezados de sección y los
+LaTeX crea un índice general tomando los encabezados de sección y los
 números de página del último ciclo de compilación del documento. La orden:
 
     \tableofcontents
@@ -417,12 +426,12 @@ números de página del último ciclo de compilación del documento. La orden:
 ## Referencias cruzadas
 
 En libros, informes y artículos, hay a menudo referencias cruzadas a
-figuras, cuadros y trozos especiales de texto. L A TEX proporciona las siguientes
+figuras, cuadros y trozos especiales de texto. LaTeX proporciona las siguientes
 órdenes para referenciar:
 
     \label{marcador}, \ref{marcador} y \pageref{marcador}
 
-donde **marcador** es un identificador escogido por el usuario. L A TEX rem-
+donde **marcador** es un identificador escogido por el usuario. LaTeX rem-
 plaza `\ref` por el número de la sección, subsección, figura, tabla o teorema
 tras el que se sitúa la orden `\label` correspondiente. `\pageref` imprime el
 número de página de la página donde la orden `\label` se sitúa.
@@ -449,8 +458,170 @@ subrayándolas.
     \underline{texto}
 
 En los libros impresos, sin embargo, las palabras se enfatizan componién-
-dolas con una fundición cursiva. L A TEX enfatiza texto con la orden:
+dolas con una fundición cursiva. LaTeX enfatiza texto con la orden:
 
     \emph{texto}
 
 ---
+
+# Entornos
+
+    \begin{entorno}
+    texto
+    \end{entorno}
+
+Aquí entorno es un nombre de entorno. Los entornos pueden anidarse
+uno dentro de otro mientras se mantenga el orden correcto.
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.7.png)
+
+## Listas (itemize, enumerate y description)
+
+El entorno `itemize` es adecuado para listas simples, el entorno `enumerate`
+para listas enumeradas y el entorno `description` para descripciones.
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.8.png)
+
+## Alineación (flushleft, flushright y center)
+
+Los entornos `flushleft` y `flushright` generan párrafos alineados a la
+izquierda o a la derecha respectivamente. El entorno center genera texto
+centrado. Si no indica los saltos de línea mediante `\\`, LaTeX los determinará
+automáticamente.
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.9.png)
+
+## Citas
+
+El entorno quote es útil para citas, frases importantes y ejemplos.
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.10.png)
+
+## Resumen (abstract)
+
+En publicaciones científicas es habitual empezar con un resumen que
+da al lector una idea rápida de lo que puede esperar. LaTeX proporciona el
+entorno abstract con este propósito. Normalmente abstract se usa para
+documentos compuestos con la clase article.
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.11.png)
+
+## Citas literales (verbatim)
+
+El texto encerrado entre `\begin{verbatim}` y `\end{verbatim}` se escri-
+birá directamente, como escrito a máquina, con todos los saltos de línea y
+espacios, sin ejecutar ninguna orden LaTeX.
+
+Dentro de un párrafo, un comportamiento similar se puede obtener con `\verb+texto+`
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.12.png)
+
+## Tablas (tabular)
+
+El entorno tabular se usa para componer tablas con líneas opcionales horizontales
+o verticales. LaTeX determina el ancho de las columnas automáticamente.
+
+    \begin{tabular}[pos]{espec}
+
+El argumento `espec` de la orden define el formato de la tabla. Use un **l** para una columna de texto
+alineado por la *izquierda*, **r** para alineación por la *derecha* y **c** para texto *centrado*.
+
+Si el texto de una columna es demasiado ancha para la página, LaTeX no
+lo partirá automáticamente. Mediante `p{anchura}` puede definir un tipo
+de columna especial que partirá el texto como en un párrafo normal.
+
+El argumento `pos` indica la posición vertical de la tabla relativa a la base
+del texto alrededor. Use una de las letras **t** , **b** o **c** para indicar alineación
+por lo *alto*, por lo *bajo* o por el *centro*, respectivamente.
+
+En un entorno tabular, `&` salta a la columna siguiente, `\\` comienza un
+nuevo renglón y `\hline` inserta una línea horizontal.
+
+Puede añadir líneas
+parciales usando `\cline{j-i}`, donde j e i son los números de las columnas
+sobre las que debería extenderse la línea.
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.13.png)
+
+El separador de columnas puede indicarse con el constructo `@{...}` .
+Esta orden elimina el espacio entre columnas y lo remplaza con lo que se
+ponga entre las llaves. Un uso común de esta orden se explica abajo en un
+problema de alineación de decimales. Otra aplicación posible es suprimir el
+espacio adicional de una tabla mediante `@{}` .
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.14.png)
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.15.png)
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.16.png)
+
+El material compuesto con el entorno tabular siempre permanece junto
+en una misma página. Si quiere componer tablas largas, debe usar entornos
+**longtable**.
+
+## Elementos deslizantes
+
+Actualmente la mayoría de las publicaciones contienen muchas figuras
+y cuadros. Estos elementos requieren un tratamiento especial, porque no pueden
+dividirse entre dos páginas.Un método posible sería empezar una
+nueva página cada vez que una figura o un cuadro es demasiado grande para
+encajar en la página actual. Este enfoque dejaría páginas parcialmente vacías,
+lo que da mal aspecto.
+
+La solución a este problema es deslizar (dejar flotar) cualquier figura
+o cuadro que no encaje en la página actual hacia una página posterior, y
+rellenar la página actual con texto del documento. LaTeX ofrece dos entornos
+para elementos deslizantes: uno para cuadros y otro para figuras.
+
+Cualquier cosa que vaya dentro de un entorno figure o table se tratará
+como deslizante. Ambos entornos admiten un parámetro opcional llamado
+*colocador*.
+
+    \begin{figure}[colocador] ó \begin{table}[colocador]
+
+Este parámetro se usa para decir a LaTeX dónde se puede deslizar el
+elemento. Se contruye un colocador mediante una cadena de permisos de
+deslizamiento. Véase la siguiente cuadro:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.17.png)
+
+**Si LaTeX no coloca los deslizantes como usted esperaba, suele ser
+por culpa de un solo deslizante atascado en una de las dos colas.**
+
+Si el deslizante no encaja en el lugar indicado se queda atorado, y
+bloquea los deslizantes siguientes. En concreto, no debería nunca jamás usar
+la opción [h] —es tan mala que en versiones recientes de LaTeX se sustituye
+automáticamente por [ht]—.
+
+## Pie de elemento deslizante
+
+Puede definir un pie para el deslizante.
+
+    \caption{texto del pie}
+
+ LaTeX añadirá un número correlativo y la cadena “Figura” o “Cuadro”.
+
+ Las dos órdenes
+
+    \listoffigures y \listoftables
+
+funcionan análogamente a la orden `\tableofcontents`, imprimiendo un
+índice de figuras o cuadros, respectivamente.
+
+Tales índices muestran los pies
+completos, así que si tiende a usar pies largos debe tener una versión más
+corta del pie para los índices. Se consigue poniendo la versión corta entre
+corchetes tras la orden `\caption`.
+
+    \caption[Corto]{LLLLLLLaaaaaaarrrrrrrgggggggoooooo}
+
+Con `\label` y `\ref`, puede crear una referencia al flotante dentro del
+texto.
+
+En ciertas circunstancias podrá requerirse el uso de la orden
+
+    \clearpage o incluso de \cleardoublepage
+
+Manda a LaTeX colocar inmediatamente todos los deslizantes que quedan
+en las colas y después empezar una página nueva. `\cleardoublepage` incluso
+salta a una nueva página a la derecha.
