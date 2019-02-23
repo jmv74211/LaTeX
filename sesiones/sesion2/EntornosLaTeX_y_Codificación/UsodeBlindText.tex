@@ -1,0 +1,39 @@
+\documentclass[a4paper,11pt]{article}
+ 
+% Idioma y codificación
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+ 
+\usepackage[english]{babel}
+ 
+% Paquetes para texto de relleno
+ 
+% Blindtext
+% Opciones pangram, bible, random (defecto)
+\usepackage[pangram]{blindtext}
+ 
+% Lorem ipsum
+\usepackage{lipsum}
+ 
+\begin{document}
+ 
+\tableofcontents
+ 
+% Texto corto
+\blindtext
+ 
+% 3 párrafos, 2 repeticiones
+\Blindtext[3][2]
+ 
+% Párrafos 5 y 6 creados con Lorem Ipsum
+\lipsum[5-6]
+ 
+% Documento completo con matemáticas
+\blindmathtrue
+\blinddocument
+ 
+% Documento completo con matemáticas
+\blindmathpaper
+ 
+\end{document}

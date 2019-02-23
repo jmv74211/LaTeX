@@ -1,0 +1,239 @@
+\documentclass[12pt,
+               % twocolumn
+              ]{article}
+
+% a4large.sty -- fill an A4 (210mm x 297mm) page
+% Note: 1 inch = 25.4 mm = 72.27 pt
+%       1 pt   =  3.5 mm (approx)
+
+% vertical page layout -- one inch margin top and bottom
+\topmargin        0   mm    % top margin less 1 inch
+\headheight       0   mm    % height of box containing the head
+\headsep          0   mm    % space between the head and the body of the page
+\textheight     240   mm    % the height of text on the page
+\footskip         7   mm    % distance from bottom of body to bottom of foot
+
+% horizontal page layout -- one inch margin each side
+\oddsidemargin    0   mm    % inner margin less one inch on odd pages
+\evensidemargin   0   mm    % inner margin less one inch on even pages
+\textwidth      159.2 mm    % normal width of text on page
+
+% paragraph setup
+\setlength{\parindent}{0em}
+%\setlength{\parindent}{4em} % Tabulación de un párrafo nuevo
+\setlength{\parskip}{1em} % Distancia en blanco entre un párrafo y otro.
+\setlength{\columnsep}{1em}
+%\renewcommand{\baselinestretch}{1.5}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{enumerate}
+\usepackage[usenames,dvipsnames]{color}
+\definecolor{webgreen}{rgb}{0, 0.5, 0} % less intense green
+\definecolor{webblue}{rgb}{0, 0, 0.5}  % less intense blue
+\definecolor{webred}{rgb}{0.5, 0, 0}   % less intense red
+\definecolor{dblackcolor}{rgb}{0.0,0.0,0.0}
+\definecolor{dbluecolor}{rgb}{.01,.02,0.7}
+\definecolor{dredcolor}{rgb}{0.8,0,0}
+\definecolor{dgraycolor}{rgb}{0.30,0.3,0.30}
+\definecolor{RojoAnayelRey}{rgb}{1,.25,.25}
+\usepackage[bookmarks=true,
+            bookmarksnumbered=false, % true means bookmarks in 
+                                     % left window are numbered                         
+            bookmarksopen=false,     % true means only level 1
+                                     % are displayed.
+            colorlinks=true,
+            linkcolor=webred,
+            %linkcolor=OliveGreen,
+            urlcolor=cyan]{hyperref}
+            
+\newcommand{\HRule}{\rule{\linewidth}{1mm}}
+% descomente la siguiente línea y observe la diferencia
+% \renewcommand\labelenumii{\theenumi.\arabic{enumii}. } 
+
+\title
+{
+\HRule
+\begin{flushright}
+\Huge
+\textbf{La Enumeración}\\[3mm]
+\Large
+\textbf{con}\\
+\Huge
+\texttt{enumerate}
+\end{flushright}
+\HRule 
+} 
+\author{\large Fco. M. García}
+
+%\date{24/01/2016}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents % Hace el índice de contenidos.
+
+\setcounter{section}{-1}
+
+\section{Introducción}
+
+
+  Modificación de las etiquetas en la enumeración ordinaria de
+  {\LaTeX} bla bla bla
+  
+  asdasdksaldksaldkaskdlñkk asdlkas kdaskd asdk asdklaskd ñladk asldka sas
+  aksdkasdajd asdlkas dkas dasd alsdkasdk asdias dalskd askdaso dasldk 
+  
+  asd asd asdas dlaskdlasld aslda sdlkasldk askd asldkaskdaslkd asd0asdasd a
+  askdlaskdasl kdalskdo2qdklakd 2pdokñdñkdklk akaskdaskd112dasda wqee we
+
+\section{Detallar con item}
+
+Futuros viajes:
+
+\begin{itemize}
+    \item Madrid.
+    \item Castilla la Mancha.
+    \item Castilla y León.
+    \begin{itemize}
+         \item Segovia.
+         \item Ávila.
+    \end{itemize}
+\end{itemize}
+
+\renewcommand{\labelitemi}{$-$}
+\renewcommand{\labelitemii}{$\cdot$}
+
+Futuros viajes:
+
+\begin{itemize}
+    \item[$*$] Madrid.
+    \item Castilla la Mancha.
+    \item Castilla y León.
+    \begin{itemize}
+        \item Segovia.
+        \item Ávila.
+    \end{itemize}
+\end{itemize}
+
+\section{Enumeración}
+
+  Facetas en un viaje:
+  \begin{enumerate}
+  \item Culturales
+    \begin{enumerate}
+    \item Visita a museos
+      \begin{enumerate}
+      \item científicos \label{en:cien}
+      \item históricos
+      \end{enumerate}
+    \item Visita a exposiciones
+    \end{enumerate}
+  \item Sociales
+    \begin{enumerate}
+    \item Paseos por mercados
+    \item Contacto con las gentes (en \ref{en:cien})
+    \end{enumerate}
+  \item Visita a parques
+  \item Visita monumentos al aire libre
+  \item Itinerario por los edificios modernistas
+  \item Visita a anticuarios
+  \end{enumerate}
+
+  Ésta es mi lista de compras para hoy:
+  \begin{enumerate}[1(]
+  \item Manzanas.
+  \item Plátanos.
+  \item Pescado fresco.
+    \begin{enumerate}[a(]
+    \item Emperador.
+    \item Gallo.
+    \end{enumerate}
+  \end{enumerate}
+
+  Haga los siguientes ejercicios:
+  \begin{enumerate}[{Ejercicio} 1.]
+  \item Visitar tres lugares. \label{en:visitar}
+  \item Leer tres libros.
+  \item Conocer a tres personas.
+  \end{enumerate}  
+
+
+
+\section{Comenzar Donde lo Dejamos}
+
+%http://minisconlatex.blogspot.com.es/2011/11/listas-y-enumeraciones.html
+%http://minisconlatex.blogspot.com.es/2012/05/como-continuar-con-la-numeracion-entre.html
+
+Leído en \href{https://goo.gl/txW3PR}{minisconlatex}
+
+\newcounter{nx}
+
+Lista de la compra:
+\begin{enumerate}
+  \setcounter{enumi}{-1}
+\item Manzanas.
+\item Plátanos.
+\item Fresas.
+  \setcounter{nx}{\value{enumi}} % le damos al contador el valor de la enumeración.
+\end{enumerate}
+
+Continuación de la lista de la compra:
+
+\begin{enumerate}
+  \setcounter{enumi}{\value{nx}} % reiniciamos la enumeración
+                                 % con el valor del contador.
+%  \setcounter{enumi}{14}
+\item Limones.
+\item Naranjas.
+\item Pomelos.
+\end{enumerate}
+
+Otra posibilidad de continuación de lista de la compra:
+
+\begin{enumerate}[{2.}i]
+  \setcounter{enumi}{\value{nx}} % reiniciamos la enumeración
+                                 % con el valor del contador.
+\item Limones.
+\item Naranjas.
+\item Pomelos.
+\end{enumerate}
+
+\section{Comenzar Donde lo Dejamos y Cambio de Etiquetas}
+
+\newcounter{mx} % creamos un contador con el nombre "nx".
+
+Primera lista de la compra:
+
+\begin{enumerate}[(A)]
+\item Manzanas.
+\item Plátanos.
+\item Fresas.
+\setcounter{mx}{\value{enumi}} % le damos al contador el valor de la enumeración.
+\end{enumerate}
+
+Segunda lista de la compra:
+
+\begin{enumerate}[(A)]
+  \setcounter{enumi}{\value{mx}} % reiniciamos la enumeración con el valor del contador.
+\item Limones.
+\item Naranjas.
+\item Pomelos.
+\end{enumerate}
+
+\section{Descripción}
+
+Fauna típica de los países:
+\begin{description}
+\item[Australia:] Érase una vez un lugar encantado, no con encanto, que pude visitar y no sé ni como lo imaginé ni como me desplacé hasta esa latitud.
+%\item Canguro.
+\item[EEUU:] \textit{Águila calva}.
+\item[España:] \textbf{Toro}.
+\item[México:] \textsc{Águila real}.
+\end{description}
+
+  Haga caso a lo que dice \hyperref[en:visitar]{Ejercicio
+    \ref*{en:visitar}}.
+
+\end{document}

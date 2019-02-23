@@ -1,0 +1,84 @@
+\documentclass[a4paper,openright, spanish,12pt]{article}
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem} % enumerados
+
+% a4large.sty -- fill an A4 (210mm x 297mm) page
+% Note: 1 inch = 25.4 mm = 72.27 pt
+%       1 pt   =  3.5 mm (approx)
+
+% vertical page layout -- one inch margin top and bottom
+\topmargin        0   mm    % top margin less 1 inch
+\headheight       0   mm    % height of box containing the head
+\headsep          0   mm    % space between the head and the body of the page
+\textheight     240   mm    % the height of text on the page
+\footskip         7   mm    % distance from bottom of body to bottom of foot
+
+% horizontal page layout -- one inch margin each side
+\oddsidemargin    0   mm    % inner margin less one inch on odd pages
+\evensidemargin   0   mm    % inner margin less one inch on even pages
+\textwidth      159.2 mm    % normal width of text on page
+
+\setlength{\parindent}{0em}
+%\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+%\renewcommand{\baselinestretch}{1.5}
+
+\newcommand{\HRule}{\rule{\linewidth}{1mm}}
+
+\title
+{
+\HRule
+\begin{flushright}
+\Huge
+\textbf{La Enumeración}\\[3mm]
+\Large
+\textbf{con}\\
+\Huge
+\texttt{enumitem}
+\end{flushright}
+\HRule 
+} 
+\author{\large Fco. M. García}
+
+%\date{24/01/2016}
+
+\begin{document}
+
+\maketitle
+\tableofcontents % Hace el índice de contenidos.
+
+\section{Detallado}
+
+Qué visitar en Cáceres:
+\begin{itemize}
+  \item Ciudad vieja.
+  \item Guadalupe.
+  \item Trujillo.
+  \item Plasencia.
+\end{itemize}
+
+Qué visitar en Cáceres:
+\begin{itemize}[leftmargin=20mm]
+  \item Ciudad vieja.
+  \item Guadalupe.
+  \item Trujillo.
+  \item Plasencia.
+\end{itemize}
+
+\section{Enumeración}
+
+  Primera lista de la compra:
+  \begin{enumerate}
+  \item Manzanas.
+  \item Plátanos.
+  \item Fresas.
+  \end{enumerate}
+  Segunda lista de la compra:
+  \begin{enumerate}[resume]
+  \item Limones.
+  \item Naranjas.
+  \item Pomelos.
+  \end{enumerate}  
+
+\end{document}

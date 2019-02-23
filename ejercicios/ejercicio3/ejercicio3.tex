@@ -1,0 +1,155 @@
+% ###################    CONFIGURACIÓN ################### 
+
+% Configuración de estilos generales de la página
+\documentclass[12pt,
+               % twocolumn
+              ]{article}
+              
+\usepackage[paperheight=297mm,
+			paperwidth=210mm,
+			tmargin=28mm, 
+			headheight=0mm, 
+			headsep=0mm,
+			textheight=240mm,
+			footskip=7mm,
+			textwidth=159.2mm,
+			bindingoffset=10mm,
+			twoside
+			]{geometry} 
+% -------------------------------------------------------   
+
+
+% Configuración de párrafos
+% -------------------------------------------------------         
+\setlength{\parindent}{0em} % Tabulación de un párrafo nuevo
+\setlength{\parskip}{1em}   % Distancia en blanco entre un párrafo y otro.
+\setlength{\columnsep}{1em} % Margen izquierdo de columnas
+\renewcommand{\baselinestretch}{1.5} % Interlineado. Espacio entre dos renglones.
+% ------------------------------------------------------- 
+
+
+% Paquetes de idioma
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+% -------------------------------------------------------  
+
+
+% Paquetes generales
+\usepackage{enumitem} % Para configurar enumeraciones
+\usepackage[usenames,dvipsnames]{xcolor}    % Para colores en el texto
+
+% Definimos un nuevo color
+\definecolor{webred}{rgb}{0.5, 0, 0}   % less intense red
+
+\usepackage[bookmarks=true,
+			bookmarksnumbered=false, % true means bookmarks in 
+									 % left window are numbered                         
+			bookmarksopen=false,     % true means only level 1
+									 % are displayed.
+			colorlinks=true,
+			linkcolor=webred,
+			%linkcolor=OliveGreen,
+			urlcolor=cyan]{hyperref} % Para hiperenlaces
+
+% Definimos una nueva orden para pintar una línea cuando escribamos \HRule
+\newcommand{\HRule}{\rule{\linewidth}{1mm}}
+
+% Definimos el título y autor de la página
+
+\title
+{
+	\HRule
+	\begin{flushright}
+		\Huge
+		\textbf{Ejercicio de enumeración}\\[3mm]
+		\Large
+		\textbf{con}\\
+		\Huge
+		\texttt{enumitem}
+	\end{flushright}
+	\HRule 
+}
+
+\author{\large Jonathan Martín Valera}
+
+
+% ###################   FIN CONFIGURACIÓN ################### 
+
+% ###################	INICIO DEL DOCUMENTO ###################
+
+\begin{document}
+
+	\maketitle
+	
+	\tableofcontents % Hace el índice de contenidos.
+	
+	\setcounter{section}{-1}
+	
+	\section{Introducción}
+	
+	Contiene una invitación a visitar la capital de Noruega,\href{https://www.visitoslo.com/es/}{Oslo}
+
+	\section{Detallar con \texttt{itemize} }
+	
+	Qué visitar en Oslo:
+	
+	\begin{itemize}
+		\item \href{https://is.gd/SrdzCR}{Palacio Real} de Oslo
+		\item Fortaleza de \href{https://is.gd/IKUxmO}{Akershus}.
+		\item Palacio de la Ópera.
+		\item Crucero por el fiordo.
+		\item Península de \href{https://is.gd/HABCLE}{Bygdøy}.
+		\item Barrio \href{https://is.gd/Wro3WO}{Grünerløkka}.
+	\end{itemize}
+
+	En la Península de Bygdøy tiene los siguientes museos y actividades:
+	
+	\begin{itemize}
+		\item Museo Folklórico Noruego
+		\item Museo Marítimos:
+		\begin{itemize}
+			 \item Museo Fram
+			 \begin{itemize}
+				\item Inspección de la exposición ambientada dentro de la nave polar Fram
+				(adelante), construida en 1892.
+				\item Expedición de Fridtjof Nansen (1893-1896).
+				\item Expedición de Otto Sverdrup (1898-1902).
+				\item Expedición de Roald Amundsen (1910-1912)
+			\end{itemize}
+	 	\item Museo de los Barcos Vikingos
+		\item Museo de Kon-Tiki
+		\item Museo Marítimo Noruego
+	\end{itemize}
+	\item Oscarshal
+	\item Huk \& Paradisbukta beach
+	\item Paseo ciclista alrededor de Bygdøy
+	\item Bygdøy Royal Manor
+	\end{itemize}
+
+	\section{Enumeraciones}
+	
+	Además de lo detallado en la sección 1 En Oslo puede girar visita a Grünerløkka para:
+	
+	\begin{enumerate}
+		\item Ir de compras
+		\begin{enumerate}
+			\item Mathallen Food Hall
+			\item Inventarium
+			\item Schous Bøker
+			\item Svovel
+			\item Sykkelpikene Oslo
+			\item Fosfor lamps and coffee
+			\item Probat t-shirts
+		\end{enumerate}
+	\end{enumerate}
+
+	aunque también puede:
+	\begin{enumerate}[resume]
+		\item Realizar actividades
+		\item Disfrutar de la vida nocturna
+		\item Recorrer el río Akerselva	
+	\end{enumerate}
+
+\end{document}
+
+% ###################	FIN DEL DOCUMENTO ###################

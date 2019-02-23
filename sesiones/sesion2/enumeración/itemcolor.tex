@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{xcolor}
+\usepackage[%inline,
+            shortlabels]{enumitem}
+\begin{document}
+\begin{enumerate}[\begingroup\color{blue} 1)\endgroup]
+     \item First
+     \item Second
+     \item Third
+\end{enumerate}
+\begin{enumerate}[label=\textcolor{blue}{\arabic*}]
+    \item  number one item
+    \item  number two item
+    \item  number three item
+ \end{enumerate}
+\begin{enumerate}[\begingroup\color{blue} A)\endgroup]
+     \item First
+     \item Second
+     \item Third
+\end{enumerate}
+ \end{document}

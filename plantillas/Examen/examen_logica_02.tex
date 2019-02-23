@@ -1,0 +1,182 @@
+         %%% bismi al-ll_ahi ar-ra.hmAni ar-ra.hImi %%%
+
+\documentclass[10pt,spanish]{article}
+
+% aprovechamiento de la p\'agina -- fill an A4 (210mm x 297mm) page
+% Note: 1 inch = 25.4 mm = 72.27 pt
+% 1 pt = 3.5 mm (approx)
+
+% vertical page layout -- one inch margin top and bottom
+\topmargin      -10 mm   % top margin less 1 inch
+\headheight       0 mm   % height of box containing the head
+\headsep          0 mm   % space between the head and the body of the page
+\textheight     240 mm   % the height of text on the page
+\footskip         7 mm   % distance from bottom of body to bottom of foot
+
+% horizontal page layout -- one inch margin each side
+\oddsidemargin    0 mm     % inner margin less one inch on odd pages
+\evensidemargin   0 mm     % inner margin less one inch on even pages
+\textwidth      159 mm     % normal width of text on page
+
+\usepackage[utf8]{inputenc}
+\usepackage[%english
+            spanish
+           ]
+           {babel}
+\usepackage[usenames,dvipsnames]{color}
+\definecolor{RojoAnayelRey}{rgb}{1,.25,.25}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath,amsthm,mathtools}
+\usepackage{amsfonts,amssymb,latexsym,MnSymbol}
+\usepackage{pifont}
+\usepackage[active]{srcltx}
+\usepackage[pdftex]{graphicx}
+\usepackage{multirow}
+\usepackage{enumerate}
+\usepackage{subfigure}
+%\usepackage{circuitikz}
+%\usepackage{karnaugh-map}
+
+%\usepackage[math]{iwona}
+\usepackage{beton}
+\usepackage[T1]{fontenc}
+
+\newcommand{\regla}[2]{
+\begin{array}{c}
+#1\\
+\hline
+#2\\
+\end{array}
+}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+
+\begin{document}
+%\color{RojoAnayelRey}
+%\color{blue}
+
+\begin{flushleft}
+\hrule\vspace{4mm}
+\textsc{Apellidos:}\makebox[115mm]\dotfill\ \textsc{Grupo:}\dotfill\\[4mm]
+\textsc{Nombre:}\makebox[70mm]\dotfill\
+\textsc{nif:}\makebox[40mm]\dotfill\ \textsc{nº hojas:}\dotfill\\[5mm]
+\hrule
+\end{flushleft}
+
+\begin{center}
+  \textbf{\huge LMD}\\[2mm]
+  \textbf{\Large Grado en Ingeniería Informática y Matemáticas}\\[2mm]
+  \textbf{\large 24 de enero de 2018}
+\end{center}
+
+\begin{flushleft}
+  \begin{enumerate}
+  \item Sea $e$ la función de argumentos naturales dada por:
+    \begin{align*}
+      e(a,0)&=1,\\
+      e(a,b)&=
+              \begin{cases}
+                e\left(a^{2},\frac{b}{2}\right),&\text{ si $b$ es par.}\\
+                e\left(a^{2},\frac{b-1}{2}\right)a,&\text{ si $b$ es impar.}
+              \end{cases}
+    \end{align*}
+    Demuestre por inducción que para cualesquiera números naturales
+    $a$ y $b$, $e(a,b)=a^{b}$.
+    
+  \item Resuelva el problema de recurrencia:
+    % Veerarajan, pag. 355; pero tiene un error
+    \begin{equation*}
+      u_{n+2}-6u_{n+1}+9u_{n}=3\cdot 2^{n}+7\cdot 3^{n}, \quad n\geq 0.
+    \end{equation*}
+    y encuentre la solución particular que cumple $u_{0}=1$ y $u_{1}=4$.
+
+\item Demuestre que para todo conjunto de fórmulas proposicionales
+  $\Gamma\cup\{\alpha,\beta\}$ se cumple:
+  \begin{enumerate}
+  \item $\operatorname{Con}(\Gamma\cup\{\alpha\wedge\beta\})=
+    \operatorname{Con}(\Gamma\cup\{\alpha,\beta\})$
+  \item $\operatorname{Con}(\Gamma\cup\{\alpha\vee\beta\})=
+    \operatorname{Con}(\Gamma\cup\{\alpha\})\cap \operatorname{Con}(\Gamma\cup\{\beta\})$
+  \end{enumerate}
+
+\item Estudie si el siguiente conjunto de cláusulas:
+  \begin{align*}
+    \{&\neg a\vee c\vee f, b\vee c\vee f, b\vee\neg c\vee f,
+       \neg b\vee f, a\vee\neg b\vee f, \neg a\vee d\vee f, d\vee f,\\ 
+      &b\vee d\vee e\vee\neg f, b\vee\neg d\vee e\vee\neg f, b\vee\neg e\vee\neg f,
+      a\vee\neg b\vee\neg c\vee\neg f, \neg a\vee\neg b\vee c\vee\neg f\}
+  \end{align*}
+  es o no insatisfacible y caso de ser satisfacible, de una asignación
+  que lo evidencie.
+
+\item Considere la función booleana de cuatro variables:
+  % http://www.eecg.utoronto.ca/~jayar/ece241_06F/solved4.pdf
+  \begin{equation*}
+    f(a,b,c,d)=\bar{a}\bar{c}\bar{d}+cd+\bar{a}\bar{b}d+ab\bar{c}d
+  \end{equation*}
+  Si supone que hay también términos ``no importa'' definidos por
+  $D(a,b,c,d)=\sum d(9,12,14)$, dé para $f$:
+  \begin{enumerate}
+  \item una descomposición minimal como suma de productos,
+  \item una descomposición minimal como producto de sumas y
+  \item al menos una expresión que mejore el costo de cualquiera de
+    las dos anteriores.
+  \end{enumerate}
+
+\item Considere las cuatro fórmulas cerradas siguientes:
+  \begin{itemize}
+  \item $\gamma_{1}\equiv \forall x\forall y (r(x,y)\to r(y,x))$
+  \item $\gamma_{2}\equiv \forall x\forall y\forall z (r(x,y)\wedge
+    r(y,z)\to r(x,z))$
+  \item $\gamma_{3}\equiv\forall x\exists yr(x,y)$
+  \item $\varphi\equiv \forall xr(x,x)$
+  \end{itemize}
+  Responda razonadamente a las siguientes preguntas:
+  \begin{enumerate}
+  \item ¿Es $\varphi$ consecuencia lógica de $\{\gamma_{1},\gamma_{2}\}$?
+  \item ¿Es $\varphi$ consecuencia lógica de $\{\gamma_{1},\gamma_{2},\gamma_{3}\}$?
+  \end{enumerate}
+  
+\item Encuentre una fórmula en forma normal prenexa lógicamente
+  equivalente a:
+  \begin{equation*}
+    \forall xp(x,y)\to\bigl(\forall
+    yp(y,x)\to\forall x(q(x)\wedge\exists y\forall
+    zr(a,y,z))\bigr)
+  \end{equation*}
+  y que tenga el mínimo número de cuantificadores. Seguidamente dé una
+  forma normal de Skolem para esa forma normal prenexa antes hallada.
+
+% \item Encuentre, si es posible, un unificador de máxima generalidad o
+%   principal para el siguiente par de literales:
+%   \begin{equation*}
+%     \langle p(g(f(x),u),f(a),g(z,f(y))),p(g(f(f(y)),g(v,a)),f(v),g(g(x,b),x)\rangle
+%   \end{equation*}
+%   % flpjun0809.pdf preg. 7
+
+\item Demuestre, usando resolución lineal input, que la
+  fórmula:
+  \begin{equation*}
+    \neg\exists x(r(x)\wedge s(x)) 
+  \end{equation*}
+  es consecuencia de las fórmulas:
+  \begin{itemize}
+  \item $\forall x((r(x)\wedge s(x))\to\exists y(q(y)\wedge p(x,y)))$
+  \item $\forall x(q(x)\to t(x))$
+  \item $\forall x(t(x)\to o(x))$
+  \item $\forall x\forall y((r(x)\wedge o(y))\to\neg p(x,y))$
+  \end{itemize}
+\item Responda razonadamente a las siguientes preguntas:
+  \begin{enumerate}
+  \item Demuestre que un árbol finito $G$ (con al menos un vértice)
+    tiene al menos dos vértices de grado $1$. 
+    %Lipschutz-Lipson 2000 problemas. 5.137 pag. 185
+  \item Halle el número $m$ de aristas de los grafos: $K_{8}$,
+    $K_{12}$ y $K_{15}$. ¿Cuál es el diámetro de $K_{n}$? %5.115
+  \item Dé un grafo de $6$ vértices que sea hamiltoniano pero no
+    euleriano. Dé su matriz de adyacencia. %5.105  
+  \end{enumerate}
+\end{enumerate}
+\end{flushleft}
+
+\end{document} 
