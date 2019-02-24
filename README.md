@@ -45,8 +45,18 @@
   - [Tablas (tabular)](#tablas-tabular)
   - [Elementos deslizantes](#elementos-deslizantes)
   - [Pie de elemento deslizante](#pie-de-elemento-deslizante)
+- [Fórmulas matemáticas](#f%C3%B3rmulas-matem%C3%A1ticas)
+  - [Agrupación](#agrupaci%C3%B3n)
+  - [Más información](#m%C3%A1s-informaci%C3%B3n)
+- [Especialidades](#especialidades)
+  - [Bibliografía](#bibliograf%C3%ADa)
+  - [Cabeceras personalizadas](#cabeceras-personalizadas)
+  - [Inclusión de ficheros de texto](#inclusi%C3%B3n-de-ficheros-de-texto)
+  - [Uso de gráficos](#uso-de-gr%C3%A1ficos)
+  - [Enlaces de hipertexto](#enlaces-de-hipertexto)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 
 ---
 
@@ -625,3 +635,166 @@ En ciertas circunstancias podrá requerirse el uso de la orden
 Manda a LaTeX colocar inmediatamente todos los deslizantes que quedan
 en las colas y después empezar una página nueva. `\cleardoublepage` incluso
 salta a una nueva página a la derecha.
+
+---
+
+# Fórmulas matemáticas
+
+Hay dos posibildades: escribir las matemáticas dentro de un párrafo, en el mismo renglón
+que el resto del texto, o partir el párrafo para componer las matemáticas
+aparte, destacadas.
+
+ El texto matemático dentro del párrafo se introduce entre
+\( y \), , entre $ y $, o entre `\begin{math}` y `\end{math}`.
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig3.1.png)
+
+Si quiere que sus ecuaciones o fórmulas matemáticas más grandes se
+sitúen destacadas aparte del resto del párrafo, es preferible aislarlas.
+Para ello, puede encerrarlas entre \[ y \], entre `\begin{displaymath}` y
+`\end{displaymath}`, o entre `\begin{equation}` y `\end{equation}`.
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig3.2.png)
+
+Si quiere que LaTeX enumere sus ecuaciones, puede usar el entorno
+equation. Puede etiquetar mediante `\label` la ecuación con un número
+y referirse a éste desde otro lugar del texto usando `\ref` o la orden `\eqref`
+del paquete amsmath:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig3.3.png)
+
+Observe las diferencias de estilo entre las ecuaciones en párrafo y las
+aisladas:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig3.4.png)
+
+Si quiere componer texto normal dentro de una fórmula
+(tipo redondo y espaciado normal) entonces tiene que introducir el
+texto usando las órdenes `\textrm{...}`
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig3.5.png)
+
+## Agrupación
+
+La mayoría de las órdenes en modo matemático actúan sólo sobre el
+siguiente carácter, así que si quiere que una orden afecte a varios caracteres,
+debe agruparlos juntos entre llaves: `{...}`.
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig3.6.png)
+
+## Más información
+
+Para más información acerca de estructuras, teoremas, símbolos ... matemáticos, se puede consultar este **[manual](https://github.com/jmv74211/LaTeX/blob/master/docs/lshort_spanish.pdf)** en el capítulo 3, donde se aborda con más profundidad todos estos temas.
+
+---
+
+# Especialidades
+
+## Bibliografía
+
+Puede crear una bibliografía con el entorno `thebibliography`. Cada
+entrada empieza con
+
+    \bibitem[etiqueta]{marcador}
+
+El marcador se usa para citar el libro o artículo desde el documento.
+
+    \cite{marcador}
+
+Si no usa la opción etiqueta, las entradas se numerarán automáticamente.
+El parámetro tras la orden `\begin{thebibliography}` define cuánto espacio
+reservar para el número de las etiquetas. En el próximo ejemplo, `{99}` dice a
+LaTeX que espere que ninguno de esos números será más ancho que el número
+99.
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.1.png)
+
+## Cabeceras personalizadas
+
+El objetivo de personalizar cabeceras y pies es conseguir que funcionen
+los nombres de sección y capítulo.
+
+LaTeX realiza esto en dos etapas. En la
+definición de la cabecera y el pie, use las órdenes `\rightmark` y `\leftmark`
+para representar la sección y el capítulo actual, respectivamente. Los valores
+de estas dos órdenes se sobrescribirán cada vez que se procese una orden de
+capítulo o sección.
+
+La figura 4.1 muestra una configuración posible para el paquete fancyhdr
+que hace que las cabeceras aparezcan como en **[este](https://github.com/jmv74211/LaTeX/blob/master/docs/lshort_spanish.pdf)** libro.
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.2.png)
+
+## Inclusión de ficheros de texto
+
+El paquete `verbatim` proporciona la orden:
+
+    \verbatiminput{nombrefichero}
+
+**que le permite incluir un fichero de texto en su documento como si
+estuviera dentro de un entorno verbatim**.
+
+Como el paquete `verbatim` es parte del lote ‘tools’, debería encontrarse
+pre-instalado en la mayoría de los sistemas.
+
+## Uso de gráficos
+
+Incluir gráficos en un documento funciona mejor con el paquete `graphicx`. Usando la opción del controlador especial pdftex el paquete trabajará también con pdf LaTeX:
+
+    \usepackage[pdftex]{color,graphicx}
+
+Para incluir el gráfico en el documento:
+
+    \includegraphics[clave=valor, . . . ]{fichero}
+
+El parámetro opcional acepta
+una lista separada por comas de `claves` y `valores` asociados. Las `claves`
+pueden usarse para alterar la anchura, altura y giro del gráfico incluido.
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.3.png)
+
+El siguiente código de ejemplo puede ayudar a aclarar las cosas:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.3.png)
+
+## Enlaces de hipertexto
+
+El paquete `hyperref` se ocupará de convertir todas las referencias internas
+de su documento en hiperenlaces. Para que esto funcione automáticamente
+se requiere algo de magia, así que tendrá que poner:
+
+    \usepackage[pdftex]{hyperref}
+
+Para controlar el comportamiento del paquete `hyperref` se dispone de
+muchas opciones:
+
+- `\usepackage[pdftex]{hyperref}`
+-  En líneas individuales con la orden `\hypersetup{opciones}`
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.5.png)
+
+Al crear PDFs destinados a la impresión, los enlaces coloreados no son
+buenos pues acaban siendo grises (y, por tanto, difíciles de leer) en la salida
+final. Puede usar cuadros de color, que no se imprimen:
+
+    \usepackage{hyperref}
+    \hypersetup{colorlinks=false}
+
+Cuando quiera proporcionar información para la sección Document Info
+del fichero PDF:
+
+    \usepackage[pdfauthor={Ludoviko Lazaro Zamenhof},%
+    pdftitle={Esperanto: lingvo internacia},%
+    pdftex]{hyperref}
+
+Además de los hiperenlaces automáticos para referencias cruzadas, es
+posible empotrar enlaces explícitos usando:
+
+    \href{destino}{texto}
+
+El autor de un artículo puede querer que sus lectores le envíen fácilmente
+mensajes electrónicos usando la orden `\href` dentro de la orden `\author` en
+la página del título del documento:
+
+    \author{Mary Oetiker $<$\href{mailto:mary@oetiker.ch}%
+    {mary@oetiker.ch}$>$
