@@ -1,0 +1,26 @@
+\babel@toc {spanish}{}
+\babel@toc {english}{}
+\babel@toc {spanish}{}
+\contentsline {section}{\numberline {1}\'{I}ndice}{1}{section.1}% 
+\contentsline {section}{\numberline {2}Introducci\IeC {\'o}n}{2}{section.2}% 
+\contentsline {section}{\numberline {3}El entorno {\tt itemize} }{2}{section.3}% 
+\contentsline {section}{\numberline {4}El entorno {\tt enumerate} }{2}{section.4}% 
+\contentsline {section}{\numberline {5}El entorno {\tt verbatim} }{3}{section.5}% 
+\contentsline {subsection}{\numberline {5.1}Usando el paquete {\tt fancyvrb}}{4}{subsection.5.1}% 
+\contentsline {section}{\numberline {6}El entorno {\tt quote} }{4}{section.6}% 
+\contentsline {section}{\numberline {7}El entorno {\tt description} }{5}{section.7}% 
+\contentsline {section}{\numberline {8}El entorno {\tt flushleft} }{5}{section.8}% 
+\contentsline {section}{\numberline {9}El entorno {\tt flushright} }{5}{section.9}% 
+\contentsline {section}{\numberline {10}El entorno {\tt center} }{6}{section.10}% 
+\contentsline {section}{\numberline {11}El entorno {\tt minipage} }{6}{section.11}% 
+\contentsline {section}{\numberline {12}El entorno {\tt tabbing} }{6}{section.12}% 
+\contentsline {section}{\numberline {13}El entorno {\tt verse} }{7}{section.13}% 
+\contentsline {section}{\numberline {14}El entorno {\tt tabular} }{7}{section.14}% 
+\contentsline {section}{\numberline {15}El entorno {\tt table} }{8}{section.15}% 
+\contentsline {section}{\numberline {16}El entorno {\tt figure} }{8}{section.16}% 
+\contentsline {section}{\numberline {17}Rotando otros objetos \LaTeX }{9}{section.17}% 
+\contentsline {subsection}{\numberline {17.1}Incluyendo una p\IeC {\'a}gina completa usando {\tt pdfpages} }{13}{subsection.17.1}% 
+\contentsline {subsection}{\numberline {17.2}El entorno {\tt subfigure} }{15}{subsection.17.2}% 
+\contentsline {subsection}{\numberline {17.3}Para organizar las figuras en una tabla o {\tt grid} }{18}{subsection.17.3}% 
+\contentsline {section}{\numberline {18}El entorno {\tt picture} }{19}{section.18}% 
+\contentsline {subsection}{\numberline {18.1}El entorno {\tt tikzpicture} }{19}{subsection.18.1}% 

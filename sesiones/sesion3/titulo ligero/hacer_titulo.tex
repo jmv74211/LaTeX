@@ -1,0 +1,81 @@
+\documentclass[10pt,
+               spanish, %cfr. https://is.gd/n3cszn
+               twocolumn
+               ]{report}
+
+% a4large.sty -- fill an A4 (210mm x 297mm) page
+
+% Note: 1 inch = 25.4 mm = 72.27 pt
+%       1 pt = 3.5 mm (approx)
+
+% vertical page layout -- one inch margin top and bottom
+\topmargin      0 mm    % top margin less 1 inch
+\headheight     0 mm    % height of box containing the head
+\headsep        0 mm    % space between the head and the body of the page
+\textheight     240 mm
+\footskip       7 mm    % distance from bottom of body to bottom of foot
+
+% horizontal page layout -- one inch margin each side
+\oddsidemargin  0 mm    % inner margin less one inch on odd pages
+\evensidemargin 0 mm    % inner margin less one inch on even pages
+\textwidth      159.2 mm% normal width of text on page
+
+% paragraph setup
+\setlength{\parindent}{0em}
+%\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+\setlength{\columnsep}{1em}
+%\renewcommand{\baselinestretch}{1.5}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+%\usepackage{amsfonts,amssymb,latexsym}
+\usepackage{enumerate}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage[math]{iwona}
+\usepackage[T1]{fontenc}
+\usepackage{makeidx}
+
+%\makeindex % cfr https://en.wikibooks.org/wiki/LaTeX/Indexing
+
+\definecolor{webgreen}{rgb}{0, 0.5, 0} % less intense green
+\definecolor{webblue}{rgb}{0, 0, 0.5}  % less intense blue
+\definecolor{webred}{rgb}{0.5, 0, 0}   % less intense red
+\definecolor{dblackcolor}{rgb}{0.0,0.0,0.0}
+\definecolor{dbluecolor}{rgb}{.01,.02,0.7}
+\definecolor{dredcolor}{rgb}{0.8,0,0}
+\definecolor{dgraycolor}{rgb}{0.30,0.3,0.30}
+\usepackage[bookmarks=true,
+            bookmarksnumbered=false, % true means bookmarks in 
+                                     % left window are numbered                         
+            bookmarksopen=false,     % true means only level 1
+                                     % are displayed.
+            colorlinks=true,
+            linkcolor=webred]{hyperref}
+
+\newcommand{\HRule}{\rule{\linewidth}{1mm}}
+
+\title
+{
+\HRule
+\begin{flushright}
+\huge
+\textbf{Apuntes}\\[4mm]
+\Large
+\textbf{sobre}\\[3mm]
+\Huge
+\textbf{Números p-ádicos}
+\end{flushright}
+\HRule 
+} 
+\author{\large Autores varios}
+
+%\date{01/04/2002}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\end{document}

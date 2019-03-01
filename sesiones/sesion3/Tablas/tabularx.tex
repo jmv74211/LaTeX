@@ -1,0 +1,156 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+\usepackage{tabularx}
+
+
+\title{Entornos {\tt tabular, tabular*} y {\tt tabularx}}
+
+\begin{document}
+	
+\maketitle
+
+	A continuación vamos a ver tres ejemplos significativos de tablas generadas con los entornos {\tt tabular, tabular*, tabularx}, respectivamente.
+	
+\vspace{1cm}
+
+\begin{verbatim}
+\begin{tabular}{|l|c|r|}
+\hline
+foo   & bar    & fubar \\
+fubar & toobar & foo \\
+\hline
+\end{tabular}
+\end{verbatim}
+
+\begin{tabular}{|l|c|r|}
+  \hline
+  foo   & bar    & fubar \\
+  fubar & toobar & foo \\
+  \hline
+\end{tabular}
+
+\vspace{1cm}
+
+\begin{verbatim}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}|l|c|r|}
+\hline
+foo   & bar    & fubar \\
+fubar & toobar & foo \\
+\hline
+\end{tabular*}
+\end{verbatim}
+
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}|l|c|r|}
+  \hline
+  foo   & bar    & fubar \\
+  fubar & toobar & foo \\
+  \hline
+\end{tabular*}
+
+\vspace{1cm}
+
+
+Como puede notarse tras estos tres ejemplos, en el entorno {\tt tabular} las columnas por defecto serán tan anchas como haga falta para acomodar el contenido de las mismas.
+
+En la versión {\tt tabular*} \LaTeX{} añadirá espacios suplementarios entre las columnas para hacer que dicha tabla sea tan ancha como se haya especificado (con la opción {\tt textwidth} por ejemplo). Sin embargo, la anchura de alguna de las columnas no cambia; fíjese cómo la primera columna permanece igual que antes, mientras que en la columna central el texto sigue sin aparecer centrado.
+
+Por este motivo, si lo que se desea es producir una tabla con columnas igualmente espaciadas que contengan texto o contenido alíneado a la izquierda, entonces la mejor opción sería usar {tt tabularx}, de manera que las nuevas columnas {tt X} permitirán a \LaTeX{} calcular automáticamente la anchura de dicha columna para hacer que la tabla completa aparezca con la anchura prefijada.
+
+\vspace{1cm}
+
+\begin{verbatim}
+\begin{tabularx}{\textwidth}{|X|X|X|}
+\hline
+foo   & bar    & fubar \\
+fubar & toobar & foo \\
+\hline
+\end{tabularx}
+\end{verbatim}
+
+\begin{tabularx}{\textwidth}{|X|X|X|}
+	\hline
+	foo   & bar    & fubar \\
+	fubar & toobar & foo \\
+	\hline
+\end{tabularx}
+
+\vspace{1.5cm}
+
+No obsante, revise todas estas otras opciones.
+
+\vspace{1cm}
+
+\begin{verbatim}
+\begin{tabularx}{\textwidth}{|X|c|X|}
+\hline
+foo   & bar    & fubar \\
+fubar & toobar & foo \\
+\hline
+\end{tabularx}
+\end{verbatim}
+
+\begin{tabularx}{\textwidth}{|X|c|X|}
+	\hline
+	foo   & bar    & fubar \\
+	fubar & toobar & foo \\
+	\hline
+\end{tabularx}
+
+\vspace{1cm}
+
+\begin{verbatim}
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+foo   & bar    & fubar \\
+fubar & toobar & foo \\
+\hline
+\end{tabularx}
+\end{verbatim}
+
+\begin{tabularx}{\textwidth}{|l|X|X|}
+	\hline
+	foo   & bar    & fubar \\
+	fubar & toobar & foo \\
+	\hline
+\end{tabularx}
+
+\vspace{1cm}
+
+\begin{verbatim}
+\begin{tabularx}{\textwidth}{|X|X|r|}
+\hline
+foo   & bar    & fubar \\
+fubar & toobar & foo \\
+\hline
+\end{tabularx}
+\end{verbatim}
+
+\begin{tabularx}{\textwidth}{|X|X|r|}
+	\hline
+	foo   & bar    & fubar \\
+	fubar & toobar & foo \\
+	\hline
+\end{tabularx}
+
+\vspace{1cm}
+
+\begin{verbatim}
+\begin{tabularx}{\textwidth}{|l|X|r|}
+\hline
+foo   & bar    & fubar \\
+fubar & toobar & foo \\
+\hline
+\end{tabularx}
+\end{verbatim}
+
+\begin{tabularx}{\textwidth}{|l|X|r|}
+	\hline
+	foo   & bar    & fubar \\
+	fubar & toobar & foo \\
+	\hline
+\end{tabularx}
+
+
+\end{document}
