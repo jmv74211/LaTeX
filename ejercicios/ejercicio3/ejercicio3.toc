@@ -1,4 +1,4 @@
 \babel@toc {spanish}{}
-\contentsline {section}{\numberline {0}Introducci\IeC {\'o}n}{1}{section.0}% 
-\contentsline {section}{\numberline {1}Detallar con \texttt {itemize} }{2}{section.1}% 
-\contentsline {section}{\numberline {2}Enumeraciones}{3}{section.2}% 
+\contentsline {section}{\numberline {0}Introducci\IeC {\'o}n}{2}{section.0}% 
+\contentsline {section}{\numberline {1}Detallar con \texttt {itemize} }{3}{section.1}% 
+\contentsline {section}{\numberline {2}Enumeraciones}{4}{section.2}% 
