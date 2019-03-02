@@ -1,0 +1,44 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[pdftex]{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\begin{document}
+
+\begin{figure}
+\centering
+\mbox{
+  \subcaptionbox{Subcaption A}{\includegraphics[width=.4\textwidth]{oruga_01.jpg}}
+  \qquad
+  \subcaptionbox{Subcaption B}{\includegraphics[width=.4\textwidth]{oruga_02.jpg}}
+}
+\mbox{
+  \subcaptionbox{Subcaption C}{\includegraphics[width=.4\textwidth]{oruga_03.png}}
+  \qquad
+  \subcaptionbox{Subcaption D}{\includegraphics[width=.4\textwidth]{oruga_04.jpg}}
+}
+\caption{Caption}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \mbox{
+    \subcaptionbox{Subcaption A}{\includegraphics[width=0.40\textwidth]{oruga_01.jpg}}
+    \qquad
+    \subcaptionbox{Subcaption B}{\scalebox{-1}[1]
+      {\includegraphics[width=0.40\textwidth]{oruga_01.jpg}}}
+  }
+  
+  \mbox{
+    \subcaptionbox{Subcaption C}{\scalebox{1}[-1]
+      {\includegraphics[width=0.40\textwidth]{oruga_01.jpg}}}
+    \qquad
+    \subcaptionbox{Subcaption D}{\includegraphics[width=0.40\textwidth]{oruga_04.jpg}}
+  }
+  \caption{Caption}
+\end{figure}
+
+\end{document}

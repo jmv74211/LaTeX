@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Blas_de_Lezo.aux
+The style file: alphadin.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: /Users/fmgo/MEGA/base_bib_latex/blasLezo.bib
+Database file #2: /Users/fmgo/MEGA/base_bib_latex/mediaCites.bib
+You've used 11 entries,
+            4793 wiz_defined-function locations,
+            994 strings with 7928 characters,
+and the built_in function-call counts, 4399 in all, are:
+= -- 409
+> -- 88
+< -- 28
++ -- 22
+- -- 22
+* -- 282
+:= -- 759
+add.period$ -- 13
+call.type$ -- 11
+change.case$ -- 44
+chr.to.int$ -- 11
+cite$ -- 11
+duplicate$ -- 189
+empty$ -- 443
+format.name$ -- 66
+if$ -- 957
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 39
+newline$ -- 70
+num.names$ -- 33
+pop$ -- 73
+preamble$ -- 1
+purify$ -- 66
+quote$ -- 0
+skip$ -- 190
+stack$ -- 0
+substring$ -- 222
+swap$ -- 29
+text.length$ -- 28
+text.prefix$ -- 11
+top$ -- 0
+type$ -- 88
+warning$ -- 0
+while$ -- 37
+width$ -- 12
+write$ -- 144

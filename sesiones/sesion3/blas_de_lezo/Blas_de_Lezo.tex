@@ -1,0 +1,108 @@
+\documentclass[10pt,
+               spanish, %cfr. https://is.gd/n3cszn
+               twocolumn,
+               openright
+               ]{report}
+
+% a4large.sty -- fill an A4 (210mm x 297mm) page
+% Note: 1 inch = 25.4 mm = 72.27 pt
+% 1 pt = 3.5 mm (approx)
+               
+\usepackage[paperheight=297mm,
+            paperwidth=210mm,
+            tmargin=28mm, 
+            headheight=0mm, 
+            headsep=3mm,
+            textheight=250mm,
+            footskip=10mm,
+            textwidth=160mm,
+            bindingoffset=10mm,
+            twoside
+            ]{geometry}
+
+% paragraph setup
+\setlength{\parindent}{0em}
+%\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+\setlength{\columnsep}{1em}
+%\renewcommand{\baselinestretch}{1.5}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{enumerate}
+\usepackage[pdftex]{graphicx}
+\usepackage{csquotes} % quotation
+\usepackage[usenames,dvipsnames]{color}
+\definecolor{webgreen}{rgb}{0, 0.5, 0} % less intense green
+\definecolor{webblue}{rgb}{0, 0, 0.5}  % less intense blue
+\definecolor{webred}{rgb}{0.5, 0, 0}   % less intense red
+\definecolor{dblackcolor}{rgb}{0.0,0.0,0.0}
+\definecolor{dbluecolor}{rgb}{.01,.02,0.7}
+\definecolor{dredcolor}{rgb}{0.8,0,0}
+\definecolor{dgraycolor}{rgb}{0.30,0.3,0.30}
+
+%\usepackage[math]{iwona}
+\usepackage{beton}
+\usepackage[T1]{fontenc}
+
+\usepackage{makeidx}
+\makeindex % cfr https://en.wikibooks.org/wiki/LaTeX/Indexing
+
+\usepackage[hang, flushmargin]{footmisc}
+\usepackage[bookmarks=true,
+            bookmarksnumbered=false, % true means bookmarks in 
+                                     % left window are numbered                         
+            bookmarksopen=false,     % true means only level 1
+                                     % are displayed.
+            colorlinks=true,
+            linkcolor=webred,
+            urlcolor=NavyBlue,
+            citecolor=OliveGreen]{hyperref}
+\usepackage{footnotebackref}
+
+\newcommand{\HRule}{\rule{\linewidth}{1mm}}
+
+\title
+{
+\HRule
+\begin{flushright}
+\Large
+\textbf{Almirante }\\[4mm]
+\huge
+\textbf{Blas de Lezo}\\
+\end{flushright}
+\HRule 
+}
+
+\author{\href{https://es.wikipedia.org/wiki/Blas_de_Lezo}{Wikipedia}}
+
+\date{\today}
+
+\begin{document}
+\bibliographystyle{alphadin} % Alpadin nos va a permitir añadir hipervínculos a la web
+\maketitle
+\tableofcontents
+\listoffigures
+
+\chapter{Introducción}
+\input{blas_lezo_intro}
+\chapter{Guerra de Sucesión}
+\input{blas_lezo_gs}
+\chapter{Caribe y el Pacífico}
+\input{blas_lezo_caribe_pacifico}
+\chapter{En El Mediterráneo}
+\input{blas_lezo_mediterraneo}
+\chapter{De Vuelta a América. Cartagena de Indias}
+\input{blas_lezo_vuelta_caribe}
+\chapter{Muerte y Castigo Póstumo}
+\input{blas_lezo_muerte}
+\chapter{Su Memoria}
+\input{blas_lezo_memoria}
+
+\nocite{alo,arc,ber,fer,mar,qui,rod,smo}
+
+\bibliography{/Users/fmgo/MEGA/base_bib_latex/blasLezo,/Users/fmgo/MEGA/base_bib_latex/mediaCites}
+
+\printindex
+
+\end{document}

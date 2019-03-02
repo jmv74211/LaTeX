@@ -1,0 +1,14 @@
+\babel@toc {spanish}{}
+\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{7}{chapter.1}
+\contentsline {chapter}{\numberline {2}Guerra de Sucesi\IeC {\'o}n}{9}{chapter.2}
+\contentsline {chapter}{\numberline {3}Caribe y el Pac\IeC {\'\i }fico}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Matrimonio y Descendencia}{12}{section.3.1}
+\contentsline {chapter}{\numberline {4}En El Mediterr\IeC {\'a}neo}{13}{chapter.4}
+\contentsline {section}{\numberline {4.1}Jefe de la Escuadra del Mediterr\IeC {\'a}neo}{13}{section.4.1}
+\contentsline {section}{\numberline {4.2}Primeras Misiones en Italia}{13}{section.4.2}
+\contentsline {section}{\numberline {4.3}Expedici\IeC {\'o}n a Or\IeC {\'a}n}{13}{section.4.3}
+\contentsline {section}{\numberline {4.4}\IeC {\'U}ltimo Periodo en C\IeC {\'a}diz}{14}{section.4.4}
+\contentsline {chapter}{\numberline {5}De Vuelta a Am\IeC {\'e}rica. Cartagena de Indias}{15}{chapter.5}
+\contentsline {chapter}{\numberline {6}Muerte y Castigo P\IeC {\'o}stumo}{17}{chapter.6}
+\contentsline {section}{\numberline {6.1}El Puerto de Santa Mar\IeC {\'\i }a y Blas de Lezo}{17}{section.6.1}
+\contentsline {chapter}{\numberline {7}Su Memoria}{19}{chapter.7}

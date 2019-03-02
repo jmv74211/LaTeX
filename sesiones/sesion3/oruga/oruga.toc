@@ -1,0 +1,5 @@
+\babel@toc {spanish}{}
+\contentsline {section}{\numberline {0}Introducci\IeC {\'o}n}{1}{section.0}
+\contentsline {section}{\numberline {1}El Tractor Oruga \dots m\IeC {\'a}s que un 4$\mathbf {\times }$4}{2}{section.1}
+\contentsline {section}{\numberline {2}Historia}{4}{section.2}
+\contentsline {section}{\numberline {3}Funcionamiento}{5}{section.3}

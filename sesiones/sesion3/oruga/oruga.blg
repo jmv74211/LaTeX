@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2018)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: oruga.aux
+The style file: plain.bst
+Database file #1: oruga.bib
+You've used 2 entries,
+            2118 wiz_defined-function locations,
+            532 strings with 4654 characters,
+and the built_in function-call counts, 488 in all, are:
+= -- 41
+> -- 20
+< -- 0
++ -- 9
+- -- 6
+* -- 22
+:= -- 91
+add.period$ -- 6
+call.type$ -- 2
+change.case$ -- 7
+chr.to.int$ -- 0
+cite$ -- 2
+duplicate$ -- 24
+empty$ -- 45
+format.name$ -- 6
+if$ -- 100
+int.to.chr$ -- 0
+int.to.str$ -- 2
+missing$ -- 4
+newline$ -- 13
+num.names$ -- 4
+pop$ -- 17
+preamble$ -- 1
+purify$ -- 7
+quote$ -- 0
+skip$ -- 13
+stack$ -- 0
+substring$ -- 11
+swap$ -- 2
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 4
+warning$ -- 0
+while$ -- 4
+width$ -- 3
+write$ -- 22

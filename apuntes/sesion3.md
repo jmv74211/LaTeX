@@ -67,4 +67,13 @@ basura y luego usando `\kill` para no mostrarlos. Esto nos definirá un ancho de
 
     \usepackage{pdfpages}
 
-    \
+
+## Otros
+
+### Bibliografía
+
+Se puede construir un archivo `.bib` donde se tiene almacenado un conjunto de datos bibliográficos que se haya usado(base de datos) y hacer referencia a dichos ficheros con `bibtex` en el artículo.
+
+### Report
+
+Es como una especie de libro "mal hecho" y de forma rápida. Se utiliza para cuando surgen ideas puntuales y concisas.

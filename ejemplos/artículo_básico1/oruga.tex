@@ -1,0 +1,127 @@
+\documentclass[10pt]{article}
+
+% a4large.sty -- fill an A4 (210mm x 297mm) page
+% Note: 1 inch = 25.4 mm = 72.27 pt
+%       1 pt   =  3.5 mm (approx)
+
+\usepackage[paperheight=297mm,
+            paperwidth=210mm,
+            tmargin=28mm, 
+            headheight=0mm, 
+            headsep=0mm,
+            textheight=240mm,
+            footskip=7mm,
+            textwidth=159.2mm,
+            bindingoffset=10mm,
+            twoside
+            ]{geometry}
+
+% paragraph setup
+\setlength{\parindent}{0em}
+%\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+\setlength{\columnsep}{1em}
+%\renewcommand{\baselinestretch}{1.5}
+
+\usepackage[utf8]{inputenc}
+\usepackage[%english
+            spanish
+           ]
+           {babel}
+\usepackage[usenames,dvipsnames]{xcolor}
+%\usepackage{chessboard}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath,amsthm,latexsym}
+%\usepackage{amsfonts,amssymb,MnSymbol}
+\usepackage{enumerate}
+\usepackage{subfigure}
+
+\usepackage[bookmarks=true,
+            bookmarksnumbered=false, % true means bookmarks in 
+                                     % left window are numbered                         
+            bookmarksopen=false,     % true means only level 1
+                                     % are displayed.
+            colorlinks=true,
+            linkcolor=webred,
+            urlcolor=NavyBlue,
+            citecolor=OliveGreen
+            ]{hyperref}
+\definecolor{webgreen}{rgb}{0, 0.5, 0} % less intense green
+\definecolor{webblue}{rgb}{0, 0, 0.5}  % less intense blue
+\definecolor{webred}{rgb}{0.5, 0, 0}   % less intense red
+\definecolor{dblackcolor}{rgb}{0.0,0.0,0.0}
+\definecolor{dbluecolor}{rgb}{.01,.02,0.7}
+\definecolor{dredcolor}{rgb}{0.8,0,0}
+\definecolor{dgraycolor}{rgb}{0.30,0.3,0.30}
+
+\newcommand*{\textcal}[1]{
+             % family qzc: Font TeX Gyre Chorus (package tgchorus)
+             % family pzc: Font Zapf Chancery (package chancery)
+             \textit{\fontfamily{pzc}\selectfont#1}
+                         }
+
+\renewcommand{\labelitemi}{---)}
+\renewcommand{\labelitemii}{$\ast$}
+%\renewcommand{\labelitemii}{$\cdot$}
+\renewcommand{\labelitemiii}{$\diamond$}
+\renewcommand{\labelitemiv}{$\bullet$}
+
+%%%%%%%%%% English %%%%%%%%%
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Ejemplo}
+\newtheorem{ax}{Axiom}
+\newtheorem{algoritmo}[theorem]{Algorithm}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+\newtheorem*{notation}{Notación}
+
+%\numberwithin{equation}{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Para cambiar el tipo de letra en el título de la sección %%%%%%%%%%%
+\usepackage{sectsty}
+\chapterfont{\fontfamily{pag}\selectfont} %% for chapter if you want
+\sectionfont{\fontfamily{pag}\selectfont}
+\subsectionfont{\fontfamily{pag}\selectfont} 
+            %% Similarly for others. see the manual of sectsty, section 5.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\setcounter{section}{-1}
+
+\bibliographystyle{plain}
+
+\input{tit}
+\input{abstract}
+\tableofcontents % Hace el índice de contenidos.
+\listoffigures
+\input{intro}
+\input{tractor_oruga}
+
+\nocite{let}
+
+\section*{Referencias Web}
+
+\begin{itemize}
+\item \htmladdnormallink{Carro de combate Leclerc}
+                  {http://es.wikipedia.org/wiki/AMX-56_Leclerc}
+
+\item \htmladdnormallink{Tractores Carraro}
+    {http://www.antoniocarraro.it/es}
+
+\item \htmladdnormallink{La web de
+      ritchiewiki}{http://www.es.ritchiewiki.com/wikies/index.php/Tractor_sobre_orugas}
+\end{itemize}
+
+\bibliography{oruga}
+
+\end{document}

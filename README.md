@@ -150,7 +150,7 @@ Tras descargar y descomprimir el archivo, se abrirá una ventana titulada **Inst
 
 # Manual básico para aprender LaTeX en 139 minutos
 
-Enlace --> https://tobi.oetiker.ch/lshort/lshort.pdf
+Enlace --> https://github.com/jmv74211/LaTeX/blob/master/docs/manuales/lshort_spanish.pdf
 
 ---
 
@@ -526,6 +526,26 @@ Dentro de un párrafo, un comportamiento similar se puede obtener con `\verb+tex
 
 ![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.12.png)
 
+## Tabulaciones con tabbing
+
+Este entorno de trabajo no genera exáctamente tablas, pero permite presentar
+texto encolumnado, de manera similar a como lo harı́a un tabulador.
+
+Del entorno de trabajo se entra y se sale mediante los comandos `\begin{tabbing}`
+y `\end{tabbing}` respectivamente. Cuenta con los siguientes comandos:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.6.png)
+
+Un ejemplo podría ser el siguiente:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.7.png)
+
+También podemos fijar el ancho de las columnas:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.8.png)
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.9.png)
+
 ## Tablas (tabular)
 
 El entorno tabular se usa para componer tablas con líneas opcionales horizontales
@@ -635,6 +655,12 @@ En ciertas circunstancias podrá requerirse el uso de la orden
 Manda a LaTeX colocar inmediatamente todos los deslizantes que quedan
 en las colas y después empezar una página nueva. `\cleardoublepage` incluso
 salta a una nueva página a la derecha.
+
+# Minipáginas
+
+## HACE FALTA DOCUMENTAR ESTO
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/ejemplo_minipage.png)
 
 ---
 
@@ -798,3 +824,37 @@ la página del título del documento:
 
     \author{Mary Oetiker $<$\href{mailto:mary@oetiker.ch}%
     {mary@oetiker.ch}$>$
+
+---
+
+# Más información
+
+Para más información, se puede consultar la documentación adicional:
+
+- [Manual básico de LaTeX](https://github.com/jmv74211/LaTeX/blob/master/docs/manuales/lshort_spanish.pdf)
+
+- [Funcionamiento básico de látex](https://github.com/jmv74211/LaTeX/blob/master/docs/1.%20Latex:Funcionamiento%20b%C3%A1sico.pdf)
+
+- [Listas y tablas](https://github.com/jmv74211/LaTeX/blob/master/docs/2.%20Listas%20y%20tablas.pdf)
+
+- [Fórmulas matemáticas](https://github.com/jmv74211/LaTeX/blob/master/docs/3.%20F%C3%B3rmulas%20matem%C3%A1ticas.pdf)
+
+- [Clases de documentos y estructuras](https://github.com/jmv74211/LaTeX/blob/master/docs/4.%20Clases%20de%20documentos%20y%20estructura.pdf)
+
+- [Inclusión de gráficos y elementos flotantes](https://github.com/jmv74211/LaTeX/blob/master/docs/5.%20Inclusi%C3%B3n%20de%20gr%C3%A1ficos%20y%20elementos%20flotantes.pdf)
+
+- [Referencias, Bibliografı́a, Notas al Pie y al Margen](https://github.com/jmv74211/LaTeX/blob/master/docs/6.%20Referencias%2C%20Bibliograf%C4%B1%CC%81a%2C%20Notas%20al%20Pie%20y%20al%20Margen.pdf)
+
+- [Manipulación de Cajas; Escritura a Varias Columnas](https://github.com/jmv74211/LaTeX/blob/master/docs/7.%20Manipulaci%C3%B3n%20de%20Cajas%3B%20Escritura%20a%20Varias%20Columnas.pdf)
+
+- [Nociones de Programación LaTeX](https://github.com/jmv74211/LaTeX/blob/master/docs/8.%20Nociones%20de%20Programaci%C3%B3n%20LaTeX.pdf)
+
+- [Colores](https://github.com/jmv74211/LaTeX/blob/master/docs/9.%20Colores.pdf)
+
+- [Conceptos avanzados sobre estructura de tablas](https://github.com/jmv74211/LaTeX/blob/master/docs/10.%20Conceptos%20avanzados%20sobre%20estructura%20de%20tablas.pdf)
+
+- [Títulos y formatos con el paquete titlesec](https://github.com/jmv74211/LaTeX/blob/master/docs/11.%20T%C3%ADtulos%20y%20formatos%20con%20el%20paquete%20titlesec.pdf)
+
+- [Gráficos con paquete bardiag](https://github.com/jmv74211/LaTeX/blob/master/docs/12.%20Gr%C3%A1ficos%20con%20paquete%20bardiag.pdf)
+
+- [Presentaciones en LaTeX con Beamer](https://github.com/jmv74211/LaTeX/blob/master/docs/13.%20Presentaciones%20en%20LaTeX%20con%20Beamer.pdf)
