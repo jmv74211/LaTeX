@@ -42,9 +42,24 @@
   - [Citas](#citas)
   - [Resumen (abstract)](#resumen-abstract)
   - [Citas literales (verbatim)](#citas-literales-verbatim)
-  - [Tablas (tabular)](#tablas-tabular)
   - [Elementos deslizantes](#elementos-deslizantes)
   - [Pie de elemento deslizante](#pie-de-elemento-deslizante)
+- [Minipáginas](#minip%C3%A1ginas)
+  - [HACE FALTA DOCUMENTAR ESTO](#hace-falta-documentar-esto)
+- [Tablas (tabular)](#tablas-tabular)
+  - [El entorno tabbing](#el-entorno-tabbing)
+  - [El entorno tabular](#el-entorno-tabular)
+  - [El entorno tabular*](#el-entorno-tabular)
+    - [Alineación vertical](#alineaci%C3%B3n-vertical)
+    - [Unión de celdas](#uni%C3%B3n-de-celdas)
+    - [Dividiendo celdas en diagonal](#dividiendo-celdas-en-diagonal)
+    - [Colores](#colores)
+  - [El entorno table](#el-entorno-table)
+    - [Rotando tablas](#rotando-tablas)
+    - [Rotando texto de las celdas](#rotando-texto-de-las-celdas)
+    - [Escalado de Tablas](#escalado-de-tablas)
+    - [Tablas de ancho fijo](#tablas-de-ancho-fijo)
+  - [Tablas largas](#tablas-largas)
 - [Fórmulas matemáticas](#f%C3%B3rmulas-matem%C3%A1ticas)
   - [Agrupación](#agrupaci%C3%B3n)
   - [Más información](#m%C3%A1s-informaci%C3%B3n)
@@ -54,9 +69,9 @@
   - [Inclusión de ficheros de texto](#inclusi%C3%B3n-de-ficheros-de-texto)
   - [Uso de gráficos](#uso-de-gr%C3%A1ficos)
   - [Enlaces de hipertexto](#enlaces-de-hipertexto)
+- [Más información](#m%C3%A1s-informaci%C3%B3n-1)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 
 ---
 
@@ -526,69 +541,6 @@ Dentro de un párrafo, un comportamiento similar se puede obtener con `\verb+tex
 
 ![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.12.png)
 
-## Tabulaciones con tabbing
-
-Este entorno de trabajo no genera exáctamente tablas, pero permite presentar
-texto encolumnado, de manera similar a como lo harı́a un tabulador.
-
-Del entorno de trabajo se entra y se sale mediante los comandos `\begin{tabbing}`
-y `\end{tabbing}` respectivamente. Cuenta con los siguientes comandos:
-
-![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.6.png)
-
-Un ejemplo podría ser el siguiente:
-
-![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.7.png)
-
-También podemos fijar el ancho de las columnas:
-
-![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.8.png)
-
-![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.9.png)
-
-## Tablas (tabular)
-
-El entorno tabular se usa para componer tablas con líneas opcionales horizontales
-o verticales. LaTeX determina el ancho de las columnas automáticamente.
-
-    \begin{tabular}[pos]{espec}
-
-El argumento `espec` de la orden define el formato de la tabla. Use un **l** para una columna de texto
-alineado por la *izquierda*, **r** para alineación por la *derecha* y **c** para texto *centrado*.
-
-Si el texto de una columna es demasiado ancha para la página, LaTeX no
-lo partirá automáticamente. Mediante `p{anchura}` puede definir un tipo
-de columna especial que partirá el texto como en un párrafo normal.
-
-El argumento `pos` indica la posición vertical de la tabla relativa a la base
-del texto alrededor. Use una de las letras **t** , **b** o **c** para indicar alineación
-por lo *alto*, por lo *bajo* o por el *centro*, respectivamente.
-
-En un entorno tabular, `&` salta a la columna siguiente, `\\` comienza un
-nuevo renglón y `\hline` inserta una línea horizontal.
-
-Puede añadir líneas
-parciales usando `\cline{j-i}`, donde j e i son los números de las columnas
-sobre las que debería extenderse la línea.
-
-![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.13.png)
-
-El separador de columnas puede indicarse con el constructo `@{...}` .
-Esta orden elimina el espacio entre columnas y lo remplaza con lo que se
-ponga entre las llaves. Un uso común de esta orden se explica abajo en un
-problema de alineación de decimales. Otra aplicación posible es suprimir el
-espacio adicional de una tabla mediante `@{}` .
-
-![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.14.png)
-
-![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.15.png)
-
-![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.16.png)
-
-El material compuesto con el entorno tabular siempre permanece junto
-en una misma página. Si quiere componer tablas largas, debe usar entornos
-**longtable**.
-
 ## Elementos deslizantes
 
 Actualmente la mayoría de las publicaciones contienen muchas figuras
@@ -661,6 +613,620 @@ salta a una nueva página a la derecha.
 ## HACE FALTA DOCUMENTAR ESTO
 
 ![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/ejemplo_minipage.png)
+
+---
+
+# Tablas (tabular)
+
+El entorno tabular se usa para componer tablas con líneas opcionales horizontales
+o verticales. LaTeX determina el ancho de las columnas automáticamente.
+
+    \begin{tabular}[pos]{espec}
+
+El argumento `espec` de la orden define el formato de la tabla. Use un **l** para una columna de texto
+alineado por la *izquierda*, **r** para alineación por la *derecha* y **c** para texto *centrado*.
+
+Si el texto de una columna es demasiado ancha para la página, LaTeX no
+lo partirá automáticamente. Mediante `p{anchura}` puede definir un tipo
+de columna especial que partirá el texto como en un párrafo normal.
+
+El argumento `pos` indica la posición vertical de la tabla relativa a la base
+del texto alrededor. Use una de las letras **t** , **b** o **c** para indicar alineación
+por lo *alto*, por lo *bajo* o por el *centro*, respectivamente.
+
+En un entorno tabular, `&` salta a la columna siguiente, `\\` comienza un
+nuevo renglón y `\hline` inserta una línea horizontal.
+
+Puede añadir líneas
+parciales usando `\cline{j-i}`, donde j e i son los números de las columnas
+sobre las que debería extenderse la línea.
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.13.png)
+
+El separador de columnas puede indicarse con el constructo `@{...}` .
+Esta orden elimina el espacio entre columnas y lo remplaza con lo que se
+ponga entre las llaves. Un uso común de esta orden se explica abajo en un
+problema de alineación de decimales. Otra aplicación posible es suprimir el
+espacio adicional de una tabla mediante `@{}` .
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.14.png)
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.15.png)
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.16.png)
+
+El material compuesto con el entorno tabular siempre permanece junto
+en una misma página. Si quiere componer tablas largas, debe usar entornos
+**longtable**.
+
+## El entorno tabbing
+
+Este entorno de trabajo no genera exáctamente tablas, pero permite presentar
+texto encolumnado, de manera similar a como lo harı́a un tabulador.
+
+Del entorno de trabajo se entra y se sale mediante los comandos `\begin{tabbing}`
+y `\end{tabbing}` respectivamente. Cuenta con los siguientes comandos:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.6.png)
+
+Un ejemplo podría ser el siguiente:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.7.png)
+
+También podemos fijar el ancho de las columnas:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.8.png)
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.9.png)
+
+
+## El entorno tabular
+
+Este entorno de trabajo nos permite trabajar con muchas más posibilidades que
+el entorno tabbing. Tiene dos formatos posibles que son los siguientes:
+
+    \begin{tabular}[posición]{columnas}
+    columna 1 & columna 2 & columna n \\
+    ...
+    ...
+    ...
+    \end{tabular}
+    ó
+    \begin{tabular*}{ancho}[posición]{columnas}
+    columna 1 & columna 2 & columna n \\
+    ...
+    ...
+    ...
+    \end{tabular*}
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.10.png)
+
+**Ejemplo 1**
+
+Tabla básica sin borde. Al poner:
+
+    \begin{tabular}{l c r}
+    columna 1 & columna 2 & columna 3 \\
+    col 1 & col 2 & col 3\\
+    \end{tabular}
+
+Veremos entonces la primer columna alineada a izquierda, la segunda centrada y
+la tercera alineada a derecha:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.11.png)
+
+**Ejemplo 2**
+
+Tabla básica con borde doble en el exterior y simple adentro. Al poner:
+
+    \begin{tabular}{||l | c | r||}
+    \hline
+    \hline
+    columna 1 & columna 2 & columna 3 \\
+    \hline
+    col 1 & col 2 & col 3\\
+    \hline
+    \end{tabular}
+
+Veremos entonces:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.12.png)
+
+
+## El entorno tabular*
+
+Veamos un pequeño ejemplo:
+
+`@{\extracolsep {longitud}}` Nos permite establecer un espacio en blanco entre
+columnas de la longuitud dada.
+
+    \begin{tabular*}{10 cm}{|l|l@{\extracolsep{\fill}}r|}
+    \hline
+    &Desde&Hasta\\
+    \hline
+    Ruta 2&Buenos Aires & Mar del Plata\\
+    Ruta 7&Buenos Aires &Mendoza\\
+    \hline
+    \end{tabular*}
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.13.png)
+
+
+### Alineación vertical
+
+**Alineación de la parte superior de la tabla con la base del texto**
+
+    Hola mundo
+    \begin{tabular}[t]{|l |c |r|}
+    \hline
+    pos 1 & pos 2 & pos 3 \\
+    \hline
+    posición 1 & posición 2 & posición 3 \\
+    \hline
+    \end{tabular}
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.14.png)
+
+**Alineación del centro de la tabla con la base del texto**
+
+    Hola mundo
+    \begin{tabular}[c]{|l| r| c|}
+    \hline
+    pos 1 & pos 2 & pos 3 \\
+    \hline
+    posición 1 & posición 2 & posición 3 \\
+    \hline
+    \end{tabular}
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.15.png)
+
+**Alineación de la base de la tabla con la base del texto**
+
+    Hola mundo
+    \begin{tabular}[b]{| l | c| r |}
+    \hline
+    pos 1 & pos 2 & pos 3 \\
+    \hline
+    posición 1 & posición 2 & posición 3 \\
+    \hline
+    \end{tabular}
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.16.png)
+
+Alineación diferenciada en una misma columna
+
+    \begin{tabular}{|l|l|}
+    \hline
+    celda 1 &celda 2\\
+    \hline
+    celda 3 &\makebox[2.5cm][c]{celda 4}\\
+    \hline
+    celda 5 &\makebox[2.5cm][r]{celda 6}\\
+    \hline
+    \end{tabular}
+
+Obtenemos como resultado:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.17.png)
+
+### Unión de celdas
+
+Si queremos unir varias **columnas**, debemos usar el comando `multicolum`. Este
+tiene la siguiente sintaxis:
+
+    \multicolumn{columnas}{posición}{texto}
+
+- columnas: Indica cuantas columnas tendrá de ancho la celda.
+- posición: Indica la alineación del texto.
+- texto: Indica el contenido de la celda.
+
+**Ejemplo**
+
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \multicolumn{3}{|c|}{multicolumna 1-3}\\
+    \hline
+    \multicolumn{2}{|c|}{multicolumna 1-2} & columna3\\
+    \hline
+    columna 1 & \multicolumn{2}{|c|}{multicolumna 2-3}\\
+    \hline
+    \end{tabular}
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.18.png)
+
+Si queremos unir varias **filas** debemos usar el comando `multirow`. Este tiene la siguiente sintaxis:
+
+    \multirow{filas}{ancho}[movimiento vertical]{texto}
+
+Además el paquete “multirow” debe ser declarado al principio del documento.
+
+    \usepackage{multirow}
+
+- columnas: Indica cuantas filas tendrá de alto la celda.
+- ancho: Indica el ancho de la columna, si se pone asterisco
+tendrá el ancho por defecto.
+- movimiento vertical: Sirve para alinear el texto verticalmente(opcional).
+- texto: Indica el contenido de la celda.
+
+**Ejemplo**
+
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \multirow{3}{4cm}{multifila 1-3} & \multirow{2}{*}[3 mm]
+    {multifila 1-2} & columna 3\\
+    \cline{3-3}
+    & & \multirow{2}{*}[-3 mm]{multifila 2-3}\\
+    \cline{2-2}
+    & columna 2 & \\
+    \hline
+    \end{tabular}
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.19.png)
+
+### Dividiendo celdas en diagonal
+
+Para poder hacer divisiones diagonales en las tablas debemos usar el paquete
+`slashbox`, por lo tanto debemos agregar en el encabezado del archivo fuente la
+siguiente declaración:
+
+    \usepackage{slashbox}
+
+Cuando tenemos que dividir una celda usamos el siguiente comando:
+
+    \backslashbox{izquierda}{derecha}
+
+Donde “izquierda” y “derecha” será el contenido de la celda a cada lado de la
+lı́nea diagonal.
+
+**Ejemplo**
+
+    \begin{tabular}{|l|r|r|r|}
+    \hline
+    \backslashbox{origen}{destino} & Buenos Aires & Córdoba & Rosario \\
+    \hline
+    Buenos Aires & 0 Km & 716 Km & 318 Km\\
+    \hline
+    Córdoba & 716 Km & 0 Km & 398 Km\\
+    \hline
+    Rosario & 318 Km & 398 Km & 0Km\\
+    \hline
+    \end{tabular}
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.20.png)
+
+### Colores
+
+Para colorear las columnas disponemos del comando `columncolor`, el mismo
+posee la siguiente sintaxis:
+
+    \columncolor[color model]{color}[left overhang][right overhang]
+
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.21.png)
+
+El comando columncolor solo puede ser usado en la definición de una columna
+o con el entorno multicolumn. El modo de usarlo es:
+
+    >{\columncolor[model color]{color} ...}
+
+**Ejemplo: Distintos modelos de color**
+
+    \definecolor{micolor}{rgb}{0,1,0.5}
+    \begin{tabular}{|>{\columncolor[rgb]{0.7,0,0.7}} c |
+    >{\columncolor[cmyk]{0.8,0.5,0.4,0.1}}c |
+    >{\columncolor[gray]{0.7}}c |
+    >{\columncolor{blue}}c |
+    >{\columncolor{micolor}} c|}
+    \hline
+    Col 1 & Col 2 & Col 3 & Col 4 & Col 5 \\
+    \hline
+    rgb & cmyk & gray & predefinido & definido por nosotros\\
+    \hline
+    \end{tabular}
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.22.png)
+
+**Ejemplo: Coloreando el entorno multicolumn**
+
+    \begin{tabular}{|c|c|}
+    \hline
+    \multicolumn{2}{|>{\columncolor{red}}c|}{multicolumna 1-2}\\
+    \hline
+    \multicolumn{1}{|>{\columncolor{green}}c|}{columna 1} &
+    \multicolumn{1}{|>{\columncolor{yellow}}c|}{columna 2}\\
+    \hline
+    \end{tabular}
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.23.png)
+
+**Ejemplo: Determinando el ancho del color**
+
+    \begin{tabular}{| >{\columncolor[rgb]{1,1,0}}l |
+    >{\columncolor[rgb]{0,1,1}[0cm][0cm]} l |
+    >{\columncolor[rgb]{1,0,1}[.5\tabcolsep][.5\tabcolsep]} l|}
+    \hline
+    Enrique & Cerse\\
+    \hline
+    Clara & Boya\\
+    \hline
+    Ana & Conda\\
+    \hline
+    \end{tabular}
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.24.png)
+
+**Ejemplo: Filas en color**
+
+La sintaxis es similar a la de las columnas, pero más sencilla:
+
+    \rowcolor[model color]{color}
+
+Los parámetros `model color` y `color` tienen los mismos significados que en
+`columncolor`.
+
+    \begin{tabular}{|l|l|}
+    \hline
+    \rowcolor[cmyk]{1,1,0,0}Abraham & Lapuerta\\
+    \hline
+    \rowcolor[rgb]{0,1,1}Roque & Fort\\
+    \hline
+    \rowcolor[gray]{0.9}Eva & Dirse\\
+    \hline
+    \end{tabular}
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.25.png)
+
+**Ejemplo: Coloreando celdas individuales**
+
+El paquete `colortbl` también permite colorear las celdas una a una.La sintáxis es la siguiente:
+
+    \cellcolor[modelo color]{color}
+
+    \begin{tabular}{|l|l|}
+    \hline
+    \cellcolor[cmyk]{1,1,0,0}Abraham & \cellcolor{red}Lapuerta\\
+    \hline
+    \cellcolor[rgb]{0,1,1}Roque & \cellcolor{blue}Fort\\
+    \hline
+    \cellcolor[gray]{0.9}Eva & \cellcolor{green}Dirse\\
+    \hline
+    \end{tabular}
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.26.png)  
+
+## El entorno table
+
+Si nosotros generásemos una tabla con el entorno tabular, esta intentará ubicarse
+debajo del texto en el que se encuentra en el código fuente, si no entrase en
+la página actual se colocará en la siguiente, dejando en blanco el espacio en la
+hoja anterior. Esto no quedarı́a muy bien, pero lo podemos solucionar con el
+entorno “table”, que lo que hace es convertir la tabla en flotante. Su sintaxis es
+la siguiente:
+
+    \begin{table}[posición]
+    \begin{tabular}
+    ...
+    ...
+    ...
+    \end{tabular}
+    \caption[Descripción corta]{Descripción larga}
+    \end{table}
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.27.png)
+
+**Ejemplo**
+
+    \begin{table}[!hbt]
+    \begin{center}
+    \begin{tabular}{|l|l|}
+    \hline
+    Nombre & Apellido\\
+    \hline
+    Juan & Perez\\
+    José & Lopez\\
+    Carlos & Garcı́a\\
+    \hline
+    \end{tabular}
+    \caption{Listado de alumnos}
+    \end{center}
+    \end{table}
+
+Y obtendremos:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.28.png)
+
+### Rotando tablas
+
+Si queremos rotar una tabla ( o algunas otras
+cosas) debemos usar el paquete `rotating`, por lo tanto debemos agregar en el
+encabezado del archivo fuente la siguiente declaración:
+
+    \usepackage{rotating}
+
+La primer opción es usar el entorno `sydeways`, lo que hace simplemente es rotar
+la tabla 90
+
+\begin{center}
+\begin{sideways}
+\begin{tabular}{|l|r|r|}
+\hline
+&columna 1&columna 2\\
+\hline
+fila 1 & $a_{11}$ & $a_{12}$\\
+\hline
+fila 2 & $a_{21}$ & $a_{22}$\\
+\hline
+\end{tabular}
+\end{sideways}
+\end{center}
+
+Como resultado conseguimos lo siguiente:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.29.png)
+
+### Rotando texto de las celdas
+
+Para rotar el texto de una celda también podemos usar el entorno `sideways`.
+
+    \begin{center}
+    \begin{tabular}{|l|r|r|}
+    \hline
+    &\begin{sideways}columna 1\end{sideways}&\begin{sideways}columna 2
+    \end{sideways}\\
+    \hline
+    fila 1 & $a_{11}$ & $a_{12}$\\
+    \hline
+    fila 2 & $a_{21}$ & $a_{22}$\\
+    \hline
+    \end{tabular}
+    \end{center}
+
+Como resultado obtenemos lo siguiente:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.30.png)
+
+### Escalado de Tablas
+
+El comando `scalebox`. Este comando permite escalar una tabla, tiene el siguiente formato:
+
+    \scalebox{escala horizonal}[escala vertical]{argumento}
+
+Donde:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.31.png)
+
+**Ejemplo: Especificando diferentes escalas para el ancho y alto de la tabla.**
+
+    \scalebox{1.5}[2]{
+    \begin{tabular}{|r|l|l|}
+    \hline
+    &columna 1&columna 2\\
+    \hline
+    fila 1& celda 1&celda 2\\
+    \hline
+    fila 2& celda 3&celda 4\\
+    \hline
+    \end{tabular}}
+
+Obtenemos como resultado:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.32.png)
+
+**Ejemplo: Especificando una misma escala para el ancho y alto de la tabla.**
+
+    \scalebox{0.5}{
+    \begin{tabular}{|r|l|l|}
+    \hline
+    &columna 1&columna 2\\
+    \hline
+    fila 1& celda 1&celda 2\\
+    \hline
+    fila 2& celda 3&celda 4\\
+    \hline
+    \end{tabular}}
+
+Obtenemos como resultado:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.33.png)
+
+### Tablas de ancho fijo
+
+El paquete `tabularx` permite definir el ancho de una tabla de la misma manera que con el entorno tabular*.
+
+Para poder usar el paquete tabularx, previamente debemos declararlo en el encabezado:
+
+    \usepackage{tabularx}
+
+El entorno tabularx solo se aplicará a las columnas indicadas con la letra “X”.
+
+    \begin{tabularx}{5cm}{|X|r|}
+    \hline
+    Alumno & Padrón\\
+    \hline
+    Carlos Gardel & 80546\\
+    \hline
+    Anı́bal Troilo & 80547\\
+    \hline
+    Homero Manzi\footnote{El paquete \emph{tabularx} permite el uso de
+    notas al pie} & 80548\\
+    \hline
+    Enrique Santos Discépolo & 80549\\
+    \hline
+    \end{tabularx}
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.36.png)
+
+El paquete tabularx, sólo permite que el texto de las columnas cuyo ancho se ajustan automáticamente quede alineado a izquierda. Para corregir este inconveniente, existe el paquete `tabulary`.
+
+Como siempre debemos declarar el paquete en el encabezado:
+
+    \usepackege{tabulary}
+
+Veamos un ejemplo:
+
+    \begin{tabulary}{10cm}{|L|C|R|J|}
+    \hline
+    Ejemplo de celda alineada a izquierda& Ejemplo de celda con texto
+    centrado & Ejemplo de celda alineada a derecha & Ejemplo de celda
+    contexto justificado\\
+    \hline
+    \end{tabulary}
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.37.png)
+
+El paquete `tabularx` tiene problemas de compatibilidad con el entorno `verbatim`.
+
+## Tablas largas
+
+Si intentásemos crear un tabla que ocupe más de una página, verı́amos que
+LaTeX la genera de manera errónea. Es por este motivo que se creó el entorno `longtable`. Para poder usarlo, debemos definir en la cabecera del documento:
+
+    \usepackage{longtable}usepackage{longtable}
+
+El entorno `longtable` se puede ver como una mezcla de los entornos `tabular` y
+`table` (que veremos más adelante). Las columnas se definen de igual manera
+que en el entorno `tabular` y las filas se separan por `\\`, con la salvedad que se
+puede poner una unidad de longitud después del comando por ejemplo:
+
+    \\[3cm]
+
+Esto generará un salto de lı́nea de la medida especificada entre corchetes. No se
+permite alinear la tabla con respecto al texto con los argumentos [t], [b] o [c]
+como en el entorno tabular.
+
+Acepta los siguientes comandos:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.34.png)
+
+    \begin{longtable}{|l|l|}
+    \hline
+    \multicolumn{2}{|c|}{Primera fila de primera hoja} \\
+    \hline
+    \endfirsthead
+    \hline
+    \multicolumn{2}{|c|}{Primera fila de todas las hojas} \\
+    \hline
+    \endhead
+    \hline
+    \multicolumn{2}{|c|}{Última fila de la última hoja\footnotemark[2]
+    }\\
+    \hline
+    \caption{Tabla larga}
+    \endlastfoot
+    \hline
+    \multicolumn{2}{|c|}{Última fila de todas hojas} \\
+    \hline
+    \endfoot
+    \footnotetext[2]{footnote del pie de tabla.}
+    uno & dos\\[4cm]
+    \hline
+    tres\footnote{footnote, no puede ser usado en el entorno
+    ‘‘tabular’’.} & cuatro\\
+    \hline
+    cinco & seis\\[2cm]
+    \end{longtable}
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.35.png)
 
 ---
 
