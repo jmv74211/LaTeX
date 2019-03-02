@@ -9,6 +9,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 - [Introducción](#introducci%C3%B3n)
   - [¿Qué es TEX?](#%C2%BFqu%C3%A9-es-tex)
   - [¿Qué es LaTeX?](#%C2%BFqu%C3%A9-es-latex)
@@ -46,7 +47,7 @@
   - [Pie de elemento deslizante](#pie-de-elemento-deslizante)
 - [Minipáginas](#minip%C3%A1ginas)
   - [HACE FALTA DOCUMENTAR ESTO](#hace-falta-documentar-esto)
-- [Tablas (tabular)](#tablas-tabular)
+- [Tablas](#tablas)
   - [El entorno tabbing](#el-entorno-tabbing)
   - [El entorno tabular](#el-entorno-tabular)
   - [El entorno tabular*](#el-entorno-tabular)
@@ -616,7 +617,30 @@ salta a una nueva página a la derecha.
 
 ---
 
-# Tablas (tabular)
+# Tablas
+
+## El entorno tabbing
+
+Este entorno de trabajo no genera exáctamente tablas, pero permite presentar
+texto encolumnado, de manera similar a como lo harı́a un tabulador.
+
+Del entorno de trabajo se entra y se sale mediante los comandos `\begin{tabbing}`
+y `\end{tabbing}` respectivamente. Cuenta con los siguientes comandos:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.6.png)
+
+Un ejemplo podría ser el siguiente:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.7.png)
+
+También podemos fijar el ancho de las columnas:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.8.png)
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.9.png)
+
+
+## El entorno tabular
 
 El entorno tabular se usa para componer tablas con líneas opcionales horizontales
 o verticales. LaTeX determina el ancho de las columnas automáticamente.
@@ -655,33 +679,7 @@ espacio adicional de una tabla mediante `@{}` .
 
 ![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig2.16.png)
 
-El material compuesto con el entorno tabular siempre permanece junto
-en una misma página. Si quiere componer tablas largas, debe usar entornos
-**longtable**.
-
-## El entorno tabbing
-
-Este entorno de trabajo no genera exáctamente tablas, pero permite presentar
-texto encolumnado, de manera similar a como lo harı́a un tabulador.
-
-Del entorno de trabajo se entra y se sale mediante los comandos `\begin{tabbing}`
-y `\end{tabbing}` respectivamente. Cuenta con los siguientes comandos:
-
-![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.6.png)
-
-Un ejemplo podría ser el siguiente:
-
-![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.7.png)
-
-También podemos fijar el ancho de las columnas:
-
-![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.8.png)
-
-![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.9.png)
-
-
-## El entorno tabular
-
+-----------------------------
 Este entorno de trabajo nos permite trabajar con muchas más posibilidades que
 el entorno tabbing. Tiene dos formatos posibles que son los siguientes:
 
