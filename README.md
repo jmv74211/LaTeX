@@ -46,7 +46,6 @@
   - [Elementos deslizantes](#elementos-deslizantes)
   - [Pie de elemento deslizante](#pie-de-elemento-deslizante)
 - [Minipáginas](#minip%C3%A1ginas)
-  - [HACE FALTA DOCUMENTAR ESTO](#hace-falta-documentar-esto)
 - [Tablas](#tablas)
   - [El entorno tabbing](#el-entorno-tabbing)
   - [El entorno tabular](#el-entorno-tabular)
@@ -620,9 +619,92 @@ salta a una nueva página a la derecha.
 
 # Minipáginas
 
-## HACE FALTA DOCUMENTAR ESTO
+El entorno minipage genera una caja que actúa como minicaja, es decir, se trata de una miniversión
+de una página que insertamos dentro de una página. Su sintáxis es la siguiente:
+
+    \begin{minipage}}[pos1][long2][pos2]{long1}
+    texto
+    \end{minipage}
+
+donde:
+
+- `long1` , indica el ancho y es el único argumento obligatorio
+- `pos1` , determina la alineación de la caja con respecto al contexto en el que se encuentra y puede ser:
+  - **t**: alinea la línea base de la primera línea con la línea base de la línea actual
+  - **b**: alinea la línea base de la última línea con la línea base de la línea actual.
+
+  Por defecto, se centra verticalmente la caja. Para enfatizarlo, podemos utilizar la opción c.
+
+- `long2` determina la altura de la caja.
+- `pos2` Mediante pos2 podemos determinar dónde se va a colocar el texto dentro de la caja:
+  - **t**: en la parte superior de la caja
+  - **b**: en la parte inferior de la caja
+  - **c**: centrado (verticalmente)
+  - **s**: ocupando toda la caja
+
+Un ejemplo puede ser el siguiente:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.38.png)
+
+El código para generar el ejemplo anterior:
+
+    \begin{minipage}[b]{3cm}
+        texto
+    \end{minipage}
+    Línea actual.
+    \begin{minipage}[c]{3cm}
+        texto
+    \end{minipage}
+    Linea actual
+    \begin{minipage}[t]{3cm}
+        texto
+    \end{minipage}
+
+Otra gran utilidad que tiene es la de poner figuras una al lado de otra.
+
+El entorno minipage se puede utilizar dentro de otros entornos como table y figure para colocar el material de manera adecuada.
+
+En el siguiente ejemplo vamos a poner dos figuras del mismo tamaño teniendo cada una de ellas leyenda propia.
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.39.png)
+
+El código para generar esta situación es el siguiente:
+
+    \begin{figure}[htbl!]
+        \begin{minipage}[b]{0.5\linewidth} %Una minipágina que cubre la mitad de la página
+            \centering
+            \includegraphics[width=6cm]{cataratas3.jpg}
+            \caption{Cataratas de Iguazú (Argentina)} \label{figura1}
+        \end{minipage}
+        \hspace{0.5cm} % Si queremos tener un poco de espacio entre las dos figuras
+        \begin{minipage}[b]{0.5\linewidth}
+            \centering
+            \includegraphics[width=6cm]{casascolores.jpg}
+            \caption{Casas de colores en La Boca (Argentina)} \label{figura2}
+        \end{minipage}
+    \end{figure}
+
+En el siguiente ejemplo volvemos a colocar las dos figuras juntas pero cada una con un tamaño distinto y las dos aunadas en una misma leyenda:
+
+![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/fig4.40.png)
+
+El código para generar esto es el siguiente:
+
+    \begin{figure}[htbl!]
+        \centering
+        \begin{minipage}[c]{8cm}
+            \includegraphics[width=8cm]{cataratas3.jpg}
+        \end{minipage}
+        \begin{minipage}[r]{2cm}
+            \includegraphics[width=2cm]{casascolores.jpg}
+        \end{minipage}
+        \caption{Fotos de Argentina}\label{figures} \label{figura3}
+    \end{figure}
+
+Otro ejemplo:
 
 ![img](https://raw.githubusercontent.com/jmv74211/LaTeX/master/images/ejemplo_minipage.png)
+
 
 ---
 
@@ -1521,6 +1603,8 @@ debe agruparlos juntos entre llaves: `{...}`.
 ## Más información
 
 Para más información acerca de estructuras, teoremas, símbolos ... matemáticos, se puede consultar este **[manual](https://github.com/jmv74211/LaTeX/blob/master/docs/lshort_spanish.pdf)** en el capítulo 3, donde se aborda con más profundidad todos estos temas.
+
+También se puede consultar este **[manual](https://github.com/jmv74211/LaTeX/blob/master/docs/Matemáticas/Fórmulas_matemáticas.pdf)**
 
 ---
 

@@ -1,0 +1,235 @@
+\documentclass[11pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,dsfont}
+% aquí se cargan los paquetes y fuentes de símbolos matemáticos de la AMS donde además se definen nuevos comandos y entornos propios para ecuaciones matemáticas
+
+\usepackage{amsthm} % paquete que facilita la inclusión y definición de nuevos teoremas y entornos matemáticos de la AMS
+
+\usepackage{mathrsfs}%
+%\usepackage{mathscr}{eucal}%
+
+\usepackage{fvrb-ex} % un paquete para poner ejemplos de LaTeX
+
+\title{Escribiendo fórmulas y contenido matemático}
+
+\author{Pedro González Rodelas}
+
+
+
+%\newtheorem{teo}{Teorema.-}
+
+\begin{document}
+	
+\maketitle
+
+
+Para poder componer fórmulas matemáticas {\LaTeX} debe estar en el denominado \emph{modo matemático}, en el que se encuentran disponibles ciertos comandos específicos que pueden producir símbolos matemáticos, aparte de que los espacios son tratados de forma muy distinta que en el \emph{modo texto}.
+
+Por otra parte, en modo matemático hay también dos maneras de componer fórmulas y expresiones matemáticas varias:
+
+\begin{description}
+\item[en modo línea] {\LaTeX} intenta incluir la correspondiente fórmula dentro del mismo párrafo donde se introduce la expresión (ya sea entre dólares \verb+$...$+ o bien usando los delimitadores \verb+\(...\)+ que son una abreviatura de \verb+ \begin{math}...\end{math}+).
+\item[en modo resaltado] En este caso la fórmula aparece por defecto centrada y en una línea aparte, aunque se podría cambiar este comportamiento declarando otra opción {\bf fleqn} en el comando incial \verb|\documentclass|. Para poder incluir contenido matemático en este modo se puede usar cualquiera de las siguientes órdenes:
+
+
+%{ \fboxrule 5pt    \fbox{%
+%\begin{minipage}{%
+\begin{tabular}{lll}
+\$\$                              & Fórmula    &    \$\$    \\
+\verb|\[|                         & Fórmula    &  \verb+\[+ \\
+\verb+\begin{displaymath}+        & Fórmula    & \verb+\begin{displaymath}+
+\end{tabular}
+%\end{minipage}
+%}}
+   
+\end{description}
+
+
+
+Nótese la diferencia entre escribir un sólo dólar:
+
+
+\begin{Example}[gobble=0]
+Sea $f$ la funci\'on de variable real  dada por 
+$f(x)=e^x+2x^2+4$, y sea $\alpha = f(-1)$.
+\end{Example}
+
+\vspace{0.5cm}
+\noindent o escribir doble dólar:
+
+\begin{Example}
+  Sea $f$ la funci\'on de variable real dada por 
+  $$f(x)=e^x+2x^2+4,$$ y sea $\alpha = f(-1)$.
+\end{Example}
+
+\vspace{0.5cm}
+
+Sin embargo, para escribir fórmulas resaltadas es recomendable, en general, el uso de entorno {\tt equation}, ya sea numerado o no (según no lleve asterisco o sí)
+
+\begin{tabular}{lll}
+	\verb+\begin{equation}+           & Fórmula    &    \verb+\end{equation}+    \\
+                                      &            &                             \\
+	\verb+\begin{equation*}+          & Fórmula    &    \verb+\end{equation*}+ 
+\end{tabular}
+
+\vspace{1cm}
+
+Nótese que normalmente, la numeración consistirá de un sólo número entre paréntesis (para el estilo de documento {\tt article}), o bien dos números separados por un punto (para los documentos de estilo {\tt book} o {\tt report}) aunque esto puede depender bastante de los parámetros por defecto que se estén usando en el estilo correspondiente. También por defecto, dicha numeración suele ir a la derecha de la fórmula y pegada al margen. También podemos añadir cierta etiqueta, con el comando \verb|\label{eq:etiqueta}|, para poder hacer referencia a dicha fórmula en cualquier otra parte del documento, ya sea mediante \verb|\eqref{eq:etiqueta}|, o bien mediante las usuales \verb|\ref{eq:etiqueta}| o \verb|\pageref{eq:etiqueta}| (aunque lo de usar `eq:etiqueta' en vez de simplemente `etiqueta' por supuesto que es algo opcional que nosotros recomendamos sólo para identificar qué etiquetas provienen de ecuaciones y qué otras pueden provenir de otro tipo de entornos \LaTeX).
+
+\vspace{0.5cm}
+Veámos algunos ejemplos:
+
+\begin{Example}[gobble=0]
+\begin{equation}\label{eq:integraldef}
+  \int_a^b f(x)\, dx
+\end{equation}
+
+La integral definida \eqref{eq:integraldef},  se podr\'a calcular 
+usando la regla Barrow, siempre que se conozca una primitiva de 
+la funci\'on integrando.
+
+\end{Example}
+
+
+Probemos ahora a probar el entorno ecuación sin numerar, en cuyo caso ya no podremos hacer referencia concreta a ella, ni tampoco tiene sentido ponerle etiqueta.
+
+\begin{Example}[gobble=0]
+	\begin{equation*}%\label{eq:integraldef}
+	\int_a^b f(x)\, dx
+	\end{equation*}
+	
+	La integral definida anterior,  se podr\'a calcular 
+	usando la regla Barrow, siempre que se conozca una primitiva de 
+	la funci\'on integrando.
+	
+\end{Example}
+
+
+A partir de ahora vamos a realizar pruebas y ejemplos relacionados con las expresiones habituales que aparecen en diferentes campos de la ciencia y la técnica y que tienen que ver con fórmulas matemáticas. Nos basaremos en parte del abundante material al respecto que se puede encontrar en Internet. 
+
+
+\begin{equation*}
+  \begin{aligned}
+      \cos^2x+\sen^2x  & = 1\\
+      \cos^2x-\sen^2x & = \cos 2x
+  \end{aligned}
+    \qquad\text{y}\qquad
+  \begin{aligned}
+      \cosh^2x-\senh^2x & = 1\\
+      \cosh^2x+\senh^2x & = \cosh 2x
+  \end{aligned}
+\end{equation*}
+
+
+\begin{equation*}
+  \left[
+    \begin{aligned}
+        u_x & = v_y\\
+        u_y & = -v_x
+    \end{aligned}
+  \right.
+ \quad\text{Ecuaciones de Cauchy-Riemann}
+\end{equation*}
+
+\section{Alfabetos matemáticos}
+
+$$\mathrm{ABCdef}$$
+$$\mathit{ABCdef}$$
+$$\mathnormal{ABCdef}$$
+$$\mathcal{ABC}$$
+$$\mathfrak{ABCdef}$$
+$$\mathbb{ABC}$$
+$$\mathscr{ABC}$$
+
+(para usar este último tipo de letra hace falta cargar previamente el paquete 
+\verb|\usepackage{mathrsfs}|)
+
+
+
+\section{Definiendo nuevos entornos y comandos}
+
+Vamos ahora con una opción muy interesante que tiene {\LaTeX} y es la posibilidad de definir nuevos  entornos y comandos, incluso con argumentos (ya sean opcionales o no, o bien con valores por defecto).
+
+Por ejemplo, vamos a definir en primer lugar un nuevo comando `lis' con dos argumentos (\verb|#1| y \verb|#2|, respectivamente) para generar las componentes de cierto vector $n$-dimensional. Usaremos el siguiente comando
+
+\verb|\newcommand*{lis}[2]{#2_1,\ldots,#2_#1}| 
+\newcommand{\lis}[2]{#2_1,\ldots,#2_#1}
+
+\noindent y lo empleariamos de la siguiente forma  \verb|$\mathbf{x} =(\lis{n}{x})$|, dando como resultado 
+$\mathbf{x} = (\lis{n}{x})$.
+
+$$(\lis{k}{y})$$
+
+Vamos a definir otro nuevo comando, pero ahora con alguno de los dos argumentos opcional
+
+\newcommand{\seq}[2][n]{#2_1,\ldots,#2_#1}
+
+y lo utilizamos a continuación en la siguiente expresión 
+$$
+\mbox{Para cierto  } i\in \{ \seq{t}  \}  
+\text{ tenemos que  } f(i):= \seq[m]{\alpha} 
+$$ 
+
+{\LaTeX} también permite la definición de nuevos entornos, que habitualmente son pequeñas variaciones de entornos ya existentes en el núcleo del propio sistema. El formato para dicha definición del nuevo entorno sería
+\verb|\newenvironment{envname}[args][default]{starting}{ending}| donde 
+`envname' sería el nombre del nuevo entorno, `args serían los posibles argumentos, `default los valores por defecto de los mismos y `begdef',  `enddef' serían los comandos y órdenes a ejecutar, ya sea al comienzo o al cerrar dicho entorno. Veámos un simple ejemplo:
+
+\begin{Example}[gobble=0]
+\newenvironment{Hugeitquote}%
+{\begin{quote}\begin{Huge}\it}%
+{\end{Huge}\end{quote}}
+
+\begin{Hugeitquote}
+	Esta es una cita Enorme ....
+\end{Hugeitquote}
+\end{Example}
+
+Veámos por último un ejemplo de entorno con argumentos
+
+\begin{Example}[gobble=0]
+\newenvironment{qsi}[1]%
+{\begin{quote}#1 escribi\'o: \begin{sloppypar}\it}%
+{\end{sloppypar}\end{quote}}
+
+\begin{qsi}{Joyce}
+	The fall of a once wallstrait oldparr \ldots
+\end{qsi}
+\end{Example}
+
+\section{Definiendo ahora nuevos entornos  matemáticos}
+
+\newtheorem{teo}{Teorema}
+\newtheorem{teo-sec}{Teorema}[section]
+\newtheorem{corol}{Corolario}%{teo}
+\newtheorem{corol-sec}[teo-sec]{Corolario}
+\newtheorem{lema}{Lema}%{teo}
+
+\begin{lema}
+	Este es un lema.
+\end{lema}
+
+\begin{teo}
+	Este es un nuevo tipo de teorema definido por mí
+\end{teo}
+
+\begin{teo}[Pitágoras]
+	El cuadrado de la hipotenusa es igual que la suma de los cuadrados de los catetos de un triángulo rectángulo.
+\end{teo}
+
+\begin{teo-sec}
+	Y este otro tipo de teorema numerado a partir de la sección.
+\end{teo-sec}
+
+\begin{corol}
+	Esto ahora es un corolario.
+\end{corol}
+
+\begin{corol-sec}
+	Y este otro un corolario numerado a partir de la sección.
+\end{corol-sec}
+
+\end{document}
+
+
+
