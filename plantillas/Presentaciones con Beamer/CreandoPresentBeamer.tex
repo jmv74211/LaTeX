@@ -1,0 +1,1025 @@
+% $Header: /cvsroot/latex-beamer/latex-beamer/solutions/conference-talks/conference-ornate-20min.en.tex,v 1.6 2004/10/07 20:53:08 tantau Exp $
+
+\documentclass[11pt]{beamer}
+\usepackage[spanish]{babel}
+\usepackage{amsthm}
+
+
+
+
+
+\mode<presentation> {
+  \usetheme{Warsaw}
+  % or ...
+
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+\usefonttheme[stillsansseriftext,stillsansserifsmall,stillsansseriflarge]{serif}
+%\usefonttheme{structuresamallcapsserif}
+
+%\usepackage[spanish]{babel}
+% or whatever
+
+\usecolortheme{whale}
+
+\usepackage[latin1]{inputenc}
+% or whatever
+
+\usepackage{graphicx,color}
+
+\usepackage{times}
+\usepackage[T1]{fontenc}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+\font\Bb=msbm10
+
+%\colorlet{structure}{green!60!black}
+\def\colorize<#1>{%
+\temporal<#1>{\color{red!50}}{\color{black}}{\color{verde1!50}}}
+
+
+\useinnertheme{rounded}
+\useoutertheme{infolines}
+%\useoutertheme{sidebar}
+%\usefonttheme{structuresmallcapsserif}
+
+
+\colorlet{verde1}{green!80!gray} \colorlet{verde2}{green!60!gray}
+\colorlet{verde3}{green!40!gray} \colorlet{verde4}{-green}
+
+%\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+\setbeamercolor{title}{fg=red!80!black,bg=red!20!white}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{section}[circle]
+
+
+
+\colorlet{mystruct}{structure} % Save current structure
+\colorlet{structure}{magenta} % New structure
+\usestructuretemplate{\color{structure}}{} % \structure{..}
+\beamertemplateshadingbackground{yellow!50}{blue!50} % New background
+
+\colorlet{structure}{mystruct}
+\beamertemplateshadingbackground{blue!10}{yellow!10}
+
+
+\title[Beamer]{ Creando
+presentaciones con Beamer\\Edici\'{o}n de Textos Cient\'{\i}ficos
+con \LaTeX\\Nivel II}
+
+
+%\setbeamertemplate{title page}{
+%\includegraphics[height=\paperheight,width=\paperwidth]{carne1.jpg}
+%}
+
+
+
+\author[L\'opez-Mart\'inez-Quesada]{A.J. L\'{o}pez  \and Juan Mart\'{\i}nez Moreno \and
+J.M. Quesada }
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Ja\'{e}n] % (optional, but mostly needed)
+{
+  Universidad de Ja\'{e}n\\
+  Departamento de Matem\'{a}ticas
+}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[Innovaci\'{o}n Docente, 2007] % (optional, should be abbreviation of conference name)
+{Cursos de Innovaci\'{o}n Docente, 2007}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+\subject{}
+
+\beamertemplatetransparentcoveredhigh
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+
+\AtBeginSection[] {
+  \begin{frame}<beamer>
+    \frametitle{\'{I}ndice}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\AtBeginSubsection[] {
+  \begin{frame}<beamer>
+    \frametitle{\'{I}ndice}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command:
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+
+
+
+
+
+
+\begin{document}
+
+
+%\setbeamerfont{title}{shape=\itshape,family=\rmfamily}
+
+
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{\'{I}ndice}
+  \tableofcontents[pausesections]
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+
+
+\section{Creando presentaciones}
+
+\begin{frame}
+
+\begin{itemize}
+\item Existe un excelente paquete en \LaTeX ~para crear presentaciones: \alert{Beamer}.
+
+\item Beamer est\'a incluido en MikTex.
+
+\item Beamer est\'a dise\~nado para generar directamente un PDF via
+PDFLatex.
+
+\end{itemize}
+
+\end{frame}
+
+\section{Estructura b\'asica}
+
+\begin{frame}[fragile]
+
+\begin{itemize}
+\item El formato b\'asico de un texto en Beamer es como sigue:
+\begin{block}{} \scriptsize
+\begin{semiverbatim}\alert<1>{\\documentclass\{beamer\}}
+\alert<2>{\\title[T\'itulo corto]\{T\'itulo largo\}}
+\alert<3>{\\subtitle\{...\} % Opcional}
+\alert<4>{\\author\{...\}}
+\alert<5>{\\institute\{...\} % Opcional}
+\alert<6>{\\begin\{document\}}
+\alert<7>{\\begin\{frame\}}
+\alert<8>{\\titlepage}
+\alert<9>{\\end\{frame\}}
+\alert<10>{%Trasparencias}
+\alert<11>{\\end\{document\}}
+
+\end{semiverbatim}
+\end{block}
+\end{itemize}
+
+\end{frame}
+\normalsize
+
+
+
+\begin{frame}[fragile]
+
+\begin{itemize}[<+-| alert@+>]
+\item Las transparencias est\'an escritas en el entorno \alert{frame}.
+\item Cualquier comando en \LaTeX ~puede emplearse.
+
+\item
+Transparencia t\'ipica: \begin{block}{} \scriptsize
+\begin{semiverbatim}
+\\begin\{frame\}
+\\frametitle\{T\'itulo de la trasparencia\}
+\\begin\{itemize\}
+\\item Punto 1
+\\item Punto 2
+\\item Punto 3
+\\end\{itemize\}
+\\end\{frame\}
+\end{semiverbatim}
+\end{block}
+\end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\begin{block}{Ejercicio}
+\begin{enumerate}
+\item Crea un fichero ejemplo.
+\item Introduce informaci\'on de autor/t\'itulo en el pre\'ambulo.
+\item Escribe una o varias trasparencias
+\item Crea el PDF y visi\'onalo.
+\end{enumerate}
+\end{block}
+\end{frame}
+
+
+\section{Estilos}
+
+\begin{frame}\frametitle{Temas de presentaci\'on}
+
+
+\begin{block}{} \scriptsize
+\begin{semiverbatim}\\usetheme[opciones]\{nombre de tema\}:
+\end{semiverbatim}
+\end{block}
+
+
+
+\begin{itemize}
+\colorize<1>\item Temas antiguos bars, boxes, classic, default,
+lined, plain, shadow, sidebar, sidebardark, sidebardarktab,
+sidebartab, split, tree, treebars
+
+\colorize<2>\item Temas con navegaci\'on: default, boxes, Bergen,
+Madrid, Pittsburgh, Rochester
+
+\colorize<3>\item Temas en \'arbol: Antibes, JuanLesPins,
+Montpellier.
+
+\colorize<4>\item Temas con TOC: Berkeley, PaloAlto, Goettingen,
+Marburg, Hannover
+
+\colorize<5>\item Temas con mini navegaci\'on: Berlin, Ilmenau,
+Dresden, Darmstadt, Frankfurt, Singapore, Szeged
+
+\colorize<6>\item Temas con t\'itulos y subt\'itulos: Copenhagen,
+Luebeck, Malmoe, Warsaw
+\end{itemize}
+
+\begin{block}<7->{} \scriptsize
+\begin{semiverbatim}
+
+\\usetheme\{Warsaw\}
+\end{semiverbatim}
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Colores y fuentes de los temas}
+
+\begin{block}{} \scriptsize
+\begin{semiverbatim}\\usecolortheme[opci\'on]\{nombre\}
+\end{semiverbatim}
+\end{block}
+
+\begin{itemize}
+\item Temas completos de color: albatross, beetle, crane, dove, fly,
+seagull
+
+\item Temas de color interior: lily, orchid
+
+\item Temas de color exterior: whale, seahorse
+
+\end{itemize}
+
+
+
+\begin{block}{} \scriptsize
+\begin{semiverbatim}\\usefonttheme[opci\'on]\{nombre\}
+\end{semiverbatim}
+\end{block}
+
+\begin{itemize}
+\item fuentes: default, professionalfonts, serif, structurebold,
+structureitalicserif, structuresmallcapsserif
+\end{itemize}
+\end{frame}
+
+
+
+\section{Colores}
+
+\begin{frame}
+\begin{itemize}[<+-| alert@+>]
+\item Beamer carga el paquete \texttt{xcolor}
+
+\begin{block}{} \scriptsize
+\begin{semiverbatim}
+\\xdefinecolor\{lavanda\}\{rgb\}\{0.8,0.6,1\}
+
+\\xdefinecolor\{oliva\}\{cmyk\}\{0.64,0,0.95,0.4\}
+\end{semiverbatim}
+\end{block}
+
+\begin{block}{} \scriptsize
+\begin{semiverbatim}
+\\colorlet\{structure\}\{green!60!black\}
+\end{semiverbatim}
+Para la sustituci\'on de color
+\end{block}
+
+\item Colores Predefinidos: red, green, blue,
+cyan, magenta, yellow, black, darkgray, gray, lightgray, orange,
+violet, purple y brown.
+
+
+
+\item La mezcla de colores es muy sencilla
+\begin{center}
+\begin{tabular}{ccc}
+\hline
+  green!80!gray & {\color{verde1} texto} & 80\% verde + 20\% gris \\
+  green!60!gray & {\color{verde2} texto} & 60\% verde + 40\% gris \\
+  green!40!gray & {\color{verde3} texto} &  40\% verde + 60\% gris\\
+  -green & {\color{verde4} texto} & quita el verde \\
+  \hline
+\end{tabular}
+\end{center}
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+
+\begin{block}{} \scriptsize
+\begin{itemize}
+\item \begin{semiverbatim}\\alert\{texto\} \end{semiverbatim} $\Longrightarrow$ \alert{texto}
+\item \begin{semiverbatim}\\structure\{texto\}\end{semiverbatim} $\Longrightarrow$ \structure{texto}
+\end{itemize}
+\end{block}
+
+
+\begin{block}{} \scriptsize
+\begin{itemize}
+\item Color s\'olido de fondo \begin{semiverbatim}
+\\beamersetaveragebackground\{color\}
+
+\\beamertemplatesolidbackgroundcolor\{color\}
+\end{semiverbatim}
+
+\item Color de fondo gradual \begin{semiverbatim}
+\\beamertemplateshadingbackground\{color1\}\{color2\}
+\end{semiverbatim}
+
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+
+\colorlet{mystruct}{structure} % Save current structure
+\colorlet{structure}{magenta} % New structure
+\usestructuretemplate{\color{structure}}{} % \structure{..}
+\beamertemplateshadingbackground{yellow!50}{blue!50} % New background
+\begin{frame}
+
+\begin{block}{El color de esta p\'agina}
+\begin{semiverbatim}\scriptsize
+\\colorlet\{mystruct\}\{structure\} \% Guarda la estructura actual
+
+\\colorlet\{structure\}\{magenta\} \% Nueva estructura
+
+\\usestructuretemplate\{\\color\{structure\}\}\{\} % \structure{..}
+
+\\beamertemplateshadingbackground\{yellow!50\}\{blue!50\} % New background
+\end{semiverbatim}
+\end{block}
+
+\begin{block}<2->{Volvemos al color antiguo}
+\begin{semiverbatim}\scriptsize
+\\colorlet\{structure\}\{mystruct\}
+
+\\beamertemplateshadingbackground\{blue!10\}\{yellow!10\}
+\end{semiverbatim}
+\end{block}
+
+\end{frame}
+\colorlet{structure}{mystruct}
+\beamertemplateshadingbackground{blue!10}{yellow!10}
+
+
+\section{Teoremas y otros entornos}
+
+\begin{frame}
+
+
+\begin{block}{}
+\begin{semiverbatim}\scriptsize
+\\begin\{block\}\{\}
+
+Un  \\alert\{conjunto\} consiste de elementos.
+
+\\end\{block\}
+\end{semiverbatim}
+\end{block}
+
+\begin{block}{}
+Un \alert{conjunto} consiste de elementos.
+\end{block}
+
+
+
+
+
+\begin{block}<2->{}
+\begin{semiverbatim}\scriptsize
+\\begin\{block\}<2->\{Def.\}
+
+Un  \\alert\{conjunto\} consiste de elementos.
+
+\\end\{block\}
+\end{semiverbatim}
+\end{block}
+
+\begin{block}<2->{Def.}
+Un \alert{conjunto} consiste de elementos.
+\end{block}
+
+
+\begin{block}<3->{}
+\begin{semiverbatim}\scriptsize
+\\begin\{alertblock\}\{Def.\}
+
+Un  \\alert\{conjunto\} consiste de elementos.
+
+\\end\{alertblock\}
+\end{semiverbatim}
+\end{block}
+
+\begin{alertblock}<3->{Def.}
+Un \alert{conjunto} consiste de elementos.
+\end{alertblock}\end{frame}
+
+
+
+\begin{frame}
+
+
+\begin{block}{}
+\begin{semiverbatim}\scriptsize
+\\begin\{theorem\}
+
+There exists an infinite set.
+
+\\end\{theorem\}
+\end{semiverbatim}
+\end{block}
+
+
+\begin{theorem}<1->
+There exists an infinite set.
+\end{theorem}
+
+\begin{block}<2->{}
+\begin{semiverbatim}\scriptsize
+
+\\begin\{proof\}
+
+This follows from the axiom of infinity.
+
+\\end\{proof\}
+\end{semiverbatim}
+\end{block}
+
+
+\begin{proof}<2->
+This follows from the axiom of infinity.
+\end{proof}
+
+\begin{block}<3->{}
+\begin{semiverbatim}\scriptsize
+
+\\begin\{example\}[Natural Numbers]
+
+The set of natural numbers is infinite.
+
+\\end\{example\}
+\end{semiverbatim}
+\end{block}
+
+
+\begin{example}<3->[Natural Numbers]
+The set of natural numbers is infinite.
+\end{example}
+\end{frame}
+
+\section{Columnas}
+
+\begin{frame}
+\frametitle{Columnas}
+
+
+\begin{block}{}
+\begin{semiverbatim}\scriptsize
+\\begin\{columns\}
+
+\\column\{.45\\textwidth\}
+
+\\begin\{block\}\{Pregunta\}
+
+$x^2=1$?
+
+\\end\{block\}
+
+\\column\{.45\\textwidth\}
+
+\\begin\{block\}\{Respuesta\}
+
+$x=1$
+
+\\end\{block\}
+
+\\end\{columns\}
+\end{semiverbatim}
+\end{block}
+
+\begin{columns}
+\column{.45\textwidth}
+\begin{block}{Pregunta}
+$x^2=1$?
+\end{block}
+\column{.45\textwidth}
+\begin{block}{Respuesta}
+$x=1$
+\end{block}
+\end{columns}
+\end{frame}
+
+
+\section{Presentaciones din\'amicas}
+
+\begin{frame}
+
+\begin{block}{}
+
+\begin{columns}
+\column{.45\textwidth}
+\begin{semiverbatim}\scriptsize
+\\begin\{itemize\}
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+\\pause \\item Lo
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+\\pause \\item que
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+\\pause \\item empieza
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+\\pause \\item acaba.
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+\\end\{itemize\}
+\end{semiverbatim}
+
+
+
+\column{.45\textwidth}
+\begin{itemize}
+\pause \item Lo  \pause \item que \pause \item empieza \pause
+\item acaba.
+\end{itemize}
+
+
+\end{columns}
+\end{block}
+
+
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{block}{}
+
+\begin{columns}
+\column{.45\textwidth}
+\begin{semiverbatim}\scriptsize
+\\begin\{itemize\}
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item Lo
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item<2-> que
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item<3-> empieza
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item<4-> acaba.
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+\\end\{itemize\}
+\end{semiverbatim}
+
+
+
+\column{.45\textwidth}
+\begin{itemize}
+\pause \item Lo  \pause \item que \pause \item empieza \pause
+\item acaba.
+\end{itemize}
+
+
+\end{columns}
+\end{block}
+
+
+
+
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+
+\begin{block}{}
+
+\begin{columns}
+\column{.45\textwidth}
+\begin{semiverbatim}\scriptsize
+\\begin\{itemize\}[<+->]
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item Lo
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item que
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item empieza
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item ...
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+\\end\{itemize\}
+\end{semiverbatim}
+
+
+
+\column{.45\textwidth}
+\begin{itemize}
+\pause \item Lo  \pause \item que \pause \item empieza \pause
+\item ...
+\end{itemize}
+
+
+\end{columns}
+\end{block}
+
+
+
+
+
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{block}{}
+
+\begin{columns}
+\column{.45\textwidth}
+\begin{semiverbatim}\scriptsize
+\\begin\{itemize\}
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item<1-> Lo
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item<3-4> que
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item<3-> empieza
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item<2-4> acaba.
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item<4> \\alert\{Verdad?\}
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+\\end\{itemize\}
+\end{semiverbatim}
+
+
+
+\column{.45\textwidth}
+\begin{itemize}
+\item<1-> Lo   \item<3-4> que  \item<3-> empieza
+\item<2-3> acaba. \item<4>\alert{Verdad?}
+\end{itemize}
+
+
+\end{columns}
+\end{block}
+
+
+
+
+
+
+\end{frame}
+
+
+
+\begin{frame}
+
+\begin{block}{}
+
+\begin{columns}
+\column{.45\textwidth}
+\begin{semiverbatim}\scriptsize
+\\begin\{itemize\}
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item<+-| alert@+> Lo
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item<+-| alert@+> que
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item<+-| alert@+> empieza
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item<+-| alert@+> acaba.
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+\\end\{itemize\}
+\end{semiverbatim}
+
+
+
+\column{.45\textwidth}
+\begin{itemize}
+ \item<+-| alert@+> Lo   \item<+-| alert@+> que  \item<+-| alert@+> empieza
+\item<+-| alert@+> acaba.
+\end{itemize}
+
+
+\end{columns}
+\end{block}
+
+
+
+
+
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{block}{}
+
+\begin{columns}
+\column{.45\textwidth}
+\begin{semiverbatim}\scriptsize
+\\begin\{itemize\}[<+-| alert@+>]
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item Lo
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item que
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item empieza
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item acaba.
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+\\end\{itemize\}
+\end{semiverbatim}
+
+
+
+\column{.45\textwidth}
+\begin{itemize}
+ \item<+-| alert@+> Lo   \item<+-| alert@+> que  \item<+-| alert@+> empieza
+\item<+-| alert@+> acaba.
+\end{itemize}
+
+
+\end{columns}
+\end{block}
+
+
+
+
+
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{block}{}
+
+\begin{columns}
+\column{.45\textwidth}
+\begin{semiverbatim}\scriptsize
+\\begin\{itemize\}
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item<1-|alert@2> Lo
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item<3-|alert@1> que
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item<1-2|alert@2> empieza
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item<2-4> acaba.
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+ \\item<4> \\alert\{Tiene esto fin?\}
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+\\end\{itemize\}
+\end{semiverbatim}
+
+
+
+\column{.45\textwidth}
+\begin{itemize}
+\item<1-|alert@2> Lo   \item<3-|alert@1> que
+\item<1-2|alert@2> empieza
+\item<2-4> acaba. \item<4>\alert{Tiene esto fin?}
+\end{itemize}
+
+
+\end{columns}
+\end{block}
+
+
+
+
+
+
+\end{frame}
+
+
+\begin{frame}
+
+
+
+
+
+
+\begin{block}{}
+
+\begin{columns}
+\column{.20\textwidth}
+\begin{itemize}
+\item<2-> \alt<2>{\color{magenta} Lo}{\color{red} acaba}
+\item<4-> \alt<4>{\color{blue} que}{\color{green} lo }
+\item<6-> \alt<6>{\color{blue} lo }{\color{yellow} que}
+\item<8-> \alt<8>{\color{blue} acaba}{\color{magenta} lo}
+\end{itemize}
+
+\column{.75\textwidth}
+\begin{semiverbatim}\scriptsize
+\\begin\{itemize\}
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+\\item<2-> \\alt<2>\{\\color\{magenta\} Lo\}\{\\color\{red\} acaba\}
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+\\item<4-> \\alt<4>\{\\color\{blue\} que\}\{\\color\{green\} lo \}
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+\\item<6-> \\alt<6>\{\\color\{blue\} lo\}\{\\color\{yellow\} que\}
+\end{semiverbatim}
+
+
+\begin{semiverbatim}\scriptsize
+\\item<8-> \\alt<8>\{\\color\{blue\} acaba\}\{\\color\{magenta\} lo\}
+\end{semiverbatim}
+
+\begin{semiverbatim}\scriptsize
+\\end\{itemize\}
+\end{semiverbatim}
+
+
+
+
+\end{columns}
+\end{block}
+
+
+
+
+
+
+\end{frame}
+
+\begin{frame}
+
+\begin{block}{}\scriptsize
+\begin{semiverbatim}\\only<1>\{Estoy en 1\}\\only<2>\{Estoy en 2\}\\only<3>\{Estoy en 3\}
+\end{semiverbatim}
+\only<1>{Estoy en 1}\only<2>{Estoy en 2}\only<3>{Estoy en 3}
+\end{block}
+
+
+
+
+\begin{block}<4->{}\scriptsize
+\begin{semiverbatim}\\uncover<4>\{Estoy en 4\}
+\end{semiverbatim}
+\uncover<4>{Estoy en 4}
+\end{block}
+
+
+
+\begin{block}<5->{}\scriptsize
+\begin{semiverbatim}\\invisible<5>\{No estoy en 5\}
+\end{semiverbatim}
+\invisible<5>{No estuve en 5. Estoy en 6}
+\end{block}
+
+\begin{block}<7->{}\scriptsize
+\begin{semiverbatim}\\alt<6>\{Estoy en 7\}\{Estoy en 8\}
+\end{semiverbatim}
+\alt<7>{Estoy en 7}{Estoy en 8}
+\end{block}
+
+\only<8>{Alberto, no te duermas}
+
+
+
+
+
+
+
+
+
+
+\end{frame}
+
+
+
+\end{document}

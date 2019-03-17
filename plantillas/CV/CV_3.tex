@@ -1,0 +1,169 @@
+%!TEX TS-program = xelatex
+\documentclass[]{friggeri-cv}
+\usepackage{afterpage}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{xcolor}
+\hypersetup{
+    pdftitle={},
+    pdfauthor={},
+    pdfsubject={},
+    pdfkeywords={},
+    colorlinks=false,       % no lik border color
+   allbordercolors=white    % white border color for all
+}
+\addbibresource{bibliography.bib}
+\RequirePackage{xcolor}
+\definecolor{pblue}{HTML}{0395DE}
+
+\begin{document}
+\header{Carmine}{Benedetto}
+      {Computer Engineer}
+      
+% Fake text to add separator      
+\fcolorbox{white}{gray}{\parbox{\dimexpr\textwidth-2\fboxsep-2\fboxrule}{%
+.....
+}}
+
+% In the aside, each new line forces a line break
+\begin{aside}
+  \section{Address}
+    Viale Fulvio Testi, 62
+    20126, Milano, Italy
+    ~
+  \section{Tel \& Skype}
+    +39 329 7216527
+    neoben86
+    ~
+  \section{Mail}
+    \href{mailto:carmine.benedetto@gmail.com}{\textbf{carmine.benedetto@}\\gmail.com}
+    \href{mailto:carmine@carminebenedetto.net}{\textbf{carmine@}\\carminebenedetto.net}
+    ~
+  \section{Web \& Git}
+    \href{http://www.carminebenedetto.net}{carminebenedetto.net}
+    \href{https://bitbucket.org/neoben}{bitbucket.org/neoben}
+    \href{https://github.com/neoben}{github.com/neoben}
+    ~
+  \section{Programming}
+    \includegraphics[scale=0.62]{img/programming.png}
+    ~
+  \section{OS Preference}
+    \textbf{GNU/Linux}\includegraphics[scale=0.40]{img/5stars.png}
+    \textbf{Unix}\includegraphics[scale=0.40]{img/4stars.png}
+    \textbf{MacOS}\includegraphics[scale=0.40]{img/2stars.png}
+    \textbf{Windows}\includegraphics[scale=0.40]{img/1stars.png}
+    ~
+  \section{Personal Skills}
+    \includegraphics[scale=0.62]{img/personal.png}
+    ~
+\end{aside}
+
+\section{Experience}
+\begin{entrylist}
+  \entry
+    {02/13 - Now}
+    {Software Engineer}
+    {Fluidmesh Networks SRL, Milano, Italy}
+    {Design and development of algorithms, solutions and high speed mobility           schemes for Wireless Mesh Networks. Design and development of embedded software     for Wireless Network devices.\\}
+  \entry
+    {01/12 - 01/13}
+    {Freelance Developer \& Consultant}
+    {Icosaedro Solutions}
+    {Design and development of Android Applications, Web Solutions, Unix and GNU/Linux software.\\}
+    \entry
+    {12/09 - 06/09}
+    {Project Manager and Webmaster}
+    {D.I.D.A.G., Grassano (MT), Italy}
+    {Design, development and management of an e-commerce website on Joomla!1.5 CMS platform.\\}
+    \entry
+    {06/09 - 09/09}
+    {Part-time collaboration}
+    {Area Sistemi Informatici, Università di Pisa, Italy}
+    {Computer technical support. Problem solving related to hardware, software and Operating Systems. Management of the internal network.\\}
+    \entry
+    {06/09 - 09/09}
+    {Internship}
+    {Atitlan Engineering SRL, Pisa, Italy}
+    {Management and migration of servers. Development of web templates and interfaces. Management of SQL databases.}
+\end{entrylist}
+
+\section{Education}
+\begin{entrylist}
+  \entry
+    {2009 - 2012}
+    {Master's Degree in Computer Engineering}
+    {Università di Pisa, Italy}
+    {Curriculum Networking and Multimedia.\\
+    Main subjects: Network Applications, Systems Architecture and Security, Mobile Applications, Multemedia Information            Processing.\\
+    \emph{Title of the Thesis: "A Handoff Algorithm based on Link Quality Prediction for Mass Transit Wireless Mesh Networks"      .}\\
+    \emph{Relators: Prof. Enzo Mingozzi, Ing. Carlo Vallati, Prof. Luciano Lenzini.}\\}
+  \entry
+    {2005 - 2009}
+    {Bachelor's Degree in Computer Engineering}
+    {Università di Pisa, Italy}
+    {Main subjects: Matematics and Physics, Programming, Operational Research, Telecommunication Systems, Digital and Analogical Electronics.\\
+    \emph{Title of the Thesis: "Development, Management and Migrations of web contents and applications".}\\
+    \emph{Thesis activity carried out during an internship period at Atitlan Engineering SRL.}\\}
+  \entry
+    {2000 - 2005}
+    {Scientific Disploma.}
+    {Liceo Scientifico, Matera, Italy}
+    {Scientific Secondary School.\\
+    Main subjects: Matematics, Physics, Computer Science.}
+\end{entrylist}
+
+\section{Certifications}
+\begin{entrylist}
+  \entry
+    {02/2013}
+    {Intro to Computer Science}
+    {Udacity. E-learning}
+    {\emph{Building a Python Search Engine}}
+\end{entrylist}
+
+\newpage
+
+\begin{aside}
+~
+~
+~
+  \section{Places Lived}
+    \includegraphics[scale=0.25]{img/italia.png}
+    ~
+  \section{Languages}
+    \textbf{Italian}\includegraphics[scale=0.40]{img/5stars.png}
+    \textbf{English}\includegraphics[scale=0.40]{img/4stars.png}
+\end{aside}
+
+\section{Publications}
+C. Benedetto, E. Mingozzi, C. Vallati\\
+\textbf{A Handoff Algorithm based on Link Quality Prediction for Mass Transit Wireless Mesh Networks}\\
+\emph{Proceedings of the 18th IEEE Symposium on Computers and Communications (ISCC 2013), Split, Croatia, July 7-10, 2013}
+\\
+\section{Other Info}
+For the Italian job market:\\
+\emph{Si autorizza il trattamento delle informazioni contenute nel curriculum in conformità alle disposizioni previste dal d.lgs. 196/2003. Si dichiara altresì di essere consapevole che, in caso di dichiarazioni non veritiere, si è passibili di sanzioni penali ai sensi del DPR 445/00 oltre alla revoca dei benefici eventualmente percepiti.}
+\\
+\begin{flushleft}
+\emph{January 14th, 2014}
+\end{flushleft}
+\begin{flushright}
+\emph{Carmine Benedetto}
+\end{flushright}
+
+%%% This piece of code has been commented by Karol Kozioł due to biblatex errors. 
+% 
+%\printbibsection{article}{article in peer-reviewed journal}
+%\begin{refsection}
+%  \nocite{*}
+%  \printbibliography[sorting=chronological, type=inproceedings, title={international peer-reviewed conferences/proceedings}, notkeyword={france}, heading=subbibliography]
+%\end{refsection}
+%\begin{refsection}
+%  \nocite{*}
+%  \printbibliography[sorting=chronological, type=inproceedings, title={local peer-reviewed conferences/proceedings}, keyword={france}, heading=subbibliography]
+%\end{refsection}
+%\printbibsection{misc}{other publications}
+%\printbibsection{report}{research reports}
+
+\end{document}
+

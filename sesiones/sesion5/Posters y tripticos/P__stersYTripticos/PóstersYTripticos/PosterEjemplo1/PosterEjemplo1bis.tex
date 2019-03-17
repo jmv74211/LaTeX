@@ -1,0 +1,185 @@
+\documentclass[x11names,table,usenames,dvipsnames]{beamer}
+  \usepackage[orientation=portrait,size=a1,scale=1.1,debug]{beamerposter}                      
+
+  \mode<presentation> {  
+    \usetheme{Warsaw}
+  }
+  
+  \usefonttheme[onlymath]{serif}
+  \boldmath
+  
+  \usepackage[spanish]{babel}
+  \usepackage[utf8]{inputenc}
+  \usepackage{amsmath,amsthm, amssymb, latexsym}
+  
+ 
+  \usebackgroundtemplate{
+\includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio]{Fondo}
+  }
+  
+  \addtobeamertemplate{block begin}{\pgfsetfillopacity{0.5}}{\pgfsetfillopacity{1}}
+ \addtobeamertemplate{block alerted begin}{\pgfsetfillopacity{0.5}}{\pgfsetfillopacity{1}}
+ \addtobeamertemplate{block example begin}{\pgfsetfillopacity{0.5}}{\pgfsetfillopacity{1}}
+ 
+ \beamertemplatenavigationsymbolsempty
+  
+  \title[CIEMAC]{}%{\VERYHuge Haciendo un poster en \LaTeX}
+  \author{}%{\huge Alexander Borb\'on Alp\'izar}
+  \institute[ITCR]{\Large Instituto Tecnol\'ogico de Costa Rica}
+  \date{Diciembre, 2011}
+  
+  \begin{document}
+
+  \begin{frame}[plain]{} 
+
+    \hspace*{5cm}
+      \includegraphics[scale=1.5]{LogoCIEMAC}
+      \hspace*{9cm}
+      \vspace*{-3cm}
+      \includegraphics[scale=2.5]{LogoTECMemorias}
+      
+    \vspace*{2cm}
+    \maketitle
+    \vspace*{-2cm}
+    \begin{columns}[t]
+    \begin{column}{.8\linewidth}
+    \begin{block}{}
+      El Instituto Tecnológico de Costa Rica en respuesta a su compromiso con el desarrollo del país y con su vocación constante de apoyo integral con la educación costarricense tiene el agrado de invitar a profesores y profesoras de matemática de educación media y a maestros y maestras de primaria al $7^\circ$ Congreso Internacional sobre Enseñanza de la Matemática Asistida por Computadora.
+
+Este congreso está orientado a ofrecer a los educadores y educadoras del país tres días de reflexión y capacitación sobre temas relacionados con la matemática y su enseñanza.
+
+La actividad es organizada por la Escuela de Matemática del Instituto Tenológico de Costa Rica.
+    \end{block}
+    \end{column}
+    \end{columns}
+    \vfill
+    \begin{columns}[t]
+      \begin{column}{.48\linewidth}
+        \begin{block}{Ejes Temáticos}
+El trabajo académico se centrará en los siguientes ejes temáticos:
+
+\begin{itemize}
+\item Área de Software para Educación.
+
+\item Área de Desarrollo del Razonamiento.
+
+\item Área de evaluación de software.
+\end{itemize}
+
+Se desarrollará fundamentalmente a través de conferencias y talleres de trabajo.
+        \end{block}
+        
+        \begin{block}{Expositores}
+El congreso contará con diversos expositores tanto nacionales como extranjeros, entre los más destacados están:
+
+\begin{itemize}
+\item Ricardo Nemirovsky (Estados Unidos)
+
+\item Edison DeFaria (Costa Rica)
+
+\item Norma Noguera (Estados Unidos)
+
+\item José Luis Lupiañez (España)
+
+\item Mario Marín (Costa Rica)
+
+\item Feliú Sagols (México)
+
+\item Victor Palencia (México)
+
+\item Norma Goris (México)
+
+\item Teresa Carrillo (México)
+\end{itemize}
+        \end{block}
+        
+        \begin{block}{Recepción de trabajos}
+Las modalidades para los trabajos son:
+
+\begin{itemize}
+\item Talleres.
+
+\item Cursos cortos
+
+\item Conferencias
+\end{itemize}
+
+Le invitamos a enviar sus propuestas al correo \url{aborbon@itcr.ac.cr}, pueden ser talleres de 2, 4 o 6 horas ya sean sobre software o en evaluación  y diseño de actividades curriculares, ponencias que demuestren resultados de investigaciones o reportes de experiencias exitosas en el uso de tecnología en los procesos de enseñanza aprendizaje de la  matemática, éstas  tienen una duración  30 minutos o bien de una hora si el proponente lo justifica. 
+
+Además se desarrollarán otras actividades tendientes a fomentar en los docentes el interés por utilizar software educativo en matemática y en general para ayudarles a crecer profesionalmente mediante la actualización en temas de relevancia como resolución de problemas y uso de software en educación. 
+
+\textcolor{Blue}{La fecha límite para el envío de propuestas es el 15  de septiembre del 2011.}
+        \end{block}
+        
+        \begin{block}{Comité organizador}
+M.Sc. Mario Marín Sánchez, ITCR (coordinador)
+
+M.Sc. Cristhian Páez Páez, ITCR
+
+M.Sc. Alexander Borbón Alpízar, ITCR
+
+M.Sc. Jorge Monge Fallas, ITCR
+
+M.Sc. Cindy Calderón, ITCR
+
+Lic. Rebeca Solís Ortega
+        \end{block}
+      \end{column}
+      \begin{column}{.48\linewidth}
+        \begin{block}{Cronograma propuesto}
+\begin{center}
+\rowcolors{1}{gray!5}{gray!20}
+\begin{tabular}{| >{\centering\arraybackslash}m{6cm} | >{\centering\arraybackslash}m{6cm} | >{\centering\arraybackslash}m{6cm} | >{\centering\arraybackslash}m{6cm} |} \hline %{|p{3.3cm}|p{3.8cm}|p{3.8cm}|p{3.8cm}|} \hline
+\rowcolor{LightBlue2} {\bf Hora} & {\bf Miércoles 16} & {\bf Jueves 17} & {\bf Viernes 18}  \\ \hline 
+ 8:00 am a 9:00 am &  Inscripción, inauguración y desayuno & Conferencia plenaria & Conferencia plenaria \\ \hline 
+9:00 am a 10:00 am & Conferencia inaugural & Conferencia plenaria & Conferencia plenaria \\ \hline 
+10:00 am a 10:30 am & \multicolumn{3}{|c|}{Refrigerio} \\ \hline 
+10:30 am a 12:20 pm & Talleres y ponencias & Talleres y ponencias & Cierre y entrega de certificados \\ \hline 
+12:30 pm a 1:30 pm & \multicolumn{3}{|c|}{Almuerzo} \\ \hline 
+1:30 pm a 3:00 pm & Talleres y ponencias & Talleres y ponencias &  \\ \hline 
+3:00 pm a 3:30 pm & \multicolumn{2}{|c|}{Refrigerio} &  \\ \hline 
+3:30 pm a 5:00 pm & Talleres y ponencias & Talleres y ponencias &  \\ \hline 
+5:00 pm a 6:00 pm & Actividades de integración & Actividades de integración &  \\ \hline 
+\end{tabular}
+\end{center}
+        \end{block}
+        \begin{block}{Inscripción y costos}
+\begin{center}
+\rowcolors{1}{gray!5}{gray!20}
+\begin{tabular}{|p{10cm}|p{6cm}|p{6cm}|} \hline
+\rowcolor{LightBlue2} {\bf Tipo de participación} & {\bf Inscripción temprana} & {\bf Inscripción general}  \\ %\savehline 
+Ponente nacional &  C \hspace*{-10.2mm} \textbar \hspace*{-4.2mm} \textbar 10 000 & C \hspace*{-10.2mm} \textbar \hspace*{-4.2mm} \textbar 25 000 \\ %\savehline 
+Ponente extranjero & \$50 & \$60 \\ %\savehline 
+Estudiante nacional & C \hspace*{-10.2mm} \textbar \hspace*{-4.2mm} \textbar 12 000 & C \hspace*{-10.2mm} \textbar \hspace*{-4.2mm} \textbar17 000 \\ %\savehline 
+Estudiante extranjero & \$60 & \$70 \\ %\savehline 
+Participante nacional & C \hspace*{-10.2mm} \textbar \hspace*{-4.2mm} \textbar 20 000 & C \hspace*{-10.2mm} \textbar \hspace*{-4.2mm} \textbar 25 000 \\ %\savehline 
+Participante extranjero & \$75 & \$100 \\ \hline 
+\end{tabular}
+\end{center}
+
+\textcolor{blue}{Observaciones:}
+
+\begin{itemize}
+\item Los precios de ponente son para aquellos expositores que desean participar en todo el evento y recibir título de participación.
+
+\item La cuota de inscripción incluye: 5 refrigerios (mañana y tarde), bolso del evento, CD de memorias del evento, título de participación, gafete, programa de actividades, calendario y derecho a asistencia a las actividades incluidas en el programa.
+\end{itemize}
+        \end{block}
+        \begin{block}{Contacto}
+Si desea recibir información adicional sobre el congreso o tiene alguna duda del evento, por favor escribir a \url{ciemac@itcr.ac.cr} o a Mario Marín a \url{mmarin@itcr.ac.cr}
+
+Escuela de Matemática
+
+Instituto Tecnológico de Costa Rica
+
+Cartago, Costa Rica
+
+Teléfono: (506)2552-5333 / (506) 2550-2225, Fax: (506) 2550-2493
+
+Apartado Postal: 159-7050 Cartago, Costa Rica
+        \end{block}
+      \end{column}
+    \end{columns}
+
+  \end{frame}
+\end{document}

@@ -1,0 +1,1673 @@
+\section{Álgebra de Boole}
+
+% https://www.gatevidyalay.com/neutral-functions/
+% https://www.gatevidyalay.com/self-dual-functions-dual-of-a-boolean-expression/
+
+\begin{definition}
+  Sea $\varphi$ una expresión booleana. $\varphi$ es autodual sii, por
+  definición, $\varphi^{d}=\varphi$.
+\end{definition}
+
+\begin{exercise}
+  Compruebe si la expresión booleana:
+  \begin{equation*}
+    \varphi=xy+yz+zx
+  \end{equation*}
+  es autodual.
+  %https://math.stackexchange.com/questions/2493779/self-dual-functions
+\end{exercise}
+
+\begin{solution}
+  Lo es. En efecto:
+  \begin{align*}
+    \varphi^{d}&=(x+y)(y+z)(z+x)\\
+               &=x(y+z)(z+x)+y(y+z)(z+x)\\
+               &=(xy+xz)(z+x)+(yy+yz)(z+x)\\
+               &=(xy+xz)z+(xy+xz)x+(y+yz)z+(y+yz)x\\
+               &=xyz+xzz+xyx+xzx+yz+yzz+yx+yzx\\
+               &=xyz+xz+xy+xz+yz+yz+yx+yzx\\
+               &=xz+yz+yx+yzx\\
+               &=(xy+xyz)+yz+zx\\
+               &=xy+yz+zx\\
+  \end{align*}
+  De donde, $\varphi^{d}=\varphi$ y esto revela la autodualidad.
+\end{solution}
+
+\begin{theorem}
+  Sea $\varphi$ una expresión booleana. Son equivalentes las
+  siguientes afirmaciones:
+  \begin{enumerate}
+  \item $\varphi$ es autodual.
+  \item $f_{\varphi}(x_{1},\ldots,x_{n})=f(x_{1}',\ldots,x_{n}')'$
+  \end{enumerate}
+\end{theorem}
+
+\begin{exercise}
+  Demuestre que si $\varphi$ y $\psi$ son expresiones booleanas tales
+  que $\varphi=\psi$, entonces son equivalentes:
+  \begin{enumerate}
+  \item $\varphi$ es autodual.
+  \item $\psi$ es autodual.
+  \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+  Supongamos que $\varphi=\psi$ y que $\varphi$ es autodual. Entonces:
+  \begin{align*}
+    \psi^{d}&=\varphi^{d}\\
+            &=\varphi\\
+            &=\psi
+  \end{align*}
+  Esto es suficiente.
+\end{solution}
+
+\begin{definition}
+  Una función booleana es autodual sii, por def., al menos una de
+  las expresiones booleanas que la engendran (y por tanto todas) es
+  autodual.
+\end{definition}
+
+\begin{definition}
+  \index{función! booleana neutra} Una función booleana es
+  \textit{neutra} sii, por definición, viene descrita por el mismo
+  número de minterm que de maxterm.
+\end{definition}
+
+\begin{exercise}
+  ¿Cuántas funciones booleanas neutras de $n$ símbolos de variable hay?
+\end{exercise}
+
+\begin{solution}
+  Si ha de tener $n$ símbolos de variable, hay $2^{n}$ minterm. Si ha
+  de ser neutra, vendrá descrita por $2^{n-1}$ minterm. La pregunta es
+  cuántas posibles elecciones de estos $2^{n-1}$ minterm pueden
+  hacerse entre los $2^{n}$ minterm. Dada la conmutatividad de la suma
+  en las expresiones, el número buscado es $C(2^{n},2^{n-1})$, es decir:
+  \begin{equation*}
+    \binom{2^{n}}{2^{n-1}}
+  \end{equation*}
+\end{solution}
+
+\begin{exercise}
+  \label{exer:neutras2}
+  Diga el número de funciones booleanas neutras con dos símbolos de
+  variable y encuentre todas ellas:
+\end{exercise}
+
+\begin{solution}
+  El número de tales funciones booleanas es:
+  \begin{align*}
+    C(2^{n},2^{n-1})&=C(4,2)\\
+                    &=\binom{4}{2}\\
+                    &=\frac{4!}{2!2!}\\
+                    &=\frac{24}{4}\\
+                    &=6
+  \end{align*}
+  Las funciones son:
+  \begin{align*}
+    h_{0}(x,y)&=\sum m(0,1)=x'y'+x'y=x'(y'+y)=x'\\
+    h_{1}(x,y)&=\sum m(0,2)=x'y'+xy'=y'\\
+    h_{2}(x,y)&=\sum m(0,3)=x'y'+xy=x\equiv y\\
+    h_{3}(x,y)&=\sum m(1,2)=x'y+xy'=x\oplus y\\
+    h_{4}(x,y)&=\sum m(1,3)=x'y+xy=y\\
+    h_{5}(x,y)&=\sum m(2,3)=xy'+xy=x
+  \end{align*}
+\end{solution}
+
+\begin{definition}
+  Dado un minterm, su minterm mutuamente exclusivo es el obtenido
+  del primero cambiando cada una de los símbolos de variable que lo
+  forman por el complemento del mismo.
+\end{definition}
+
+\begin{lemma}
+  Sean $m_{1}$ y $m_{2}$ minterm de $n$ símbolos de variable
+  ($1\leq n$), con respresentaciones decimales respectivas:
+  $k_{m_{1}}$ y $k_{m_{2}}$. Son equivalentes las siguientes
+  afirmaciones:
+  \begin{enumerate}
+  \item $\langle m_{1},m_{2}\rangle$ es una pareja de minterm
+    mutuamente exclusivos.
+  \item $k_{m_{1}}+k_{m_{2}}=2^{n}-1$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{example}
+  Las siguientes parejas son de minterm mutuamente exclusivos:
+  \begin{itemize}
+  \item $\langle xyz,x'y'z'\rangle$; $k_{xyz}=7$, $k_{x'y'z'}=0$,
+    $7+0=7=8-1=2^{3}-1$. 
+  \item $\langle xy'z,x'yz'\rangle$; $k_{xyz}=5$, $k_{x'y'z'}=2$,
+    $5+2=7=8-1=2^{3}-1$.
+  \end{itemize}
+\end{example}
+
+\begin{theorem}
+  Sea $\varphi$ una expresión booleana en la que ocurren $n$ símbolos
+  de variable, siendo $n$ cualquier número natural no nulo. Son
+  equivalentes las siguientes afirmaciones:
+  \begin{enumerate}
+  \item $\varphi$ es autodual.
+  \item $f_{\varphi}$ es neutra y ninguna pareja de los minterm que la
+    describen es una pareja de minterm mutuamente exclusivos.
+  \end{enumerate}
+\end{theorem}
+
+\begin{exercise}
+  ¿Cuántas expresiones autoduales con $n$ símbolos de variable hay?
+  % https://www.gatevidyalay.com/self-dual-functions-dual-of-a-boolean-expression/
+\end{exercise}
+
+\begin{solution}
+  Una expresión autodual debe ser neutra y para ello debe ocurrir que
+  el número de sus minterm sea igual al de sus maxterm. Así pues,
+  estará representada por la mitad de los minterm para ese número de
+  símbolos de varialbe, i.e.  $2^{n-1}=2^{n}/2$ términos. Ahora bien,
+  para cada uno de esos minterm tenemos $2$ opciones: incluirlo (y
+  entonces no estará incluido su minterm mutuamente exclusivo) o no (y
+  entonces estará incluido su minterm mutuamente exclusivo); así pues,
+  el número de expresiones autoduales es $2^{2^{n-1}}$.
+\end{solution}
+
+\begin{exercise}
+  Diga el número de expresiones booleanas autoduales con dos símbolos de
+  variable y encuentre todas ellas:
+\end{exercise}
+
+\begin{solution}
+  El número de tales funciones booleanas es
+  $2^{2^{2-1}}=2^{2}=4$. Dichas expresiones estarán entre las
+  expresiones con dos símbolos de variable que engendran funciones neutras
+  con dos símbolos de variable. Estas fueron determinadas en el
+  \hyperref[exer:neutras2]{Ejercicio \ref*{exer:neutras2}} y eran: 
+  \begin{align*}
+    h_{0}(x,y)&=\sum m(0,1)=x'y'+x'y=x'(y'+y)=x'\\
+    h_{1}(x,y)&=\sum m(0,2)=x'y'+xy'=y'\\
+    h_{2}(x,y)&=\sum m(0,3)=x'y'+xy=x\equiv y\\
+    h_{3}(x,y)&=\sum m(1,2)=x'y+xy'=x\oplus y\\
+    h_{4}(x,y)&=\sum m(1,3)=x'y+xy=y\\
+    h_{5}(x,y)&=\sum m(2,3)=xy'+xy=x
+  \end{align*}
+  pero de ellas hemos de excluir $h_{2}(x,y)=\sum m(0,3)$, pues
+  $0+3=3=2^{2}-1$ y $h_{3}(x,y)=\sum m(1,2)$ pues $1+2=3=2^{2}-1$. Así
+  pues, las expresiones autoduales sobre dos símbolos de variable son:
+  \begin{itemize}
+  \item $x'$
+  \item $y'$
+  \item $x$
+  \item $y$
+  \end{itemize}
+\end{solution}
+
+\begin{exercise}
+  Componga un programa en \texttt{Python} o \texttt{Haskell} que dado
+  un número natural no nulo $n$, encuentre (por al menos una expresión
+  que las engendre) todas y cada una de las funciones booleanas de $n$
+  variables que sean autoduales.
+\end{exercise}
+
+\begin{exercise}
+  De las siguientes funciones:
+  \begin{enumerate}
+  \item $f(x,y,z)=\sum m(0,2,3)$\\
+  \item $g(x,y,z)=\sum m(0,1,6,7)$\\
+  \item $h(x,y,z)=\sum m(0,1,2,4)$\\
+  \item $k(x,y,z)=\sum m(3,5,6,7)$\\
+  \end{enumerate}
+  diga cuales están realizadas por expresiones autoduales.
+\end{exercise}
+
+\begin{solution}
+  El número de minterm posibles para expresar funciones de $3$
+  símbolos de variable son $8$. Esto excluye de las consideraciones a
+  $f(x,y,z)$, que no puede provenir de una expresión autodual al ser
+  suma de $3$ minterm y no de $4$. Para el resto, tengamos en cuenta
+  que $2^{3}-1=7$; así pues:
+  \begin{itemize}
+  \item $g(x,y,z)$ no puede ser autodual, pues por ejemplo $6+1=7$
+    aunque también $0+7=7$.
+  \item $h(x,y,z)$ es autodual, pues: viene descrita por $4$ minterm y
+    $0+1\neq 7$, $0+2\neq 7$, $0+4\neq 7$, $1+2\neq 7$, $1+4\neq 7$ y
+    $2+4\neq 7$.
+  \item $k(x,y,z)$ es autodual, pues: viene descrita por $4$ minterm y
+    $3+5\neq 7$, $3+6\neq 7$, $3+7\neq 7$, $5+6\neq 7$, $5+7\neq 7$ y
+    $6+7\neq 7$.
+  \end{itemize}
+\end{solution}
+
+\begin{exercise}
+  Compruebe si la expresión booleana:
+  \begin{equation*}
+    \varphi=xy+yz+zx
+  \end{equation*}
+  es autodual.
+\end{exercise}
+
+\begin{solution}
+  El número de símbolos de variable utilizado para describir $\varphi$
+  es $3$. Tenemos que $2^{3-1}=4$ y que $2^{3}-1=7$. Por otra parte,
+  \begin{equation*}
+    f_{\varphi}(x,y,z)=\sum m(3,5,6,7)
+  \end{equation*}
+  Dado que $f_{\varphi}$ viene expresada por $4$ minterm y que ninguna
+  pareja de ellos es de miterm mutuamente exclusivo (basta observar
+  que $3+5>7$), concluimos que $f_{\varphi}$ es autodual y que también
+  lo es $\varphi$.
+\end{solution}
+
+\begin{exercise}
+  Componga un programa en \texttt{Python} o \texttt{Haskell} que dada
+  una expresión booleana, decida si es o no autodual.
+\end{exercise}
+
+\begin{exercise}
+  En el álgebra de Boole $\mathbf{D(67830)}$ calcule:
+  \begin{enumerate}
+  \item sus átomos
+  \item $1615\cdot 2261$
+  \item $1615+2261$
+  \item $399'$
+  \end{enumerate}
+\end{exercise}
+
+\begin{solution}~
+  \begin{enumerate}
+  \item Como $67830=2\cdot 3\cdot 5\cdot 7\cdot 17\cdot 19$,
+    constatamos que efectivamente $\mathbf{D(67830)}$ es un álgebra de
+    Boole y que
+    \begin{equation*}
+      \operatorname{Atm}(\mathbf{D(67830)})=
+      \{2,3,5,7,17,19\}
+    \end{equation*}
+  \item $1615\cdot 2261=(1615,2261)=323$
+  \item $1615+2261=[1615,2261]=\frac{1615\cdot 2261}{323}=11305$
+  \item $399'=\frac{67830}{399}=170$
+  \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+  Sean $m$ y $n$ números naturales no nulos tales que $\mathbf{D(m)}$
+  y $\mathbf{D(n)}$ son álgebras de Boole no triviales. Demuestre que
+  son equivalentes las siguientes afirmaciones:
+  \begin{enumerate}
+  \item $\mathbf{D(mn)}$ es un álgebra de Boole.
+  \item $(m,n)=1$.
+  \end{enumerate}
+  Demuestre además que si $m$ y $n$ son números naturales no nulos
+  tales que $\mathbf{D(m)}$, $\mathbf{D(n)}$ y $\mathbf{D(mn)}$ son
+  álgebras de Boole, entonces $\mathbf{D(m)}\times\mathbf{D(n)}$ y
+  $\mathbf{D(mn)}$ son álgebras de Boole isomorfas.
+\end{exercise}
+  
+  \begin{solution}
+    Sean $m$ y $n$ números naturales no nulos tales que
+    $\mathbf{D(m)}$ y $\mathbf{D(n)}$ son álgebras de Boole no
+    triviales. Supongamos $\mathbf{D(mn)}$ es un álgebra de Boole y
+    que es isomorfa a $\mathbf{D(m)}\times\mathbf{D(n)}$; en tal caso
+    $\mathbf{D(mn)}$ es un álgebra de Boole. Por tanto, en la
+    factorización de $mn$ como producto de números primos no figura
+    ningún primo elevado a una potencia superior a $1$; de donde $m$ y
+    $n$ no tienen ningún factor primo en común, o sea,
+    $(m,n)=1$. Recíprocamente, supongamos que $(m,n)=1$. Por la
+    hipótesis general $P(m)$ y $P(n)$ valen; donde $P(r)$ es la
+    afirmación ``existe un número natural $k_{r}$ tal que:
+    $r=\prod_{i=0}^{k_{r}}p_{i}$; para todo $0\leq i\leq k_{r}$,
+    $p_{i}$ es primo y $p_{i}\neq p_{j}$, siempre que
+    $0\leq i<j\leq k_{r}$''. Si $(m,n)=1$, $P(mn)$ vale; por lo que
+    $\mathbf{D(mn)}$ es un álgebra de Boole. Por otra parte,
+    supongamos que $\mathbf{D(m)}$ y $\mathbf{D(n)}$ son álgebras de
+    Boole no triviales. Entonces:
+    \begin{itemize}
+    \item Los átomos del álgebra de Boole
+      $\mathbf{D(m)}\times\mathbf{D(n)}$ son los elementos de
+      \begin{equation*}
+        \{\langle p,1\rangle\colon p\text{ es primo y }p\mid m\}
+        \cup
+        \{\langle 1,q\rangle\colon p\text{ es primo y }q\mid n\}
+      \end{equation*}
+      por lo que posee $k_{m}+k_{n}+2$ átomos.
+    \item En las hipótesis, $\mathbf{D(mn)}$ es un álgebra de Boole no
+      trivial y su número de átomos es también $k_{m}+k_{n}+2$.
+    \end{itemize}
+    Al ser $\mathbf{D(m)}\times\mathbf{D(n)}$ y $\mathbf{D(mn)}$
+    álgebras de Boole no triviales y tener el mismo número de átomos,
+    deben ser isomorfas. Pero si alguna de ellas, o las dos, son
+    triviales es resultado es a su vez evidente.
+  \end{solution}
+
+\begin{exercise}
+  \label{ex:leqEquivalent}
+  Sea $\mathbf{B}=\langle B,+,\cdot,\bar{\ },0,1\rangle$ un álgebra de
+  Boole. Demuestre que para todo $x,y\in B$ son equivalentes las
+  siguientes afirmaciones:
+  \begin{enumerate}
+  \item $x\leq y$
+  \item $x+y=y$
+  \item $x\supset y=1$
+  \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+  Sean $x,y\in B$ cualesquiera y supongamos que $x\leq y$, es decir,
+  que $xy=x$. Entonces:
+  \begin{align*}
+    x+y&=xy+y\\
+       &=y+yx\\
+       &=y
+  \end{align*}
+Supongamos ahora que $x+y=y$; entonces:
+\begin{align*}
+  x\supset y&=x\supset(x+y)\\
+        &=x\supset(x'\supset y)\\
+        &=x'+x+y\\
+        &=1+y\\
+        &=1
+\end{align*}
+Finalmente, supongamos que $x\supset y=1$; entonces:
+\begin{align*}
+  x&=x1\\
+   &=x(x\supset y)\\
+   &=x(x'+y)\\
+   &=xx'+xy\\
+   &=0+xy\\
+   &=xy
+\end{align*}
+\end{solution}
+
+\begin{remark}
+  En el ambiente del \hyperref[ex:leqEquivalent]{Ejercicio
+    \ref*{ex:leqEquivalent}}, supongamos que $xy=x$; entonces:
+  \begin{align*}
+    x\supset y&=xy\supset y\\
+          &=x\supset(y\supset y)\\
+          &=x\supset 1\\
+          &=1
+  \end{align*}
+\end{remark}
+
+\begin{exercise}
+  \label{ex:nandConsequence}
+  Sea $\mathbf{B}=\langle B,+,\cdot,\bar{\ },0,1\rangle$ un álgebra de
+  Boole. Demuestre que para todo $x,y\in B$, si $x\uparrow y=0$
+  entonces $x=1=y$ 
+\end{exercise}
+
+\begin{solution}
+  Sean $x,y\in B$ tales que $x\uparrow y=0$, o sea, $0=(xy)'$. Esto es
+  equivalente a que $xy=1$, es decir, $x=1=y$.
+\end{solution}
+
+\begin{exercise}
+  Sea $n$ un número natural y sean
+  $f,g,k,h\colon B_{2}^{n}\longrightarrow B_{2}$. Considere la
+  función:
+  \begin{equation*}
+    h(x_{0},\ldots,x_{n-1})=
+    \begin{cases}
+      f(x_{0},\ldots,x_{n-1}),&\text{ si } k(x_{0},\ldots,x_{n-1})=1\\
+      g(x_{0},\ldots,x_{n-1}),&\text{ si } k(x_{0},\ldots,x_{n-1})=0
+    \end{cases}
+  \end{equation*}
+  y demuestre que 
+  \begin{equation}
+    \label{eq:2}
+    h=kf+\bar{k}g
+  \end{equation}
+  Seguidamente considere el caso
+  particular de $n=4$, $f,g,h\colon B_{2}^{4}\longrightarrow B_{2}$
+  definidas por: $f(x,y,z)=x\uparrow z$, $g(x,y,z)=\bar{y}$ y $h$
+  según lo siguiente
+  \begin{equation*}
+    h(x,y,z,t)=
+    \begin{cases}
+      f(x,y,z),& \text{ si }\bar{x}\leq\bar{t}\\
+      g(y,z,t),& \text{ si }x<t 
+    \end{cases}
+  \end{equation*}
+  Aplique \hyperref[eq:2]{(\ref*{eq:2})} a este caso para obtener:
+  \begin{equation}
+    \label{eq:3}
+    h(x,y,z,t)=(t\supset x)(x\uparrow z)+\bar{z}
+  \end{equation}
+  \end{exercise}
+
+  \begin{solution}
+    Supongamos que para
+    $\langle x_{0},\ldots,x_{n-1}\rangle\in B_{2}^{n}$ se tiene
+    $k(x_{0},\ldots,x_{n-1})=1$; entonces
+    \begin{align*}
+      h(x_{0},\ldots,x_{n-1})&=k(x_{0},\ldots,x_{n-1})f(x_{0},\ldots,x_{n-1})
+                            +\bar{k}(x_{0},\ldots,x_{n-1})g(x_{0},\ldots,x_{n-1})\\
+                           &=1f(x_{0},\ldots,x_{n-1})
+                            +0g(x_{0},\ldots,x_{n-1})\\
+                           &=f(x_{0},\ldots,x_{n-1})
+    \end{align*}
+    y si $k(x_{0},\ldots,x_{n-1})=0$ se tiene análoga e evidentemente
+    que $h(x_{0},\ldots,x_{n-1})=g(x_{0},\ldots,x_{n-1})$. Por otra
+    parte, $\bar{x}\leq\bar{t}$ es equivalente a $t\leq x$ y, según el
+    \hyperref[ex:leqEquivalent]{Ejercicio \ref*{ex:leqEquivalent}},
+    esto equivalente a $t\supset x=1$; por tanto, aquí
+    $k(x,y,z,t)=t\supset x$. La particularización de
+    \hyperref[eq:2]{(\ref*{eq:2})} es:
+    \begin{equation*}
+      (t\supset x)(x\uparrow z)+\bar{z}
+    \end{equation*}
+    pues: si $t\supset x=0$ entonces
+    $(t\supset x)(x\uparrow z)+\bar{z}=\bar{z}$ y si $t\supset x=1$, caben dos
+    casos:
+    \begin{itemize}
+    \item $x\uparrow z=1$; entonces 
+      \begin{align*}
+        (t\supset x)(x\uparrow z)+\bar{z}&=1+\bar{z}\\
+                       &=1\\
+                       &=x\uparrow z
+      \end{align*}
+    \item $x\uparrow z=0$; entonces
+      (cfr. \hyperref[ex:nandConsequence]{Ejercicio
+        \ref*{ex:nandConsequence}}) $\bar{z}=0$, luego:
+      \begin{align*}
+        (t\supset x)(x\uparrow z)+\bar{z}&=0+\bar{z}\\
+                       &=0+0\\
+                       &=0\\
+                       &=x\uparrow z
+      \end{align*}
+    \end{itemize}
+    de lo que deducimos que si $t\supset x=1$ entonces
+    $(t\supset x)(x\uparrow z)+\bar{z}=x\uparrow z$.
+  \end{solution}
+
+\begin{exercise}
+  Sea $\mathbf{B}$ un álgebra de Boole
+  \textbf{cualquiera}. Demuestre que para todo $a,b,c\in B$ son
+  equivalentes las siguientes afirmaciones:
+  \begin{enumerate}
+  \item $a\oplus b\leq c$
+  \item $ac'=bc'$
+  \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+  Para cualesquiera $a,b,c\in B$,
+  \begin{align*}
+    ac'(bc')'&=ac'(b'+c'')\\
+             &=ac'(b'+c)\\
+             &=ac'b'+ac'c\\
+             &=ab'c'+a0\\
+             &=ab'c'+0\\
+             &=ab'c'
+  \end{align*}
+  Por tanto:
+  \begin{equation}
+    \label{eq:par18192A}
+    ac'(bc')'=ab'c'
+  \end{equation}
+  y también (como ecuación es idéntica):
+  \begin{equation}
+    \label{eq:par18192B}
+    bc'(ac')'=a'bc'
+  \end{equation}
+  Supongamos ahora que $a\oplus b\leq c$, o equivaléntemente que
+  $ab'+a'b\leq c$. Entonces, por transitividad, $ab'\leq c$ y
+  $a'b\leq c$ o lo que es equivalente: $ab'c'=0$ y
+  $a'bc'=0$. Entonces, por
+  \hyperref[eq:par18192A]{(\ref*{eq:par18192A})}, $ac'(bc')'=0$ y por
+  \hyperref[eq:par18192B]{(\ref*{eq:par18192B})}, $bc'(ac')'=0$. De lo
+  primero se deduce que $ac'\leq bc'$ y de lo segundo que
+  $bc'\leq ac'$. Por la antisimetría de $\leq$, se tiene que
+  $ac'=bc'$. \textbf{Recíprocamente}, supongamos que
+  $ac'=bc'$. Entonces $ac'(bc')'=0$ y $bc'(ac')'=0$; como antes
+  $ab'c'=0=a'bc'$. Deducimos de esto que $ab'\leq c$ y que $a'b\leq
+  c$, de donde:
+  \begin{equation*}
+    a\oplus b = ab'+a'b\leq c
+  \end{equation*}
+\end{solution}
+
+\begin{exercise}
+  \label{it:atomosProd}
+  Sean $\mathbf{A}$ y $\mathbf{B}$ álgebras
+  de Boole finitas y $\langle a,b\rangle\in A\times B$. Demuestre que
+  son equivalentes las siguientes afirmaciones:
+  \begin{enumerate}
+  \item
+    $\langle a,b\rangle\in
+    \operatorname{Atm}(\mathbf{A}\times\mathbf{B})$ \label{ex:atm_prod_A}
+  \item ($a\in \operatorname{Atm}(\mathbf{A})$ y $b=0$) ó ($a=0$ y
+    $b\in \operatorname{Atm}(\mathbf{B})$) \label{ex:atm_prod_B}
+  \end{enumerate}
+  \end{exercise}
+
+\begin{solution}
+  Para demostrar que la afirmación \hyperref[ex:atm_prod_A]{\ref*{ex:atm_prod_A})}
+  implica a la \hyperref[ex:atm_prod_B]{\ref*{ex:atm_prod_B})},
+  demostremos la implicación contrarrecíproca. Con el fin de articular
+  el razonamiento abreviemos por:
+  \begin{itemize}
+  \item $\alpha$ la expresión ``$a\in
+    \operatorname{Atm}(\mathbf{A})$''
+  \item $\beta$ la expresión ``$b=0$''
+  \item $\varphi$ la expresión ``$a=0$'' y
+  \item $\psi$ la expresión
+    ``$b\in \operatorname{Atm}(\mathbf{B})$''.
+  \end{itemize}
+  La negación de la afirmación
+  \hyperref[ex:atm_prod_B]{\ref*{ex:atm_prod_B})} responde a lo
+  siguiente:
+  \begin{align*}
+    \neg((\alpha\wedge\beta)\vee (\varphi\wedge\psi))&=
+        \neg(\alpha\wedge\beta)\wedge\neg (\varphi\wedge\psi)\\
+    &=(\neg\alpha\vee\neg\beta)\wedge(\neg\varphi\vee\neg\psi)\\
+    &=(\neg\alpha\wedge(\neg\varphi\vee\neg\psi))
+    \vee (\neg\beta\wedge(\neg\varphi\vee\neg\psi))\\
+    &=(\neg\alpha\wedge\neg\varphi)\vee(\neg\alpha\wedge\neg\psi)
+    \vee(\neg\beta\wedge\neg\varphi)\vee(\neg\beta\wedge\neg\psi)
+  \end{align*}
+Recordamos ahora que para cualquier conjunto de fórmulas
+$\Gamma\cup\{\xi,\zeta\}$ se cumple: 
+\begin{equation*}
+ \operatorname{Con}(\Gamma,\xi\vee\zeta)=
+\operatorname{Con}(\Gamma,\xi)\cap\operatorname{Con}(\Gamma,\zeta) 
+\end{equation*}
+Por lo que, supuesto lo opuesto de la afirmación
+\hyperref[ex:atm_prod_B]{\ref*{ex:atm_prod_B})}, bastará con concluir
+que
+$\langle a,b\rangle\notin
+\operatorname{Atm}(\mathbf{A}\times\mathbf{B})$ en cada uno de los
+casos que hemos llegado a distinguir. En definitiva, el razonamiento
+es por casos según los siguientes (en realidad tres):
+\begin{itemize}
+\item $a\notin\operatorname{Atm}(\mathbf{A})$ y $a\neq 0$ (por
+  $\neg\alpha\wedge\neg\varphi$); si
+  $a\notin\operatorname{Atm}(\mathbf{A})$ entonces existe $x\in A$ tal
+  que $0<x<a$. Así pues
+  $\langle 0,0\rangle<\langle x,b\rangle<\langle a,b\rangle$ y
+  así $\langle a,b\rangle$ no es átomo de $\mathbf{A}\times\mathbf{B}$.
+\item $b\neq 0$ y $a\neq 0$ (por $\neg\beta\wedge\neg\varphi$); en
+  este caso se tiene que
+  $\langle 0,0\rangle<\langle a,0\rangle<\langle a,b\rangle$ y
+  así $\langle a,b\rangle$ no es átomo de $\mathbf{A}\times\mathbf{B}$.
+\item $b\neq 0$ y $b\notin \operatorname{Atm}(\mathbf{B})$
+  (por $\neg\beta\wedge\neg\psi$); si
+  $b\notin\operatorname{Atm}(\mathbf{B})$ entonces existe $y\in B$ tal
+  que $0<y<b$. Así pues
+  $\langle 0,0\rangle<\langle a,y\rangle<\langle a,b\rangle$ y
+  así $\langle a,b\rangle$ no es átomo de
+  $\mathbf{A}\times\mathbf{B}$.
+\item $a\notin\operatorname{Atm}(\mathbf{A})$ y
+  $b\notin \operatorname{Atm}(\mathbf{B})$ (por
+  $\neg\alpha\wedge\neg\psi$); éste es un caso específico de los
+  anteriormente tratados, a menos que alguno de los elementos, $a$ ó
+  $b$, sea igual a $0$. Si $a=0=b$ concluimos que $\langle a,b\rangle$
+  no es un átomo debido a que para serlo es condición necesaria la no
+  nulidad. Si $a\neq 0$ pero $b=0$, tomaremos $x\in A$ tal que $0<x<a$
+  y entonces
+  $\langle 0,0\rangle<\langle x,0\rangle<\langle a,b\rangle$ con lo
+  que $\langle a,b\rangle$ no puede ser átomo. Si el caso es $a=0$
+  pero $b\neq 0$, un razonamiento análogo nos lleva a que
+  $\langle a,b\rangle$ no puede ser átomo.
+\end{itemize}
+\textbf{Recíprocamente}, supongamos que se cumple lo que afirma
+\hyperref[ex:atm_prod_B]{\ref*{ex:atm_prod_B})} y demostremos, como
+conclusión, lo que afirma
+\hyperref[ex:atm_prod_A]{\ref*{ex:atm_prod_A})}. Supongamos, pues, que
+$a\in \operatorname{Atm}(\mathbf{A})$ y que $b=0$. Si
+$\langle x,y\rangle\in A\times B$ y
+$\langle 0,0\rangle\leq\langle x,y\rangle\leq\langle a,0\rangle$; pero
+al ser $a$ átomo se cumple $x=0$ ó $x=a$ por lo que en realidad se
+tiene que $\langle 0,0\rangle=\langle x,y\rangle$ o
+$\langle x,y\rangle=\langle a,b\rangle$ y de ello que
+$\langle a,b\rangle\in
+\operatorname{Atm}(\mathbf{A}\times\mathbf{B})$. Si se da que $a=0$ y
+$b\in \operatorname{Atm}(\mathbf{B})$, un razonamiento análogo conduce
+a que también
+$\langle a,b\rangle\in
+\operatorname{Atm}(\mathbf{A}\times\mathbf{B})$. Así pues se tiene
+demostrada la afirmación
+\hyperref[ex:atm_prod_A]{\ref*{ex:atm_prod_A})}.
+\end{solution}
+
+\begin{exercise}
+  Considere el álgebra de Boole $\mathbf{F(B_{2},2)}$ y
+  \begin{enumerate}
+  \item Encuentre sus átomos.
+  \item Exprese cada función de $\mathbf{F(B_{2},2)}$ por medio de
+    dichos átomos.
+  \item Demuestre que los conjuntos: $\{+,\cdot,'\}$, $\{+,'\}$,
+    $\{\cdot,'\}$, $\{\supset,0\}$, $\{\uparrow\}$ y 
+    $\{\downarrow\}$ son conjuntos suficientes.
+  \item Demuestre que valen las siguientes igualdades:
+    \begin{align*}
+      x+y&=(x\downarrow y)\downarrow (x\downarrow y)\\
+      x\supset y&=
+         ((x\downarrow x)\downarrow y)\downarrow ((x\downarrow x)\downarrow y) 
+    \end{align*}
+  \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+  Sabemos que $\mathbf{F(B_{2},2)}$ es un álgebra de Boole y que
+  \begin{equation*}
+    \operatorname{card}(B_{2}^{B_{2}\times B_{2}})=2^{4}
+  \end{equation*}
+  por otra parte, $\mathbf{B_{2}}^{4}$ es también un álgebra de
+  Boole con $2^{4}$ elementos. Por tanto:
+  \begin{equation*}
+    \mathbf{F(B_{2},2)}\cong\mathbf{B_{2}}^{4}
+  \end{equation*}
+  siendo un isomorfismo entre ambas álgebras la aplicación $\Psi$
+  que aplica a cada elemento $f$ de $\mathbf{F(B_{2},2)}$ la
+  cuaterna $\langle f(0,0), f(0,1), f(1,0), f(1,1)\rangle$, es
+  decir, para todo $f\in\mathbf{F(B_{2},2)}$:
+  \begin{equation*}
+    \Psi(f)=\langle f(0,0), f(0,1), f(1,0), f(1,1)\rangle
+  \end{equation*}
+  Sabemos por \hyperref[it:atomosProd]{\ref*{it:atomosProd})} que
+  los átomos de $\mathbf{B_{2}}^{4}$ son cuatro, de hecho los
+  elementos del conjunto
+  \begin{equation*}
+    \{\langle 1,0,0,0\rangle,
+    \langle 0,1,0,0\rangle,
+    \langle 0,0,1,0\rangle,
+    \langle 0,0,0,1\rangle\} 
+  \end{equation*}
+  Por tanto, los átomos de
+  $\mathbf{F(B_{2},2)}$ deben ser:
+  \begin{align*}
+    f_{8}(x,y)&=x'y'\\
+    f_{4}(x,y)&=x'y\\
+    f_{2}(x,y)&=xy'\\
+    f_{1}(x,y)&=xy
+  \end{align*}
+  De esto deducimos que:
+  \begin{align*}
+    f_{0}(x,y)&=f_{1}(x,y)f_{2}(x,y)=(xy)(xy')=xyy'\\
+    f_{12}(x,y)&=f_{8}(x,y)+f_{4}(x,y)=x'\,y'+x'y
+                 =x'(y'+y)=x'\\
+    f_{10}(x,y)&=f_{8}(x,y)+f_{2}(x,y)=x'\,y'+xy'
+                 =(x'+x)y'=y'\\
+    f_{9}(x,y)&=f_{8}(x,y)+f_{1}(x,y)=x'\,y'+xy\\
+    f_{6}(x,y)&=f_{4}(x,y)+f_{2}(x,y)=x'y+xy'\\
+    f_{5}(x,y)&=f_{4}(x,y)+f_{1}(x,y)=x'y+xy=(x'+x)y=y\\
+    f_{3}(x,y)&=f_{2}(x,y)+f_{1}(x,y)=xy'+xy=x(y'+y)=x\\
+    f_{14}(x,y)&=f_{8}(x,y)+f_{4}(x,y)+f_{2}(x,y)=f_{12}(x,y)+f_{2}(x,y)
+                 =x'+xy'=x'+y'\\
+    f_{13}(x,y)&=f_{8}(x,y)+f_{4}(x,y)+f_{1}(x,y)=f_{12}(x,y)+f_{1}(x,y)
+                 =x'+xy=x'+y\\
+    f_{11}(x,y)&=f_{8}(x,y)+f_{2}(x,y)+f_{1}(x,y)=f_{10}(x,y)+f_{1}(x,y)
+                     =y'+xy=x+y'\\
+    f_{7}(x,y)&=f_{4}(x,y)+f_{2}(x,y)+f_{1}(x,y)=f_{6}(x,y)+f_{1}(x,y)
+                =xy'+y=x+y\\
+    f_{15}(x,y)&=f_{8}(x,y)+f_{4}(x,y)+f_{2}(x,y)+f_{1}(x,y)=1
+  \end{align*}
+  Lo anterior demuestra $\{+,\cdot,'\}$ es un conjunto
+  suficiente. Para la demostración de la suficiencia del resto de conjuntos:
+  \begin{enumerate}
+  \item $\{+,'\}$ es suficiente porque $xy=(x'+y')'$.
+  \item $\{\cdot,'\}$ es suficiente porque $x+y=(x'y')'$.
+  \item $\{\supset,0\}$ es suficiente porque:
+    \begin{align*}
+      x'&=x\supset 0\\
+      x+y&=(x\supset 0)\supset y\\
+      xy&=(x\supset(y\supset 0))\supset 0
+    \end{align*}
+  \item $\{\uparrow\}$ es suficiente porque:
+    \begin{align*}
+      x'&=(xx)'\\
+        &=x'+x'\\
+        &=x\uparrow x\\
+      x+y&=x''+y''\\
+         &=x'\uparrow y'\\
+         &=(x\uparrow x)\uparrow(y\uparrow y)
+    \end{align*}
+  \item $\{\downarrow\}$ es suficiente porque:
+    \begin{align*}
+      x'&=(x+x)'\\
+        &=x'x'\\
+        &=x\downarrow x\\
+      xy&=x''y''\\
+        &=x'\downarrow y'\\
+        &=(x\downarrow x)\downarrow (y\downarrow y)
+    \end{align*}
+  \end{enumerate}
+  Por otra parte:
+  \begin{align*}
+    x+y&=(x+y)(x+y)\\
+       &=(x'y')'(x'y')'\\
+       &=(x\downarrow y)\downarrow (x\downarrow y)\\
+    x\supset y&=x'+y\\
+              &=(xy')'\\
+              &=(xy'+xy')'\\
+              &=(xy')'(xy')'\\
+              &=(x''y')'(x''y')'\\
+              &=(x'\downarrow y)\downarrow (x'\downarrow y)\\
+              &=((x\downarrow x)\downarrow y)\downarrow
+                ((x\downarrow x)\downarrow y)
+  \end{align*}
+\end{solution}
+
+\begin{exercise}
+  Sobre expresiones boolenas $\varphi$ definamos la siguiente
+  función $p_{G}$ que propociona porlinomios con coeficientes de
+  $\mathbb{Z}_{2}$:
+  \begin{equation*}
+    \operatorname{p_{G}}(\varphi)=
+    \begin{cases}
+      0,&\text{ si }\varphi\equiv 0\\
+      1,&\text{ si }\varphi\equiv 1\\
+      x_{i},&\text{ si }\varphi\equiv x_{i}\\
+      \operatorname{p_{G}}(\alpha)+1,
+      &\text{ si }\varphi\equiv\alpha'\\
+      \operatorname{p_{G}}(\alpha)\operatorname{p_{G}}(\beta)
+      +\operatorname{p_{G}}(\alpha)
+      +\operatorname{p_{G}}(\beta),&\text{ si }\varphi\equiv\alpha+\beta\\
+      \operatorname{p_{G}}(\alpha)\operatorname{p_{G}}(\beta),
+      &\text{ si }\varphi\equiv\alpha\cdot\beta
+    \end{cases}
+  \end{equation*}
+  Para cualquier expresión booleana $\varphi$,
+  $\operatorname{p_{G}}(\varphi)$ está bien definida (por el
+  \textit{principio de lectura única}) y es denominado el
+  \href{https://en.wikipedia.org/wiki/Ivan_Ivanovich_Zhegalkin}{\textit{Polinomio
+      de Zhegalkine}} de $\varphi$. Encuentre el polinomio de
+  Zhegalkin de las siguientes expresiones booleanas:
+  \begin{enumerate}
+  \item $x\supset y$
+  \item $x\uparrow y$ (Barra de Sheffer (Sheffer stroke) o
+    $\operatorname{NAND}$, con notación de Bocheński $Dxy$)
+  \item $x\downarrow y$ (Daga de Quine (Quine dagger) o Flecha de
+    Peirce (Peirce's arrow) o $\operatorname{NOR}$, con notación de Bocheński $Xxy$)
+  \item $x\equiv y$
+  \item $x\oplus y$
+  \item $x\supset(y\supset z)$
+  \item $(x\supset y)\supset z$
+  \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+  \begin{align*}
+    \operatorname{p_{G}}(x\supset y)&=\operatorname{p_{G}}(x'+y)\\
+         &=\operatorname{p_{G}}(x')\operatorname{p_{G}}(y)
+           +\operatorname{p_{G}}(x')
+           +\operatorname{p_{G}}(y)\\
+          &=(x+1)y+(x+1)+y\\
+          &=xy+y+x+1+y\\
+          &=xy+x+1
+  \end{align*}
+  
+  \begin{align*}
+    \operatorname{p_{G}}(x\uparrow y)&=\operatorname{p_{G}}(x'+y')\\
+    &=\operatorname{p_{G}}(x')\operatorname{p_{G}}(y')
+    +\operatorname{p_{G}}(x')
+      \operatorname{p_{G}}(y')\\
+    &=(x+1)(y+1)+x+1+y+1\\
+    &=xy+x+y+1+x+y\\
+    &=xy+1
+  \end{align*}
+
+  \begin{align*}
+    \operatorname{p_{G}}(x\downarrow y)&=\operatorname{p_{G}}(x'y')\\
+           &=\operatorname{p_{G}}(x')\operatorname{p_{G}}(y')\\
+           &=(x+1)(y+1)\\
+           &=xy+x+y+1
+  \end{align*}
+
+  \begin{align*}
+    \operatorname{p_{G}}(x\equiv y)&=\operatorname{p_{G}}(x'y'+xy)\\
+       &=\operatorname{p_{G}}(x'y')\operatorname{p_{G}}(xy)+\operatorname{p_{G}}(x'y')
+        +\operatorname{p_{G}}(xy)\\
+       &=(x+1)(y+1)xy+(x+1)(y+1)+xy\\
+       &=x+y+1
+  \end{align*}
+  \begin{align*}
+    \operatorname{p_{G}}(x\oplus y)&=\operatorname{p_{G}}(x'y+xy')\\
+       &=\operatorname{p_{G}}(x'y)\operatorname{p_{G}}(xy')
+        +\operatorname{p_{G}}(x'y)
+        +\operatorname{p_{G}}(xy')\\
+       &=\operatorname{p_{G}}(x')\operatorname{p_{G}}(y)\operatorname{p_{G}}(x)\operatorname{p_{G}}(y')
+        +\operatorname{p_{G}}(x')\operatorname{p_{G}}(y)
+        +\operatorname{p_{G}}(x)\operatorname{p_{G}}(y')\\
+       &=(x+1)yx(y+1)+(x+1)y+x(y+1)\\
+       &=(xy+yx)(y+1)+xy+y+xy+x\\
+       &=x+y
+  \end{align*}
+  El resto del ejercicio es sencillo y análogo a lo anterior.
+\end{solution}
+
+\begin{exercise}
+  \label{ex:digitos7segmentos}
+  % http://www.zeepedia.com/read.php?converting_between_pos_and_sop_using_the_k-map_digital_logic_design&b=9&c=11
+  El dígito a 7 segmentos se forma iluminando en la pantalla los
+  segmentos apropiados según explica esquemáticamente la
+  \hyperref[fg:digitos7segmentos]{Figura \ref*{fg:digitos7segmentos}}
+  y así puede mostrar los números decimales del 0 al 9. El dígito
+  queda construido por iluminación de hasta los segmentos: a,b,c,d,e,f
+  y g, que se activan o desactivan mediante un circuito digital
+  dependiendo del número que ha de ser mostrado; por ejemplo, el
+  dígito 3 requiera la activación de exáctamente los segmentos:
+  a,b,c,d y g. Para mostrar el dígito 7 quedarán desactivados
+  exactamente los segmentos: d, e, f y g.
+
+  El circuito que activa los segmentos adecuados para mostrar uno
+  cualquiera de los dígitos se conoce como \textit{Decodificador BCD a
+    7 segmentos};\index{decodificador BCD a
+    7 segmentos} su entrada es un número BCD de 4-bit entre 0 y
+  9. Cada una de las 7 salidas del circuito conectan con los siete
+  segmentos.
+
+  Para implementar el circuito decodificador de cuatro entradas
+  ($n=4$) y siete salidas ($m=7$) debemos hacer una tabla para cada
+  segmento, representando su estado para combinación de entradas. Así
+  pues debemos determinar siete expresiones, una por cada segmento,
+  antes de implementar el circuito.
+
+  Puesto que los números representados por una entrada de 4 bits son
+  16, la tabla de cada función tendrá 16 entradas combinacionales. No
+  obstante las seis últimas combinaciones son ``no-importa'', ya que
+  ninguna de ellas ocurre al ser las entradas de números BCD de 4
+  bits. Los estados no-importa ayudarán sin embargo a simplificar las
+  expresiones booleanas para los siete segmentos. Según lo que
+  explican la: \hyperref[fg:segmentosAaF]{Figura
+    \ref*{fg:segmentosAaF}}, \hyperref[fg:KsegmentosAaF]{Figura
+    \ref*{fg:KsegmentosAaF}} y
+  \hyperref[fg:segmentoG]{\ref*{fg:segmentoG}}, la función booleana
+  $D_{BCD7}(a,b,c,d)$ que codifica el \textit{Decodificador BCD a
+    7 segmentos} es la siguiente:
+  \begin{align*}
+    D_{BCD7}(a,b,c,d)=&\langle a+c+bd+\bar{b}\bar{d},\\
+                    &\bar{b}+\bar{c}\bar{d}+cd,\\
+                    &b+\bar{c}+d,\\
+                    &a+\bar{b}\bar{d}+\bar{b}c+c\bar{d}+b\bar{c}d,\\
+                    &\bar{b}\bar{d}+c\bar{d},\\
+                    &a+b\bar{c}+b\bar{d}+\bar{c}\bar{d},\\
+                    &a+b\bar{c}+\bar{b}c+c\bar{d}\rangle
+  \end{align*}
+  donde las entradas de la 7-upla que representa a $D_{BCD7}(a,b,c,d)$
+  corresponden a los segmentos en el orden de la plabra abcdefg.
+\end{exercise}
+
+\begin{figure}[!hbp]
+  \centering
+  \mbox{
+    \subcaptionbox{\label{sfg:digitos} dígito a 7 segmentos}{
+      \includegraphics[width=.20\textwidth]{digitos.png}
+    }
+    \qquad
+    \subcaptionbox{\label{sfg:digitosSegmentos} segmentos activos por cada dígito}
+    {
+      \begin{tabular}[b]{|c|l|}
+        \hline
+        Dígito&\multicolumn{1}{|c|}{Segmentos}\\\hline
+        0&a,b,c,d,e,f\\
+        1&b,c\\
+        2&a,b,d,e,g\\
+        3&a,b,c,d,g\\
+        4&b,c,f,g\\
+        5&a,c,d,f,g\\
+        6&a,c,d,e,f,g\\
+        7&a,b,c\\
+        8&a,b,c,d,e,f,g\\
+        9&a,b,c,d,f,g\\\hline
+      \end{tabular}
+    }
+  }
+  \caption{\label{fg:digitos7segmentos} Dígitos a 7 segmentos y su
+    formación activándolos.}
+\end{figure}
+
+\begin{figure}[!hbp]
+  \centering
+  \mbox{
+    \subcaptionbox{\label{sfg:segmentoA} Codif. segmento a}{
+      \begin{tabular}[b]{|c|c|c|c|c|}
+        \hline
+        \multicolumn{4}{|c|}{Input}&\multicolumn{1}{|c|}{Output}\\\hline
+        a&b&c&d&segmento a\\\hline
+        0&0&0&0&1\\\hline
+        0&0&0&1&0\\\hline
+        0&0&1&0&1\\\hline
+        0&0&1&1&1\\\hline
+        0&1&0&0&0\\\hline
+        0&1&0&1&1\\\hline
+        0&1&1&0&1\\\hline
+        0&1&1&1&1\\\hline
+        1&0&0&0&1\\\hline
+        1&0&0&1&1\\\hline
+        1&0&1&0&x\\\hline
+        1&0&1&1&x\\\hline
+        1&1&0&0&x\\\hline
+        1&1&0&1&x\\\hline
+        1&1&1&0&x\\\hline
+        1&1&1&1&x\\\hline
+      \end{tabular}
+    }
+    \subcaptionbox{\label{sfg:segmentoB} Codif. segmento b}{
+      \begin{tabular}[b]{|c|c|c|c|c|}
+        \hline
+        \multicolumn{4}{|c|}{Input}&\multicolumn{1}{|c|}{Output}\\\hline
+        a&b&c&d&segmento b\\\hline
+        0&0&0&0&1\\\hline
+        0&0&0&1&1\\\hline
+        0&0&1&0&1\\\hline
+        0&0&1&1&1\\\hline
+        0&1&0&0&1\\\hline
+        0&1&0&1&0\\\hline
+        0&1&1&0&0\\\hline
+        0&1&1&1&1\\\hline
+        1&0&0&0&1\\\hline
+        1&0&0&1&1\\\hline
+        1&0&1&0&x\\\hline
+        1&0&1&1&x\\\hline
+        1&1&0&0&x\\\hline
+        1&1&0&1&x\\\hline
+        1&1&1&0&x\\\hline
+        1&1&1&1&x\\\hline
+      \end{tabular}
+    }
+    \subcaptionbox{\label{sfg:segmentoC} Codif. segmento c}
+     {
+      \begin{tabular}[b]{|c|c|c|c|c|}
+        \hline
+        \multicolumn{4}{|c|}{Input}&\multicolumn{1}{|c|}{Output}\\\hline
+        a&b&c&d&segmento c\\\hline
+        0&0&0&0&1\\\hline
+        0&0&0&1&1\\\hline
+        0&0&1&0&0\\\hline
+        0&0&1&1&1\\\hline
+        0&1&0&0&1\\\hline
+        0&1&0&1&1\\\hline
+        0&1&1&0&1\\\hline
+        0&1&1&1&1\\\hline
+        1&0&0&0&1\\\hline
+        1&0&0&1&1\\\hline
+        1&0&1&0&x\\\hline
+        1&0&1&1&x\\\hline
+        1&1&0&0&x\\\hline
+        1&1&0&1&x\\\hline
+        1&1&1&0&x\\\hline
+        1&1&1&1&x\\\hline
+      \end{tabular}
+    }
+  }
+  \mbox{
+        \subcaptionbox{\label{sfg:segmentoD} Codif. segmento d}
+        {
+          \begin{tabular}[b]{|c|c|c|c|c|}
+            \hline
+            \multicolumn{4}{|c|}{Input}&\multicolumn{1}{|c|}{Output}\\\hline
+            a&b&c&d&segmento d\\\hline
+            0&0&0&0&1\\\hline
+            0&0&0&1&0\\\hline
+            0&0&1&0&1\\\hline
+            0&0&1&1&1\\\hline
+            0&1&0&0&0\\\hline
+            0&1&0&1&1\\\hline
+            0&1&1&0&1\\\hline
+            0&1&1&1&0\\\hline
+            1&0&0&0&1\\\hline
+            1&0&0&1&1\\\hline
+            1&0&1&0&x\\\hline
+            1&0&1&1&x\\\hline
+            1&1&0&0&x\\\hline
+            1&1&0&1&x\\\hline
+            1&1&1&0&x\\\hline
+            1&1&1&1&x\\\hline
+          \end{tabular}
+        }
+    \subcaptionbox{\label{sfg:segmentoE} Codif. segmento e}
+    {
+      \begin{tabular}[b]{|c|c|c|c|c|}
+        \hline
+        \multicolumn{4}{|c|}{Input}&\multicolumn{1}{|c|}{Output}\\\hline
+        a&b&c&d&segmento e\\\hline
+        0&0&0&0&1\\\hline
+        0&0&0&1&0\\\hline
+        0&0&1&0&1\\\hline
+        0&0&1&1&0\\\hline
+        0&1&0&0&0\\\hline
+        0&1&0&1&0\\\hline
+        0&1&1&0&1\\\hline
+        0&1&1&1&0\\\hline
+        1&0&0&0&1\\\hline
+        1&0&0&1&0\\\hline
+        1&0&1&0&x\\\hline
+        1&0&1&1&x\\\hline
+        1&1&0&0&x\\\hline
+        1&1&0&1&x\\\hline
+        1&1&1&0&x\\\hline
+        1&1&1&1&x\\\hline
+      \end{tabular}
+    }
+    \subcaptionbox{\label{sfg:segmentoF} Codif. segmento f}
+    {
+      \begin{tabular}[b]{|c|c|c|c|c|}
+        \hline
+        \multicolumn{4}{|c|}{Input}&\multicolumn{1}{|c|}{Output}\\\hline
+        a&b&c&d&segmento f\\\hline
+        0&0&0&0&1\\\hline
+        0&0&0&1&0\\\hline
+        0&0&1&0&0\\\hline
+        0&0&1&1&0\\\hline
+        0&1&0&0&1\\\hline
+        0&1&0&1&1\\\hline
+        0&1&1&0&1\\\hline
+        0&1&1&1&0\\\hline
+        1&0&0&0&1\\\hline
+        1&0&0&1&1\\\hline
+        1&0&1&0&x\\\hline
+        1&0&1&1&x\\\hline
+        1&1&0&0&x\\\hline
+        1&1&0&1&x\\\hline
+        1&1&1&0&x\\\hline
+        1&1&1&1&x\\\hline
+      \end{tabular}
+    }
+  }
+  \caption{\label{fg:segmentosAaF} Codificación por segmentos de su activación del a al f.}
+\end{figure}
+
+\begin{figure}[!hbp]
+  \centering
+  \mbox{
+    \subcaptionbox{\label{sfg:KsegmentoA} Mapa K segmento a: $a+c+bd+\bar{b}\bar{d}$}
+    {
+      \begin{karnaugh-map}[4][4][1][$cd$][$ab$]
+        \manualterms{1,0,1,1,0,1,1,1,1,1,x,x,x,x,x,x}
+        \implicantcorner[0,2]
+        \implicant{12}{10}
+        \implicant{5}{15}
+        \implicant{3}{10}
+      \end{karnaugh-map}
+    }
+    \subcaptionbox{\label{sfg:KsegmentoB} Mapa K segmento b: $\bar{b}+\bar{c}\bar{d}+cd$}
+    {
+      \begin{karnaugh-map}[4][4][1][$cd$][$ab$]
+        \manualterms{1,1,1,1,1,0,0,1,1,1,x,x,x,x,x,x}
+        \implicantedge{0}{2}{8}{10}
+        \implicant{0}{8}
+        \implicant{3}{11}
+      \end{karnaugh-map}
+    }
+  }
+  \mbox{
+    \subcaptionbox{\label{sfg:KsegmentoC} Mapa K segmento c: $b+\bar{c}+d$}
+    {
+      \begin{karnaugh-map}[4][4][1][$cd$][$ab$]
+        \manualterms{1,1,0,1,1,1,1,1,1,1,x,x,x,x,x,x}
+        \implicant{0}{9}
+        \implicant{1}{11}
+        \implicant{4}{14}
+      \end{karnaugh-map}
+    }
+    \subcaptionbox{\label{sfg:KsegmentoD}Mapa K segmento d: $a+\bar{b}\bar{d}+\bar{b}c+c\bar{d}+b\bar{c}d$}
+    {
+      \begin{karnaugh-map}[4][4][1][$cd$][$ab$]
+        \manualterms{1,0,1,1,0,1,1,0,1,1,x,x,x,x,x,x}
+        \implicantcorner[0,2]
+        \implicant{12}{10}
+        \implicantedge{3}{2}{11}{10}
+        \implicant{2}{10}
+        \implicant{5}{13}
+      \end{karnaugh-map}   
+    }
+  }
+  \mbox{
+    \subcaptionbox{\label{sfg:KsegmentoE} Mapa K segmento e:
+      $\bar{b}\bar{d}+c\bar{d}$}
+    {
+      \begin{karnaugh-map}[4][4][1][$cd$][$ab$]
+        \manualterms{1,0,1,0,0,0,1,0,1,0,x,x,x,x,x,x}
+        \implicantcorner[0,2]
+        \implicant{2}{10}
+      \end{karnaugh-map}
+    }
+    \subcaptionbox{\label{sfg:KsegmentoF} Mapa K segmento f: $a+b\bar{c}+b\bar{d}+\bar{c}\bar{d}$}{
+      \begin{karnaugh-map}[4][4][1][$cd$][$ab$]
+        \manualterms{1,0,0,0,1,1,1,0,1,1,x,x,x,x,x,x}
+        \implicant{0}{8}
+        \implicant{4}{13}
+        \implicant{12}{10}
+        \implicantedge{4}{12}{6}{14}
+      \end{karnaugh-map}
+    }
+  }
+  \caption{\label{fg:KsegmentosAaF} Mapas K para las funciones de
+    codificación de la activación de los segmentos a a f}
+\end{figure}
+
+\begin{figure}[!hbp]
+  \centering
+  \mbox{
+    \subcaptionbox{\label{sfg:segmentG} Codif. segmento g}
+    {
+      \begin{tabular}[b]{|c|c|c|c|c|}
+      \hline
+      \multicolumn{4}{|c|}{Input}&\multicolumn{1}{|c|}{Output}\\\hline
+      a&b&c&d&segmento g\\\hline
+      0&0&0&0&0\\\hline
+      0&0&0&1&0\\\hline
+      0&0&1&0&1\\\hline
+      0&0&1&1&1\\\hline
+      0&1&0&0&1\\\hline
+      0&1&0&1&1\\\hline
+      0&1&1&0&1\\\hline
+      0&1&1&1&0\\\hline
+      1&0&0&0&1\\\hline
+      1&0&0&1&1\\\hline
+      1&0&1&0&x\\\hline
+      1&0&1&1&x\\\hline
+      1&1&0&0&x\\\hline
+      1&1&0&1&x\\\hline
+      1&1&1&0&x\\\hline
+      1&1&1&1&x\\\hline
+      \end{tabular}
+    }
+    \subcaptionbox{\label{sfg:KsegmentoG} Mapa K segmento g: $a+b\bar{c}+\bar{b}c+c\bar{d}$}
+    {
+      \begin{karnaugh-map}[4][4][1][$cd$][$ab$]
+        \manualterms{0,0,1,1,1,1,1,0,1,1,x,x,x,x,x,x}
+        \implicantedge{3}{2}{11}{10}
+        \implicant{2}{10}
+        \implicant{4}{13}
+        \implicant{12}{10}
+      \end{karnaugh-map}   
+    }
+  }
+  \caption{\label{fg:segmentoG} Codificación de activación del segmento g y mapa K correspondiente.}
+\end{figure}
+
+\begin{exercise}
+  Considere la función booleana $f\colon B^{4}\longrightarrow B$
+  definida por:
+  \begin{equation*}
+    f(x,y,z,u)=\sum m(7,11,13,14,15)
+  \end{equation*}
+  \begin{enumerate}
+  \item Calcule una expresión minimal de $f$ a condición de ser
+    suma de productos de literales. \label{en:SOP}
+  \item Calcule una expresión minimal de $f$ a condición de ser
+    producto de sumas de literales. \label{en:POS}
+  \item Calcule el coste de cada una de las expresiones encontradas
+    para $f$ en los apartados \hyperref[en:POS]{\ref*{en:POS})} y
+    \hyperref[en:SOP]{\ref*{en:SOP})} y señale cuál es la del menor.
+  \end{enumerate} %del examen de incidencias
+\end{exercise}
+
+\begin{solution}
+  \begin{figure}
+    \centering
+    \mbox{
+      \subcaptionbox{\label{examen:min} Suma de minterm}{
+        \begin{karnaugh-map}[4][4][1][$zu$][$xy$]
+          \minterms{7,11,13,14,15}
+          \autoterms[0]
+          \implicant{7}{15}
+          \implicant{13}{15}
+          \implicant{15}{14}
+          \implicant{15}{11}
+        \end{karnaugh-map}
+      }
+      \qquad
+      \subcaptionbox{\label{examen:max} Producto de maxterm}{
+        \begin{karnaugh-map}[4][4][1][$zu$][$xy$]
+          \maxterms{0,1,2,3,4,5,6,8,9,10,12}
+          \autoterms[1]
+          \implicant{0}{5}
+          \implicant{0}{2}
+          \implicant{0}{8}
+          \implicantedge{0}{4}{2}{6}
+          \implicantedge{0}{1}{8}{9}
+          \implicantcorner[0,2]
+        \end{karnaugh-map}
+      }
+    }
+    \caption{\label{examen:total} Expresiones de $f$}
+  \end{figure}
+  Para la solución del problema nos basaremos en los mapas K de la
+  \hyperref[examen:total]{Figura \ref*{examen:total}}. Del mapa K de
+  la \hyperref[examen:min]{subfigura \ref*{examen:min})} deducimos:
+  \begin{equation}
+    \label{eq:ex1}
+    f(x,y,z,u)=yzu+xyu+xzu+xyz
+  \end{equation}
+  y del mapa K de
+  la \hyperref[examen:max]{subfigura \ref*{examen:max})} deducimos:
+  \begin{equation}
+    \label{eq:ex2}
+    f(x,y,z,u)=(x+y)(z+u)(y+u)(x+z)(y+z)(x+u)
+  \end{equation}
+  El análisis de los costes es el siguiente:
+  \begin{itemize}
+  \item Expresión \hyperref[eq:ex1]{(\ref*{eq:ex1})}
+    \begin{itemize}
+    \item \texttt{and}: 4
+    \item \texttt{or}: 1
+    \item entradas: 16
+    \end{itemize}
+    que arroja un total de 21
+  \item Expresión \hyperref[eq:ex2]{(\ref*{eq:ex2})}
+    \begin{itemize}
+    \item \texttt{and}: 1
+    \item \texttt{or}: 6
+    \item entradas: 18
+    \end{itemize}
+    que arroja un total de 25
+  \end{itemize}
+\end{solution}
+
+\begin{exercise}
+Sean $m$ y $n$ números naturales no nulos tales que
+  $\mathbf{D(m)}$ y $\mathbf{D(n)}$ son álgebras de Boole no
+  triviales. Demuestre que son equivalentes las siguientes
+  afirmaciones:
+  \begin{enumerate}
+  \item $\mathbf{D(mn)}$ es un álgebra de Boole.
+  \item $(m,n)=1$.
+  \end{enumerate}
+  Demuestre además que si $m$ y $n$ son números naturales no nulos
+  tales que $\mathbf{D(m)}$, $\mathbf{D(n)}$ y $\mathbf{D(mn)}$ son
+  álgebras de Boole, entonces $\mathbf{D(m)}\times\mathbf{D(n)}$ y
+  $\mathbf{D(mn)}$ son álgebras de Boole isomorfas.
+\end{exercise}
+
+\begin{solution}
+  Sean $m$ y $n$ números naturales no nulos tales que $\mathbf{D(m)}$
+  y $\mathbf{D(n)}$ son álgebras de Boole no triviales. Supongamos
+  $\mathbf{D(mn)}$ es un álgebra de Boole y que es isomorfa a
+  $\mathbf{D(m)}\times\mathbf{D(n)}$; en tal caso $\mathbf{D(mn)}$ es
+  un álgebra de Boole. Por tanto, en la factorización de $mn$ como
+  producto de números primos no figura ningún primo elevado a una
+  potencia superior a $1$; de donde $m$ y $n$ no tienen ningún factor
+  primo en común, o sea, $(m,n)=1$. Recíprocamente, supongamos que
+  $(m,n)=1$. Por la hipótesis general $P(m)$ y $P(n)$ valen; donde
+  $P(r)$ es la afirmación ``existe un número natural $k_{r}$ tal que:
+  $r=\prod_{i=0}^{k_{r}}p_{i}$; para todo $0\leq i\leq k_{r}$, $p_{i}$
+  es primo y $p_{i}\neq p_{j}$, siempre que $0\leq i<j\leq
+  k_{r}$''. Si $(m,n)=1$, $P(mn)$ vale; por lo que $\mathbf{D(mn)}$ es
+  un álgebra de Boole. Por otra parte, supongamos que $\mathbf{D(m)}$
+  y $\mathbf{D(n)}$ son álgebras de Boole no triviales. Entonces:
+  \begin{itemize}
+  \item Los átomos del álgebra de Boole
+    $\mathbf{D(m)}\times\mathbf{D(n)}$ son los elementos de
+    \begin{equation*}
+      \{\langle p,1\rangle\colon p\text{ es primo y }p\mid m\}
+      \cup
+      \{\langle 1,q\rangle\colon p\text{ es primo y }q\mid n\}
+    \end{equation*}
+    por lo que posee $k_{m}+k_{n}+2$ átomos.
+  \item En las hipótesis, $\mathbf{D(mn)}$ es un álgebra de Boole no
+    trivial y su número de átomos es también $k_{m}+k_{n}+2$.
+  \end{itemize}
+  Al ser $\mathbf{D(m)}\times\mathbf{D(n)}$ y $\mathbf{D(mn)}$
+  álgebras de Boole no triviales y tener el mismo número de átomos,
+  deben ser isomorfas. Pero si alguna de ellas, o las dos, son
+  triviales es resultado es a su vez evidente.
+\end{solution}
+
+\begin{exercise}
+  Considere la función booleana $f\colon B^{4}\longrightarrow B$
+  definida por:
+  \begin{equation*}
+    f(x,y,z,u)=\sum m(0,1,3,4,7,11,13,15)+\sum d(9,12,14)
+  \end{equation*}
+  \begin{enumerate}
+  \item Calcule una expresión minimal de $f$ a condición de ser
+    suma de productos de literales. \label{en:SOP1}
+  \item Calcule una expresión minimal de $f$ a condición de ser
+    producto de sumas de literales. \label{en:POS1}
+  \item Calcule el coste de cada una de las expresiones que se piden
+    para $f$ en los apartados \hyperref[en:POS1]{\ref*{en:POS1})} y
+    \hyperref[en:SOP1]{\ref*{en:SOP1})} y compare los costos.
+  \item De una expresión de $f$ con coste menor que el de cualquiera
+    de las anteriores.
+  \end{enumerate} %lmd_giim_20172018_ordinario.tex
+\end{exercise}
+
+\begin{solution}
+  Para la solución del problema nos basaremos en los mapas K de la
+  \hyperref[examen:total1]{Figura \ref*{examenExt:total1}}. Del mapa K de
+  la \hyperref[examen:min1]{subfigura \ref*{examenExt:min1})} deducimos:
+  \begin{equation}
+    \label{eq:exext11}
+    f(x,y,z,u)=x'z'u'+y'u+xu+zu
+  \end{equation}
+  y del mapa K de
+  la \hyperref[examen:max1]{subfigura \ref*{examenExt:max1})} deducimos:
+  \begin{equation}
+    \label{eq:exext21}
+    f(x,y,z,u)=(x'+u)(z'+u)(x+y'+z+u')
+  \end{equation}
+  El análisis de los costos es el siguiente:
+  \begin{itemize}
+  \item Expresión \hyperref[eq:exext11]{(\ref*{eq:exext11})}
+    \begin{itemize}
+    \item \texttt{and}: 1
+    \item \texttt{or}: 4
+    \item entradas: 13
+    \end{itemize}
+    que arroja un total de 18
+  \item Expresión \hyperref[eq:exext21]{(\ref*{eq:exext21})}
+    \begin{itemize}
+    \item \texttt{and}: 1
+    \item \texttt{or}: 3
+    \item entradas: 11
+    \end{itemize}
+    que arroja un total de 15
+  \end{itemize}
+  No obstante:
+  \begin{equation*}
+    f(x,y,z,u)=x'z'u'+(y'+x+z)u
+  \end{equation*}
+  cuyo costo es $14$, pues
+  \begin{itemize}
+    \item \texttt{and}: 2
+    \item \texttt{or}: 2
+    \item entradas: 10
+    \end{itemize}
+    Sin embargo, esta solución ni es POS ni SOP.
+    \begin{figure}
+      \centering
+    \mbox{
+      \subcaptionbox{\label{examenExt:min1} Suma de minterm}{
+        \begin{karnaugh-map}[4][4][1][$zu$][$xy$]
+          \minterms{0,1,3,4,7,11,13,15}
+          \indeterminants{9,12,14}
+          \autoterms[0]
+          \implicantedge{1}{3}{9}{11}
+          \implicant{0}{4}
+          \implicant{3}{11}
+          \implicant{13}{11}
+        \end{karnaugh-map}
+      }
+      \qquad
+      \subcaptionbox{\label{examenExt:max1} Producto de maxterm}{
+        \begin{karnaugh-map}[4][4][1][$zu$][$xy$]
+          %\minterms{0,1,3,4,7,11,13,15}
+          \maxterms{2,5,6,8,10}
+          \indeterminants{9,12,14}
+          %\autoterms[0]
+          \autoterms[1]
+          \implicant{2}{10}
+          \implicant{5}{5}
+          \implicantedge{12}{8}{14}{10}
+        \end{karnaugh-map}
+      }
+    }
+    \caption{\label{examenExt:total1} Expresiones de $f$}
+  \end{figure}
+\end{solution}
+  
+\begin{exercise}
+  Considere la función booleana $f\colon B^{4}\longrightarrow B$
+  definida por:
+  \begin{equation*}
+    f(x,y,z,u)=\sum m(7,9,10,11,12,13,14,15)
+  \end{equation*}
+  \begin{enumerate}
+  \item Calcule una expresión minimal de $f$ a condición de ser
+    suma de productos de literales. \label{en:SOP}
+  \item Calcule una expresión minimal de $f$ a condición de ser
+    producto de sumas de literales. \label{en:POS}
+  \item Calcule el coste de cada una de las expresiones que se piden
+    para $f$ en los apartados \hyperref[en:POS]{\ref*{en:POS})} y
+    \hyperref[en:SOP]{\ref*{en:SOP})} y compare los costos.
+  \end{enumerate} %del examen de incidencias
+\end{exercise}
+
+\begin{solution}
+  \begin{figure}
+    \centering
+    \mbox{
+      \subcaptionbox{\label{examenExt:min} Suma de minterm}{
+        \begin{karnaugh-map}[4][4][1][$zu$][$xy$]
+          \minterms{7,9,10,11,12,13,14,15}
+          \autoterms[0]
+          \implicant{7}{15}
+          \implicant{12}{14}
+          \implicant{13}{11}
+          \implicant{15}{10}
+        \end{karnaugh-map}
+      }
+      \qquad
+      \subcaptionbox{\label{examenExt:max} Producto de maxterm}{
+        \begin{karnaugh-map}[4][4][1][$zu$][$xy$]
+          \maxterms{0,1,2,3,4,5,6,8}
+          \autoterms[1]
+          \implicant{0}{2}
+          \implicant{0}{5}
+          \implicantedge{0}{4}{2}{6}
+          \implicantedge{0}{0}{8}{8}
+          % \implicantcorner[0,2]
+        \end{karnaugh-map}
+      }
+    }
+    \caption{\label{examenExt:total} Expresiones de $f$}
+  \end{figure}
+  Para la solución del problema nos basaremos en los mapas K de la
+  \hyperref[examen:total]{Figura \ref*{examenExt:total}}. Del mapa K de
+  la \hyperref[examen:min]{subfigura \ref*{examenExt:min})} deducimos:
+  \begin{equation}
+    \label{eq:exext1}
+    f(x,y,z,u)=xy+xz+xu+yzu
+  \end{equation}
+  y del mapa K de
+  la \hyperref[examen:max]{subfigura \ref*{examenExt:max})} deducimos:
+  \begin{equation}
+    \label{eq:exext2}
+    f(x,y,z,u)=(x+y)(x+z)(x+u)(y+z+u)
+  \end{equation}
+  El análisis de los costos es el siguiente:
+  \begin{itemize}
+  \item Expresión \hyperref[eq:exext1]{(\ref*{eq:exext1})}
+    \begin{itemize}
+    \item \texttt{and}: 4
+    \item \texttt{or}: 1
+    \item entradas: 13
+    \end{itemize}
+    que arroja un total de 18
+  \item Expresión \hyperref[eq:exext2]{(\ref*{eq:exext2})}
+    \begin{itemize}
+    \item \texttt{and}: 1
+    \item \texttt{or}: 4
+    \item entradas: 13
+    \end{itemize}
+    que arroja un total de 18
+  \end{itemize}
+  Ambas expresiones tiene el mismo costo.
+\end{solution}
+
+\begin{exercise}
+  Sea la expresión booleana
+  \begin{equation*}
+    \varphi\equiv (x'y)\uparrow(x\supset(z\downarrow y'))
+  \end{equation*}
+  y $f(x,y,z)$ la función booleana asociada a $\varphi$. Encuentre:
+  \begin{enumerate}
+  \item $p_{G}(\varphi)$
+  \item La forma normal disyuntiva perfecta de $f$ (expresión de $f$
+    como suma de minterm) 
+  \item La forma normal conjuntiva perfecta de $f$ (expresión de $f$
+    como producto de maxterm)
+  \item Una expresión minimal a condición de ser SOP.
+  \end{enumerate}
+\end{exercise}
+
+\begin{solution}~
+  \begin{enumerate}
+  \item Calculemos $\operatorname{p_{G}}(\varphi)$:
+    \begin{align*}
+      \operatorname{p_{G}}(\varphi)&
+          =\operatorname{p_{G}}((x'y)\uparrow(x\supset(z\downarrow y')))\\
+        &=\operatorname{p_{G}}(x'y)\operatorname{p_{G}}(x\supset(z\downarrow y'))+1\\
+        &=(x+1)y(x \operatorname{p_{G}}(z\downarrow y')+x+1)+1\\
+        &=(x+1)y(x(z(y+1)+z+(y+1)+1)+x+1)+1\\
+        &=(x+1)y(x(zy+z+z+y+1+1)+x+1)+1\\
+        &=(x+1)y(xyz+xy+x+1)+1\\
+        &=xyz+xy+xy+xy+xyz+xy+xy+y+1\\
+        &=xy+y+1\\
+        &=\operatorname{p_{G}}(y\supset x)
+    \end{align*}
+    y así pues:
+    \begin{equation*}
+      (x'y)\uparrow(x\supset(z\downarrow y'))=y\supset x=x+y'
+    \end{equation*}
+    Deducimos que $f$ no depende de $z$ y que $x+y'$ es una expresión
+    minimal como suma de productos, pues es SOP y no admite
+    simplificación alguna (confírmelo con un mapa K). Calculemos ahora
+    las formas normales de $f$:
+    \begin{align*}
+      f(x,y,z)&=x+y'\\
+              &=x\cdot 1+y'\cdot 1\\
+              &=x(y+y')+y'(x+x')\\
+              &=xy+xy'+xy'+x'y'\\
+              &=xy+xy'+x'y'\\
+              &=xy(z+z')+xy'(z+z')+x'y'(z+z')\\
+              &=x'y'z'+x'y'z+xy'z'+xy'z+xyz'+xyz\\
+              &=\sum m(0,1,4,5,6,7)
+    \end{align*}
+    Así pues,
+    \begin{align*}
+      f(x,y,z)&=\prod M(2,3)\\
+              &=(x+y'+z)(x+y'+z')
+    \end{align*}
+    Como observación al margen: al ser $f(0,0,0)=1$, sabemos que
+    $\operatorname{p_{G}(\varphi)}(0,0,0)=1$; así pues, sin necesidad
+    del cálculo $de \operatorname{p_{G}}(\varphi)$, sabemos que el
+    término independiente del polinomio de Zhegalkine debe ser igual a
+    $1$.
+  \end{enumerate}
+\end{solution}
+
+\begin{exercise}
+  Mediante el algoritmo de Quine-McCluskey (y no otro, ahora)
+  encuentre razonadamente todas las expresiones minimales de la
+  función:
+  \begin{equation*}
+    f(x,y,z,u)=\sum m(4,5,7,12,14,15)
+  \end{equation*}
+  a condición de estar éstas expresadas como suma de
+  productos. Determine al menos una expresión de $f$ que teniendo igual 
+  costo que cualquiera de las expresiones minimales encontradas, sin embargo
+  no esté expresada como suma de productos.
+\end{exercise}
+  
+  \begin{solution}~
+    \begin{enumerate}
+    \item \textbf{Generación de implicantes primos};  la tabla de la
+    \hyperref[fg:exp21819A]{Figura \ref*{fg:exp21819A}} recoge la
+    marcha del proceso y los resultados.
+        \begin{figure}[!hbp]
+          \centering
+          \begin{tabular}[c]{rcccrcc}
+            \multicolumn{3}{c}{columna 1}
+            &
+            &\multicolumn{3}{c}{columna 2}
+            \\\cline{1-3}\cline{5-7}
+            4&0100&$\checkmark$&&\{4,5\}&010{\_}&*\\\cline{1-3}
+            5&0101&$\checkmark$&&\{4,12\}&{\_}100&*\\\cline{5-7}
+            12&1100&$\checkmark$&&\{5,7\}&01{\_}1&*\\\cline{1-3}
+            7&0111&$\checkmark$&&\{12,14\}&11{\_}0&*\\\cline{5-7}
+            14&1110&$\checkmark$&&\{7,15\}&{\_}111&*\\\cline{1-3}
+            15&1111&$\checkmark$&&\{14,15\}&111{\_}&*\\\cline{5-7}
+          \end{tabular}
+          \caption{\label{fg:exp21819A} Generación de implicantes primos}
+        \end{figure}
+      \item \textbf{Construcción de la tabla de implicantes primos};
+        es la que aparece en la \hyperref[fg:exp21819B]{Figura
+          \ref*{fg:exp21819B}}, donde no aparece ningún implicante
+        primo esencial ni columnas ni filas dominadoras.
+        \begin{figure}[!hbp]
+          \centering
+          \begin{tabular}[c]{crl|ccccccccc|}
+            &         &               &4&5&7&12&14&15\\\hline
+            &\{4,5\}  &010{\_}&$\circ$&$\circ$&&&&\\
+            &\{4,12\} &{\_}100&$\circ$&&&$\circ$&&\\
+            &\{5,7\}  &01{\_}1&&$\circ$&$\circ$&&&\\
+            &\{12,14\}&11{\_}0&&&&$\circ$&$\circ$&\\
+            &\{7,15\} &{\_}111&&&$\circ$&&&$\circ$\\
+            &\{14,15\}&111{\_}&&&&&$\circ$&$\circ$\\\hline
+            &         &              &&&&&&\\\cline{4-9}
+          \end{tabular}
+          \caption{\label{fg:exp21819B} Tabla de implicantes primos}
+        \end{figure}
+      \item \textbf{Resolución de la tabla de implicantes primos}; se
+        puede llevar a cabo por el algoritmo de
+        Petrick. \index{algoritmo ! de Petrick} Encontramos la
+        situación de la siguiente tabla:
+    \begin{center}
+      \begin{tabular}[c]{c|c}
+        para cubrir a & basta usar\\\hline
+         4&$p_{1}$ ó $p_{2}$\\
+         5&$p_{1}$ ó $p_{3}$\\
+         7&$p_{3}$ ó $p_{5}$\\
+         12&$p_{2}$ ó $p_{4}$\\
+        14&$p_{4}$ ó $p_{6}$\\
+        15&$p_{5}$ ó $p_{6}$
+      \end{tabular}
+    \end{center}
+      lo que nos lleva a formular la frase $P$ del metalenguaje que
+    expresa el modo de cubrir la totalidad de los los minterms como
+    una expresión booleana según:
+    \begin{equation*}
+      (P_{1}+P_{2})(P_{1}+P_{3})(P_{3}+P_{5})(P_{2}+P_{4})(P_{4}+P_{6})
+              (P_{5}+P_{6})
+    \end{equation*}
+    que debemos transformar en suma de productos:
+    \begin{align*}
+      P&=(P_{1}+P_{2})
+           (P_{1}+P_{3})
+           (P_{3}+P_{5})
+           (P_{2}+P_{4})
+           (P_{4}+P_{6})
+           (P_{5}+P_{6})&&\\
+       &=(P_{1}+P_{2}P_{3})
+         (P_{4}+P_{2}P_{6})
+         (P_{5}+P_{3}P_{6})&&\\
+       &=(P_{1}+P_{2}P_{3})(P_{4}+P_{2}P_{6})P_{5}
+       +(P_{1}+P_{2}P_{3})(P_{4}+P_{2}P_{6})P_{3}P_{6}&&\\
+       &=(P_{1}+P_{2}P_{3})P_{4}P_{5}
+       +(P_{1}+P_{2}P_{3})P_{2}P_{5}P_{6}&&\\
+       &+(P_{1}+P_{2}P_{3})P_{4}P_{3}P_{6}
+       +(P_{1}+P_{2}P_{3})P_{2}P_{3}P_{6}&&\\
+       &=P_{1}P_{4}P_{5}
+       +P_{2}P_{3}P_{4}P_{5}
+       +P_{1}P_{2}P_{5}P_{6}
+       +P_{2}P_{3}P_{5}P_{6}&&\\
+       &+P_{1}P_{3}P_{4}P_{6}
+       +P_{2}P_{3}P_{4}P_{6}
+       +P_{1}P_{2}P_{3}P_{6}
+       +P_{2}P_{3}P_{6}&&
+    \end{align*}
+    donde para simplificar hemos usado $(x+y)(x+z)=x+yz$ (ley
+    distributiva) y $x+xy=x$ (ley de absorción). Por tanto, para dar
+    la expresión mínima que buscamos nos basaremos en:
+    \begin{center}
+      \begin{tabular}[c]{|c|c|c|c|}
+        pseudónimo&implicante&patrón&representa\\\hline
+        $p_{1}$&\{4,5\}  &010{\_}&$\bar{x}y\bar{z}$\\
+        $p_{2}$&\{4,12\} &{\_}100&$y\bar{z}\bar{u}$\\
+        $p_{3}$&\{5,7\}  &01{\_}1&$\bar{x}yu$\\
+        $p_{4}$&\{12,14\}&11{\_}0&$xy\bar{u}$\\
+        $p_{5}$&\{7,15\} &{\_}111&$yzu$\\
+        $p_{6}$&\{14,15\}&111{\_}&$xyz$\\\hline
+      \end{tabular}
+      \end{center}
+      y será cualquiera de las siguientes 2 opciones:
+      \begin{center}
+        \begin{tabular}[c]{|ccc|c|}
+          \multicolumn{3}{|c|}{implicantes}&$f(x,y,z,u)$\\[1mm]\hline
+          $p_{1}$&$p_{4}$&$p_{5}$&$\bar{x}y\bar{z}+xy\bar{u}+yzu$\\
+          $p_{2}$&$p_{3}$&$p_{6}$&$y\bar{z}\bar{u}+\bar{x}yu+xyz$\\
+          \hline
+        \end{tabular}
+      \end{center}
+      El costo de cualquiera de estas expresiones de $f$ es:
+      \begin{itemize}
+      \item +\ : 1
+      \item $\cdot$\ : 3
+      \item entradas: 12
+      \item total: 16
+      \end{itemize}
+      También $f(x,y,z,u)=y(\bar{x}\bar{z}+x\bar{u}+zu)$ que vuelve a
+      tener costo $16$.
+  \end{enumerate}
+  \end{solution}

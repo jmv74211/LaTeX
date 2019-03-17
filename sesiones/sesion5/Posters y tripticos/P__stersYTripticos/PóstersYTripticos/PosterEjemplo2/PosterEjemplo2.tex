@@ -1,0 +1,61 @@
+\documentclass{beamer}
+  \usepackage[orientation=portrait,size=a0,scale=1.4,debug]{beamerposter}                      
+
+  \mode<presentation> {  
+    \usetheme{Warsaw}
+  }
+  
+  \usefonttheme[onlymath]{serif}
+  \boldmath
+  
+  \usepackage[english]{babel}
+  \usepackage[utf8]{inputenc}
+  \usepackage{amsmath,amsthm, amssymb, latexsym}
+   
+  \title[Posters]{\VERYHuge Haciendo un poster en \LaTeX}
+  \author[Alex]{\huge Alexander Borb\'on Alp\'izar}
+  \institute[ITCR]{\Large Instituto Tecnol\'ogico de Costa Rica}
+  \date{Enero-Febrero, 2013}
+  
+  \begin{document}
+  \begin{frame}[plain]{} 
+  	\maketitle
+    \vfill
+    \begin{block}{\large Fontsizes}
+      \centering
+      {\tiny tiny}\par
+      {\scriptsize scriptsize}\par
+      {\footnotesize footnotesize}\par
+      {\normalsize normalsize}\par
+      {\large large}\par
+      {\Large Large}\par
+      {\LARGE LARGE}\par
+      {\veryHuge veryHuge}\par
+      {\VeryHuge VeryHuge}\par
+      {\VERYHuge VERYHuge}\par
+    \end{block}
+    \vfill
+    \begin{columns}[t]
+      \begin{column}{.48\linewidth}
+        \begin{block}{Introducci\'on}
+          En este art\'iculo...
+        \end{block}
+      \end{column}
+      \begin{column}{.48\linewidth}
+        \begin{block}{Secci\'on 2}
+          \begin{itemize}
+          \item item 1 y $\int f(x) dx$
+          \item item 2
+          \end{itemize}
+        \end{block}
+        \begin{block}{Secci\'on 3}
+          \begin{itemize}
+          \item item 1
+          \item item 2
+          \end{itemize}
+          $\int f(x) dx$
+        \end{block}
+      \end{column}
+    \end{columns}
+  \end{frame}
+\end{document}

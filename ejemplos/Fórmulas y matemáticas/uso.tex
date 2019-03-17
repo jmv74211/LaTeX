@@ -1,0 +1,133 @@
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "bbp_formula"
+%%% End:
+
+\section{Uso de la Fórmula para Calcular los Decimales del Número
+  $\boldsymbol{\pi}$}
+
+
+A continuación se muestra el cálculo del enésimo dígito hexadecimal de
+$\pi$. Primero se debe observar que el dígito ubicado en la posición
+$N+1$ de $\pi$ en base $16$ es el mismo que el primer dígito
+hexadecimal de $16^{N}\pi$. En efecto, como en la base $10$,
+multiplicar un número en base $16$ por $16$ equivale a desplazar la
+coma decimal un lugar hacia la derecha. De esta manera, multiplicando
+por $16^{N}$ la coma se desplaza $N$ lugares hacia la derecha. El
+problema original se reduce al cálculo del primer dígito de
+$16^{N}\pi$. Usando la \hyperref[eq:bbp]{fórmula BBP }:
+\begin{equation*}
+  16^{N}\pi =\sum_{k=0}^{\infty}16^{N-k}
+  \left(
+    \frac{4}{8k+1}
+    -\frac{2}{8k+4}
+    -\frac{1}{8k+5}
+    -\frac{1}{8k+6}
+  \right) \nonumber
+\end{equation*}
+    
+El cálculo de los primeros dígitos hexadecimales a la derecha de la
+coma de este número no es sencillo por dos razones: el número es muy
+grande y la suma es infinita.
+  
+\begin{definition}
+  Sea $N$ un número natural no nulo y $a$ un número natural. Definimos
+  $S_{N}(a)$, $A_{N}(a)$ y $B_{N}(a)$ por las siguientes igualdades:
+  \begin{eqnarray*}
+    S_{N}(a)&=&\sum_{k=0}^{\infty}\frac{16^{N-k}}{8k+a}\\
+    A_{N}(a)&=&\sum_{k=0}^{N-1}\frac{16^{N-k}}{8k+a}\\
+    B_{N}(a)&=&\sum_{k=N}^{\infty}\frac{16^{N-k}}{8k+a}\\
+  \end{eqnarray*}
+\end{definition}
+
+\begin{remark}
+  Para tódo número natural $N$ no nulo y todo número natural:
+  \begin{equation*}
+    S_{N}(a) = A_{N}(a)+B_{N}(a)
+  \end{equation*}
+\end{remark}
+
+
+El cálculo de los primeros dígitos hexadecimales de $S_{N}(a)$
+permitirá obtener los de $16^{N}\pi$, a través de la relación:
+\begin{equation*}
+  16^{N}\pi=4S_{N}(1)-2S_{N}(4)-S_{N}(5)-S_{N}(6)
+\end{equation*}
+
+\subsection{Cálculo de $\boldsymbol{B_{N}(a)}$}
+
+Aunque $B_{N}(a)$ es una suma infinita, es muy fácil de calcular
+porque sus términos son pequeños y decrecen rápidamente. En efecto:
+\begin{itemize}
+\item el prmer término de la suma es $b_{N}=1/(8N+a)$. Si se busca
+  el enésimo dígito hexadecimal de $\pi$ (digamos, por ejemplo,
+  $N=1000000000$), el primer término es mucho menor que $1$.
+\item Además, cada término tiene un cero más a la derecha de la coma
+  que el precedente, porque para $k\geq N$, $b_{k}>16b_{k+1}$:
+  \begin{align*}
+    \frac{b_{k}}{b_{k+1}}&=\frac{16^{N-k}}{16^{N-(k+1)}}\frac{8(k+1)+a}{8k+a}\\
+                         &=16\left(1+\frac{8}{8k+a}\right) \longrightarrow 16^{+}
+  \end{align*}
+\end{itemize}
+
+Finalmente, la suma $B_{N}(a)$ es de la forma (en el peor caso):
+\begin{align*}
+  B_{N}&=0,**********\ldots\\
+       &+0,0*********\ldots\\
+       &+0,00********\ldots\\
+       &+0,000*******\ldots\\ 
+\end{align*}
+
+Por lo tanto, para obtener $B_{N}(a)$ con una precisión de $P$ cifras
+detrás de la coma, es suficiente calcular los $P$ primeros términos de
+la suma, agregándose algunos términos más para eviatar errores que
+aparecen al realizar cálculos con valores aproximados. Así, se
+calcula:
+\begin{equation*}
+  B_{N}'=\sum_{k=N}^{N+P+10}\frac{16^{N-k}}{8k+a} 
+\end{equation*}
+Como esta suma posee una pequeña cantidad de términos, el tiempo que
+insume esta operación es insignificante para la computadora.
+
+\subsection{Cálculo de $\boldsymbol{A_{N}(a)}$}
+
+El problema para el cálculo de $A_{N}(a)$ es que los primeros términos
+son muy grandes ($N$ cifras de base $16$ antes de la coma). Sin
+embargo, al igual que las primeras cifras detrás de la coma, no
+importa la parte entera, que también es grande. Por lo tanto, puede
+``eliminarse'' usando aritmética modular.
+
+Toda la dificultad se reduce a hallar la parte fraccionaria de
+$16^{N-k}/(8k+a)$. Para ello realizamos la división entera de
+$16^{N-k}$ entre $(8k+a)$. Sabemos que existen números enteros $q$
+y $r$ tales que:
+\begin{itemize}
+\item $16^{N-k}=q(8k+a)+r$
+\item $0\leq r<8k+a$
+\end{itemize}
+Por tanto:
+\begin{equation*}
+  \frac{16^{N-k}}{8k+a}=q+\frac{r}{8k+a}
+\end{equation*}
+siendo $r/(8k+a)<1$ y por tanto es la parte fraccionaria de
+$16^{N-k}/(8k+a)$ y
+\begin{equation*}
+  \frac{r}{8k+a}=\frac{16^{N-k}\mod (8k+a)}{8k+a}
+\end{equation*}
+
+Utilizando el método de la exponenciación binaria,
+$16^{N-k}\mod (8k+a)$ se calcula rápidamente (con un tiempo de
+ejecución de $\operatorname{O}(\log_{2}(N-k))$.
+
+\subsection{Conclusión}
+
+Al fin y al cabo, para obtener los primeros dígitos de $\pi$ en base
+$16$ (ó $2$) se deben calcular los primeros dígitos de:
+\begin{equation*}
+  \pi_{N}=4S_{N}'(1)-2S_{N}'(4)-S_{N}'(5)-S_{N}'(6)
+\end{equation*}
+donde
+\begin{equation*}
+  S_{N}'(a) = \sum_{k=0}^{N-1}\frac{16^{N-k}\mod (8k+a)}{8k+a}
+  +\sum_{k=N}^{N+P+10}\frac{16^{N-k}}{8k+a}
+\end{equation*}

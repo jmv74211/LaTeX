@@ -1,0 +1,758 @@
+\section{Inducción}
+
+\subsection{Razonamiento escueto}
+
+\begin{exercise}
+  \label{ex:monotonia}
+  Demuestre que para todo número natural $n$, $n!n<(n+1)!(n+1)$.
+\end{exercise}
+
+\begin{solution}
+  Para todo número natural $n$:
+  \begin{equation*}
+    0<n^{2}+3n+1
+  \end{equation*}
+  por lo que:
+  \begin{equation*}
+    n<n^{2}+2n+1
+  \end{equation*}
+  y por tanto:
+  \begin{equation*}
+    n!n<n!(n^{2}+2n+1)
+  \end{equation*}
+  Se tiene las siguiente igualdades:
+  \begin{align*}
+    n!n&<n!(n(n+2)+1)\\
+       &=n!(n(n+1)+n+1)\\
+       &=n!n(n+1)+n!(n+1)\\
+       &=(n+1)!n+(n+1)!\\
+       &=(n+1)!(n+1)
+  \end{align*}
+  % \begin{align*}
+  %   (n+1)!(n+1)&=(n+1)!n+(n+1)!\\
+  %              &=n!n(n+1)+n!(n+1)\\
+  %              &=n!(n(n+1)+n+1)\\
+  %              &=n!(n(n+2)+1)\\
+  %              &>n!n
+  % \end{align*}
+\end{solution}
+
+\begin{exercise}
+  Demuestre que para todo número natural $n$ tal que $3\leq n$ se
+  cumple:
+  \begin{equation*}
+    6<n!n
+  \end{equation*}
+\end{exercise}
+
+\begin{solution}
+  Por inducción sobre $n$. Si $n=3$, $3!3=18$ y $6<18$. Supongamos que
+  $3\leq n$ y que $6<n!n$. Entonces:
+  \begin{align*}
+    6&<n!n\\
+     &<(n+1)!(n+1)
+  \end{align*}
+  Por tanto la propiedad es cierta.
+\end{solution}
+
+\begin{exercise}
+  Demuestre que para todo número natural superior a $4$, $6(n+1)<n!$.
+\end{exercise}
+
+\begin{solution}
+  Por inducción sobre $n$. Para $n=5$, $6(5+1)=36<120=5!$. Supongamos
+  que $5\leq n$ y $6(n+1)<n!$ y demostremos que $6(n+2)<(n+1)!$. Se tiene:
+  \begin{align*}
+    (n+1)!-n!-6&=n!(n+1)-n!-6\\
+               &=n!n-6\\
+               &>0
+  \end{align*}
+  luego $n!+6<(n+1)!$; pero
+  \begin{align*}
+    6(n+2)&=6(n+1)+6\\
+          &<n!+6\\
+          &<n!+n!n\\
+          &=n!(n+1)\\
+          &=(n+1)!
+  \end{align*}
+\end{solution}
+
+\begin{exercise}
+  Demuestre que para todo número natural no nulo se cumple
+  \begin{equation*}
+    n!<n!(n^{2}+n+1)
+  \end{equation*}
+\end{exercise}
+
+\begin{solution}
+  Es evidente a partir del hecho de que para todo número natural $n$,
+  $n!$ es no negativo y de que para todo número natural no nulo $n$,
+  $1<n^{2}+n+1$.
+\end{solution}
+
+\begin{exercise}
+  Demuestre que para todo número natural $n$ tal que $5\leq n$,
+  \begin{equation*}
+    6(n+1)<n!(n^{2}+n+1)
+  \end{equation*}
+\end{exercise}
+
+\begin{solution}
+  Para todo número natural $n$ tal que $n\leq 5$, $6(n+1)<n!$ y
+  $n!<n!(n^{2}+n+1)$; por tanto, $6(n+1)<n!(n^{2}+n+1)$.
+\end{solution}
+
+\begin{exercise}
+  Demuestre que para todo número natural $n$ tal que $3\leq n$,
+  \begin{equation*}
+    6(n+1)<n!(n^{2}+n+1)
+  \end{equation*}
+\end{exercise}
+
+\begin{solution}
+  Conocemos la veracidad de la relación para todo número natural $n$
+  tal que $5\leq n$. Basta comprobar que también vale para $n=3$ y
+  $n=4$.
+\end{solution}
+
+\begin{exercise}
+  Demuestre que para todo número natural $n$ tal que $3\leq n$,
+  \begin{equation*}
+    6(n+1)+n!n<(n+1)!(n+1)
+  \end{equation*}
+\end{exercise}
+
+% \begin{solution}
+%   Por inducción sobre $n$. Supongamos que $n=3$,
+%   $3!3+6(3+1)=42<96=(3+1)!(3+1)$. Supongamos que $3\leq n$ y que
+%   $6(n+1)+n!n<(n+1)!(n+1)$; demostremos que
+% \end{solution}
+
+\begin{solution}
+  Consideremos las siguientes igualdades:
+  \begin{align*}
+    (n+1)!(n+1)-n!n-6(n+1)&=(n+1)!n+(n+1)!-n!n-6(n+1)\\
+                          &=(n+1)!n+n!n+n!-n!n-6(n+1)\\
+                          &=(n+1)!n+n!-6(n+1)\\
+                          &=n!(n+1)n+n!-6(n+1)\\
+                          &=n!(n^{2}+n+1)-6(n+1)
+  \end{align*}
+  luego lo que queremos demostrar es equivalente a que
+  $6(n+1)<n!(n^{2}+n+1)$ y sabemos que esto es cierto para todo número
+  natural $n$ tal que $3\leq n$.
+\end{solution}
+
+\begin{exercise}
+  Para todo número natural $n$ son equivalentes las siguientes
+  desigualdades:
+  \begin{enumerate}
+  \item $n!+3n^{2}+3n+1<(n+1)!$
+  \item $3n(n+1)+1<n!n$
+  \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+  Basta considerar lo siguiente:
+  \begin{align*}
+    n!+3n^{2}+3n+1<(n+1)!&\text{ sii } 0<(n+1)!-n!-3n^{2}-3n-1\\
+                         &\text{ sii } 0<n!(n+1)-n!-3n^{2}-3n-1\\
+                         &\text{ sii } 0<n!n-3n(n+1)-1\\
+                           &\text{ sii } 3n(n+1)+1<n!n
+  \end{align*}
+\end{solution}
+
+\begin{exercise}
+  Demuestre que para todo número natural $n$ tal que $4\leq n$,
+  $3n(n+1)-1<n!n$.
+\end{exercise}
+
+\begin{solution}
+  Por inducción sobre $n$. Supongamos $n=4$;
+  \begin{equation*}
+    3\cdot 4\cdot 5-1=59<96=4\cdot3\cdot2\cdot4=4!4
+  \end{equation*}
+  Supongamos ahora que $n$ es un número natural cumpliendo $4\leq n$ y
+  que $3n(n+1)-1<n!n$. Se tiene:
+  \begin{align*}
+    3(n+1)(n+2)-1&=3(n+1)n+6(n+1)-1\\
+                 &<n!n+6(n+1)\\
+                 &<(n+1)!(n+1)
+  \end{align*}
+\end{solution}
+
+\begin{exercise}
+  Demuestre que para todo número natural $n$ tal que $4\leq n$,
+  \begin{equation*}
+    n!+3n^{2}+3n+1<(n+1)!
+  \end{equation*}
+\end{exercise}
+
+\begin{solution}
+  Por sí mismo, como conclusión inmediata de lo anterior.
+\end{solution}
+
+\begin{exercise}
+  Demuestre que para todo número natural $n$ tal que $6\leq n$ se cumple $n^{3}<n!$
+\end{exercise}
+
+\begin{solution}
+  Por inducción sobre $n$. Supongamos $n=6$:
+  \begin{equation*}
+    6^{3}=216<720=6!
+  \end{equation*}
+  Supongamos que $6\leq n$ y que $n^{3}<n!$. Entonces:
+  \begin{align*}
+    (n+1)^{3}&=n^{3}+3n^{2}+3n+1\\
+             &<n!+3n^{2}+3n+1\\
+             &<(n+1)!
+  \end{align*}
+\end{solution}
+
+\subsection{Razonamiento más profundo}
+
+\begin{definition}
+  \label{df:parDivisor}
+  Sean $a,b\in \mathbb{Z}$ tales que $b\neq 0$. Un \textit{par divisor
+    de} $a$ \textit{por} $b$ \index{par divisor} es un par de enteros
+  $\langle q,r\rangle$ tales que:
+  \begin{enumerate}
+  \item $a=bq+r$.
+  \item $0\leq r<|b|$.
+  \end{enumerate}
+\end{definition}
+
+\begin{lemma}
+  \label{lm:casoNegativos}
+  Supongamos que para todo $a,b\in\mathbb{N}$ tales que $b\neq 0$
+  existe un par divisor de $a$ por $b$. Entonces para todo
+  $a,b\in\mathbb{Z}$ tales que $b\neq 0$ existe un par divisor de $a$
+  por $b$ y es el siguiente por casos, siempre que
+  $\langle q,r\rangle$ sea un par divisor de $|a|$ por $|b|$:
+  \begin{enumerate}
+  \item Si $0<a$ y $b<0$,
+    $\langle\operatorname{sgn}(a)\operatorname{sgn}(b)q,r\rangle$ es
+    un par divisor de $a$ por $b$.
+  \item En el resto de casos, si $r=0$ entoces
+    $\langle\operatorname{sgn}(a)\operatorname{sgn}(b)(q+\operatorname{sgn}(r)),0\rangle$
+    es un par divisor de $a$ por $b$ y si $r\neq 0$, entonces $\langle\operatorname{sgn}(a)\operatorname{sgn}(b)(q+\operatorname{sgn}(r)),|b|-r\rangle$
+    es un par divisor de $a$ por $b$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+  Supongamos que $\langle q,r\rangle$ es un par divisor de $|a|$ por
+  $|b|$. La casuística es la siguiente:
+  \begin{enumerate}
+  \item $0<a$ y $b<0$; entonces 
+    \begin{align*}
+      a&=(-b)q+r\\
+       &=b(-q)+r
+    \end{align*}
+    y $0\leq r<|b|$. Así pues,
+    $\langle
+    -q,r\rangle=\langle\operatorname{sgn}(a)\operatorname{sgn}(b)q,r\rangle$.
+  \item $a<0$ y $b<0$; $-a=(-b)q+r$ y $0\leq r<-b$. Entonces:
+    \begin{itemize}
+    \item $r=0$; como $-a=(-b)q$ se cumple $a=bq$ y así
+      $\langle q,0\rangle =
+      \langle\operatorname{sgn}(a)\operatorname{sgn}(b)(q+\operatorname{sgn}(r)),0\rangle$
+      es un par divisor de $a$ por $b$.
+    \item $r>0$; entonces:
+      \begin{align*}
+        a&=bq-r\\
+         &=bq+0-r\\
+         &=bq+b-b-r\\
+         &=b(q+1)+(-b-r)
+      \end{align*}
+      Las condiciones $0\leq r<-b$ son equivalentes a $b<-r\leq 0$ o
+      también a $0<-b-r<|b|$. En definitiva, se tiene que
+      $\langle q+1,|b|-r\rangle
+      =\langle\operatorname{sgn}(a)\operatorname{sgn}(b)(q+\operatorname{sgn}(r)),|b|-r\rangle$
+      es un par divisor de $a$ por $b$.
+    \end{itemize}
+  \item Si $a<0$ y $0<b$; en este caso $-a=qb+r$ y $0\leq r<b$.
+    \begin{itemize}
+    \item $r=0$; como $-a=bq$ se cumple $a=b(-q)$ y así
+      $\langle -q,0\rangle =
+      \langle\operatorname{sgn}(a)\operatorname{sgn}(b)(q+\operatorname{sgn}(r)),0\rangle$
+      es un par divisor de $a$ por $b$.
+    \item $0<r$; entonces:
+      \begin{align*}
+        a&=-bq-r\\
+         &=b(-q)-r\\
+         &=b(-q)+0-r)\\
+         &=b(-q)-b+b-r\\
+         &=b(-q-1)+(b-r)\\
+         &=b(-q-1)+(|b|-r)\\
+      \end{align*}
+      y también $0<b-r<b$. En definitiva, $\langle -q-1,b-r\rangle =
+      \langle\operatorname{sgn}(a)\operatorname{sgn}(b)(q+\operatorname{sgn}(r)),|b|-r\rangle$
+    \end{itemize}
+  \end{enumerate}
+\end{proof}
+
+\begin{theorem}[teorema de la división]
+  \label{th:teoremaDeLaDivision} \index{teorema ! de la división} Para
+  todo $a,b\in\mathbb{Z}$ tales que $b\neq 0$ existe un único par
+  divisor de $a$ por $b$.
+\end{theorem}
+
+\begin{proof}
+  Supongamos que $a,b\in\mathbb{N}$ y que $b\neq 0$. La demostraci\'on
+  de la \textbf{existencia} es por inducci\'on. Si $a=0$, en tal caso
+  $0=b0+0$ y así $\langle 0,0\rangle$ es un par divisor de $a$ por
+  $b$. Supongamos que $a\neq 0$ y que para todo $0\leq c<a$ existen
+  $q_{c}$ y $r_{c}$ tales que $c=q_{c}b+r_{c}$. Podemos distinguir dos
+  casos:
+  \begin{enumerate}
+  \item Si $a<b$ entonces $a=0b+a$, como $0\leq a<b$ podemos tomar $q=0$
+    y $r=a$.
+  \item Si $b\leq a$, sea $c=a-b$. En este caso $0\leq c<a$. Por
+    hip\'otesis de inducci\'on, $c=q_{c}b+r_{c}$, para ciertos $q_{c}$ y
+    $r_{c}$ tales que $0\leq r_{c}<a$. Pero entonces:
+    \begin{align*}
+      a&=b+c\\
+       &=b+q_{c}b+r_{c}\\
+       &=b(q_{c}+1)+r_{c}
+    \end{align*}
+    y $0\leq r_{c}<b$. As\'{\i} pues, en este caso podemos tomar
+    $q=q_{c}+1$ y $r=r_{c}$.
+  \end{enumerate}
+  Por el principio de inducci\'on la existencia queda probada para
+  todo $a,b\in\mathbb{N}$ tal que $b\neq 0$. La existencia en los
+  restantes casos está garantizada por lo establecido en el
+  \hyperref[lm:casoNegativos]{Lema \ref*{lm:casoNegativos}}. Para la
+  \textbf{unidad}, supongamos que existen $q,q',r,r'\in \mathbb{Z}$
+  tales que $a=bq+r=bq'+r'$ y que $0\leq r<|b|$ y que $0\leq
+  r'<|b|$. Supongamos, para fijar ideas, que $r\leq r'$ y consideremos
+  $a-a$, o sea, $0=b(q-q')+(r-r')$, o $b(q-q')=r'-r$. Se pueden dar
+  dos casos:
+  \begin{enumerate}
+  \item $0<b$. Como $0\leq r'-r\leq r'$ y $r'<b$, se tiene $0\leq
+    b(q-q')<b$. De donde, $0\leq q-q'<1$ y por tanto $q-q'=0$, o sea,
+    $q=q'$. Entonces $r'-r=b(q-q')=0$, de donde $r'=r$.
+  \item $b<0$. Como $r'-r=b(q-q')$ y $0\leq r'-r\leq r\leq -b$, entonces
+    $0\leq b(q-q')<-b$. Por tanto, $0\leq q'-q<1$. As\'{\i} pues,
+    $q'-q=0$, o equivalentemente, $q'=q$. Como antes deducimos que
+    $r=r'$.
+  \end{enumerate}
+\end{proof}
+
+\begin{exercise}
+  \label{ex:DeMoivre}
+  Demuestre que para todo número entero $n$ y para todo número
+  complejo no nulo $z$, que expresado en forma polar sea ---digamos---
+  $\cos\theta_{z}+i\sin\theta_{z}$, se cumple que:
+  \begin{equation}
+    \label{eq:DeMoivre}
+    z^{n}=\cos(n\theta_{z})+i\sin(n\theta_{z})
+  \end{equation}
+  Concluya que para todo número complejo no nulo
+  $z=r_{z}(\cos\theta_{z}+i\sin\theta_{z})$ y todo número entero $n$
+  se cumple (fórmula de \textit{De Moivre}):\footnote{Recuerde que si
+    $z=a+bi$ es cualquier número complejo no nulo, entonces
+    $z^{-1}=\frac{a-bi}{a^{2}+b^{2}}$; es decir
+    $z^{-1}=\frac{\bar{z}}{|z|^{2}}$ lo que es deducido sin más que
+    observar que:
+    \begin{equation*}
+      \frac{1}{z}=\frac{\bar{z}}{z\bar{z}}
+    \end{equation*}
+  }
+  \begin{equation}
+    \label{eq:DeMoivreGen}
+    z^{n}=r_{z}^{n}(\cos(n\theta_{z})+i\sin(n\theta_{z}))
+  \end{equation}  
+\end{exercise}
+  %http://matematicatuya.com/Complejos/Inverso-multiplicativo-imaginario.html
+  %https://es.wikipedia.org/wiki/F%C3%B3rmula_de_De_Moivre
+
+\begin{solution}
+  En primer lugar haremos la demostración de la
+  \hyperref[eq:DeMoivre]{igualdad (\ref*{eq:DeMoivre})} cuando $n$ es
+  natural y será por medio del principio de inducción finita. En el
+  \textbf{caso base}, tenemos por una parte que:
+  \begin{equation*}
+    \cos(0\theta_{z})+i\sin(0\theta_{z})=1+0i=1=z^{0}
+  \end{equation*}
+  Supongamos que $n$ es un número natural y que
+  $z^{n}=\cos(n\theta_{z})+i\sin(n\theta_{z})$ (\textbf{hipótesis de
+    inducción}) y demostremos, en el \textbf{paso de inducción}, que
+  $z^{n+1}=\cos((n+1)\theta_{z})+i\sin((n+1)\theta_{z})$. En efecto:
+  \begin{align*}
+    z^{n+1}&=(\cos\theta_{z}+i\sin\theta_{z})^{n+1}\\
+           &=(\cos\theta_{z}+i\sin\theta_{z})^{n}(\cos\theta_{z}+i\sin\theta_{z})\\
+           &=(\cos(n\theta_{z})+i\sin(n\theta_{z}))(\cos\theta_{z}+i\sin\theta_{z})\\
+    &=\cos(n\theta_{z})
+      \cos\theta_{z}-\sin(n\theta_{z})\sin(\theta_{z})
+      +i(\cos(n\theta_{z})
+      \sin\theta_{z}+\sin(n\theta_{z})\cos(\theta_{z}))\\
+    &=\cos((n+1)\theta_{z})+i\sin((n+1)\theta_{z})
+  \end{align*}
+  Por el Principio de Inducción Finita, la
+  \hyperref[eq:DeMoivre]{igualdad (\ref*{eq:DeMoivre})} vale para todo
+  número natural $n$. Si $n<0$, sea $m=|n|=-n$. Entonces:
+  \begin{align*}
+    (\cos\theta_{z}+i\sin\theta_{z})^{n}&=(\cos\theta_{z}+i\sin\theta_{z})^{-m}\\
+                                        &=\frac{1}{(\cos\theta_{z}+i\sin\theta_{z})^{m}}\\
+                                        &=\frac{1}{\cos(m\theta_{z})+i\sin(m\theta_{z})}\\
+                                        &=\cos(m\theta_{z})-i\sin(m\theta_{z})\\
+                                        &=\cos(-m\theta_{z})+i\sin(-m\theta_{z})\\
+    &=\cos(n\theta_{z})+i\sin(n\theta_{z})
+  \end{align*}
+  Por lo que la \hyperref[eq:DeMoivre]{igualdad (\ref*{eq:DeMoivre})}
+  vale para todo número entero $n$. Supongamos ahora que
+  $z=r_{z}(\cos\theta_{z}+i\sin\theta_{z})$. Entonces:
+  \begin{align*}
+    z^{n}&=(r_{z}(\cos\theta_{z}+i\sin\theta_{z}))^{n}\\
+         &=r_{z}^{n}(\cos\theta_{z}+i\sin\theta_{z})^{n}\\
+         &=r_{z}^{n}(\cos(n\theta_{z})+i\sin(n\theta_{z}))
+  \end{align*}
+  lo que demustra la \hyperref[eq:DeMoivreGen]{igualdad (\ref*{eq:DeMoivreGen})}.
+\end{solution}
+
+\begin{exercise}
+  Pruebe que el producto de tres números naturales consecutivos
+  cualesquiera es divisible por $6$.
+\end{exercise}
+
+\begin{solution}
+  Sea $p$ la aplicación entre números naturales que al número natural
+  $n$ cualquiera le asigna $p(n)=n(n+1)(n+2)$. El razonamiento es por
+  inducción sobre $n$ según el enunciado $P(i)$ del tenor ``$6$ divide
+  a $p(i)$''. Como $p(0)=0$ está claro que $P(0)$ es cierta
+  (\textbf{caso base}). Supongamos que $k$ es un número natural y que
+  $P(k)$ es cierta (\textbf{hipótesis de inducción}), es decir, que
+  existe un número natural $k'$ tal que $p(k)=6k'$; demostremos (en
+  el \textbf{paso de inducción}) que como consecuencia $P(k+1)$ es
+  cierta. Para ello consideremos:
+  \begin{align*}
+    p(k+1)-p(k)&=(k+1)(k+2)(k+3)-k(k+1)(k+2)\\
+               &=(k+3-k)(k+2)(k+3)\\
+               &=3(k+1)(k+2)
+  \end{align*}
+  Al ser consecutivos los números $k+1$ y $k+2$, exactamente uno de
+  los dos es par, por lo que $(k+1)(k+2)$ es par, o sea, existirá un
+  número natural $k''$ tal que $(k+1)(k+2)=2k''$. Recapitulando,
+  tenemos que:
+  \begin{align*}
+    6k''&=3(2k'')\\
+        &=p(k+1)-p(k)\\ 
+        &=p(k+1)-6k'
+  \end{align*}
+  y así pues $p(k+1)=6k''+6k'=6(k''+k')$, o equivalentemente,
+  $6\mid p(k+1)$. Por el principio de inducción finita sabemos que
+  para todo número natural $i$, $P(i)$ es cierta y ello es lo que se
+  quería demostrar.
+\end{solution}
+
+\begin{exercise}
+  \label{ex:mcm}
+  Cualesquiera dos números naturales $a$ y $b$ tienen un mínimo común
+  múltiplo, esto es, un número $m$ que es múltiplo común a $a$ y $b$ y
+  es divisor de cualquier otro múltiplo común a
+  ambos.\footnote{Cuídese de sustituir la expresión ``es divisor de''
+    con la de ``es menor o igual que''. Si así fuera, $15$ no podría
+    ser mínimo común múltiplo de $3$ y $5$, ya que no es menor o igual
+    que $-15$, cuando $15$ y $(-1)15$ cumplen lo necesario para serlo
+    y, por convenio, se ha elegido en el caso de los números enteros
+    al positivo entre los dos asociados como ``el'' mínimo común
+    múltiplo. Sin salir del ámbito de los número naturales, más
+    doloroso sería razonar con $0$, que es múltiplo de cualquier
+    entero; nuestro error lo convertiría en el mínimo común múltiplo
+    de cualquier pareja de números naturales.}
+\end{exercise}
+% Childs, 3ª edc. pág. 21. Demostración sugerida que dista mucho de
+% ser completa. ¡Parece que Lindsay se ha olvidado del 0!
+
+\begin{solution}
+  La \textbf{primera} solución que damos es \textbf{vía} el
+  \textbf{Principio del Buen Orden}. Si $a=0$ ó $b=0$, entonces el
+  único múltiplo común a ambos es $0$, de hecho, el mínimo común
+  múltiplo de $a$ y $b$. Supongamos ahora que ninguno de ellos es nulo
+  y llamemos $M_{ab}$ al conjunto de los naturales múltiplos comunes a
+  $a$ y $b$ y $V_{ab}=M_{ab}\setminus\{0\}$.  El conjunto $V_{ab}$ es
+  no vacío pues al menos contiene a $ab$. Por el \textit{Principio de
+    Buen Orden}, deberá contener un elemento mínimo $m$ y éste será
+  mínimo común múltiplo de $a$ y de $b$. En efecto:
+  \begin{itemize}
+  \item $a\mid m$ y $b\mid m$, pues $m\in V_{ab}$.
+  \item Supongamos que $n\in V_{ab}$. Por el \textbf{Teorema de la
+      División}, existen números naturales $q$ y $r$ tales que
+    $n=mq+r$ y $0\leq r<m$. Se tiene que $r\in M_{ab}$, puesto que
+    $m,n\in V_{ab}$; pero como $r<m$ y $m$ es el mínimo de $V_{ab}$
+    obligatoriamente estará en $M_{ab}\setminus V_{ab}$, es decir,
+    $r=0$. Así pues, $m\mid n$.  
+  \end{itemize}
+  De lo anterior se deduce que $m$ es un mínimo común múltiplo de $a$
+  y $b$, de hecho, el único no negativo que es representado por
+  $[a,b]$. La \textbf{segunda} solución es \textbf{vía} el concepto de
+  máximo común divisor de números enteros $a$ y $b$, esto es, un
+  número $m$ que es divisor común a $a$ y $b$ y es múltiplo de
+  cualquier otro divisor común a ambos. Si, en un inocente abuso del
+  lenguaje, la frase ``$m$ es máximo común divisor de $a$ y $b$'' es
+  abreviada por $(a,b)=m$, hemos de destacar dos propiedades:
+  \begin{itemize}
+  \item $(a,0)=a$ (razone la verdad de esta afirmación)
+  \item $(a,b)=(b,a\mod b)$ (demuestre, como sencillo ejercicio
+    aritmético, la verdad de esta afirmación)
+  \end{itemize}
+  Razonemos ahora por el \textbf{Segundo Principio de Inducción
+    Finita} según el enunciado $P(k)$ del tenor ``para todo número
+  natural $m$, existe $(a,k)$''. Supongamos, como \textbf{hipótesis de
+  inducción}, que $n$ es un número natural y que el resultado es cierto
+para todo número natural $k$ que cumpla $k<n$. Razonamos por casos:
+\begin{itemize}
+\item $n=0$; sea cual sea el número natural $m$ se tiene $(m,0)=m$, es
+  decir, existe un máximo común divisor de $m$ y $0$ por cumplir $m$
+  las propiedades necesarias al efecto.
+\item $n\neq 0$; por el Teorema de la División, existen números $q,r$
+  tales que $m=nq+r$ y $0\leq r<n$ ($r$ el valor que hemos nombrado
+  como $m\mod n$). Como $m\mod n <n$, de la hipótesis de inducción se
+  deduce que existe un máximo común divisor de $n$ y $m$ que, según
+  sabemos, es un máximo común divisor de $m$ y $n$.
+\end{itemize}
+Concluimos que $P(k)$ vale para todo número natural $k$. Para
+cualesquiera números enteros $m$ y $n$, $(m,n)$ representará al único
+entero no negativo que cumple las propiedades de máximo común
+divisor. Ahora bien, es fácil entender que:
+\begin{itemize}
+\item para cualesquiera números naturales $m$ y $n$, $(m,n)\mid m$,
+  por lo que existirá un natural $u$ tal que $(m,n)u=mn$.
+\item $u$ es un mínimo común múltiplo de $m$ y $n$, por lo que la
+  existencia de máximo común divisor es garantía suficiente de la
+  existencia de mínimo común múltiplo.
+\end{itemize}
+\end{solution}
+
+\begin{exercise}[Multiplicación por el \textit{Método del Campesino Ruso}]
+  \label{00_induc_16}
+  Sea $p$ la función dada por:
+  \begin{align*}
+    p(a,0)&=0,\\
+    p(a,b)&=
+            \begin{cases}
+              p\left(2a,\frac{b}{2}\right)&\text{ si $b$ es par,}\\
+              p\left(2a,\frac{b-1}{2}\right)+a&\text{ si $b$ es impar.}
+            \end{cases}
+  \end{align*}
+  Demuestre por inducción que para cualesquiera números naturales $a$
+  y $b$, $p(a,b)=ab$.
+\end{exercise}
+
+\begin{solution}
+  La demostración es por el \textbf{segundo principio de inducción
+    finita} según el enunciado $P(i)$ del tenor:
+  \begin{center}
+    Para todo número natural $m$, $p(m,i)=mi$
+  \end{center}
+  Supongamos que $n$ es un número natural y que para todo número
+  natural $k<n$ es cierta $P(k)$ (\textbf{hip. de inducción}). En el
+  \textbf{paso de inducción} demostraremos que $P(n)$ es cierta. En
+  efecto, son posibles dos casos, que distinguiremos por tener
+  cada uno un tratamiento distinto:
+  \begin{itemize}
+  \item $n$ par; en este caso, a su vez, hay dos posibilidades:
+    \begin{itemize}
+    \item $n=0$; sea cual sea el número natural $m$,
+      $p(m,0)=0=m0$. Así pues vale $P(0)$. Obsérvese que en este caso
+      no es necesario hacer uso de la hipótesis de inducción.
+    \item $n\neq 0$ y $n$ es par; sea cual sea el número natural $m$,
+      \begin{align*}
+        p(m,n)&=p\left(2m,\frac{n}{2}\right)&&\text{por definición de
+                                               }p\\
+              &=2m\frac{n}{2}&&\text{de la hip. de inducción, ya que
+                                }\frac{n}{2}<n\\
+              &=mn&&
+      \end{align*}
+    \end{itemize}
+  \item $n$ es impar; sea cual sea el número natural $m$,
+    \begin{align*}
+      p(m,n)&=p\left(2m,\frac{n-1}{2}\right)+m&&\text{por definición de
+                                             }p\\
+            &=2m\frac{n-1}{2}+m&&\text{de la hip. de inducción, ya que
+                              }\frac{n-1}{2}<n\\
+            &=m(n-1)+m&&\\
+            &=mn&&
+    \end{align*}
+  \end{itemize}
+  Así pues, en aplicación del \textit{Segundo Principio de Inducción
+    Finita}, $P(i)$ es cierta para todo número natural $i$ y ello es
+  lo que se pedía.
+\end{solution}
+
+\begin{exercise}
+  \label{ex:pvpo2}
+  Si $n$ es un número natural cualquiera, sea
+  $f(n)=2^{2^{n+1}}+2^{2^{n}}+1$. Demuestre que para todo número
+  natural $n$:
+  \begin{enumerate}
+  \item $(n^{2}-n+1, n^{2}+n+1)=1$
+  \item $f(n)$ tiene al menos $n+1$ factores primos distintos.
+  \end{enumerate}
+\end{exercise}
+
+\begin{solution}~
+  % https://www.cut-the-knot.org/proofs/InfinitudeOfPrimesViaPowersOfTwo.shtml
+  \begin{enumerate}
+  \item Si $p$ fuese un factor primo de $(m^{2}-m+1, m^{2}+m+1)$,
+    entonces dividiría a $m^{2}+m+1-(m^{2}-m+1)=2m$; pero como tanto
+    $m^{2}-m+1$ como $m^{2}+m+1$ son impares, $p$ debe ser impar. Se
+    deduce entonces que $p$ sería un divisor de $m$ y, por tanto, de
+    $m^{2}+m$ y $m^{2}+m+1$; como consecuencia el primo $p$ sería un
+    divisor de $1$, lo cual es absurdo. Como consecuencia
+    $(m^{2}-m+1, m^{2}+m+1)=1$.
+  \item El razonamiento es por inducción sobre $n$. El valor de $f(0)$
+    es $7$, por lo que $f(0)$ tiene $0+1$, es decir $1$,
+    factores. Supongamos, como hipótesis de inducción, que $0\leq n$ y
+    que el resultado es cierto para $n$; demostremos que también lo
+    será para $n+1$, que será un número natural no nulo. Sea
+    $g(x)=x^{4}+x^{2}+1$; si $0<n$ entonces $f(n)=g(2^{2^{n-1}})$ y
+    dado que $x^{4}+x^{2}+1=(x^{2}-x+1)(x^{2}+x+1)$ entonces:
+      \begin{align*}
+        g(2^{2^{n-1}})&=(2^{2^{n}}+2^{2^{n-1}}+1)(2^{2^{n}}-2^{2^{n-1}}+1)&&\\
+          &=((2^{2^{n-1}})^{2}+2^{2^{n-1}}+1)((2^{2^{n-1}})^{2}-2^{2^{n-1}}+1)&&\\
+          &=(m^{2}-m+1)(m^{2}+m+1)&&(m=2^{2^{n-1}})
+      \end{align*}
+      Así pues:
+      \begin{align*}
+        f(n+1)&=2^{2^{n+2}}+2^{2^{n+1}}+1\\
+          &=(2^{2^{n+1}}+2^{2^{n}}+1)(2^{2^{n+1}}-2^{2^{n}}+1)\\
+          &=f(n)(2^{2^{n+1}}-2^{2^{n}}+1)
+      \end{align*}
+      Por la hipótesis de inducción, $f(n)$ tiene al menos $n+1$
+      factores primos distintos; dado que el número
+      $2^{2^{n+1}}-2^{2^{n}}+1$ es mayor o igual que $3$ y
+      $(f(n),2^{2^{n+1}}-2^{2^{n}}+1)=1$, entonces
+      $2^{2^{n+1}}-2^{2^{n}}+1$ tiene todos sus factores primos ---y
+      al menos hay uno--- distintos a los de $f(n)$, es decir,
+      $f(n+1)$ tiene al menos $n+2$ factores primos.
+    \end{enumerate}
+  \end{solution}
+
+  \begin{exercise}
+    Demuestre que para todo número natural $n$ vale la siguiente
+    igualdad:
+    \begin{equation*}
+      11\bottominset{\footnotesize 2n)}{\,\ldots}{2.5mm}{}1
+      - 22\bottominset{\footnotesize n)}{\,\ldots}{2.5mm}{}2
+      = (33\bottominset{\footnotesize n)}{\,\ldots}{2.5mm}{}3)^{2}
+    \end{equation*}
+  \end{exercise}
+
+  \begin{proof}
+    Definamos las siguientes funciones:
+    \begin{equation*}
+      \begin{matrix*}[l]
+      f(0)  = 0          &&g(0)   =0       &&h(0)  =0\\
+      f(n+1)=f(n)10^{2}+11&&g(n+1)=g(n)10+2&&h(n+1)=h(n)10+3
+    \end{matrix*}      
+  \end{equation*}
+  En primer lugar demostremos por el \textit{Principio de Inducción
+    Finita} que para todo número natural $n$, $3g(n)=2h(n)$; ello
+  puede ser sirviéndonos del enunciado $Q(k)$ del tenor:
+  \begin{equation}
+    \label{eq:arit00ind}
+    3g(k)=2h(k)
+  \end{equation}
+  En efecto, si $n=0$ entonces $3g(0)=3\cdot 0=0=2\cdot 0=2\cdot
+  h(0)$, es decir, vale $Q(0)$. Supongamos que para el número natural
+  $n$ vale $Q(n)$; entonces:
+  \begin{align*}
+    3g(n+1)&=3(g(n)10+2)\\
+           &=3g(n)10+6\\
+           &=2h(n)10+6\\
+           &=2(h(n)10+3)\\
+           &=2h(n+1)
+  \end{align*}
+  de lo que deducimos que para todo número natural $k$, vale
+  $Q(k)$. Multiplicando ahora la igualdad
+  \hyperref[eq:arit00ind]{(\ref*{eq:arit00ind})} por $30$ obtenemos que para
+  todo número natural $n$, $9g(n)10=60h(n)$ y por tanto:
+  \begin{align*}
+    60h(n)&=(10-1)g(n)10\\
+          &=g(n)10^{2}-g(n)10
+  \end{align*}
+  Se tiene, en definitiva, que para todo número natural $n$,
+  \begin{equation}
+    \label{eq:arit01ind}
+    60h(n)-g(n)10^{2}=-g(n)10
+  \end{equation}
+  Seguidamente demostremos lo que se pide usando el \textit{Principio
+    de Inducción Finita} según el enunciado $P(k)$ del tenor:
+    \begin{equation*}
+      f(k)-g(k)=h(k)^{2}
+    \end{equation*}
+    En el \textbf{caso base} demostremos que vale $P(0)$. En efecto:
+    \begin{equation*}
+      f(0)-g(0)=0-0=0=0^{2}=h(0)^{2}
+    \end{equation*}
+    Supongamos que $n$ es un número natural y que para él es cierto
+    $P(n)$ (\textbf{hipótesis de inducción}) y demostremos que en
+    consecuencia es cierto $P(n+1)$. En efecto,
+    \begin{align*}
+      f(n+1)-g(n+1)&=f(n)10^{2}+11-(10g(n)+3)&&\\
+                   &=f(n)10^{2}+11-10g(n)-3&&\\
+                   &=f(n)10^{2}-g(n)10+9&&\\
+                   &=f(n)10^{2}+9+60h(n)-g(n)10^{2}&&
+                          \text{por \hyperref[eq:arit01ind]{(\ref*{eq:arit01ind})}}\\
+                   &=(f(n)-g(n))10^{2}+9+60h(n)&&\\
+                   &=h(n)^{2}10^{2}+3^{2}+2\cdot3h(n)10&&\text{por
+                                                               h.i.}\\
+                   &=(h(n)10+3)^{2}&&\\
+                   &=h(n+1)^{2}&&
+    \end{align*}
+    lo que significa que para todo número natural $n$, vale
+    $P(n)$.\footnote{En internet ha
+      \htmladdnormallink{circulado}{https://twitter.com/ilarrosac/status/1045399092619300865}
+      la siguiente demostración:
+      \begin{align*}
+        \frac{10^{2n}-1}{9}-\frac{2(10^{n}-1)}{9}&=\frac{10^{2n}-2\cdot10^{n}+1}{9}\\
+                                                &=\frac{(10^{n}-1)^{2}}{3^{2}}\\
+                                                &=\left(\frac{10^{n}-1}{3}\right)^{2}.
+      \end{align*}
+    }
+  \end{proof}
+
+  \begin{exercise}
+    \label{00_induc_21}
+    Los \textit{números de Fibonacci} son los números de la sucesión:
+    \begin{equation*}
+      f(n)=
+      \begin{cases}
+        0,&\text{ si }n=0;\\
+        1,&\text{ si }n=1;\\
+        f(n-1)+f(n-2),& \text{ si }1<n; 
+      \end{cases}
+    \end{equation*}
+    Demuestre que para todo número natural $n$ se cumple:
+    \begin{equation*}
+      f(n)<\left(\frac{5}{3}\right)^{n}
+    \end{equation*}    
+  \end{exercise}
+
+  \begin{solution}
+    El razonamiento es por el Segundo Principio de Inducción Finita
+    según el enunciado $P(k)$ del tenor:
+    \begin{equation*}
+      f(k)<\left(\frac{5}{3}\right)^{k}
+    \end{equation*}
+    Supongamos, como hipótesis de inducción, que $n$ es un número
+    natural y que para todo número natural $k$ tal que $k<n$, vale $P(k)$. El
+    razonamiento es por casos:
+    \begin{itemize}
+    \item $n=0$; $f(0)=0<1=\left(\frac{5}{3}\right)^{0}$, de donde sabemos que $P(0)$ vale.
+    \item $n=1$; $f(1)=1<\frac{5}{3}=\left(\frac{5}{3}\right)^{1}$, de
+      donde sabemos que $P(1)$ vale.
+    \item $n>1$; considere las siguientes realciones:
+      \begin{align*}
+        f(n)&=f(n-1)+f(n-2)&& (\text{por definición})\\
+            &<\left(\frac{5}{3}\right)^{n-1}+\left(\frac{5}{3}\right)^{n-2}&&(\text{por hip. induc.})\\
+            &=\left(\frac{5}{3}\right)^{n-2}(\frac{5}{3}+1)&&\\
+            &=\left(\frac{5}{3}\right)^{n-2}\frac{8}{3}&&\\
+            &<\left(\frac{5}{3}\right)^{n-2}\left(\frac{5}{3}\right)^{2}&&(\text{pues }72<75)\\
+            &=\left(\frac{5}{3}\right)^{n}&&\\            
+      \end{align*}
+    \end{itemize}
+    Por el \textit{Segundo Principio de Inducción Finita} sabemos que
+    para todo número natural $n$, vale $P(n)$.
+  \end{solution}

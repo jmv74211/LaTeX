@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{qrcode}
+\usepackage[absolute]{textpos}
+
+\begin{document}
+
+default:\quad
+\qrcode{https://www.ctan.org/tex-archive/macros/latex/contrib/qrcode?lang=en}
+\qquad
+1 inch high (and wide):
+\quad
+\qrcode[height=1in]{https://www.ctan.org/tex-archive/macros/latex/contrib/qrcode?lang=en}
+
+\begin{textblock*}{297mm}(-2mm,135mm)
+  \qrcode[height=30mm]{https://wildunix.es/}
+\end{textblock*}
+
+\end{document}

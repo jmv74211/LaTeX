@@ -1,0 +1,24 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[absolute]{textpos}
+\usepackage{tikz,everypage}
+\usetikzlibrary{backgrounds}
+\newcommand*{\AbsolutePosition}[3]{
+    \AddThispageHook{
+        \begin{tikzpicture}[remember picture,overlay]
+            \draw (current page.south west) ++ (#1,#2) node[opacity=0.7] {#3};
+        \end{tikzpicture}
+    }
+}
+
+\pagestyle{empty}
+\begin{document}
+
+\AbsolutePosition{0mm}{40mm}{\includegraphics[scale=0.7]{bolas.jpg}}
+
+\begin{textblock*}{297mm}(-2mm,135mm)
+  \includegraphics[scale=1]{/home/fmgo/MEGA/didactica/base/LaTeX/apuntes/cemed_2018/sesion_05/miQRC-pics.pdf}
+\end{textblock*}
+
+\end{document}

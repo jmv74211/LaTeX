@@ -1725,6 +1725,8 @@ la página del título del documento:
 
 Para más información, se puede consultar la documentación adicional:
 
+- Todo tipo de [plantillas](https://es.overleaf.com/latex/templates/) para LaTeX.
+
 - [Manual básico de LaTeX](https://github.com/jmv74211/LaTeX/blob/master/docs/manuales/lshort_spanish.pdf)
 
 - [Funcionamiento básico de látex](https://github.com/jmv74211/LaTeX/blob/master/docs/1.%20Latex:Funcionamiento%20b%C3%A1sico.pdf)

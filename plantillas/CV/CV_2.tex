@@ -1,0 +1,375 @@
+%---------------------------------------------------------------------------------------------------
+%
+%	Edited by: Copyright (c) 2016 Jakub Kúdela
+%   Based on: Copyright (c) 2015 Jan Küster
+%
+%	The MIT License (MIT)
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%	
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%
+%---------------------------------------------------------------------------------------------------
+
+
+%===================================================================================================
+%	DOCUMENT DEFINITION
+%===================================================================================================
+
+%we use article class because we want to fully customize the page and dont use a cv template
+\documentclass[10pt,a4paper]{article}	
+
+%---------------------------------------------------------------------------------------------------
+%	ENCODING
+%---------------------------------------------------------------------------------------------------
+
+%we use utf8 since we want to build from any machine
+\usepackage[utf8]{inputenc}		
+
+%---------------------------------------------------------------------------------------------------
+%	LOGIC
+%---------------------------------------------------------------------------------------------------
+
+% provides \isempty test
+\usepackage{xifthen}
+
+%---------------------------------------------------------------------------------------------------
+%	FONT
+%---------------------------------------------------------------------------------------------------
+
+% some tex-live fonts - choose your own
+
+%\usepackage[defaultsans]{droidsans}
+%\usepackage[default]{comfortaa}
+%\usepackage{cmbright}
+\usepackage[default]{raleway}
+%\usepackage{fetamont}
+%\usepackage[default]{gillius}
+%\usepackage[light,math]{iwona}
+%\usepackage[thin]{roboto}
+\usepackage{hyperref}
+
+% set font default
+\renewcommand*\familydefault{\sfdefault} 	
+\usepackage[T1]{fontenc}
+
+% more font size definitions
+\usepackage{moresize}		
+
+%---------------------------------------------------------------------------------------------------
+%	PAGE LAYOUT  DEFINITIONS
+%---------------------------------------------------------------------------------------------------
+
+%debug page outer frames
+%\usepackage{showframe}			
+
+%define page styles using geometry
+\usepackage[a4paper]{geometry}		
+
+% for example, change the margins to 2 inches all round
+\geometry{top=1.75cm, bottom=-.6cm, left=1.5cm, right=1.5cm} 	
+
+%use customized header
+\usepackage{fancyhdr}		
+\pagestyle{fancy}
+
+%less space between header and content
+\setlength{\headheight}{-5pt}		
+
+%customize entries left, center and right
+\lhead{}
+\chead{\small{
+  John Doe $\cdot$ 
+  Software Developer $\cdot$ 
+  Prague, Czech Republic $\cdot$ 
+  \textcolor{sectcol}{\textbf{\href
+  {mailto:john.doe@gmail.com}
+  {john.doe@gmail.com}}} $\cdot$
+  +420 123 456 789
+}}
+\rhead{}
+
+%indentation is zero
+\setlength{\parindent}{0mm}
+
+%---------------------------------------------------------------------------------------------------
+%	TABLE /ARRAY DEFINITIONS
+%--------------------------------------------------------------------------------------------------- 
+
+%for layouting tables
+\usepackage{multicol}			
+\usepackage{multirow}
+
+%extended aligning of tabular cells
+\usepackage{array}
+\newcolumntype{x}[1]{>{\raggedleft\hspace{0pt}}p{#1}}
+
+%---------------------------------------------------------------------------------------------------
+%	GRAPHICS DEFINITIONS
+%--------------------------------------------------------------------------------------------------- 
+
+%for header image
+\usepackage{graphicx}
+
+%for floating figures
+\usepackage{wrapfig}
+\usepackage{float}
+%\floatstyle{boxed} 
+%\restylefloat{figure}
+
+%for drawing graphics		
+\usepackage{tikz}				
+\usetikzlibrary{shapes, backgrounds,mindmap, trees}
+
+%---------------------------------------------------------------------------------------------------
+%	Color DEFINITIONS
+%--------------------------------------------------------------------------------------------------- 
+
+\usepackage{color}
+
+%accent color
+\definecolor{sectcol}{RGB}{90,90,120}
+
+%dark background color
+\definecolor{bgcol}{RGB}{110,110,110}
+
+%light background / accent color
+\definecolor{softcol}{RGB}{225,225,225}
+
+%===================================================================================================
+%	DEFINITIONS
+%===================================================================================================
+
+%---------------------------------------------------------------------------------------------------
+% 	HEADER
+%---------------------------------------------------------------------------------------------------
+
+% remove top header line
+\renewcommand{\headrulewidth}{0pt} 
+
+%remove botttom header line
+\renewcommand{\footrulewidth}{0pt}	  	
+
+%remove pagenum
+\renewcommand{\thepage}{}	
+
+%remove section num		
+\renewcommand{\thesection}{}			
+
+%---------------------------------------------------------------------------------------------------
+% 	ARROW GRAPHICS in Tikz
+%---------------------------------------------------------------------------------------------------
+
+% a six pointed arrow poiting to the left
+\newcommand{\tzlarrow}{(0,0) -- (0.2,0) -- (0.3,0.2) -- (0.2,0.4) -- (0,0.4) -- (0.1,0.2) -- cycle;}	
+
+% include the left arrow into a tikz picture
+% param1: fill color
+%
+\newcommand{\larrow}[1]{
+  \begin{tikzpicture}[scale=0.58]
+    \filldraw[fill=#1!100,draw=#1!100!black]  \tzlarrow
+  \end{tikzpicture}
+}
+
+% a six pointed arrow poiting to the right
+\newcommand{\tzrarrow}{ (0,0.2) -- (0.1,0) -- (0.3,0) -- (0.2,0.2) -- (0.3,0.4) -- (0.1,0.4) -- cycle;}
+
+% include the right arrow into a tikz picture
+% param1: fill color
+%
+\newcommand{\rarrow}{
+  \begin{tikzpicture}[scale=0.7]
+    \filldraw[fill=sectcol!100,draw=sectcol!100!black] \tzrarrow
+  \end{tikzpicture}
+}
+%---------------------------------------------------------------------------------------------------
+%	custom sections
+%---------------------------------------------------------------------------------------------------
+
+% create a coloured box with arrow and title as cv section headline
+% param 1: section title
+%
+\newcommand{\cvsection}[1]{
+  \vspace{10pt}
+  \colorbox{sectcol}{\mystrut \makebox[1\linewidth][l]{
+    \larrow{bgcol} \hspace{-8pt} \larrow{bgcol} \hspace{-8pt} 
+    \larrow{bgcol}\textcolor{white}{\textbf{#1}}\hspace{4pt}
+  }}\\
+}
+
+%create a coloured arrow with title as cv meta section section
+% param 1: meta section title
+%
+\newcommand{\metasection}[2]{
+  \begin{tabular*}{1\textwidth}{p{2.4cm} p{11cm}}
+    \larrow{bgcol} \normalsize{\textcolor{sectcol}{#1}}&#2\\[10pt]
+  \end{tabular*}
+}
+
+%---------------------------------------------------------------------------------------------------
+%	 CV EVENT
+%---------------------------------------------------------------------------------------------------
+
+% creates a stretched box as cv entry headline followed by two paragraphs
+% param 1:	event time i.e. 2014 or 2011-2014 etc.
+% param 2:	event name (what did you do?)
+% param 3:	institution (where did you work / study)
+%
+\newcommand{\cvevent}[3]{
+  \begin{tabular*}{1\textwidth}{p{2.5cm} p{10.5cm} x {4.0cm}}
+    \textcolor{bgcol}{#1} & \textbf{#2} & \vspace{2.5pt}\textcolor{sectcol}{#3}
+  \end{tabular*}
+  \vspace{-10pt}
+  \textcolor{softcol}{\hrule}
+  \vspace{10pt}
+}
+
+% creates a stretched box as cv entry detail 
+% param 1:	information describing the event
+%
+\newcommand{\cvdetail}[1]{
+  \begin{tabular*}{1\textwidth}{p{2.5cm} p{14.5cm}}
+    & \larrow{bgcol}  #1\\ [3pt]
+  \end{tabular*}
+}
+
+%---------------------------------------------------------------------------------------------------
+% CUSTOM STRUT FOR EMPTY BOXES
+%---------------------------------------------------------------------------------------------------
+\newcommand{\mystrut}{\rule[-.3\baselineskip]{0pt}{\baselineskip}}
+
+%===================================================================================================
+%	DOCUMENT CONTENT
+%===================================================================================================
+\title{resume}
+\begin{document}
+
+% use our custom fancy header definitions
+\pagestyle{fancy}	
+
+%---------------------------------------------------------------------------------------------------
+%	TITLE HEADLINE
+%---------------------------------------------------------------------------------------------------
+
+\vspace{-20pt}
+
+% use this for single words, e.g. CV or RESUME etc.
+\hspace{-0.25\linewidth}\colorbox{bgcol}{
+  \makebox[1.5\linewidth][c]{
+    \HUGE{\textcolor{white}{\textsc{John Doe}}} 
+    \textcolor{sectcol}{\rule[-1mm]{1mm}{0.9cm}} 
+    \HUGE{\textcolor{white}{\textsc{Resume}}}
+  }
+}
+
+%---------------------------------------------------------------------------------------------------
+%	HEADER IMAGE
+%---------------------------------------------------------------------------------------------------
+
+\begin{figure}[H]
+\begin{flushright}
+  \includegraphics[width=0.2\linewidth]{photo.jpg}
+\end{flushright}
+\end{figure}
+
+%---------------------------------------------------------------------------------------------------
+%	META SECTION
+%---------------------------------------------------------------------------------------------------
+
+\vspace{-115pt}
+
+\metasection{Status:}{Developer at The Company, M.Sc. in Computer Science}
+\metasection{Skills:}{Java, C\#/.Net, C++, Python, JavaScript, Ruby, Bash, SQL} 
+\metasection{Interests:}{Data Warehouses, Data Lakes, Data Analysis, Data Quality}
+\metasection{Activities:}{Hockey, Football, Tennis, Basketball, Reading, Music}
+
+%---------------------------------------------------------------------------------------------------
+%	SUMMARAY (optional)
+%---------------------------------------------------------------------------------------------------
+
+\cvsection{Summary}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque gravida ligula sed rhoncus lobortis. Pellentesque sit amet sapien in neque cursus mollis. Nulla aliquet mauris ac enim fermentum tincidunt. Donec eu felis ut purus ullamcorper aliquet eget at lorem. Suspendisse vulputate mi libero, sit amet sollicitudin enim suscipit in. Curabitur laoreet sem ultrices, consequat neque sed, vulputate purus. Sed in.
+
+%===================================================================================================
+%	CV SECTIONS AND EVENTS (MAIN CONTENT)
+%===================================================================================================
+
+%---------------------------------------------------------------------------------------------------
+%	EXPERIENCE
+%---------------------------------------------------------------------------------------------------
+\cvsection{Experience}
+
+\cvevent{'16/01 - now}{Developer}{The Company}
+\cvdetail{Proin laoreet dolor vitae velit tristique, id interdum augue finibus quisque non ades}
+\cvdetail{Erat at purus facilisis vestibulum pulvinar sit amet felis, mauris laoreet justo nec err in}
+\cvdetail{Lorem consectetur elementum, aliquam facilisis ante id magna porta mattis, vivamus}
+\cvdetail{Morbi sit amet ullamcorper felis fusce nec mi ac nisi cursus aliquet, vestibulum volutpat}
+\cvdetail{Vestibulum quam lectus, tempus in urna semper, finibus consequat mauris, quisque}
+
+\cvevent{'15/01 - '15/12}{Developer}{The Older Company}
+\cvdetail{Praesent aliquam sagittis hendrerit phasellus efficitur tincidunt et (\href{https://google.com}{https://google.com})}
+\cvdetail{Amet eget augue nam quis sapien eget arcu placerat lobortis vivamus maximus elit id}
+\cvdetail{Eget lacus nec dolor sagittis efficitur aliquam nec metus vitae justo auctor sit erat arr}
+\cvdetail{Condimentum vestibulum, nullam vitae cursus erat, praesent hendrerit leo a turpis}
+
+
+\cvevent{'14/01 - '14/12}{Intern}{The Oldest Company}
+\cvdetail{Quisque in lacus lorem. In vitae feugiat leo mauris a hendrerit felis fusce mi mattis}
+\cvdetail{Viverra ut sem non, commodo dictum leo nullam pulvinar mattis nisi quis iaculis ex}
+\cvdetail{Nulla finibus leo lectus, sed feugiat arcu ultrices non. Aenean sit amet vestibulum sit}
+\cvdetail{Lorem sed diam purus, aliquam ac diam feugiat, volutpat lobortis ex cras nec sem}
+
+%---------------------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%---------------------------------------------------------------------------------------------------
+\cvsection{Education}
+
+\cvevent{2013 - 2016}{Master's Degree, Computer Science}{The University}
+\cvdetail{Thesis: Vestibulum Vel Lorem Ex Duis Varius Lorem Iaculis Laoreet Fringilla Nam Ex}
+\cvdetail{Dignissim malesuada vestibulum sed eget elit justo aliquam eu arcu a dui interdum eget}
+\cvdetail{Donec mattis, purus vel pellentesque maximus tellus arcu tempus elit, ut sodales felis}
+\cvdetail{Elementum mauris arcu felis, sodales et maximus in, pretium maximus urna praesent}
+
+\cvevent{2009 - 2013}{Bachelor's Degree, Computer Science}{The University}
+\cvdetail{Thesis: Duis Molestie Faucibus Ligula, Sed Suscipit Tellus Tempor Sed Maecenas Li}
+\cvdetail{Accumsan ligula at feugiat donec gravida, odio ac sodales consectetur, quam metus}
+\cvdetail{Molestie mi, nec cursus sem leo sit amet sapien proin feugiat efficitur suscipit duis}
+
+%---------------------------------------------------------------------------------------------------
+%	ARTIFICIAL FOOTER (fancy footer cannot exceed linewidth) 
+%---------------------------------------------------------------------------------------------------
+
+\null
+\vspace*{\fill}
+\hspace{-0.25\linewidth}\colorbox{bgcol}{
+  \makebox[1.5\linewidth][c]{
+    \mystrut \small 
+    \textcolor{white}{
+      \href{https:/www.linkedin.com/in/john-doe}
+      {https:/www.linkedin.com/in/john-doe}
+    } $\cdot$ 
+    \textcolor{white}{
+      \href{https://github.com/john-doe}
+      {https://github.com/john-doe}
+    }
+  }
+}
+
+%===================================================================================================
+%	DOCUMENT END
+%===================================================================================================
+\end{document}
+

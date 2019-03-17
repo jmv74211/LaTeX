@@ -1,0 +1,26 @@
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "bbp_formula"
+%%% End:
+
+\section{Introducción}
+
+La \textit{fórmula de Bailey-Borwein-Plouffe} (o \textit{fórmula BBP})
+permite calcular el enésimo dígito de $\pi$ en base $2$ ó $16$ sin
+necesidad de hallar los precedentes, de una manera rápida y utilizando
+muy poco espacio de memoria en la computadora. \textit{Simon Plouffe}
+junto con \textit{David Bailey} y \textit{Peter Borwein} hallaron esta
+fórmula el 19 de septiembre de 1995 usando un programa informático
+llamado \texttt{PSLQ} que busca relaciones entre números enteros.
+
+La fórmula BBP tiene la siguiente expresión:
+\begin{equation*}
+  \pi = \sum_{k=0}^{\infty}\frac{1}{16^{k}}
+  \left(
+    \frac{4}{8k+1}
+    -\frac{2}{8k+4}
+    -\frac{1}{8k+5}
+    -\frac{1}{8k+6}
+  \right)
+\end{equation*}
+La demostración de esta igualdad se encuentra más abajo.

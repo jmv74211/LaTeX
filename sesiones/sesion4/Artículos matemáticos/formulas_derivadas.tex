@@ -1,0 +1,102 @@
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "bbp_formula"
+%%% End:
+
+\section{Fórmulas Derivadas}
+
+\begin{itemize}
+\item   Fórmula original:
+  \begin{equation*}
+    \pi = \sum_{i=0}^{\infty}\frac{1}{16^{i}}
+    \left(
+      \frac{4}{8i+1}
+      -\frac{2}{8i+4}
+      -\frac{1}{8i+5}
+      -\frac{1}{8i+6}
+    \right)
+  \end{equation*}
+\item Para todo $r\in\mathbb{C}$:
+  \begin{equation*}
+    \pi = \sum_{i=0}^{\infty}\frac{1}{16^{i}}
+    \left(
+      \frac{4+8r}{8i+1}
+      -\frac{8r}{8i+2}
+      -\frac{4r}{8i+3}
+      -\frac{2+8i}{8i+4}
+      -\frac{1+2r}{8i+5}
+      -\frac{1+2r}{8i+6}
+      +\frac{r}{8i+7}
+    \right)
+  \end{equation*} 
+\item Cáculo de $\pi\sqrt{2}$:
+  \begin{equation*}
+    \pi\sqrt{2} = \sum_{i=0}^{\infty}\frac{(-1)^{i}}{8^{i}}
+    \left(
+      \frac{4}{6i+1}
+      +\frac{1}{6i+2}
+      +\frac{1}{6i+3}
+    \right)
+  \end{equation*}
+\item Expresión de $\pi^{2}$:
+  \begin{align*}
+    \pi^{2}= \sum_{i=0}^{\infty}\frac{1}{16^{i}}&
+      \left(
+        \frac{16}{(8i+1)^{2}}
+        -\frac{16}{(8i+2)^{2}}
+        -\frac{8}{(8i+3)^{2}}
+        -\frac{16}{(8i+4)^{2}}
+        -\frac{4}{(8i+5)^{2}}
+        -\frac{4}{(8i+6)^{2}}\right.\\
+        &\left.-\frac{2}{(8i+7)^{2}}\right)
+  \end{align*}
+\item Expresión de $\pi^{2}$:
+  \begin{equation*}
+    \pi^{2}=\frac{9}{8}\sum_{i=0}^{\infty}\frac{1}{64^{i}}
+    \left(
+      \frac{16}{(6i+1)^{2}}
+      -\frac{24}{(6i+2)^{2}}
+      -\frac{8}{(6i+3)^{2}}
+      -\frac{6}{(6i+4)^{2}}
+      -\frac{1}{(6i+5)^{2}}
+    \right)
+  \end{equation*}
+\item La siguiente expresión permite hallar dígitos aislados de
+  $\pi^{2}$ en base $3$ ó $9$:
+  \begin{align*}
+    \pi^{2}=\frac{2}{27}\sum_{i=0}^{\infty}\frac{1}{729^{i}}&
+      \left(
+        \frac{243}{(12i+1)^{2}}
+        -\frac{405}{(12i+2)^{2}}
+        -\frac{81}{(12i+4)^{2}}
+        -\frac{27}{(12i+5)^{2}}
+        -\frac{72}{(12i+6)^{2}}\right.\\
+        &\left.-\frac{9}{(12i+7)^{2}}
+        -\frac{9}{(12i+8)^{2}}
+        -\frac{5}{(12i+10)^{2}}
+        -\frac{1}{(12i+11)^{2}}
+          \right)
+  \end{align*}
+\item Viktor Adamchick y Stan Wagon (1997):
+  \begin{equation*}
+    \pi = \sum_{i=0}^{\infty}\frac{(-1)^{i}}{4^{i}}
+    \left(
+      \frac{2}{4i+1}
+      +\frac{2}{4i+2}
+      +\frac{1}{4i+3}
+    \right)
+  \end{equation*}
+\item Fabrice Bellard
+  \begin{align*}
+    \pi =\frac{1}{64}\sum_{i=0}^{\infty}\frac{(-1)^{i}}{2^{10i}}&
+      \left(
+        -\frac{32}{4i+1}
+        -\frac{1}{4i+3}
+        +\frac{256}{10i+1}
+        -\frac{64}{10i+3}
+        -\frac{4}{10i+5}
+        -\frac{4}{10i+7}\right.\\
+        &\left.+\frac{1}{10i+9}
+          \right)
+  \end{align*}
+\end{itemize}

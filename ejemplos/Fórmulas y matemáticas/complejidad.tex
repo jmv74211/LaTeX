@@ -1,0 +1,37 @@
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "bbp_formula"
+%%% End:
+
+\section{Complejidad del Método}
+
+Para calcular el enésimo dígito de $\pi$ en base $16$ (ó el $4n$-ésimo
+dígito en base2):
+
+\subsection*{Complejidad Temporal}
+
+\begin{itemize}
+\item $B_{N}'(a)$; se calcula con complejidad lineal
+  $\operatorname{O}(1)$
+\item $A_{N}'(a)$; utilizando el método de la exponenciación binaria,
+  sus términos se calculan en $\operatorname{O}(\log_{2}(n))$. Así la
+  suma de $n$ términos, $A_{N}'(a)$, se calcula en
+  $\operatorname{O}(n\log_{2}(n))$.
+\end{itemize}
+Así $S_{N}'(a)$ se calcula en 
+\begin{equation*}
+  \operatorname{O}(1)+\operatorname{O}(n\log_{2}(n))=
+  \operatorname{O}(n\log_{2}(n))
+\end{equation*}
+Finalmente, $\pi_{n}$ se calcula en
+\begin{equation*}
+  4\operatorname{O}(n\log_{2}(n))=\operatorname{O}(n\log_{2}(n))    
+\end{equation*}
+Así pues, si el tiempo de cálculo es proporcional a $n\log_{2}(n)$,
+es casi lineal.
+
+\subsection*{Complejidad Espacial}
+
+La complejidad en el uso de memoria es constante, ya que sólo se
+realizan sumas sucesivas de pequeños números (con una precisión de
+unos diez decimales es suficiente).

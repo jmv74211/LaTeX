@@ -1,0 +1,5 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{A list environment}{3}{0}{1}
+\beamer@sectionintoc {2}{An aligned equation}{8}{0}{2}
+\beamer@sectionintoc {3}{An array}{16}{0}{3}
+\beamer@sectionintoc {4}{A picture}{48}{0}{4}

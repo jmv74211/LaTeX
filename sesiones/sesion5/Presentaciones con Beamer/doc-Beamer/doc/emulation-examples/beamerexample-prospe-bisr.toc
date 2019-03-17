@@ -1,0 +1,5 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{About this file}{3}{0}{1}
+\beamer@sectionintoc {2}{Second Section}{7}{0}{2}
+\beamer@subsectionintoc {2}{1}{A subsection}{7}{0}{2}

@@ -1,0 +1,725 @@
+\section{Ejemplos}
+
+\begin{exercise}
+  \label{ex:leqEquivalent}
+  Sea $\mathbf{B}=\langle B,+,\cdot,\bar{\ },0,1\rangle$ un álgebra de
+  Boole. Demuestre que para todo $x,y\in B$ son equivalentes las
+  siguientes afirmaciones:
+  \begin{enumerate}
+  \item $x\leq y$
+  \item $x+y=y$
+  \item $x\to y=1$
+  \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+  Sean $x,y\in B$ cualesquiera y supongamos que $x\leq y$, es decir,
+  que $xy=x$. Entonces:
+  \begin{align*}
+    x+y&=xy+y\\
+       &=y+yx\\
+       &=y
+  \end{align*}
+Supongamos ahora que $x+y=y$; entonces:
+\begin{align*}
+  x\to y&=x\to(x+y)\\
+        &=x\to(x'\to y)\\
+        &=x'+x+y\\
+        &=1+y\\
+        &=1
+\end{align*}
+Finalmente, supongamos que $x\to y=1$; entonces:
+\begin{align*}
+  x&=x1\\
+   &=x(x\to y)\\
+   &=x(x'+y)\\
+   &=xx'+xy\\
+   &=0+xy\\
+   &=xy
+\end{align*}
+\end{solution}
+
+\begin{remark}
+  En el ambiente del \hyperref[ex:leqEquivalent]{Ejercicio
+    \ref*{ex:leqEquivalent}}, supongamos que $xy=1$; entonces:
+  \begin{align*}
+    x\to y&=xy\to y\\
+          &=x\to(y\to y)\\
+          &=x\to 1\\
+          &=1
+  \end{align*}
+\end{remark}
+
+\begin{exercise}
+  \label{ex:nandConsequence}
+  Sea $\mathbf{B}=\langle B,+,\cdot,\bar{\ },0,1\rangle$ un álgebra de
+  Boole. Demuestre que para todo $x,y\in B$, si $x\uparrow y=0$
+  entonces $x=1=y$ 
+\end{exercise}
+
+\begin{proof}
+  Sean $x,y\in B$ tales que $x\uparrow y=0$, o sea, $0=(xy)'$. Esto es
+  equivalente a que $xy=1$, es decir, $x=1=y$.
+\end{proof}
+
+\begin{exercise}
+  \label{ex:equiv}
+  Sea $\mathbf{B}$ un álgebra de Boole
+  \textbf{cualquiera}. Demuestre que para todo $a,b,c\in B$ son
+  equivalentes las siguientes afirmaciones:
+  \begin{enumerate}
+  \item $a\oplus b\leq c$
+  \item $ac'=bc'$
+  \end{enumerate}
+\end{exercise}
+
+% \begin{solution}
+%   Para cualesquiera $a,b,c\in B$,
+%   \begin{align*}
+%     ac'(bc')'&=ac'(b'+c'')\\
+%              &=ac'(b'+c)\\
+%              &=ac'b'+ac'c\\
+%              &=ab'c'+a0\\
+%              &=ab'c'+0\\
+%              &=ab'c'
+%   \end{align*}
+%   Por tanto:
+%   \begin{equation}
+%     \label{eq:par18192A}
+%     ac'(bc')'=ab'c'
+%   \end{equation}
+%   y también (como ecuación es idéntica):
+%   \begin{equation}
+%     \label{eq:par18192B}
+%     bc'(ac')'=a'bc'
+%   \end{equation}
+%   Supongamos ahora que $a\oplus b\leq c$, o equivaléntemente que
+%   $ab'+a'b\leq c$. Entonces, por transitividad, $ab'\leq c$ y
+%   $a'b\leq c$ o lo que es equivalente: $ab'c'=0$ y
+%   $a'bc'=0$. Entonces, por
+%   \hyperref[eq:par18192A]{(\ref*{eq:par18192A})}, $ac'(bc')'=0$ y por
+%   \hyperref[eq:par18192B]{(\ref*{eq:par18192B})}, $bc'(ac')'=0$. De lo
+%   primero se deduce que $ac'\leq bc'$ y de lo segundo que
+%   $bc'\leq ac'$. Por la antisimetría de $\leq$, se tiene que
+%   $ac'=bc'$. \textbf{Recíprocamente}, supongamos que
+%   $ac'=bc'$. Entonces $ac'(bc')'=0$ y $bc'(ac')'=0$; como antes
+%   $ab'c'=0=a'bc'$. Deducimos de esto que $ab'\leq c$ y que $a'b\leq
+%   c$, de donde:
+%   \begin{equation*}
+%     a\oplus b = ab'+a'b\leq c
+%   \end{equation*}
+% \end{solution}
+
+\begin{exercise}
+  Sea $n$ un número natural y sean
+  $f,g,k,h\colon B_{2}^{n}\longrightarrow B_{2}$. Considere la
+  función:
+  \begin{equation*}
+    h(x_{0},\ldots,x_{n-1})=
+    \begin{cases}
+      f(x_{0},\ldots,x_{n-1}),&\text{ si } k(x_{0},\ldots,x_{n-1})=1\\
+      g(x_{0},\ldots,x_{n-1}),&\text{ si } k(x_{0},\ldots,x_{n-1})=0
+    \end{cases}
+  \end{equation*}
+  y demuestre que 
+  \begin{equation}
+    \label{eq:2}
+    h=kf+\bar{k}g
+  \end{equation}
+  Seguidamente considere el caso
+  particular de $n=4$, $f,g,h\colon B_{2}^{4}\longrightarrow B_{2}$
+  definidas por: $f(x,y,z,t)=x\uparrow z$, $f(x,y,z,t)=\bar{z}$ y $h$
+  según lo siguiente
+  \begin{equation*}
+    h(x,y,z,t)=
+    \begin{cases}
+      f(x,y,z),& \text{ si }\bar{x}\leq\bar{t}\\
+      g(y,z,t),& \text{ si }x<t 
+    \end{cases}
+  \end{equation*}
+  Aplique \hyperref[eq:2]{(\ref*{eq:2})} a este caso para obtener:
+  \begin{equation}
+    \label{eq:3}
+    h(x,y,z,t)=(t\to x)(x\uparrow z)+\bar{z}
+  \end{equation}
+  \end{exercise}
+
+  \begin{solution}
+    Supongamos que para
+    $\langle x_{0},\ldots,x_{n-1}\rangle\in B_{2}^{n}$, se tiene
+    $k(x_{0},\ldots,x_{n-1})=1$; entonces
+    \begin{align*}
+      h(x_{0},\ldots,x_{n-1})&=k(x_{0},\ldots,x_{n-1})f(x_{0},\ldots,x_{n-1})
+                            +\bar{k}(x_{0},\ldots,x_{n-1})g(x_{0},\ldots,x_{n-1})\\
+                           &=1f(x_{0},\ldots,x_{n-1})
+                            +0g(x_{0},\ldots,x_{n-1})\\
+                           &=f(x_{0},\ldots,x_{n-1})
+    \end{align*}
+    y si $k(x_{0},\ldots,x_{n-1})=0$ se tiene análoga e evidentemente
+    que $h(x_{0},\ldots,x_{n-1})=g(x_{0},\ldots,x_{n-1})$. Por otra
+    parte, $\bar{x}\leq\bar{t}$ es equivalente a $t\leq x$ y, según el
+    \hyperref[ex:leqEquivalent]{Ejercicio \ref*{ex:leqEquivalent}},
+    esto equivalente a $t\to x=1$; por tanto, aquí
+    $k(x,y,z,t)=t\to x$. La particularización de
+    \hyperref[eq:2]{(\ref*{eq:2})} es:
+    \begin{equation*}
+      (t\to x)(x\uparrow z)+\bar{z}
+    \end{equation*}
+    pues: si $t\to x=0$ entonces
+    $(t\to x)(x\uparrow z)+\bar{z}=\bar{z}$ y si $t\to x=1$, caben dos
+    casos:
+    \begin{itemize}
+    \item $x\uparrow z=1$; entonces 
+      \begin{align*}
+        (t\to x)(x\uparrow z)+\bar{z}&=1+\bar{z}\\
+                       &=1\\
+                       &=x\uparrow z
+      \end{align*}
+    \item $x\uparrow z=0$; entonces
+      (cfr. \hyperref[ex:nandConsequence]{Ejercicio
+        \ref*{ex:nandConsequence}}) $\bar{z}=0$, luego:
+      \begin{align*}
+        (t\to x)(x\uparrow z)+\bar{z}&=0+\bar{z}\\
+                       &=0+0\\
+                       &=0\\
+                       &=x\uparrow z
+      \end{align*}
+    \end{itemize}
+    de lo que deducimos que si $t\to x=1$ entonces
+    $(t\to x)(x\uparrow z)+\bar{z}=x\uparrow z$.
+  \end{solution}
+
+\begin{example}
+  \label{ex:digitos7segmentos}
+  % http://www.zeepedia.com/read.php?converting_between_pos_and_sop_using_the_k-map_digital_logic_design&b=9&c=11
+  El dígito a 7 segmentos se forma iluminando en la pantalla los
+  segmentos apropiados según explica esquemáticamente la
+  \hyperref[fg:digitos7segmentos]{Figura \ref*{fg:digitos7segmentos}}
+  y así puede mostrar los números decimales del 0 al 9. El dígito
+  queda construido por iluminación de hasta los segmentos: a,b,c,d,e,f
+  y g, que se activan o desactivan mediante un circuito digital
+  dependiendo del número que ha de ser mostrado; por ejemplo, el
+  dígito 3 requiera la activación de exáctamente los segmentos:
+  a,b,c,d y g. Para mostrar el dígito 7 quedarán desactivados
+  exactamente los segmentos: d, e, f y g.
+
+  El circuito que activa los segmentos adecuados para mostrar uno
+  cualquiera de los dígitos se conoce como \textit{Decodificador BCD a
+    7 segmentos};\index{decodificador BCD a
+    7 segmentos} su entrada es un número BCD de 4-bit entre 0 y
+  9. Cada una de las 7 salidas del circuito conectan con los siete
+  segmentos.
+
+  Para implementar el circuito decodificador de cuatro entradas
+  ($n=4$) y siete salidas ($m=7$) debemos hacer una tabla para cada
+  segmento, representando su estado para combinación de entradas. Así
+  pues debemos determinar siete expresiones, una por cada segmento,
+  antes de implementar el circuito.
+
+  Puesto que los números representados por una entrada de 4 bits son
+  16, la tabla de cada función tendrá 16 entradas combinacionales. No
+  obstante las seis últimas combinaciones son ``no-importa'', ya que
+  ninguna de ellas ocurre al ser las entradas de números BCD de 4
+  bits. Los estados no-importa ayudarán sin embargo a simplificar las
+  expresiones booleanas para los siete segmentos. Según lo que
+  explican la: \hyperref[fg:segmentosAaF]{Figura
+    \ref*{fg:segmentosAaF}}, \hyperref[fg:KsegmentosAaF]{Figura
+    \ref*{fg:KsegmentosAaF}} y
+  \hyperref[fg:segmentoG]{\ref*{fg:segmentoG}}, la función booleana
+  $D_{BCD7}(a,b,c,d)$ que codifica el \textit{Decodificador BCD a
+    7 segmentos} es la siguiente:
+  \begin{align*}
+    D_{BCD7}(a,b,c,d)=&\langle a+c+bd+\bar{b}\bar{d},\\
+                    &\bar{b}+\bar{c}\bar{d}+cd,\\
+                    &b+\bar{c}+d,\\
+                    &a+\bar{b}\bar{d}+\bar{b}c+c\bar{d}+b\bar{c}d,\\
+                    &\bar{b}\bar{d}+c\bar{d},\\
+                    &a+b\bar{c}+b\bar{d}+\bar{c}\bar{d},\\
+                    &a+b\bar{c}+\bar{b}c+c\bar{d}\rangle
+  \end{align*}
+  donde las entradas de la 7-upla que representa a $D_{BCD7}(a,b,c,d)$
+  corresponden a los segmentos en el orden de la plabra abcdefg.
+\end{example}
+
+\begin{figure}[!hbp]
+  \centering
+  \mbox{
+    \subfigure[dígito a 7 segmentos]{
+      \label{sfg:digitos}
+      \includegraphics[width=.20\textwidth]{digitos.png}
+    }
+    \qquad
+    \subfigure[segmentos activos por cada dígito]{
+      \label{sfg:digitosSegmentos}
+      \begin{tabular}[b]{|c|l|}
+        \hline
+        Dígito&\multicolumn{1}{|c|}{Segmentos}\\\hline
+        0&a,b,c,d,e,f\\
+        1&b,c\\
+        2&a,b,d,e,g\\
+        3&a,b,c,d,g\\
+        4&b,c,f,g\\
+        5&a,c,d,f,g\\
+        6&a,c,d,e,f,g\\
+        7&a,b,c\\
+        8&a,b,c,d,e,f,g\\
+        9&a,b,c,d,f,g\\\hline
+      \end{tabular}
+    }
+  }
+  \caption{\label{fg:digitos7segmentos} Dígitos a 7 segmentos y su
+    formación activándolos.}
+\end{figure}
+
+\begin{figure}[!hbp]
+  \centering
+  \mbox{
+    \subfigure[Codif. segmento a]{
+      \label{sfg:segmentoA}
+      \begin{tabular}[b]{|c|c|c|c|c|}
+        \hline
+        \multicolumn{4}{|c|}{Input}&\multicolumn{1}{|c|}{Output}\\\hline
+        a&b&c&d&segmento a\\\hline
+        0&0&0&0&1\\\hline
+        0&0&0&1&0\\\hline
+        0&0&1&0&1\\\hline
+        0&0&1&1&1\\\hline
+        0&1&0&0&0\\\hline
+        0&1&0&1&1\\\hline
+        0&1&1&0&1\\\hline
+        0&1&1&1&1\\\hline
+        1&0&0&0&1\\\hline
+        1&0&0&1&1\\\hline
+        1&0&1&0&x\\\hline
+        1&0&1&1&x\\\hline
+        1&1&0&0&x\\\hline
+        1&1&0&1&x\\\hline
+        1&1&1&0&x\\\hline
+        1&1&1&1&x\\\hline
+      \end{tabular}
+    }
+
+    \subfigure[Codif. segmento b]{
+      \label{sfg:segmentoB}
+      \begin{tabular}[b]{|c|c|c|c|c|}
+        \hline
+        \multicolumn{4}{|c|}{Input}&\multicolumn{1}{|c|}{Output}\\\hline
+        a&b&c&d&segmento b\\\hline
+        0&0&0&0&1\\\hline
+        0&0&0&1&1\\\hline
+        0&0&1&0&1\\\hline
+        0&0&1&1&1\\\hline
+        0&1&0&0&1\\\hline
+        0&1&0&1&0\\\hline
+        0&1&1&0&0\\\hline
+        0&1&1&1&1\\\hline
+        1&0&0&0&1\\\hline
+        1&0&0&1&1\\\hline
+        1&0&1&0&x\\\hline
+        1&0&1&1&x\\\hline
+        1&1&0&0&x\\\hline
+        1&1&0&1&x\\\hline
+        1&1&1&0&x\\\hline
+        1&1&1&1&x\\\hline
+      \end{tabular}
+    }
+    \subfigure[Codif. segmento c]{
+      \label{sfg:segmentoC}
+      \begin{tabular}[b]{|c|c|c|c|c|}
+        \hline
+        \multicolumn{4}{|c|}{Input}&\multicolumn{1}{|c|}{Output}\\\hline
+        a&b&c&d&segmento c\\\hline
+        0&0&0&0&1\\\hline
+        0&0&0&1&1\\\hline
+        0&0&1&0&0\\\hline
+        0&0&1&1&1\\\hline
+        0&1&0&0&1\\\hline
+        0&1&0&1&1\\\hline
+        0&1&1&0&1\\\hline
+        0&1&1&1&1\\\hline
+        1&0&0&0&1\\\hline
+        1&0&0&1&1\\\hline
+        1&0&1&0&x\\\hline
+        1&0&1&1&x\\\hline
+        1&1&0&0&x\\\hline
+        1&1&0&1&x\\\hline
+        1&1&1&0&x\\\hline
+        1&1&1&1&x\\\hline
+      \end{tabular}
+    }
+  }
+  \mbox{
+        \subfigure[Codif. segmento d]{
+      \label{sfg:segmentoD}
+      \begin{tabular}[b]{|c|c|c|c|c|}
+        \hline
+        \multicolumn{4}{|c|}{Input}&\multicolumn{1}{|c|}{Output}\\\hline
+        a&b&c&d&segmento d\\\hline
+        0&0&0&0&1\\\hline
+        0&0&0&1&0\\\hline
+        0&0&1&0&1\\\hline
+        0&0&1&1&1\\\hline
+        0&1&0&0&0\\\hline
+        0&1&0&1&1\\\hline
+        0&1&1&0&1\\\hline
+        0&1&1&1&0\\\hline
+        1&0&0&0&1\\\hline
+        1&0&0&1&1\\\hline
+        1&0&1&0&x\\\hline
+        1&0&1&1&x\\\hline
+        1&1&0&0&x\\\hline
+        1&1&0&1&x\\\hline
+        1&1&1&0&x\\\hline
+        1&1&1&1&x\\\hline
+      \end{tabular}
+    }
+    
+    \subfigure[Codif. segmento e]{
+      \label{sfg:segmentoE}
+      \begin{tabular}[b]{|c|c|c|c|c|}
+        \hline
+        \multicolumn{4}{|c|}{Input}&\multicolumn{1}{|c|}{Output}\\\hline
+        a&b&c&d&segmento e\\\hline
+        0&0&0&0&1\\\hline
+        0&0&0&1&0\\\hline
+        0&0&1&0&1\\\hline
+        0&0&1&1&0\\\hline
+        0&1&0&0&0\\\hline
+        0&1&0&1&0\\\hline
+        0&1&1&0&1\\\hline
+        0&1&1&1&0\\\hline
+        1&0&0&0&1\\\hline
+        1&0&0&1&0\\\hline
+        1&0&1&0&x\\\hline
+        1&0&1&1&x\\\hline
+        1&1&0&0&x\\\hline
+        1&1&0&1&x\\\hline
+        1&1&1&0&x\\\hline
+        1&1&1&1&x\\\hline
+      \end{tabular}
+    }
+
+    \subfigure[Codif. segmento f]{
+      \label{sfg:segmentoF}
+      \begin{tabular}[b]{|c|c|c|c|c|}
+        \hline
+        \multicolumn{4}{|c|}{Input}&\multicolumn{1}{|c|}{Output}\\\hline
+        a&b&c&d&segmento f\\\hline
+        0&0&0&0&1\\\hline
+        0&0&0&1&0\\\hline
+        0&0&1&0&0\\\hline
+        0&0&1&1&0\\\hline
+        0&1&0&0&1\\\hline
+        0&1&0&1&1\\\hline
+        0&1&1&0&1\\\hline
+        0&1&1&1&0\\\hline
+        1&0&0&0&1\\\hline
+        1&0&0&1&1\\\hline
+        1&0&1&0&x\\\hline
+        1&0&1&1&x\\\hline
+        1&1&0&0&x\\\hline
+        1&1&0&1&x\\\hline
+        1&1&1&0&x\\\hline
+        1&1&1&1&x\\\hline
+      \end{tabular}
+    }
+  }
+  \caption{\label{fg:segmentosAaF} Codificación por segmentos de su activación del a al f.}
+\end{figure}
+
+\begin{figure}[!hbp]
+  \centering
+  \mbox{
+    \subfigure[Mapa K segmento a: $a+c+bd+\bar{b}\bar{d}$]{
+      \label{sfg:KsegmentoA}
+      \begin{karnaugh-map}[4][4][1][$cd$][$ab$]
+        \manualterms{1,0,1,1,0,1,1,1,1,1,x,x,x,x,x,x}
+        \implicantcorner[0,2]
+        \implicant{12}{10}
+        \implicant{5}{15}
+        \implicant{3}{10}
+      \end{karnaugh-map}
+    }
+    \subfigure[Mapa K segmento b: $\bar{b}+\bar{c}\bar{d}+cd$]{
+      \label{sfg:KsegmentoB}
+      \begin{karnaugh-map}[4][4][1][$cd$][$ab$]
+        \manualterms{1,1,1,1,1,0,0,1,1,1,x,x,x,x,x,x}
+        \implicantedge{0}{2}{8}{10}
+        \implicant{0}{8}
+        \implicant{3}{11}
+      \end{karnaugh-map}
+    }
+  }
+  \mbox{    
+    \subfigure[Mapa K segmento c: $b+\bar{c}+d$]{
+      \label{sfg:KsegmentoC}
+      \begin{karnaugh-map}[4][4][1][$cd$][$ab$]
+        \manualterms{1,1,0,1,1,1,1,1,1,1,x,x,x,x,x,x}
+        \implicant{0}{9}
+        \implicant{1}{11}
+        \implicant{4}{14}
+      \end{karnaugh-map}
+    }
+
+    \subfigure[Mapa K segmento d: $a+\bar{b}\bar{d}+\bar{b}c+c\bar{d}+b\bar{c}d$]{
+      \label{sfg:KsegmentoD}
+      \begin{karnaugh-map}[4][4][1][$cd$][$ab$]
+        \manualterms{1,0,1,1,0,1,1,0,1,1,x,x,x,x,x,x}
+        \implicantcorner[0,2]
+        \implicant{12}{10}
+        \implicantedge{3}{2}{11}{10}
+        \implicant{2}{10}
+        \implicant{5}{13}
+      \end{karnaugh-map}   
+    }
+  }
+  \mbox{
+    \subfigure[Mapa K segmento e: $\bar{b}\bar{d}+c\bar{d}$]{
+      \label{sfg:KsegmentoE}
+      \begin{karnaugh-map}[4][4][1][$cd$][$ab$]
+        \manualterms{1,0,1,0,0,0,1,0,1,0,x,x,x,x,x,x}
+        \implicantcorner[0,2]
+        \implicant{2}{10}
+      \end{karnaugh-map}
+    }
+    \subfigure[Mapa K segmento f: $a+b\bar{c}+b\bar{d}+\bar{c}\bar{d}$]{
+      \label{sfg:KsegmentoF}
+      \begin{karnaugh-map}[4][4][1][$cd$][$ab$]
+        \manualterms{1,0,0,0,1,1,1,0,1,1,x,x,x,x,x,x}
+        \implicant{0}{8}
+        \implicant{4}{13}
+        \implicant{12}{10}
+        \implicantedge{4}{12}{6}{14}
+      \end{karnaugh-map}
+    }
+  }
+  \caption{\label{fg:KsegmentosAaF} Mapas K para las funciones de
+    codificación de la activación de los segmentos a a f}
+\end{figure}
+
+\begin{figure}[!hbp]
+  \centering
+  \mbox{
+    \subfigure[Codif. segmento g]{
+      \label{sfg:segmentoG}
+      \begin{tabular}[b]{|c|c|c|c|c|}
+      \hline
+      \multicolumn{4}{|c|}{Input}&\multicolumn{1}{|c|}{Output}\\\hline
+      a&b&c&d&segmento g\\\hline
+      0&0&0&0&0\\\hline
+      0&0&0&1&0\\\hline
+      0&0&1&0&1\\\hline
+      0&0&1&1&1\\\hline
+      0&1&0&0&1\\\hline
+      0&1&0&1&1\\\hline
+      0&1&1&0&1\\\hline
+      0&1&1&1&0\\\hline
+      1&0&0&0&1\\\hline
+      1&0&0&1&1\\\hline
+      1&0&1&0&x\\\hline
+      1&0&1&1&x\\\hline
+      1&1&0&0&x\\\hline
+      1&1&0&1&x\\\hline
+      1&1&1&0&x\\\hline
+      1&1&1&1&x\\\hline
+      \end{tabular}
+    }
+    \subfigure[Mapa K segmento g: $a+b\bar{c}+\bar{b}c+c\bar{d}$]{
+      \label{sfg:KsegmentoG}
+      \begin{karnaugh-map}[4][4][1][$cd$][$ab$]
+        \manualterms{0,0,1,1,1,1,1,0,1,1,x,x,x,x,x,x}
+        \implicantedge{3}{2}{11}{10}
+        \implicant{2}{10}
+        \implicant{4}{13}
+        \implicant{12}{10}
+      \end{karnaugh-map}   
+    }
+  }
+  \caption{\label{fg:segmentoG} Codificación de activación del segmento g y mapa K correspondiente.}
+\end{figure}
+
+\begin{exercise}
+  \label{ex:atm_prod}
+  Sean $\mathbf{A}$ y $\mathbf{B}$ álgebras de Boole finitas y $\langle
+  a,b\rangle\in A\times B$. Demuestre que son equivalentes las
+  siguientes afirmaciones:
+  \begin{enumerate}
+  \item
+    $\langle a,b\rangle\in
+    \operatorname{Atm}(\mathbf{A}\times\mathbf{B})$ \label{ex:atm_prod_A}
+  \item ($a\in \operatorname{Atm}(\mathbf{A})$ y $b=0$) ó ($a=0$ y
+    $b\in \operatorname{Atm}(\mathbf{B})$) \label{ex:atm_prod_B}
+  \end{enumerate}
+\end{exercise}
+
+\begin{proof}
+  Para demostrar que la afirmación \hyperref[ex:atm_prod_A]{\ref*{ex:atm_prod_A})}
+  implica a la \hyperref[ex:atm_prod_B]{\ref*{ex:atm_prod_B})},
+  demostremos la implicación contrarrecíproca. Con el fin de articular
+  el razonamiento abreviemos por:
+  \begin{itemize}
+  \item $\alpha$ la expresión ``$a\in
+    \operatorname{Atm}(\mathbf{A})$''
+  \item $\beta$ la expresión ``$b=0$''
+  \item $\varphi$ la expresión ``$a=0$'' y
+  \item $\psi$ la expresión
+    ``$b\in \operatorname{Atm}(\mathbf{B})$''.
+  \end{itemize}
+  La negación de la afirmación
+  \hyperref[ex:atm_prod_B]{\ref*{ex:atm_prod_B})} responde a lo
+  siguiente:
+  \begin{align*}
+    \neg((\alpha\wedge\beta)\vee (\varphi\wedge\psi)&=
+        \neg(\alpha\wedge\beta)\wedge\neg (\varphi\wedge\psi)\\
+    &=(\neg\alpha\vee\neg\beta)\wedge(\neg\varphi\vee\neg\psi)\\
+    &=(\neg\alpha\wedge(\neg\varphi\vee\neg\psi))
+    \vee (\neg\beta\wedge(\neg\varphi\vee\neg\psi))\\
+    &=(\neg\alpha\wedge\neg\varphi)\vee(\neg\alpha\wedge\neg\psi)
+    \vee(\neg\beta\wedge\neg\varphi)\vee(\neg\beta\wedge\neg\psi)
+  \end{align*}
+Recordamos ahora que para cualquier conjunto de fórmulas
+$\Gamma\cup\{\xi,\zeta\}$ se cumple: 
+\begin{equation*}
+ \operatorname{Con}(\Gamma,\xi\vee\zeta)=
+\operatorname{Con}(\Gamma,\xi)\cap\operatorname{Con}(\Gamma,\zeta) 
+\end{equation*}
+Por lo que, supuesto lo opuesto de la afirmación
+\hyperref[ex:atm_prod_B]{\ref*{ex:atm_prod_B})}, bastará con concluir
+que
+$\langle a,b\rangle\notin
+\operatorname{Atm}(\mathbf{A}\times\mathbf{B})$ en cada uno de los
+casos que hemos llegado a distinguir. En definitiva, el razonamiento
+es por casos según los siguientes (en realidad tres):
+\begin{itemize}
+\item $a\notin\operatorname{Atm}(\mathbf{A})$ y $a\neq 0$ (por
+  $\neg\alpha\wedge\neg\varphi$); si
+  $a\notin\operatorname{Atm}(\mathbf{A})$ entonces existe $x\in A$ tal
+  que $0<x<a$. Así pues
+  $\langle 0,0\rangle<\langle x,b\rangle<\langle a,b\rangle$ y
+  así $\langle a,b\rangle$ no es átomo de $\mathbf{A}\times\mathbf{B}$.
+\item $b\neq 0$ y $a\neq 0$ (por $\neg\beta\wedge\neg\varphi$); en
+  este caso se tiene que
+  $\langle 0,0\rangle<\langle a,0\rangle<\langle a,b\rangle$ y
+  así $\langle a,b\rangle$ no es átomo de $\mathbf{A}\times\mathbf{B}$.
+\item $b\neq 0$ y $b\notin \operatorname{Atm}(\mathbf{B})$
+  (por $\neg\beta\wedge\neg\psi$); si
+  $b\notin\operatorname{Atm}(\mathbf{B})$ entonces existe $y\in B$ tal
+  que $0<y<b$. Así pues
+  $\langle 0,0\rangle<\langle a,y\rangle<\langle a,b\rangle$ y
+  así $\langle a,b\rangle$ no es átomo de
+  $\mathbf{A}\times\mathbf{B}$.
+\item $a\notin\operatorname{Atm}(\mathbf{A})$ y
+  $b\notin \operatorname{Atm}(\mathbf{B})$ (por
+  $\neg\alpha\wedge\neg\psi$); éste es un caso específico de los
+  anteriormente tratados, a menos que alguno de los elementos, $a$ ó
+  $b$, sea igual a $0$. Si $a=0=b$ concluimos que $\langle a,b\rangle$
+  no es un átomo debido a que para serlo es condición necesaria la no
+  nulidad. Si $a\neq 0$ pero $b=0$, tomaremos $x\in A$ tal que $0<x<a$
+  y entonces
+  $\langle 0,0\rangle<\langle x,0\rangle<\langle a,b\rangle$ con lo
+  que $\langle a,b\rangle$ no puede ser átomo. Si el caso es $a=0$
+  pero $b\neq 0$, un razonamiento análogo nos lleva a que
+  $\langle a,b\rangle$ no puede ser átomo.
+\end{itemize}
+\textbf{Recíprocamente}, supongamos que se cumple lo que afirma
+\hyperref[ex:atm_prod_B]{\ref*{ex:atm_prod_B})} y demostremos, como
+conclusión, lo que afirma
+\hyperref[ex:atm_prod_A]{\ref*{ex:atm_prod_A})}. Supongamos, pues, que
+$a\in \operatorname{Atm}(\mathbf{A})$ y que $b=0$. Si
+$\langle x,y\rangle\in A\times B$ y
+$\langle 0,0\rangle\leq\langle x,y\rangle\leq\langle a,0\rangle$; pero
+al ser $a$ átomo se cumple $x=0$ ó $x=a$ por lo que en realidad se
+tiene que $\langle 0,0\rangle=\langle x,y\rangle$ o
+$\langle x,y\rangle=\langle a,b\rangle$ y de ello que
+$\langle a,b\rangle\in
+\operatorname{Atm}(\mathbf{A}\times\mathbf{B})$. Si se da que $a=0$ y
+$b\in \operatorname{Atm}(\mathbf{B})$, un razonamiento análogo conduce
+a que también
+$\langle a,b\rangle\in
+\operatorname{Atm}(\mathbf{A}\times\mathbf{B})$. Así pues se tiene
+demostrada la afirmación
+\hyperref[ex:atm_prod_A]{\ref*{ex:atm_prod_A})}.
+\end{proof}
+
+\begin{exercise}
+ Sea $\mathbf{B}$ un álgebra de Boole
+  \textbf{cualquiera}. Demuestre que para todo $a,b,c\in B$ son
+  equivalentes las siguientes afirmaciones:
+  \begin{enumerate}
+  \item $a\oplus b\leq c$
+  \item $ac'=bc'$
+  \end{enumerate}
+\end{exercise}
+
+  \begin{solution}
+    Para cualesquiera $a,b,c\in B$,
+    \begin{align*}
+      ac'(bc')'&=ac'(b'+c'')\\
+               &=ac'(b'+c)\\
+               &=ac'b'+ac'c\\
+               &=ab'c'+a0\\
+               &=ab'c'+0\\
+               &=ab'c'
+    \end{align*}
+    Por tanto:
+    \begin{equation}
+      \label{eq:par18192A}
+      ac'(bc')'=ab'c'
+    \end{equation}
+    y también (como ecuación es idéntica):
+    \begin{equation}
+      \label{eq:par18192B}
+      bc'(ac')'=a'bc'
+    \end{equation}
+    Supongamos ahora que $a\oplus b\leq c$, o equivaléntemente que
+    $ab'+a'b\leq c$. Entonces, por transitividad, $ab'\leq c$ y
+    $a'b\leq c$ o lo que es equivalente: $ab'c'=0$ y
+    $a'bc'=0$. Entonces, por
+    \hyperref[eq:par18192A]{(\ref*{eq:par18192A})}, $ac'(bc')'=0$ y por
+    \hyperref[eq:par18192B]{(\ref*{eq:par18192B})}, $bc'(ac')'=0$. De lo
+    primero se deduce que $ac'\leq bc'$ y de lo segundo que
+    $bc'\leq ac'$. Por la antisimetría de $\leq$, se tiene que
+    $ac'=bc'$. \textbf{Recíprocamente}, supongamos que
+    $ac'=bc'$. Entonces $ac'(bc')'=0$ y $bc'(ac')'=0$; como antes
+    $ab'c'=0=a'bc'$. Deducimos de esto que $ab'\leq c$ y que $a'b\leq
+    c$, de donde:
+    \begin{equation*}
+      a\oplus b = ab'+a'b\leq c
+    \end{equation*}
+  \end{solution}
+
+  \begin{exercise}
+    \label{ex:Zhegalkine}
+    Sobre expresiones boolenas $\varphi$ definamos la siguiente
+    función $p_{G}$ que propociona porlinomios con coeficientes de
+    $\mathbb{Z}_{2}$:
+    \begin{equation*}
+      \operatorname{p_{G}}(\varphi)=
+      \begin{cases}
+        0,&\text{ si }\varphi\equiv 0\\
+        1,&\text{ si }\varphi\equiv 1\\
+        x_{i},&\text{ si }\varphi\equiv x_{i}\\
+        \operatorname{p_{G}}(\alpha)+1,
+        &\text{ si }\varphi\equiv\alpha'\\
+        \operatorname{p_{G}}(\alpha)\operatorname{p_{G}}(\beta)
+        +\operatorname{p_{G}}(\alpha)
+        +\operatorname{p_{G}}(\beta),&\text{ si }\varphi\equiv\alpha+\beta\\
+        \operatorname{p_{G}}(\alpha)\operatorname{p_{G}}(\beta),
+        &\text{ si }\varphi\equiv\alpha\cdot\beta
+      \end{cases}
+    \end{equation*}
+    Para cualquier expresión booleana $\varphi$,
+    $\operatorname{p_{G}}(\varphi)$ está bien definida (por el
+    \textit{principio de lectura única}) y es denominado el
+    \href{https://en.wikipedia.org/wiki/Ivan_Ivanovich_Zhegalkin}{\textit{Polinomio
+        de Zhegalkine}} de $\varphi$. Encuentre el polinomio de
+    Zhegalkin de las siguientes expresiones booleanas:
+    \begin{enumerate}
+    \item $x\to y$
+    \item $x\uparrow y$ (Sheffer stroke con notación, con notación de Bocheński Dxy)
+    \item $x\downarrow y$ (Quine dagger or Peirce's arrow, con notación de Bocheński Xxy)
+    \item $x\oplus y$
+    \item $x\to(y\to z)$
+    \item $(x\to y)\to z$
+    \end{enumerate}
+  \end{exercise}

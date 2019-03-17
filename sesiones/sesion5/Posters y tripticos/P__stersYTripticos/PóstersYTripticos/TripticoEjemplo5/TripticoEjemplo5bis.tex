@@ -1,0 +1,88 @@
+\documentclass[10pt, notumble, letterpaper]{leaflet}
+
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames,usenames, x11names, table]{xcolor}
+
+\definecolor{LIGHTGRAY}{gray}{.95}
+
+\pagestyle{empty}
+
+\title{\vspace*{5cm} }
+
+\author{Instituto Tecnológico de Costa Rica}
+\date{16-18, Noviembre, 2011 }
+
+\CutLine*{1}% Dotted line without scissors
+\CutLine*{3}% Dotted line without scissors
+\CutLine*{4}% Dotted line without scissors
+\CutLine*{6}%  Dotted line with scissors
+
+\AddToBackground{1}{%  Background of a small page
+  \put(10,450){\includegraphics[scale=0.5]{LogoCIEMAC}}}
+
+\AddToBackground{6}{%  Background of a small page
+  \put(0,0){\textcolor{Cyan!50}{\rule{\paperwidth}{\paperheight}}}} %YellowOrange
+
+\AddToBackground*{2}{% Background of a large page
+  \put(\LenToUnit{.5\paperwidth},\LenToUnit{.5\paperheight}){%
+    \makebox(0,0)[c]{%
+      \resizebox{.9\paperwidth}{!}{\rotatebox{35.26}{%
+        \textsf{\textbf{\textcolor{LIGHTGRAY}{CIEMAC}}}}}}}}
+        
+\AddToBackground*{1}{% Background of a large page
+  \put(0,\LenToUnit{.5\paperheight}){% \LenToUnit{.5\paperwidth}
+    \makebox(0,0)[c]{%
+      \resizebox{.9\paperwidth}{!}{\rotatebox{20}{%
+        \includegraphics[scale=1.5]{IconoCIEMACTransparente}}}}}}
+        
+\AddToBackground*{2}{% Background of a large page
+  \put(130,100){% \LenToUnit{.5\paperwidth}, \LenToUnit{.5\paperheight}
+    \makebox(0,0)[c]{%
+      \resizebox{.4\paperwidth}{!}{\rotatebox{30}{%
+        \includegraphics[scale=1]{IconoCIEMACTransparente}}}}}}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\section{Sección 1} 
+
+Texto en la sección 1
+
+\newpage
+
+\section{Sección 2} 
+
+Texto en la sección 2
+
+\newpage
+
+\section{Sección 3} 
+
+Texto en la sección 3
+
+\newpage
+
+\section{Sección 4} 
+
+Texto en la sección 4
+
+\newpage
+
+\section{Sección 5} 
+
+Texto en la sección 5
+
+\newpage
+
+\section{Sección 6} 
+
+Texto en la sección 6
+
+\section{Sección 7} 
+
+Texto en la sección 7
+
+\end{document}

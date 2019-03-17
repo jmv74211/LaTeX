@@ -1,0 +1,141 @@
+\documentclass[10pt,spanish]{article}
+
+\usepackage[paperheight=297mm,
+            paperwidth=210mm,
+            tmargin=28mm, 
+            headheight=0mm, 
+            headsep=0mm,
+            textheight=240mm,
+            footskip=7mm,
+            textwidth=159.2mm,
+            bindingoffset=10mm,
+            twoside
+            ]{geometry}
+
+% paragraph setup
+\setlength{\parindent}{0em}
+%\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+\setlength{\columnsep}{1em}
+%\renewcommand{\baselinestretch}{1.5}
+
+\usepackage[utf8]{inputenc}
+\usepackage[%english
+            spanish
+           ]
+           {babel}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[pdftex]{graphicx}
+\usepackage{mathtools,amsthm}
+\usepackage{amsfonts,amssymb,latexsym}
+\usepackage{enumerate}
+%\usepackage{makeidx}
+%\makeindex
+\usepackage{stackengine} % para apilar símbolos
+\usepackage{karnaugh-map}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{beton}
+\usepackage[T1]{fontenc}
+\definecolor{webgreen}{rgb}{0, 0.5, 0} % less intense green
+\definecolor{webblue}{rgb}{0, 0, 0.5}  % less intense blue
+\definecolor{webred}{rgb}{0.5, 0, 0}   % less intense red
+\definecolor{dblackcolor}{rgb}{0.0,0.0,0.0}
+\definecolor{dbluecolor}{rgb}{.01,.02,0.7}
+\definecolor{dredcolor}{rgb}{0.8,0,0}
+\definecolor{dgraycolor}{rgb}{0.30,0.3,0.30}
+\definecolor{dblackcolor}{rgb}{0.0,0.0,0.0}
+\definecolor{dbluecolor}{rgb}{.01,.02,0.7}
+\definecolor{dredcolor}{rgb}{0.8,0,0}
+\definecolor{dgraycolor}{rgb}{0.30,0.3,0.30}
+\usepackage[bookmarks=true,
+            bookmarksnumbered=false, % true means bookmarks in 
+                                     % left window are numbered                         
+            bookmarksopen=false,     % true means only level 1
+                                     % are displayed.
+            colorlinks=true,
+            linkcolor=webred,
+            urlcolor=NavyBlue,
+            citecolor=cyan]{hyperref}
+
+%%    macro tomada de clogica.tex
+
+ \newcommand{\regla}[2]{
+   \begin{array}{c}
+     #1\\
+     \hline
+     #2\\
+   \end{array}
+ }
+
+\usepackage{listings}
+\lstdefinelanguage{Sage}[]{Python}{morekeywords={True,False,sage,singular},sensitive=true}
+\lstset{language = Sage,
+        frame=none,
+        %frame=single,
+        showtabs=False,
+        showspaces=False,
+        showstringspaces=False,
+        %backgroundcolor=\color{LightCyan},
+        commentstyle={\ttfamily\color{dredcolor}},
+        keywordstyle={\ttfamily\color{dbluecolor}\bfseries},
+        stringstyle ={\ttfamily\color{dgraycolor}\bfseries},
+	basicstyle={\small \ttfamily},
+	aboveskip=.3em,
+	belowskip=.1em
+        }
+
+%%%%%%%%%% English %%%%%%%%%
+
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}[theorem]{Corolario}
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{proposition}[theorem]{Proposición}
+\newtheorem{example}[theorem]{Ejemplo}
+\newtheorem{exercise}[theorem]{Ejercicio}
+\newtheorem{ax}{Axioma}
+\newtheorem{algoritmo}[theorem]{Algoritmo}
+
+%\renewcommand\qedsymbol{$\blacksquare$}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Observación}[section]
+\newtheorem*{notation}{Notación}
+%\newtheorem*{solution}{Solución}
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\HRule}{\rule{\linewidth}{1mm}}
+
+ \title
+{
+\HRule
+\begin{flushright}
+\huge
+\textbf{Problemas Selectos }\\
+\Huge
+\textbf{LMD}\\
+\huge
+con solución\\
+\Large
+curso 2018/2019
+\end{flushright}
+\HRule} 
+\author{fco. m. garcía olmedo}
+%\date{3 de febrero de 2012}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\input{problemas_induc}
+\input{problemas_rab}
+
+\end{document}
+
+
+

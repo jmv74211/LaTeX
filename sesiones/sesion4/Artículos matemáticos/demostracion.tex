@@ -1,0 +1,115 @@
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "bbp_formula"
+%%% End:
+
+\section{Demostración de la Fórmula BBP}
+
+\begin{lemma}
+  Para todo número natural $n$ se cumple:
+  \begin{equation*}
+    \sum_{k=0}^{\infty}\frac{1}{16^{k}(8k+n)}
+    =\sqrt{2}^{n}\int_{0}^{\frac{1}{\sqrt{2}}}
+    \left(\frac{x^{n-1}}{1-x^{8}}\right)
+    \,dx
+  \end{equation*}
+\end{lemma}
+
+\begin{proof}
+  Sea $n$ un número natural cualquiera. Entonces:
+  \begin{align*}
+    \sum_{k=0}^{\infty}\frac{1}{16^{k}(8k+n)}
+         &=\sqrt{2}^{n}\sum_{k=0}^{\infty}
+             \frac{\left(\frac{1}{\sqrt{2}}\right)^{8k+n}}{8k+n}\\
+         &=\sqrt{2}^{n}\sum_{k=0}^{\infty}
+             \left[\frac{x^{8k+n}}{8k+n}\right]_{0}^{\frac{1}{\sqrt{2}}}\\
+         &=\sqrt{2}^{n}\sum_{k=0}^{\infty}
+           \left(
+             \int _{0}^{\frac{1}{\sqrt{2}}}x^{8k+n-1}\,dx
+           \right)\\
+         &=\sqrt{2}^{n}\int _{0}^{\frac{1}{\sqrt{2}}}
+           \left(\sum_{k=0}^{\infty}
+                  x^{8k+n-1}
+           \right)\,dx\\
+         &=\sqrt{2}^{n}\int _{0}^{\frac{1}{\sqrt{2}}}
+           \left(x^{n-1}\sum_{k=0}^{\infty}
+                  (x^{8})^{k}
+           \right)\,dx\\
+             &=\sqrt{2}^{n}\int _{0}^{\frac{1}{\sqrt{2}}}
+           \left(x^{n-1}\frac{1}{1-x^{8}}
+           \right)\,dx\\
+  \end{align*}
+  
+\end{proof}
+
+\begin{theorem}
+  Es cierta la siguiente igualdad (denominada
+  \hyperref[eq:bbp]{fórmula BBP}):
+  \begin{equation}
+    \label{eq:bbp}
+        \pi = \sum_{k=0}^{\infty}\frac{1}{16^{k}}
+    \left(
+      \frac{4}{8k+1}
+      -\frac{2}{8k+4}
+      -\frac{1}{8k+5}
+      -\frac{1}{8k+6}
+    \right) \nonumber
+  \end{equation}
+\end{theorem}
+
+\begin{proof}
+  Son ciertas las siguientes igualdades:
+  \begin{align*}
+    &\sum_{k=0}^{\infty}\frac{1}{16^{k}}
+    \left(
+      \frac{4}{8k+1}
+      -\frac{2}{8k+4}
+      -\frac{1}{8k+5}
+      -\frac{1}{8k+6}
+    \right)\\
+     &=
+     4\sum_{k=0}^{\infty}\frac{1}{16^{k}(8k+1)}
+    -2\sum_{k=0}^{\infty}\frac{1}{16^{k}(8k+4)}
+     -\sum_{k=0}^{\infty}\frac{1}{16^{k}(8k+5)}
+     -\sum_{k=0}^{\infty}\frac{1}{16^{k}(8k+6)}\\
+     &=4\left(\sqrt{2}^{1}\int_{0}^{\frac{1}{\sqrt{2}}}\frac{x^{1-1}}{1-x^{8}}\,dx\right)
+     -2\left(\sqrt{2}^{4}\int_{0}^{\frac{1}{\sqrt{2}}}\frac{x^{4-1}}{1-x^{8}}\,dx\right)
+     -\left(\sqrt{2}^{5}\int_{0}^{\frac{1}{\sqrt{2}}}\frac{x^{5-1}}{1-x^{8}}\,dx\right)\\
+     &-\left(\sqrt{2}^{6}\int_{0}^{\frac{1}{\sqrt{2}}}\frac{x^{6-1}}{1-x^{8}}\,dx\right)\\
+     &=\int_{0}^{\frac{1}{\sqrt{2}}}\frac{4\sqrt{2}-8x^{3}-4\sqrt{2}x^{4}-8x^{5}}
+                                     {1-x^{8}}\,dx\\
+  \end{align*}
+  Haremos ahora el cambio de variable:
+  \begin{equation*}
+    \begin{cases}
+      y=x\sqrt{2}&\\
+      dy=dx\sqrt{2}&
+    \end{cases}
+  \end{equation*}
+  Sustituyendo resulta lo siguiente:
+  \begin{align*}
+    \int_{0}^{\frac{1}{\sqrt{2}}}\frac{4\sqrt{2}-8x^{3}-4\sqrt{2}x^{4}-8x^{5}}
+                                     {1-x^{8}}\,dx
+    &=\bigint\limits_{0}^{1}\left(
+      \frac{4\sqrt{2}-\frac{8}{\sqrt{2}^{3}}y^{3}
+      -\frac{4\sqrt{2}}{\sqrt{2}^{4}}y^{4}
+      -\frac{8}{\sqrt{2}^{5}}y^{5}}
+       {1-\frac{1}{\sqrt{2}^{8}}y^{8}}\right)\,\frac{dy}{\sqrt{2}}\\
+    &=16\int_{0}^{1}\frac{4-2y^{3}-y^{4}-y^{5}}{16-y^{8}}\,dy\\
+    &=16\int_{0}^{1}\frac{y-1}{(y^{2}-2y+2)(y^{2}-2)}\,dy\\
+  \end{align*}
+  Descomponiendo en fracciones simples:
+  \begin{align*}
+    &=\int_{0}^{1}\left(
+       \frac{8-4y}{y^{2}-2y+2}+\frac{4y}{y^{2}-2}\right)\,dy\\[3mm]
+    &=-2\int_{0}^{1}\frac{2y-2}{y^{2}-2y+2}\,dy
+      +4\int_{0}^{1}\frac{1}{1+(y-1)^{2}}\,dy
+      +2\int_{0}^{1}\frac{2y}{y^{2}-2}\,dy\\[3mm]
+    &=-2[\ln(y^{2}-2y+2)]_{0}^{1}
+     +4[\arctan(y-1)]_{0}^{1}
+     +2[\ln(2-y^{2})]_{0}^{1}\\[3mm]
+    &=-2\ln(1)+2\ln(1)+4\arctan(0)-4\arctan(-1)+2\ln(1)-2\ln(2)\\[3mm]
+    &=4\arctan(1)\\[3mm]
+    &=\pi
+  \end{align*}
+\end{proof}

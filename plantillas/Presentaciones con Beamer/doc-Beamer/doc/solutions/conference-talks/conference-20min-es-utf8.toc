@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {spanish}
+\beamer@sectionintoc {1}{Motivaci\IeC {\'o}n}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{De qu\IeC {\'e} trata esto.}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Trabajo o conocimientos previos}{11}{0}{1}
+\beamer@sectionintoc {2}{Nuestros Resultados/Contribuciones}{14}{0}{2}
+\beamer@subsectionintoc {2}{1}{Resultados Principales}{14}{0}{2}
+\beamer@subsectionintoc {2}{2}{Ideas B\IeC {\'a}sicas y Demostraciones}{17}{0}{2}

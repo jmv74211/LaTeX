@@ -1,0 +1,126 @@
+\documentclass[12pt,spanish]{article}
+
+% aprovechamiento de la p\'agina -- fill an A4 (210mm x 297mm) page
+
+% Note: 1 inch = 25.4 mm = 72.27 pt
+% 1 pt = 3.5 mm (approx)
+
+\usepackage[paperheight=297mm,
+            paperwidth=210mm,
+            tmargin=28mm, 
+            headheight=0mm, 
+            headsep=0mm,
+            textheight=240mm,
+            footskip=7mm,
+            textwidth=159.2mm,
+            bindingoffset=10mm,
+            twoside
+            ]{geometry}
+
+% paragraph setup
+\setlength{\parindent}{0em}
+%\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+\setlength{\columnsep}{1em}
+%\renewcommand{\baselinestretch}{1.5}
+
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,mathtools,latexsym}
+\usepackage{amsfonts,amssymb}
+% \usepackage{amsmath,amsthm,mathtools}
+% \usepackage{amsfonts,amssymb,latexsym,MnSymbol}
+\usepackage{enumerate}
+\usepackage[pdftex]{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[bookmarks=true,
+            bookmarksnumbered=false, % true means bookmarks in 
+                                     % left window are numbered                         
+            bookmarksopen=false,     % true means only level 1
+                                     % are displayed.
+            colorlinks=true,
+            linkcolor=webred]{hyperref}
+\definecolor{webgreen}{rgb}{0, 0.5, 0} % less intense green
+\definecolor{webblue}{rgb}{0, 0, 0.5}  % less intense blue
+\definecolor{webred}{rgb}{0.5, 0, 0}   % less intense red
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\definecolor{MistyRose}{RGB}{255,228,225}
+\definecolor{LightCyan}{RGB}{224,255,255}
+% Cambio de tipo de letra en entorno matemático
+
+\usepackage[math]{iwona}
+\usepackage{eulervm}
+\usepackage[T1]{fontenc}
+% \usepackage{beton}
+% \usepackage[T1]{fontenc}
+
+\usepackage{bigints}
+
+% Theorem environments
+
+%% \theoremstyle{plain} %% This is the default
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}[theorem]{Corolario}
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{proposition}[theorem]{Proposici\'on}
+\newtheorem{example}[theorem]{Ejemplo}
+\newtheorem{exercise}[theorem]{Ejercicio}
+\newtheorem{axiom}{Axioma}
+\newtheorem{algoritmo}[theorem]{Algoritmo}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definici\'on}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Observaci\'on}[section]
+\newtheorem*{notation}{Notaci\'on}
+%\numberwithin{equation}{section}
+\newcommand{\theoremref}[1]{Theorem~\ref{#1}}
+\newcommand{\secref}[1]{\S\ref{#1}}
+\newcommand{\lemmaref}[1]{Lemma~\ref{#1}}
+%\newcommand{\bysame}{\mbox{\rule{3em}{.4pt}}\,}
+
+%\pagestyle{empty}
+
+\newcommand{\HRule}{\rule{\linewidth}{1mm}}
+\title
+{
+\HRule
+\begin{flushright}
+\huge
+\textbf{La Fórmula}\\
+\Large
+\textbf{de}\\
+\Huge
+\textbf{Bailey-Borwein-Plouffe}\\
+\end{flushright}
+\HRule 
+} 
+\author{\large \href{https://is.gd/xdhiYD}{Wikipedia}}
+%\date{}
+
+\begin{document}
+
+\maketitle
+
+\input{resumen}
+
+\tableofcontents
+
+%\setcounter{section}{-1}
+
+\bibliographystyle{plain}
+
+\input{intro}
+\input{demostracion}
+\input{uso}
+\input{complejidad}
+\input{formulas_derivadas}
+\input{records}
+
+\nocite{bai}
+
+\bibliography{bbp_formula}
+
+\end{document}

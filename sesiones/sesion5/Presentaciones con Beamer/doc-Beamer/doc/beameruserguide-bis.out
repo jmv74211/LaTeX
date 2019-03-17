@@ -1,0 +1,226 @@
+\BOOKMARK [1][-]{section.1}{1 Introduction}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{1.1 Main Features}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{1.2 History}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{1.3 Acknowledgments}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{1.4 How to Read this User's Guide}{section.1}% 5
+\BOOKMARK [2][-]{subsection.1.5}{1.5 Getting Help}{section.1}% 6
+\BOOKMARK [0][-]{part.1}{I Getting Started}{}% 7
+\BOOKMARK [1][-]{section.2}{2 Installation}{part.1}% 8
+\BOOKMARK [2][-]{subsection.2.1}{2.1 Versions and Dependencies}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.2}{2.2 Installation of Pre-bundled Packages}{section.2}% 10
+\BOOKMARK [3][-]{subsubsection.2.2.1}{2.2.1 TeX Live and MacTeX}{subsection.2.2}% 11
+\BOOKMARK [3][-]{subsubsection.2.2.2}{2.2.2 MiKTeX and proTeXt}{subsection.2.2}% 12
+\BOOKMARK [3][-]{subsubsection.2.2.3}{2.2.3 Debian and Ubuntu}{subsection.2.2}% 13
+\BOOKMARK [3][-]{subsubsection.2.2.4}{2.2.4 Fedora}{subsection.2.2}% 14
+\BOOKMARK [2][-]{subsection.2.3}{2.3 Installation in a texmf Tree}{section.2}% 15
+\BOOKMARK [2][-]{subsection.2.4}{2.4 Updating the Installation}{section.2}% 16
+\BOOKMARK [2][-]{subsection.2.5}{2.5 Testing the Installation}{section.2}% 17
+\BOOKMARK [2][-]{subsection.2.6}{2.6 Compatibility with Other Packages and Classes}{section.2}% 18
+\BOOKMARK [1][-]{section.3}{3 Tutorial: Euclid's Presentation}{part.1}% 19
+\BOOKMARK [2][-]{subsection.3.1}{3.1 Problem Statement}{section.3}% 20
+\BOOKMARK [2][-]{subsection.3.2}{3.2 Solution Template}{section.3}% 21
+\BOOKMARK [2][-]{subsection.3.3}{3.3 Title Material}{section.3}% 22
+\BOOKMARK [2][-]{subsection.3.4}{3.4 The Title Page Frame}{section.3}% 23
+\BOOKMARK [2][-]{subsection.3.5}{3.5 Creating the Presentation PDF File}{section.3}% 24
+\BOOKMARK [2][-]{subsection.3.6}{3.6 The Table of Contents}{section.3}% 25
+\BOOKMARK [2][-]{subsection.3.7}{3.7 Sections and Subsections}{section.3}% 26
+\BOOKMARK [2][-]{subsection.3.8}{3.8 Creating a Simple Frame}{section.3}% 27
+\BOOKMARK [2][-]{subsection.3.9}{3.9 Creating Simple Overlays}{section.3}% 28
+\BOOKMARK [2][-]{subsection.3.10}{3.10 Using Overlay Specifications}{section.3}% 29
+\BOOKMARK [2][-]{subsection.3.11}{3.11 Structuring a Frame}{section.3}% 30
+\BOOKMARK [2][-]{subsection.3.12}{3.12 Adding References}{section.3}% 31
+\BOOKMARK [2][-]{subsection.3.13}{3.13 Verbatim Text}{section.3}% 32
+\BOOKMARK [2][-]{subsection.3.14}{3.14 Changing the Way Things Look I: Theming}{section.3}% 33
+\BOOKMARK [2][-]{subsection.3.15}{3.15 Changing the Way Things Look II: Colors and Fonts}{section.3}% 34
+\BOOKMARK [1][-]{section.4}{4 Workflow For Creating a Beamer Presentation}{part.1}% 35
+\BOOKMARK [2][-]{subsection.4.1}{4.1 Step One: Setup the Files}{section.4}% 36
+\BOOKMARK [2][-]{subsection.4.2}{4.2 Step Two: Structure Your Presentation}{section.4}% 37
+\BOOKMARK [2][-]{subsection.4.3}{4.3 Step Three: Creating a PDF or PostScript File}{section.4}% 38
+\BOOKMARK [3][-]{subsubsection.4.3.1}{4.3.1 Creating PDF}{subsection.4.3}% 39
+\BOOKMARK [3][-]{subsubsection.4.3.2}{4.3.2 Creating PostScript}{subsection.4.3}% 40
+\BOOKMARK [3][-]{subsubsection.4.3.3}{4.3.3 Ways of Improving Compilation Speed}{subsection.4.3}% 41
+\BOOKMARK [2][-]{subsection.4.4}{4.4 Step Four: Create Frames}{section.4}% 42
+\BOOKMARK [2][-]{subsection.4.5}{4.5 Step Five: Test Your Presentation}{section.4}% 43
+\BOOKMARK [2][-]{subsection.4.6}{4.6 Step Six: Create a Handout}{section.4}% 44
+\BOOKMARK [3][-]{subsubsection.4.6.1}{4.6.1 Creating the Handout}{subsection.4.6}% 45
+\BOOKMARK [3][-]{subsubsection.4.6.2}{4.6.2 Printing the Handout}{subsection.4.6}% 46
+\BOOKMARK [1][-]{section.5}{5 Guidelines for Creating Presentations}{part.1}% 47
+\BOOKMARK [2][-]{subsection.5.1}{5.1 Structuring a Presentation}{section.5}% 48
+\BOOKMARK [3][-]{subsubsection.5.1.1}{5.1.1 Know the Time Constraints}{subsection.5.1}% 49
+\BOOKMARK [3][-]{subsubsection.5.1.2}{5.1.2 Global Structure}{subsection.5.1}% 50
+\BOOKMARK [3][-]{subsubsection.5.1.3}{5.1.3 Frame Structure}{subsection.5.1}% 51
+\BOOKMARK [3][-]{subsubsection.5.1.4}{5.1.4 Interactive Elements}{subsection.5.1}% 52
+\BOOKMARK [2][-]{subsection.5.2}{5.2 Using Graphics}{section.5}% 53
+\BOOKMARK [2][-]{subsection.5.3}{5.3 Using Animations and Transitions}{section.5}% 54
+\BOOKMARK [2][-]{subsection.5.4}{5.4 Choosing Appropriate Themes}{section.5}% 55
+\BOOKMARK [2][-]{subsection.5.5}{5.5 Choosing Appropriate Colors}{section.5}% 56
+\BOOKMARK [2][-]{subsection.5.6}{5.6 Choosing Appropriate Fonts and Font Attributes}{section.5}% 57
+\BOOKMARK [3][-]{subsubsection.5.6.1}{5.6.1 Font Size}{subsection.5.6}% 58
+\BOOKMARK [3][-]{subsubsection.5.6.2}{5.6.2 Font Families}{subsection.5.6}% 59
+\BOOKMARK [3][-]{subsubsection.5.6.3}{5.6.3 Font Shapes: Italics and Small Capitals}{subsection.5.6}% 60
+\BOOKMARK [3][-]{subsubsection.5.6.4}{5.6.4 Font Weight}{subsection.5.6}% 61
+\BOOKMARK [1][-]{section.6}{6 Solution Templates}{part.1}% 62
+\BOOKMARK [1][-]{section.7}{7 Licenses and Copyright}{part.1}% 63
+\BOOKMARK [2][-]{subsection.7.1}{7.1 Which License Applies?}{section.7}% 64
+\BOOKMARK [2][-]{subsection.7.2}{7.2 The GNU General Public License, Version 2}{section.7}% 65
+\BOOKMARK [3][-]{subsubsection.7.2.1}{7.2.1 Preamble}{subsection.7.2}% 66
+\BOOKMARK [3][-]{subsubsection.7.2.2}{7.2.2 Terms and Conditions For Copying, Distribution and Modification}{subsection.7.2}% 67
+\BOOKMARK [3][-]{subsubsection.7.2.3}{7.2.3 No Warranty}{subsection.7.2}% 68
+\BOOKMARK [2][-]{subsection.7.3}{7.3 The GNU Free Documentation License, Version 1.3, 3 November 2008}{section.7}% 69
+\BOOKMARK [3][-]{subsubsection.7.3.1}{7.3.1 Preamble}{subsection.7.3}% 70
+\BOOKMARK [3][-]{subsubsection.7.3.2}{7.3.2 Applicability and definitions}{subsection.7.3}% 71
+\BOOKMARK [3][-]{subsubsection.7.3.3}{7.3.3 Verbatim Copying}{subsection.7.3}% 72
+\BOOKMARK [3][-]{subsubsection.7.3.4}{7.3.4 Copying in Quantity}{subsection.7.3}% 73
+\BOOKMARK [3][-]{subsubsection.7.3.5}{7.3.5 Modifications}{subsection.7.3}% 74
+\BOOKMARK [3][-]{subsubsection.7.3.6}{7.3.6 Combining Documents}{subsection.7.3}% 75
+\BOOKMARK [3][-]{subsubsection.7.3.7}{7.3.7 Collection of Documents}{subsection.7.3}% 76
+\BOOKMARK [3][-]{subsubsection.7.3.8}{7.3.8 Aggregating with Independent Works}{subsection.7.3}% 77
+\BOOKMARK [3][-]{subsubsection.7.3.9}{7.3.9 Translation}{subsection.7.3}% 78
+\BOOKMARK [3][-]{subsubsection.7.3.10}{7.3.10 Termination}{subsection.7.3}% 79
+\BOOKMARK [3][-]{subsubsection.7.3.11}{7.3.11 Future Revisions of this License}{subsection.7.3}% 80
+\BOOKMARK [3][-]{subsubsection.7.3.12}{7.3.12 Relicensing}{subsection.7.3}% 81
+\BOOKMARK [3][-]{subsubsection.7.3.13}{7.3.13 Addendum: How to use this License for your documents}{subsection.7.3}% 82
+\BOOKMARK [2][-]{subsection.7.4}{7.4 The LaTeX Project Public License}{section.7}% 83
+\BOOKMARK [3][-]{subsubsection.7.4.1}{7.4.1 Preamble}{subsection.7.4}% 84
+\BOOKMARK [3][-]{subsubsection.7.4.2}{7.4.2 Definitions}{subsection.7.4}% 85
+\BOOKMARK [3][-]{subsubsection.7.4.3}{7.4.3 Conditions on Distribution and Modification}{subsection.7.4}% 86
+\BOOKMARK [3][-]{subsubsection.7.4.4}{7.4.4 No Warranty}{subsection.7.4}% 87
+\BOOKMARK [3][-]{subsubsection.7.4.5}{7.4.5 Maintenance of The Work}{subsection.7.4}% 88
+\BOOKMARK [3][-]{subsubsection.7.4.6}{7.4.6 Whether and How to Distribute Works under This License}{subsection.7.4}% 89
+\BOOKMARK [3][-]{subsubsection.7.4.7}{7.4.7 Choosing This License or Another License}{subsection.7.4}% 90
+\BOOKMARK [3][-]{subsubsection.7.4.8}{7.4.8 A Recommendation on Modification Without Distribution}{subsection.7.4}% 91
+\BOOKMARK [3][-]{subsubsection.7.4.9}{7.4.9 How to Use This License}{subsection.7.4}% 92
+\BOOKMARK [3][-]{subsubsection.7.4.10}{7.4.10 Derived Works That Are Not Replacements}{subsection.7.4}% 93
+\BOOKMARK [3][-]{subsubsection.7.4.11}{7.4.11 Important Recommendations}{subsection.7.4}% 94
+\BOOKMARK [0][-]{part.2}{II Building a Presentation}{}% 95
+\BOOKMARK [1][-]{section.8}{8 Creating Frames}{part.2}% 96
+\BOOKMARK [2][-]{subsection.8.1}{8.1 The Frame Environment}{section.8}% 97
+\BOOKMARK [2][-]{subsection.8.2}{8.2 Components of a Frame}{section.8}% 98
+\BOOKMARK [3][-]{subsubsection.8.2.1}{8.2.1 The Headline and Footline}{subsection.8.2}% 99
+\BOOKMARK [3][-]{subsubsection.8.2.2}{8.2.2 The Sidebars}{subsection.8.2}% 100
+\BOOKMARK [3][-]{subsubsection.8.2.3}{8.2.3 Navigation Bars}{subsection.8.2}% 101
+\BOOKMARK [3][-]{subsubsection.8.2.4}{8.2.4 The Navigation Symbols}{subsection.8.2}% 102
+\BOOKMARK [3][-]{subsubsection.8.2.5}{8.2.5 The Logo}{subsection.8.2}% 103
+\BOOKMARK [3][-]{subsubsection.8.2.6}{8.2.6 The Frame Title}{subsection.8.2}% 104
+\BOOKMARK [3][-]{subsubsection.8.2.7}{8.2.7 The Background}{subsection.8.2}% 105
+\BOOKMARK [2][-]{subsection.8.3}{8.3 Frame and Margin Sizes}{section.8}% 106
+\BOOKMARK [2][-]{subsection.8.4}{8.4 Restricting the Slides of a Frame}{section.8}% 107
+\BOOKMARK [1][-]{section.9}{9 Creating Overlays}{part.2}% 108
+\BOOKMARK [2][-]{subsection.9.1}{9.1 The Pause Commands}{section.9}% 109
+\BOOKMARK [2][-]{subsection.9.2}{9.2 The General Concept of Overlay Specifications}{section.9}% 110
+\BOOKMARK [2][-]{subsection.9.3}{9.3 Commands with Overlay Specifications}{section.9}% 111
+\BOOKMARK [2][-]{subsection.9.4}{9.4 Environments with Overlay Specifications}{section.9}% 112
+\BOOKMARK [2][-]{subsection.9.5}{9.5 Dynamically Changing Text or Images}{section.9}% 113
+\BOOKMARK [2][-]{subsection.9.6}{9.6 Advanced Overlay Specifications}{section.9}% 114
+\BOOKMARK [3][-]{subsubsection.9.6.1}{9.6.1 Making Commands and Environments Overlay Specification-Aware}{subsection.9.6}% 115
+\BOOKMARK [3][-]{subsubsection.9.6.2}{9.6.2 Mode Specifications}{subsection.9.6}% 116
+\BOOKMARK [3][-]{subsubsection.9.6.3}{9.6.3 Action Specifications}{subsection.9.6}% 117
+\BOOKMARK [3][-]{subsubsection.9.6.4}{9.6.4 Incremental Specifications}{subsection.9.6}% 118
+\BOOKMARK [1][-]{section.10}{10 Structuring a Presentation: The Static Global Structure}{part.2}% 119
+\BOOKMARK [2][-]{subsection.10.1}{10.1 Adding a Title Page}{section.10}% 120
+\BOOKMARK [2][-]{subsection.10.2}{10.2 Adding Sections and Subsections}{section.10}% 121
+\BOOKMARK [2][-]{subsection.10.3}{10.3 Adding Parts}{section.10}% 122
+\BOOKMARK [2][-]{subsection.10.4}{10.4 Splitting a Course Into Lectures}{section.10}% 123
+\BOOKMARK [2][-]{subsection.10.5}{10.5 Adding a Table of Contents}{section.10}% 124
+\BOOKMARK [2][-]{subsection.10.6}{10.6 Adding a Bibliography}{section.10}% 125
+\BOOKMARK [2][-]{subsection.10.7}{10.7 Adding an Appendix}{section.10}% 126
+\BOOKMARK [1][-]{section.11}{11 Structuring a Presentation: The Interactive Global Structure}{part.2}% 127
+\BOOKMARK [2][-]{subsection.11.1}{11.1 Adding Hyperlinks and Buttons}{section.11}% 128
+\BOOKMARK [2][-]{subsection.11.2}{11.2 Repeating a Frame at a Later Point}{section.11}% 129
+\BOOKMARK [2][-]{subsection.11.3}{11.3 Adding Anticipated Zooming}{section.11}% 130
+\BOOKMARK [1][-]{section.12}{12 Structuring a Presentation: The Local Structure}{part.2}% 131
+\BOOKMARK [2][-]{subsection.12.1}{12.1 Itemizations, Enumerations, and Descriptions}{section.12}% 132
+\BOOKMARK [2][-]{subsection.12.2}{12.2 Highlighting}{section.12}% 133
+\BOOKMARK [2][-]{subsection.12.3}{12.3 Block Environments}{section.12}% 134
+\BOOKMARK [2][-]{subsection.12.4}{12.4 Theorem Environments}{section.12}% 135
+\BOOKMARK [2][-]{subsection.12.5}{12.5 Framed and Boxed Text}{section.12}% 136
+\BOOKMARK [2][-]{subsection.12.6}{12.6 Figures and Tables}{section.12}% 137
+\BOOKMARK [2][-]{subsection.12.7}{12.7 Splitting a Frame into Multiple Columns}{section.12}% 138
+\BOOKMARK [2][-]{subsection.12.8}{12.8 Positioning Text and Graphics Absolutely}{section.12}% 139
+\BOOKMARK [2][-]{subsection.12.9}{12.9 Verbatim and Fragile Text}{section.12}% 140
+\BOOKMARK [2][-]{subsection.12.10}{12.10 Abstract}{section.12}% 141
+\BOOKMARK [2][-]{subsection.12.11}{12.11 Verse, Quotations, Quotes}{section.12}% 142
+\BOOKMARK [2][-]{subsection.12.12}{12.12 Footnotes}{section.12}% 143
+\BOOKMARK [1][-]{section.13}{13 Graphics}{part.2}% 144
+\BOOKMARK [2][-]{subsection.13.1}{13.1 Including External Graphic Files Versus Inlines Graphics}{section.13}% 145
+\BOOKMARK [2][-]{subsection.13.2}{13.2 Including Graphic Files Ending .eps or .ps}{section.13}% 146
+\BOOKMARK [2][-]{subsection.13.3}{13.3 Including Graphic Files Ending .pdf, .jpg, .jpeg or .png}{section.13}% 147
+\BOOKMARK [2][-]{subsection.13.4}{13.4 Including Graphic Files Ending .mps}{section.13}% 148
+\BOOKMARK [2][-]{subsection.13.5}{13.5 Including Graphic Files Ending .mmp}{section.13}% 149
+\BOOKMARK [1][-]{section.14}{14 Animations, Sounds, and Slide Transitions}{part.2}% 150
+\BOOKMARK [2][-]{subsection.14.1}{14.1 Animations}{section.14}% 151
+\BOOKMARK [3][-]{subsubsection.14.1.1}{14.1.1 Including External Animation Files}{subsection.14.1}% 152
+\BOOKMARK [3][-]{subsubsection.14.1.2}{14.1.2 Animations Created by Showing Slides in Rapid Succession}{subsection.14.1}% 153
+\BOOKMARK [3][-]{subsubsection.14.1.3}{14.1.3 Including External Animations Residing in Multiple Image Files}{subsection.14.1}% 154
+\BOOKMARK [2][-]{subsection.14.2}{14.2 Sounds}{section.14}% 155
+\BOOKMARK [2][-]{subsection.14.3}{14.3 Slide Transitions}{section.14}% 156
+\BOOKMARK [0][-]{part.3}{III Changing the Way Things Look}{}% 157
+\BOOKMARK [1][-]{section.15}{15 Themes}{part.3}% 158
+\BOOKMARK [2][-]{subsection.15.1}{15.1 Five Flavors of Themes}{section.15}% 159
+\BOOKMARK [2][-]{subsection.15.2}{15.2 Presentation Themes without Navigation Bars}{section.15}% 160
+\BOOKMARK [2][-]{subsection.15.3}{15.3 Presentation Themes with a Tree-Like Navigation Bar}{section.15}% 161
+\BOOKMARK [2][-]{subsection.15.4}{15.4 Presentation Themes with a Table of Contents Sidebar}{section.15}% 162
+\BOOKMARK [2][-]{subsection.15.5}{15.5 Presentation Themes with a Mini Frame Navigation}{section.15}% 163
+\BOOKMARK [2][-]{subsection.15.6}{15.6 Presentation Themes with Section and Subsection Tables}{section.15}% 164
+\BOOKMARK [2][-]{subsection.15.7}{15.7 Presentation Themes Included For Compatibility}{section.15}% 165
+\BOOKMARK [1][-]{section.16}{16 Inner Themes, Outer Themes, and Templates}{part.3}% 166
+\BOOKMARK [2][-]{subsection.16.1}{16.1 Inner Themes}{section.16}% 167
+\BOOKMARK [2][-]{subsection.16.2}{16.2 Outer Themes}{section.16}% 168
+\BOOKMARK [2][-]{subsection.16.3}{16.3 Changing the Templates Used for Different Elements of a Presentation}{section.16}% 169
+\BOOKMARK [3][-]{subsubsection.16.3.1}{16.3.1 Overview of Beamer's Template Management}{subsection.16.3}% 170
+\BOOKMARK [3][-]{subsubsection.16.3.2}{16.3.2 Using Beamer's Templates}{subsection.16.3}% 171
+\BOOKMARK [3][-]{subsubsection.16.3.3}{16.3.3 Setting Beamer's Templates}{subsection.16.3}% 172
+\BOOKMARK [1][-]{section.17}{17 Colors}{part.3}% 173
+\BOOKMARK [2][-]{subsection.17.1}{17.1 Color Themes}{section.17}% 174
+\BOOKMARK [3][-]{subsubsection.17.1.1}{17.1.1 Default and Special-Purpose Color Themes}{subsection.17.1}% 175
+\BOOKMARK [3][-]{subsubsection.17.1.2}{17.1.2 Complete Color Themes}{subsection.17.1}% 176
+\BOOKMARK [3][-]{subsubsection.17.1.3}{17.1.3 Inner Color Themes}{subsection.17.1}% 177
+\BOOKMARK [3][-]{subsubsection.17.1.4}{17.1.4 Outer Color Themes}{subsection.17.1}% 178
+\BOOKMARK [2][-]{subsection.17.2}{17.2 Changing the Colors Used for Different Elements of a Presentation}{section.17}% 179
+\BOOKMARK [3][-]{subsubsection.17.2.1}{17.2.1 Overview of Beamer's Color Management}{subsection.17.2}% 180
+\BOOKMARK [3][-]{subsubsection.17.2.2}{17.2.2 Using Beamer's Colors}{subsection.17.2}% 181
+\BOOKMARK [3][-]{subsubsection.17.2.3}{17.2.3 Setting Beamer's Colors}{subsection.17.2}% 182
+\BOOKMARK [2][-]{subsection.17.3}{17.3 The Color of Mathematical Text}{section.17}% 183
+\BOOKMARK [2][-]{subsection.17.4}{17.4 The Color Palettes}{section.17}% 184
+\BOOKMARK [2][-]{subsection.17.5}{17.5 Miscellaneous Colors}{section.17}% 185
+\BOOKMARK [2][-]{subsection.17.6}{17.6 Transparency Effects}{section.17}% 186
+\BOOKMARK [1][-]{section.18}{18 Fonts}{part.3}% 187
+\BOOKMARK [2][-]{subsection.18.1}{18.1 Font Themes}{section.18}% 188
+\BOOKMARK [2][-]{subsection.18.2}{18.2 Font Changes Made Without Using Font Themes}{section.18}% 189
+\BOOKMARK [3][-]{subsubsection.18.2.1}{18.2.1 Choosing a Font Size for Normal Text}{subsection.18.2}% 190
+\BOOKMARK [3][-]{subsubsection.18.2.2}{18.2.2 Choosing a Font Family}{subsection.18.2}% 191
+\BOOKMARK [3][-]{subsubsection.18.2.3}{18.2.3 Choosing a Font Encodings}{subsection.18.2}% 192
+\BOOKMARK [2][-]{subsection.18.3}{18.3 Changing the Fonts Used for Different Elements of a Presentation}{section.18}% 193
+\BOOKMARK [3][-]{subsubsection.18.3.1}{18.3.1 Overview of Beamer's Font Management}{subsection.18.3}% 194
+\BOOKMARK [3][-]{subsubsection.18.3.2}{18.3.2 Using Beamer's Fonts}{subsection.18.3}% 195
+\BOOKMARK [3][-]{subsubsection.18.3.3}{18.3.3 Setting Beamer's Fonts}{subsection.18.3}% 196
+\BOOKMARK [0][-]{part.4}{IV Creating Supporting Material}{}% 197
+\BOOKMARK [1][-]{section.19}{19 Adding Notes for Yourself}{part.4}% 198
+\BOOKMARK [2][-]{subsection.19.1}{19.1 Specifying Note Contents}{section.19}% 199
+\BOOKMARK [2][-]{subsection.19.2}{19.2 Specifying Contents for Multiple Notes}{section.19}% 200
+\BOOKMARK [2][-]{subsection.19.3}{19.3 Specifying Which Notes and Frames Are Shown}{section.19}% 201
+\BOOKMARK [1][-]{section.20}{20 Creating Transparencies}{part.4}% 202
+\BOOKMARK [1][-]{section.21}{21 Creating Handouts and Lecture Notes}{part.4}% 203
+\BOOKMARK [2][-]{subsection.21.1}{21.1 Creating Handouts Using the Handout Mode}{section.21}% 204
+\BOOKMARK [2][-]{subsection.21.2}{21.2 Creating Handouts Using the Article Mode}{section.21}% 205
+\BOOKMARK [3][-]{subsubsection.21.2.1}{21.2.1 Starting the Article Mode}{subsection.21.2}% 206
+\BOOKMARK [3][-]{subsubsection.21.2.2}{21.2.2 Workflow}{subsection.21.2}% 207
+\BOOKMARK [3][-]{subsubsection.21.2.3}{21.2.3 Including Slides from the Presentation Version in the Article Version}{subsection.21.2}% 208
+\BOOKMARK [2][-]{subsection.21.3}{21.3 Details on Modes}{section.21}% 209
+\BOOKMARK [1][-]{section.22}{22 Taking Advantage of Multiple Screens}{part.4}% 210
+\BOOKMARK [2][-]{subsection.22.1}{22.1 Showing Notes on the Second Screen}{section.22}% 211
+\BOOKMARK [2][-]{subsection.22.2}{22.2 Showing Second Mode Material on the Second Screen}{section.22}% 212
+\BOOKMARK [2][-]{subsection.22.3}{22.3 Showing the Previous Slide on the Second Screen}{section.22}% 213
+\BOOKMARK [0][-]{part.5}{V Howtos}{}% 214
+\BOOKMARK [1][-]{section.23}{23 How To Uncover Things Piecewise}{part.5}% 215
+\BOOKMARK [2][-]{subsection.23.1}{23.1 Uncovering an Enumeration Piecewise}{section.23}% 216
+\BOOKMARK [2][-]{subsection.23.2}{23.2 Highlighting the Current Item in an Enumeration}{section.23}% 217
+\BOOKMARK [2][-]{subsection.23.3}{23.3 Changing Symbol Before an Enumeration}{section.23}% 218
+\BOOKMARK [2][-]{subsection.23.4}{23.4 Uncovering Tagged Formulas Piecewise}{section.23}% 219
+\BOOKMARK [2][-]{subsection.23.5}{23.5 Uncovering a Table Rowwise}{section.23}% 220
+\BOOKMARK [2][-]{subsection.23.6}{23.6 Uncovering a Table Columnwise}{section.23}% 221
+\BOOKMARK [1][-]{section.24}{24 How To Import Presentations Based on Other Packages and Classes}{part.5}% 222
+\BOOKMARK [2][-]{subsection.24.1}{24.1 Prosper, HA-Prosper and Powerdot}{section.24}% 223
+\BOOKMARK [2][-]{subsection.24.2}{24.2 Seminar}{section.24}% 224
+\BOOKMARK [2][-]{subsection.24.3}{24.3 FoilTeX}{section.24}% 225
+\BOOKMARK [2][-]{subsection.24.4}{24.4 TeXPower}{section.24}% 226

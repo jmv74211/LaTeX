@@ -1,0 +1,281 @@
+% $Header$
+
+\documentclass{beamer}
+
+% This file is a solution template for:
+
+% - Talk at a conference/colloquium.
+% - Talk length is about 20min.
+% - Style is ornate.
+
+
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  % or ...
+
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+
+\usepackage[spanish]{babel}
+% or whatever
+
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}
+% or whatever
+
+\usepackage{times}
+\usepackage[T1]{fontenc}
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+
+\title[Título corto del trabajo] % (optional, use only with long paper titles)
+{Título completo en los Proceedings}
+
+\subtitle
+{Incluir sólo si el artículo también tienen un Subtítulo}
+
+\author[Autor Principal, Otro Autor] % (optional, use only with lots of authors)
+{P.~Autor\inst{1} \and S.~Otro\inst{2}}
+% - Give the names in the same order as the appear in the paper.
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Universidades de Aquí y de  Allá] % (optional, but mostly needed)
+{
+  \inst{1}%
+  Departmento de Matemáticas\\
+  Universidad de Aquí
+  \and
+  \inst{2}%
+  Departmento de  Filosofía\\
+  Universidad de Allá}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+\date[Curso de {\LaTeX} 2018] % (optional, should be abbreviation of conference name)
+{Conferencia sobre \\ Fabulosas Presentaciones  con Beamer, 2018}
+% - Either use conference name or its abbreviation.
+% - Not really informative to the audience, more for people (including
+%   yourself) who are reading the slides online
+
+\subject{Presentaciones con Beamer}
+% This is only inserted into the PDF information catalog. Can be left
+% out. 
+
+
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+% \pgfdeclareimage[height=0.5cm]{university-logo}{university-logo-filename}
+% \logo{\pgfuseimage{university-logo}}
+
+
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+
+% Structuring a talk is a difficult task and the following structure
+% may not be suitable. Here are some rules that apply for this
+% solution: 
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+% - A conference audience is likely to know very little of what you
+%   are going to talk about. So *simplify*!
+% - In a 20min talk, getting the main ideas across is hard
+%   enough. Leave out details, even if it means being less precise than
+%   you think necessary.
+% - If you omit details that are vital to the proof/implementation,
+%   just say so once. Everybody will be happy with that.
+
+\section{Motivación}
+
+\subsection{De qué trata esto.}
+
+\begin{frame}{Títulos Informativos. Usar Letras Mayúsculas.}{Los subtitulos son opcionales.}
+  % - A title should summarize the slide in an understandable fashion
+  %   for anyone how does not follow everything on the slide itself.
+
+  \begin{itemize}
+  \item
+    Usar bastantes  \texttt{itemize}.
+  \item
+    Y frases o sentencias breves y concisas.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Títulos Informativos.}
+
+  Se pueden crear capas (u overlays\dots)
+  \begin{itemize}
+  \item usando el comando \texttt{pause} :
+    \begin{itemize}
+    \item
+      Primer item.
+      \pause
+    \item    
+      Segundo item.
+    \end{itemize}
+  \item
+    usando además especificaciones concretas, como sigue:
+    \begin{itemize}
+    \item<3->
+      Primer item.
+    \item<4->
+      Segundo item.
+    \end{itemize}
+  \item
+    o bien usando el comando general \texttt{uncover} :
+    \begin{itemize}
+      \uncover<5->{\item
+        Primer item.}
+      \uncover<6->{\item
+        Segundo item.}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\subsection{Trabajo o conocimientos previos}
+
+\begin{frame}{Títulos Informativos.}
+\end{frame}
+
+\begin{frame}{Frases cortas y claras.}
+\end{frame}
+
+
+
+\section{Nuestros Resultados/Contribuciones}
+
+\subsection{Resultados Principales}
+
+\begin{frame}{Títulos Informativos.}
+\end{frame}
+
+\begin{frame}{Frases cortas y claras.}
+\end{frame}
+
+
+\subsection{Ideas Básicas y Demostraciones}
+
+
+\begin{frame}{Ideas Básicas .}
+\end{frame}
+
+\begin{frame}{Hipótesis.}
+\end{frame}
+
+\begin{frame}{Demostraciones.}
+\end{frame}
+
+\section*{Resumen}
+
+\begin{frame}{Resumen}
+
+  % Keep the summary *very short*.
+  \begin{itemize}
+  \item
+    El \alert{primer mensaje} de su  charla en una o dos líneas.
+  \item
+    El \alert{segundo mensaje} también escueto, si es posible.
+  \item
+    Tal vez un \alert{tercer mensaje o idea}, pero no mucho más en una sóla transparencia.
+  \end{itemize}
+  
+  % The following outlook is optional.
+  \vskip0pt plus.5fill
+  \begin{itemize}
+  \item
+    Resumiendo
+    \begin{itemize}
+    \item
+      El problema que hemos tratado y resuelto.
+    \item
+      Ahora algo de lo que aún no hemos conseguido y que será la continuación de nuestro trabajo futuro. 
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+
+% All of the following is optional and typically not needed. 
+\appendix
+\section<presentation>*{\appendixname}
+\subsection<presentation>*{Referencias adicionales.}
+
+\begin{frame}[allowframebreaks]
+  \frametitle<presentation>{Referencias adicionales}
+    
+  \begin{thebibliography}{10}
+    
+  \beamertemplatebookbibitems
+  % Start with overview books.
+
+  \bibitem{Autor1990}
+    A.~Autor.
+    \newblock {\em Libro de casi todo}.
+    \newblock Cierta Editorial, 1990.
+ 
+    
+  \beamertemplatearticlebibitems
+  % Followed by interesting articles. Keep the list short. 
+
+  \bibitem{Alguien2000}
+    S.~Alguien.
+    \newblock Sobre esto y aquello.
+    \newblock {\em Revista de Esto y Aquello}, 2(1):50--100,
+    2000.
+  \end{thebibliography}
+\end{frame}
+
+\end{document}
+
+

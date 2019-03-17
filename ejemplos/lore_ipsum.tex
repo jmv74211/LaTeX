@@ -1,0 +1,112 @@
+% ###################    CONFIGURACIÓN ################### 
+
+% Configuración de estilos generales de la página
+\documentclass[12pt,
+               % twocolumn
+              ]{article}
+              
+\usepackage[paperheight=297mm,
+			paperwidth=210mm,
+			tmargin=28mm, 
+			headheight=0mm, 
+			headsep=0mm,
+			textheight=240mm,
+			footskip=7mm,
+			textwidth=159.2mm,
+			bindingoffset=10mm,
+			twoside
+			]{geometry} 
+% -------------------------------------------------------   
+
+
+% Configuración de párrafos
+% -------------------------------------------------------         
+\setlength{\parindent}{0em} % Tabulación de un párrafo nuevo
+\setlength{\parskip}{1em}   % Distancia en blanco entre un párrafo y otro.
+\setlength{\columnsep}{1em} % Margen izquierdo de columnas
+\renewcommand{\baselinestretch}{1.5} % Interlineado. Espacio entre dos renglones.
+% ------------------------------------------------------- 
+
+
+% Paquetes de idioma
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+% ------------------------------------------------------- 
+
+% Paquetes para imprimir código fuente
+\usepackage[cache=false]{minted}
+
+% -------------------------------------------------------  
+
+% Paquetes generales
+\usepackage{enumitem} % Para configurar enumeraciones
+\usepackage[usenames,dvipsnames]{xcolor}    % Para colores en el texto
+
+% Lorem ipsum
+\usepackage[pangram]{blindtext}
+
+\usepackage{scrextend} % Para entorno{addmargin} (dar margen a un párrafo...)
+
+% Lorem ipsum
+\usepackage{lipsum}
+
+\usepackage{fancyhdr}
+
+\usepackage{float} % para controlar la situación de los entornos flotantes
+
+\usepackage{graphicx} % figuras
+
+% Definimos un nuevo color
+\definecolor{webred}{rgb}{0.5, 0, 0}   % less intense red
+
+\usepackage[bookmarks=true,
+			bookmarksnumbered=false, % true means bookmarks in 
+									 % left window are numbered                         
+			bookmarksopen=false,     % true means only level 1
+									 % are displayed.
+			%colorlinks=true,
+			linkcolor=webred,
+			%linkcolor=OliveGreen,
+			urlcolor=cyan]{hyperref} % Para hiperenlaces
+			
+		
+
+% ###################   FIN CONFIGURACIÓN ################### 
+
+% ###################	INICIO DEL DOCUMENTO ###################
+
+\begin{document}
+
+\section{Párrafos aleatorios}
+
+Para generar párrafos aleatorios:
+
+\begin{verbatim}
+
+\lipsum[2-3] % Genera dos párrafos aleatorios
+
+\end{verbatim}
+
+\lipsum[2-3] % Genera dos párrafos aleatorios
+
+\section{Texto corto}
+
+Usamos \verb|\blindtext| para un generar un texto corto.
+
+\blindtext
+
+\section{Uso de blindtext}
+
+Usamos \verb|\Blindtext[3][2]| para generar 3 párrafos con 2 repeticiones
+ 
+% 3 párrafos, 2 repeticiones
+\Blindtext[3][2]
+
+
+\section{Blind document}
+
+Usamos \verb|\blinddocument|
+
+\blinddocument
+
+\end{document}
