@@ -1,0 +1,19 @@
+\documentclass{beamer}
+\usepackage{tikz}
+\usepackage{default}
+
+\begin{document}
+	
+\begin{frame}
+a few lines
+	\begin{center}
+		\begin{tikzpicture}
+			\draw [blue, ultra thick] (-1,2) -- (6,3);
+			\uncover<1>{\draw [green,thick] (-4,3) -- (2,2.5);}
+			\uncover<2>{\draw [red,thick] (0,0) -- (0,5);}
+		\end{tikzpicture}
+	\end{center}
+		and something under.
+\end{frame}
+
+\end{document}

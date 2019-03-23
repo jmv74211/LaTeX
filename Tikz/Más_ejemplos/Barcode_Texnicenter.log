@@ -1,0 +1,311 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630) (preloaded format=latex 2018.3.18)  18 MAR 2018 23:41
+entering extended mode
+**./Barcode_Texnicenter.tex
+(Barcode_Texnicenter.tex
+LaTeX2e <2017-04-15>
+Babel <3.18> and hyphenation patterns for 75 language(s) loaded.
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\latex\base\minimal.cls
+Document Class: minimal 2001/05/25 Standard LaTeX minimal class
+)
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\latex\pst-barcode\pst-barcode
+.sty
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\latex\pstricks\pstricks.sty
+Package: pstricks 2018/01/06 v0.67 LaTeX wrapper for `PSTricks' (RN,HV)
+
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\latex\iftex\iftex.sty
+Package: iftex 2013/04/04 v0.2 Provides if(tex) conditional for PDFTeX, XeTeX, 
+and LuaTeX
+)
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\latex\tools\shellesc.sty
+Package: shellesc 2016/06/07 v0.02a unified shell escape interface for LaTeX
+Package shellesc Info: Restricted shell escape enabled on input line 69.
+)
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\latex\xcolor\xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\latex\graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: dvips.def on input line 225.
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\latex\graphics-def\dvips.def
+File: dvips.def 2017/06/20 v3.1d Graphics/color driver for dvips
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\xkeyval\pst-xkey.tex
+File: pst-xkey.tex 2005/11/25 v1.6 PSTricks specialization of xkeyval (HA)
+
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\latex\xkeyval\xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\xkeyval\xkeyval.tex
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\xkeyval\xkvutils.tex
+\XKV@toks=\toks14
+\XKV@tempa@toks=\toks15
+
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\xkeyval\keyval.tex))
+\XKV@depth=\count79
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)))
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pstricks\pstricks.tex
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pstricks\pst-fp.tex
+`pst-fp' v0.05, 2010/01/17 (hv)
+\pstFP@xs=\count80
+\pstFP@xia=\count81
+\pstFP@xib=\count82
+\pstFP@xfa=\count83
+\pstFP@xfb=\count84
+\pstFP@rega=\count85
+\pstFP@regb=\count86
+\pstFP@regs=\count87
+\pstFP@times=\count88
+)
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\utilities\pgfutil
+-common.tex
+\pgfutil@everybye=\toks16
+\pgfutil@tempdima=\dimen102
+\pgfutil@tempdimb=\dimen103
+
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\utilities\pgfutil
+-common-lists.tex))
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\utilities\pgfkeys
+.code.tex
+\pgfkeys@pathtoks=\toks17
+\pgfkeys@temptoks=\toks18
+
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\utilities\pgfkeys
+filtered.code.tex
+\pgfkeys@tmptoks=\toks19
+))
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\utilities\pgffor.
+code.tex
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\math\pgfmath.code
+.tex
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\math\pgfmathcalc.
+code.tex
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\math\pgfmathutil.
+code.tex
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+\pgf@x=\dimen104
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+\pgf@xa=\dimen105
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+\pgf@xb=\dimen106
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+\pgf@xc=\dimen107
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+\pgf@y=\dimen108
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+\pgf@ya=\dimen109
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+\pgf@yb=\dimen110
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+\pgf@yc=\dimen111
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+\c@pgf@counta=\count89
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+\c@pgf@countb=\count90
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+\c@pgf@countc=\count91
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+\c@pgf@countd=\count92
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+\pgfutil@tempcnta=\count93
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no t in font nullfont!
+\pgfutil@tempcntb=\count94
+)
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\math\pgfmathparse
+r.code.tex
+\pgfmath@dimen=\dimen112
+\pgfmath@count=\count95
+\pgfmath@box=\box26
+\pgfmath@toks=\toks20
+\pgfmath@stack@operand=\toks21
+\pgfmath@stack@operation=\toks22
+)
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\math\pgfmathfunct
+ions.code.tex
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\math\pgfmathfunct
+ions.basic.code.tex)
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\math\pgfmathfunct
+ions.trigonometric.code.tex)
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\math\pgfmathfunct
+ions.random.code.tex)
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\math\pgfmathfunct
+ions.comparison.code.tex)
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\math\pgfmathfunct
+ions.base.code.tex)
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\math\pgfmathfunct
+ions.round.code.tex)
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\math\pgfmathfunct
+ions.misc.code.tex)
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\math\pgfmathfunct
+ions.integerarithmetics.code.tex)))
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pgf\math\pgfmathfloat
+.code.tex
+\c@pgfmathroundto@lastzeros=\count96
+))
+\pgffor@iter=\dimen113
+\pgffor@skip=\dimen114
+\pgffor@stack=\toks23
+\pgffor@toks=\toks24
+)
+\psLoopIndex=\count97
+
+`PSTricks' v2.82  <2018/01/06> (tvz,hv)
+\pst@dima=\dimen115
+\pst@dimb=\dimen116
+\pst@dimc=\dimen117
+\pst@dimd=\dimen118
+\pst@dimg=\dimen119
+\pst@dimh=\dimen120
+\pst@dimm=\dimen121
+\pst@dimn=\dimen122
+\pst@dimo=\dimen123
+\pst@dimp=\dimen124
+\pst@hbox=\box27
+\pst@ibox=\box28
+\pst@boxg=\box29
+\pst@cnta=\count98
+\pst@cntb=\count99
+\pst@cntc=\count100
+\pst@cntd=\count101
+\pst@cntg=\count102
+\pst@cnth=\count103
+\pst@cntm=\count104
+\pst@cntn=\count105
+\pst@cnto=\count106
+\pst@cntp=\count107
+\@zero=\count108
+\pst@toks=\toks25
+
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pstricks\pstricks.con
+)
+\psunit=\dimen125
+\psxunit=\dimen126
+\psyunit=\dimen127
+\pst@C@@rType=\count109
+\pslinewidth=\dimen128
+\psk@startLW=\dimen129
+\psk@endLW=\dimen130
+\pst@customdefs=\toks26
+\pslinearc=\dimen131
+\pst@symbolStep=\dimen132
+\pst@symbolWidth=\dimen133
+\pst@symbolLinewidth=\dimen134
+\everypsbox=\toks27
+\psframesep=\dimen135
+\pslabelsep=\dimen136
+\sh@wgridXunit=\dimen137
+\sh@wgridYunit=\dimen138
+\pst@shift=\dimen139
+)
+File: pstricks.tex 2018/01/06 v2.82 `PSTricks' (tvz,hv)
+
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pstricks\pst-fp.tex)
+File: pst-fp.tex 2018/01/06 v2.82 `PST-fp' (hv)
+)
+Package: pst-barcode 2016/04/22 package wrapper for pst-barcode.tex (hv)
+
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\generic\pst-barcode\pst-barco
+de.tex `PST-barcode' v0.18, 2017/08/22 (tb,hv)
+(d:\SW\Latex\miktex29_portable\texmfs\install\tex\latex\marginnote\marginnote.s
+ty
+Package: marginnote 2017/04/22 v1.2b non floating margin notes for LaTeX
+\c@mn@abspage=\count110
+)
+\QR@box=\box30
+)
+File: pst-barcode.tex 2017/08/22 v0.18 `PST-barcode' (hv)
+) (Barcode_Texnicenter.aux)
+\openout1 = `Barcode_Texnicenter.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+Package marginnote Info: \pdfoutput not 0 or unimportant and
+(marginnote)             \pdflastxpos or \lastxpos available.
+(marginnote)             Extended position detection mode activated.
+ [1] (Barcode_Texnicenter.aux) ) 
+Here is how much of TeX's memory you used:
+ 7249 strings out of 493306
+ 135775 string characters out of 3131578
+ 184580 words of memory out of 3000000
+ 10766 multiletter control sequences out of 15000+200000
+ 3640 words of font info for 14 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 43i,5n,42p,463b,102s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on Barcode_Texnicenter.dvi (1 page, 828 bytes).

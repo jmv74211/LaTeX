@@ -1,0 +1,10 @@
+
+
+\begin{tikzpicture}
+\path[draw] (0, 4) node {A} -- (1,4) -- (1,5) node {B};
+
+\path[draw] (0, 0) node[draw] (nodeA) {$A^2$} -- (1,0)
+-- (1,1) node[ellipse,fill=green](nodeB) {\tiny B};
+
+\draw[red,->] (nodeA) -- (nodeB);
+\end{tikzpicture}

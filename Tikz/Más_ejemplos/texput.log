@@ -1,0 +1,17 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630) (preloaded format=pdflatex 2018.3.18)  18 MAR 2018 22:58
+entering extended mode
+**d:/Cursos/Latex/TikzEdt/TikzEditor_amroldan/2017/arrow tips.tikz.preview.tex
+
+! Emergency stop.
+<*> ...tex/TikzEdt/TikzEditor_amroldan/2017/arrow 
+                                                  tips.tikz.preview.tex 
+Here is how much of TeX's memory you used:
+ 3 strings out of 493305
+ 64 string characters out of 3131552
+ 53825 words of memory out of 3000000
+ 3658 multiletter control sequences out of 15000+200000
+ 3640 words of font info for 14 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 0i,0n,0p,1b,6s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+!  ==> Fatal error occurred, no output PDF file produced!

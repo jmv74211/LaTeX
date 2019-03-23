@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+
+
+[every node/.style={rectangle, fill=blue!20!white}]
+\node {Animalia} [sibling distance=6cm]
+child {node {Chordata}
+child {node {Vertebrata} [sibling distance=1.5cm]
+child {node {Mammalia}}
+child {node {Aves}}
+}
+}
+child {node {Arthoropoda} [sibling distance=4cm]
+child {node {Mandibulata}[sibling distance=2cm]
+child {node {Insecta}}
+child {node {Crustacea}}
+}
+child {node {Chelicerata}
+child {node {Arachnida}}
+}
+};
+
+\end{tikzpicture}

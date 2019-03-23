@@ -1,0 +1,57 @@
+\documentclass[fontsize=20pt]{scrartcl}
+
+\usepackage[norsk]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1cm,a4paper,landscape]{geometry}
+\pagestyle{empty}
+\usepackage{graphicx}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\usetikzlibrary{calendar,fit}
+\usepackage{expl3,xparse}
+
+
+\usetikzlibrary{arrows,shapes}
+\usetikzlibrary{positioning,calendar,er}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{datavisualization.formats.functions}
+
+
+\begin{document}
+
+\centering
+
+\begin{tikzpicture}
+
+\datavisualization [scientific axes, visualize as smooth line]
+data [format=function]{
+var x : interval [-360:360];
+func y = sin(\value x);
+};
+
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, ymax=1.1, clip=false]
+\addplot[domain=-10:10 ,samples=50, smooth] {sin(deg(x))/x};
+\end{axis}
+\end{tikzpicture}
+%
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle,name=border, ymax=1.01, smooth]
+\addplot[domain=-.5:.5 ,samples=20] {sin(deg(x))/x};
+\coordinate (A) at (axis cs: -0.2,.99);
+\coordinate (B) at (axis cs: 0.2,1.01);
+\end{axis}
+\draw[blue] (border.west |- A) -- (border.east |- A) node[right] {$b-\epsilon$};
+\draw[blue] (border.west |- B) -- (border.east |- B) node[right] {$b+\epsilon$};
+\draw[red] (border.south -| A) -- (border.north -| A) node[above left] {$a-\upsilon$};
+\draw[red] (border.south -| B) -- (border.north -| B) node[above right] {$a+\upsilon$};
+\end{tikzpicture}
+
+
+\end{document}

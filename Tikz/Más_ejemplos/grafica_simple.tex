@@ -1,0 +1,19 @@
+\documentclass[tikz,border=2mm]{standalone}
+
+\usepackage{pgfplots}  %Axis se define aqui
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{datavisualization.formats.functions}
+
+\begin{document}
+
+
+\begin{tikzpicture}
+
+\datavisualization [scientific axes, visualize as smooth line]
+data [format=function]{
+var x : interval [-360:360];
+func y = sin(\value x);
+};
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,498 @@
+%Compila en Texnicenter
+
+% Birthday calendar
+% Author: Hakon Malmedal
+\documentclass[fontsize=20pt]{scrartcl}
+\usepackage[norsk]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1cm,a4paper,landscape]{geometry}
+\pagestyle{empty}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{calendar,fit}
+\usepackage{expl3,xparse}
+
+%% Adapted from http://tex.stackexchange.com/a/10199/4771
+\makeatletter%
+\tikzoption{day headings}{\tikzstyle{day heading}=[#1]}
+\tikzstyle{day heading}=[]
+\tikzstyle{day letter headings}=[
+    execute before day scope={ \ifdate{day of month=1}{%
+      \pgfmathsetlength{\pgf@ya}{\tikz@lib@cal@yshift}%
+      \pgfmathsetlength\pgf@xa{\tikz@lib@cal@xshift}%
+      \pgftransformyshift{-\pgf@ya}
+      \foreach \d/\l in {0/Mandag,1/Tirsdag,2/Onsdag,3/Torsdag,%
+                         4/Fredag,5/Lørdag,6/Søndag} {
+        \pgf@xa=\d\pgf@xa%
+        \pgftransformxshift{\pgf@xa-\cellwidth/2}%
+        \pgftransformyshift{\pgf@ya}%
+        \node[above=-0.5ex,day heading]{\l};%
+      }
+    }{}%
+  }%
+]
+\makeatother%
+%% End
+
+%% Adapted from pgf source
+\def\pgfcalendarmonthname#1{%
+  \translate{\ifcase#1\or Januar\or Februar\or Mars\or April\or
+    Mai\or Juni\or Juli\or August\or September\or Oktober\or
+    November\or Desember\fi}%
+}
+
+\makeatletter
+\tikzstyle{month label above centered}=[%
+  execute before day scope={%
+    \ifdate{day of month=1}{%
+      {
+        \pgfmathsetlength{\pgf@xa}{\tikz@lib@cal@xshift}%
+        \pgf@xb=\tikz@lib@cal@width\pgf@xa%
+        \advance\pgf@xb by-\pgf@xa%
+        \pgf@xb=.5\pgf@xb%
+        \pgftransformxshift{\pgf@xb}%
+        \pgftransformxshift{-\cellwidth/2}%
+        \pgfmathsetlength{\pgf@y}{\tikz@lib@cal@yshift}%
+        \pgftransformyshift{0.333\pgf@y}
+        \tikzmonthcode%
+      }
+    }{}},
+  every month/.append style={anchor=base}
+]
+\makeatother
+%% End
+
+\ExplSyntaxOn
+
+%% Adapted from http://tex.stackexchange.com/a/56214/4771
+%%
+% first of all we define the user level commands
+\NewDocumentCommand{\addtext}{ m }{ \bdaycal_input_add:n { #1 } }
+\NewDocumentCommand{\addtextyear}{ mm }{ \bdaycal_input_add_y:nn { #1 } { #2 } }
+\NewDocumentCommand{\showtext}{ }{ \bdaycal_output_direct: }
+
+% allocate variable:
+% a sequence for global storage of the inputs;
+\seq_new:N \g_bdaycal_input_seq
+
+% store globally an input in the sequence
+\cs_new:Npn \bdaycal_input_add:n #1
+ {
+  \seq_gput_right:Nn \g_bdaycal_input_seq { #1 }
+ }
+
+\cs_new:Npn \bdaycal_input_add_y:nn #1 #2
+ {
+  \seq_gput_right:Nn \g_bdaycal_input_seq { #1 ~ ( \int_to_arabic:n
+    { \pgfcalendarifdateyear - #2 } ) }
+ }
+
+% how to output in direct order; we simply do a mapping function calling
+% \bdaycal_print:n after incrementing the counter
+\cs_new_protected:Npn \bdaycal_output_direct:
+ {
+  \seq_map_inline:Nn \g_bdaycal_input_seq
+   {
+    \bdaycal_print:n { ##1 }
+   }
+  \seq_gclear:N \g_bdaycal_input_seq
+ }
+
+% the printing macro; change here for adapting to your wishes
+\cs_new:Npn \bdaycal_print:n #1
+ {
+  #1 \par
+ }
+%% End
+
+%% Knuth's AoCP, vol 1, 2nd ed, pp 155--156
+\int_new:N \l_easter_Y_int
+\int_new:N \l_easter_G_int
+\int_new:N \l_easter_C_int
+\int_new:N \l_easter_X_int
+\int_new:N \l_easter_Z_int
+\int_new:N \l_easter_D_int
+\int_new:N \l_easter_E_int
+\int_new:N \l_easter_N_int
+\int_new:N \l_easter_M_int
+\int_new:N \l_easter_julian_day_int
+
+\cs_new:Nn \easter_sunday:n {
+
+  \int_set:Nn \l_easter_Y_int { #1 }
+
+  \int_set:Nn \l_easter_G_int {
+    \int_mod:nn { \l_easter_Y_int } { 19 } + 1
+  }
+
+  \int_set:Nn \l_easter_C_int {
+    \int_div_truncate:nn { \l_easter_Y_int } { 100 } + 1
+  }
+
+  \int_set:Nn \l_easter_X_int {
+    \int_div_truncate:nn { 3 * \l_easter_C_int } { 4 } - 12
+  }
+
+  \int_set:Nn \l_easter_Z_int {
+    \int_div_truncate:nn { 8 * \l_easter_C_int + 5 } { 25 } - 5
+  }
+
+  \int_set:Nn \l_easter_D_int {
+    \int_div_truncate:nn { 5 * \l_easter_Y_int } { 4 } - \l_easter_X_int - 10
+  }
+
+  \int_set:Nn \l_easter_E_int {
+    \int_mod:nn { 11 * \l_easter_G_int + 20 + \l_easter_Z_int
+      - \l_easter_X_int } { 30 }
+  }
+
+  % \int_mod:nn behaves strangely.
+  \int_compare:nNnT { \l_easter_E_int } < { 0 }
+  {
+    \int_add:Nn \l_easter_E_int { 30 }
+  }
+
+  \int_compare:nNnTF { \l_easter_E_int } = { 25 }
+  { % true
+    \int_compare:nNnT { \l_easter_G_int } > { 11 }
+    { % true
+      \int_incr:N \l_easter_E_int
+    }
+  }
+  { % false
+    \int_compare:nNnT { \l_easter_E_int } = { 24 }
+    { % true
+      \int_incr:N \l_easter_E_int
+    }
+  }
+
+  \int_set:Nn \l_easter_N_int { 44 - \l_easter_E_int }
+
+  \int_compare:nNnT { \l_easter_N_int } < { 21 }
+  { % true
+    \int_add:Nn \l_easter_N_int { 30 }
+  }
+
+  \int_add:Nn \l_easter_N_int {
+    7 - \int_mod:nn { \l_easter_D_int + \l_easter_N_int } { 7 }
+  }
+
+  \int_compare:nNnTF { \l_easter_N_int } > { 31 }
+  { % true
+    \int_sub:Nn \l_easter_N_int { 31 }
+    \int_set:Nn \l_easter_M_int { 4 } % April
+  }
+  { % false
+    \int_set:Nn \l_easter_M_int { 3 } % March
+  }
+
+  \pgfcalendardatetojulian { \l_easter_Y_int -
+     \l_easter_M_int - \l_easter_N_int
+  } { \l_easter_julian_day_int }
+
+}
+
+\pgfkeys{/pgf/calendar/Easter/.default = 0}
+\pgfkeys{/pgf/calendar/Easter/.code =
+  {
+    \easter_sunday:n { \pgfcalendarifdateyear }
+    \int_compare:nNnT { \pgfcalendarifdatejulian }
+    =  {\l_easter_julian_day_int + #1}
+    { \pgfcalendarmatchestrue }
+  }
+}
+
+\int_new:N \l_advent_Y_int
+\int_new:N \l_advent_xmas_julian_day_int
+\int_new:N \l_advent_xmas_week_day_int
+\int_new:N \l_advent_julian_day_int
+
+\cs_new:Nn \advent_sunday:n {
+
+  \int_set:Nn \l_advent_Y_int { #1 }
+
+  \pgfcalendardatetojulian { \l_advent_Y_int - 12 - 25 } {
+    \l_advent_xmas_julian_day_int }
+
+  \pgfcalendarjuliantoweekday { \l_advent_xmas_julian_day_int } {
+    \l_advent_xmas_week_day_int }
+
+  \int_set:Nn \l_advent_julian_day_int {
+    \l_advent_xmas_julian_day_int - \l_advent_xmas_week_day_int - 22 }
+
+}
+
+\pgfkeys{/pgf/calendar/Advent/.default = 0}
+\pgfkeys{/pgf/calendar/Advent/.code =
+  {
+    \advent_sunday:n { \pgfcalendarifdateyear }
+    \int_compare:nNnT { \pgfcalendarifdatejulian }
+    =  {\l_advent_julian_day_int + #1}
+    { \pgfcalendarmatchestrue }
+  }
+}
+
+%% http://www.tondering.dk/claus/cal/week.php#calcweekno
+\int_new:N \l_week_number_year_int
+\int_new:N \l_week_number_month_int
+\int_new:N \l_week_number_day_int
+\int_new:N \l_week_number_a_int
+\int_new:N \l_week_number_b_int
+\int_new:N \l_week_number_c_int
+\int_new:N \l_week_number_s_int
+\int_new:N \l_week_number_e_int
+\int_new:N \l_week_number_f_int
+\int_new:N \l_week_number_g_int
+\int_new:N \l_week_number_d_int
+\int_new:N \l_week_number_n_int
+\int_new:N \l_week_number_W_int
+
+\cs_new:Nn \week_number:nnn {
+
+  \int_set:Nn \l_week_number_year_int { #1 }
+  \int_set:Nn \l_week_number_month_int { #2 }
+  \int_set:Nn \l_week_number_day_int { #3 }
+
+  \int_compare:nNnTF { \l_week_number_month_int } < { 3 } % jan or feb
+  { % true
+
+    \int_set:Nn \l_week_number_a_int { \l_week_number_year_int - 1 }
+
+    \int_set:Nn \l_week_number_b_int {
+      \int_div_truncate:nn { \l_week_number_a_int } { 4 }
+      - \int_div_truncate:nn { \l_week_number_a_int } { 100 }
+      + \int_div_truncate:nn { \l_week_number_a_int } { 400 }
+    }
+
+    \int_set:Nn \l_week_number_c_int {
+      \int_div_truncate:nn { \l_week_number_a_int - 1 } { 4 }
+      - \int_div_truncate:nn { \l_week_number_a_int - 1 } { 100 }
+      + \int_div_truncate:nn { \l_week_number_a_int - 1 } { 400 }
+    }
+
+    \int_set:Nn \l_week_number_s_int {
+      \l_week_number_b_int - \l_week_number_c_int }
+
+    \int_zero:N \l_week_number_e_int
+
+    \int_set:Nn \l_week_number_f_int { \l_week_number_day_int - 1
+      + 31 * ( \l_week_number_month_int - 1 ) }
+
+  } % end true
+  { % false
+
+    \int_set_eq:NN \l_week_number_a_int \l_week_number_year_int
+
+    \int_set:Nn \l_week_number_b_int {
+      \int_div_truncate:nn { \l_week_number_a_int } { 4 }
+      - \int_div_truncate:nn { \l_week_number_a_int } { 100 }
+      + \int_div_truncate:nn { \l_week_number_a_int } { 400 }
+    }
+
+    \int_set:Nn \l_week_number_c_int {
+      \int_div_truncate:nn { \l_week_number_a_int - 1 } { 4 }
+      - \int_div_truncate:nn { \l_week_number_a_int - 1 } { 100 }
+      + \int_div_truncate:nn { \l_week_number_a_int - 1 } { 400 }
+    }
+
+    \int_set:Nn \l_week_number_s_int {
+      \l_week_number_b_int - \l_week_number_c_int }
+
+    \int_set:Nn \l_week_number_e_int { \l_week_number_s_int + 1 }
+
+    \int_set:Nn \l_week_number_f_int { \l_week_number_day_int
+      + \int_div_truncate:nn {
+        153 * ( \l_week_number_month_int - 3 ) + 2 } { 5 }
+      + 58 + \l_week_number_s_int }
+
+  } % end false
+
+  \int_set:Nn \l_week_number_g_int {
+    \int_mod:nn { \l_week_number_a_int + \l_week_number_b_int } { 7 }  }
+
+  \int_set:Nn \l_week_number_d_int {
+    \int_mod:nn { \l_week_number_f_int + \l_week_number_g_int
+      - \l_week_number_e_int } { 7 }  }
+
+  \int_set:Nn \l_week_number_n_int {
+    \l_week_number_f_int + 3 - \l_week_number_d_int }
+
+  \int_compare:nNnTF { \l_week_number_n_int } < { 0 }
+  { %true
+
+    \int_set:Nn \l_week_number_W_int { 53
+      - \int_div_truncate:nn { \l_week_number_g_int
+        - \l_week_number_s_int } { 5 } }
+
+  } % end true
+  { % false
+
+    \int_compare:nNnTF { \l_week_number_n_int } > { 364
+      + \l_week_number_s_int }
+    { % true
+
+      \int_set:Nn \l_week_number_W_int { 1 }
+
+    } % end true
+    { % false
+
+      \int_set:Nn \l_week_number_W_int { \int_div_truncate:nn {
+          \l_week_number_n_int } { 7 } + 1 }
+
+    } % end false
+
+  } % end false
+
+}
+
+\definecolor{roed}{rgb}{0.937254901961,0.16862745098,0.176470588235}
+\definecolor{blaa}{rgb}{0,0.156862745098,0.407843137255}
+
+\newsavebox{\flagNO}
+\savebox{\flagNO}{
+\begin{tikzpicture}
+  \fill[roed] rectangle (6pt,6pt);
+  \fill[roed,yshift=10pt] rectangle (6pt,6pt);
+  \fill[roed,xshift=10pt] rectangle (12pt,6pt);
+  \fill[roed,xshift=10pt,yshift=10pt] rectangle (12pt,6pt);
+  \fill[blaa,yshift=7pt] rectangle (22pt,2pt);
+  \fill[blaa,xshift=7pt] rectangle (2pt,16pt);
+\end{tikzpicture}
+}
+
+\pgfkeys{/tikz/week~number/.code =
+  {
+    \week_number:nnn { 
+      \pgfcalendarifdateyear } { 
+      \pgfcalendarifdatemonth } { 
+      \pgfcalendarifdateday }
+    \addtext{ Uke ~ \int_to_arabic:n { \l_week_number_W_int } }
+  }
+}
+
+\ExplSyntaxOff
+
+\pgfkeys{/tikz/flag-flying day/.code =
+  {
+    \draw (-\cellwidth,0) node [above right,font=\Huge]
+    {\resizebox{!}{0.8ex}{\usebox{\flagNO}}};
+  }
+}
+
+\pgfkeys{/tikz/observance/.code =
+  {
+    \addtext{#1}
+  }
+}
+
+\pgfkeys{/tikz/anniversary/.code 2 args=\addtextyear{#1}{#2}}
+
+\pgfkeys{/tikz/day code =
+  {
+    \node (lower right) at (0,0) [above left,font=\Huge] {\tikzdaytext};
+    \node (upper left) at (-\cellwidth,\cellheight)
+    [below right,align=left,text width=\cellwidth-\pgflinewidth,
+    font=\tiny,black] {\showtext};
+    \node (lower left) at (-\cellwidth,0) {};
+    \node[rounded corners, draw,
+          fit=(lower right) (upper left) (lower left),
+          inner sep=1mm] {};
+  }
+}
+
+\pgfkeys{/tikz/inner sep = 0pt}
+
+\pgfkeys{/tikz/day xshift=\cellwidth+2mm+2mm}
+
+\pgfkeys{/tikz/day yshift=\cellheight+2mm+2mm}
+
+\newlength{\cellheight}
+\setlength{\cellheight}{25mm}
+\newlength{\cellwidth}
+\setlength{\cellwidth}{35mm}
+
+\begin{document}
+
+\centering
+
+\begin{tikzpicture}[thick]
+  \calendar[dates=2012-05-01 to 2012-05-last,
+            week list,
+            month label above centered,
+            month text=\textsc{\%mt \%y0},
+            day headings={font=\footnotesize},
+            day letter headings]
+  if (Monday,
+      equals=01-01,
+      equals=02-01,
+      equals=03-01,
+      equals=04-01,
+      equals=05-01,
+      equals=06-01,
+      equals=07-01,
+      equals=08-01,
+      equals=09-01,
+      equals=10-01,
+      equals=11-01,
+      equals=12-01) [week number]
+  if (Sunday,
+      Easter=-3, % Maundy Thursday
+      Easter=-2, % Good Friday
+      Easter,    % Easter Sunday
+      Easter=1,  % Easter Monday
+      Easter=39, % Feast of the Ascension
+      Easter=49, % Pentecost
+      Easter=50, % Whit Monday
+      equals=01-01,
+      equals=05-01,
+      equals=05-17,
+      equals=12-25,
+      equals=12-26) [red]
+  if (equals=01-01,
+      equals=01-21,
+      equals=02-06,
+      equals=02-21,
+      equals=05-01,
+      equals=05-08,
+      equals=05-17,
+      equals=06-07,
+      equals=07-04,
+      equals=07-20,
+      equals=07-29,
+      equals=08-19,
+      equals=12-25,
+      Easter,
+      Easter=49) [flag-flying day]
+  if (equals=01-01) [observance=Første nyttårsdag]
+  if (equals=01-21) [observance=Prinsesse Ingrid Alexandra]
+  if (equals=02-06) [observance=Samefolkets dag]
+  if (equals=02-21) [observance=Kong Harald~V]
+  if (equals=05-01) [observance=Offentlig høytidsdag]
+  if (equals=05-08) [observance=Frigjøringsdagen]
+  if (equals=05-17) [observance=Grunnlovsdag]
+  if (equals=06-07) [observance=Unionsoppløsningen]
+  if (equals=06-23) [observance=Sankthansaften]
+  if (equals=07-04) [observance=Dronning Sonja]
+  if (equals=07-20) [observance=Kronprins Haakon]
+  if (equals=07-29) [observance=Olsok]
+  if (equals=08-19) [observance=Kronprinsesse Mette-Marit]
+  if (equals=10-24) [observance=FN-dagen]
+  if (equals=12-25) [observance=Første juledag]
+  if (equals=12-26) [observance=Andre juledag]
+  if (Easter=-49) [observance=Fastelavnssøndag]
+  if (Easter=-7) [observance=Palmesøndag]
+  if (Easter=-3) [observance=Skjærtorsdag]
+  if (Easter=-2) [observance=Langfredag]
+  if (Easter) [observance=Første påskedag]
+  if (Easter=1) [observance=Andre påskedag]
+  if (Easter=39) [observance=Kristi himmelfartsdag]
+  if (Easter=49) [observance=Første pinsedag]
+  if (Easter=50) [observance=Andre pinsedag]
+  if (Advent) [observance=Advent]
+  if (equals=05-07) [anniversary={Brahms}{1833}]
+;
+\end{tikzpicture}
+
+\end{document}

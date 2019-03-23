@@ -1,0 +1,3 @@
+wpdfx_win32_beta_v0.90.exe d.pdf -u -x
+
+REM y a los ficheros .ani cambiar extensión a MPG y se ven !!

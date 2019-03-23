@@ -1,0 +1,37 @@
+% Drawing angles using the PG 3.0 angles and quotes libraries
+% Author: Paul Gaborit
+\documentclass[tikz,border=10pt]{standalone}
+%%%<
+\usepackage{verbatim}
+%%%>
+\begin{comment}
+:Title: Drawing angles using the PG 3.0 angles and quotes libraries
+:Tags: Angles;Quotes;Geometry;Mathematics;PGF 3.0
+:Author: Paul Gaborit
+:Slug: angles-quotes
+
+PGF 3.0 brings a new library for drawing angles. A pic type angle=a--b--c
+adds a drawing of an angle to the current path. It consists of a "sector"
+or "wedge" or "slice" whose pointed end is at point b and whose straight
+sides lie on the lines from b to A and from B to C. You can specify
+radius and eccentricity.
+
+Another new library "quotes" is providing a quote syntax for labels, pins,
+edge nodes, and pic texts. You can use a simple string "text" or a string with
+options, such as node["text" {red, draw, thick}] to achieve an effect like
+node[label={[red,draw,thick]text}] with less writing and more readability.
+
+This code was written by Paul Gaborit and published on TeX.SE.
+\end{comment}
+
+\usetikzlibrary{quotes,angles}
+\begin{document}
+\begin{tikzpicture}
+  \draw
+    (3,-1) coordinate (a) node[right] {a}
+    -- (0,0) coordinate (b) node[left] {b}
+    -- (2,2) coordinate (c) node[above right] {c}
+    pic["$\alpha$", draw=orange, <->, angle eccentricity=1.2, angle radius=1cm]
+    {angle=a--b--c};
+\end{tikzpicture}
+\end{document}

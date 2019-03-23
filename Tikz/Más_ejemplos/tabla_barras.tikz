@@ -1,0 +1,25 @@
+\documentclass[tikz,border=2mm]{standalone}
+\usepackage{pgfplots}  %Axis se define aqui
+\usetikzlibrary{arrows.meta}
+
+\begin{document}
+
+\begin{tikzpicture}[thick]
+\begin{axis}[
+xbar, xmin=0,
+width=12cm, height=6cm, enlarge y limits=0.2,
+xlabel={Lenguajes de programación (repositorios activos)},
+symbolic y coords={Javascript, Java, Python, CSS, PHP, Ruby, C++},
+nodes near coords, nodes near coords align={horizontal},
+]
+\addplot coordinates {(323928,Javascript) 
+(222852,Java)
+(164852,Python)
+(164585,CSS)
+(138771,PHP)
+(132848,Ruby)
+(86505,C++)};
+\end{axis}
+
+\end{tikzpicture}
+\end{document}

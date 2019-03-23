@@ -1,0 +1,30 @@
+%-------------embedding files in pdf-----------------------------------
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+
+%%----------------attach using attachfile-----------------------------------
+\usepackage{attachfile}
+%\attachfile{\jobname.tex}
+%%----------------attach using embedfile-----------------------------------
+\usepackage{embedfile}
+%\immediate\write18{zip -j -e -P mypassword -r \jobname.tex.zeep \jobname.tex}
+\embedfile{files/Cap13.pdf}
+%%----------------attach using navigator-----------------------------------
+\usepackage{navigator}
+%\embeddedfile{sourcecode}{\jobname.tex} % use {./\jobname.tex} for using xdvipdfmx
+\embeddedfile{myfile}{files/Cap13.pdf}
+%%---------------------------------------------------
+\begin{document}
+  \title{Incrustando Ficheros en el PDF}
+  \author{Prof. Andrés Roldán Aranda}
+  \maketitle
+
+  Here is the file I attached: \attachfile{files/example.tex}  \attachfile{files/Cap14.pdf}
+
+
+\
+  Here is the file I attached: \openfilelink{files/Cap13.pdf}{Link to the embedded file \texttt{files/Cap13.pdf}}
+	
+ \
+\end{document}

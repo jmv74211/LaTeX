@@ -1,0 +1,24 @@
+% Author : Alain Matthes
+% Encoding : UTF8
+% Engine : PDFLaTeX
+\documentclass[]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[upright]{fourier}
+% you can change the line above
+\usepackage{tkz-graph}
+\thispagestyle{empty}
+\begin{document}
+\begin{tikzpicture}[scale=1.75]
+\GraphInit[vstyle=Art]
+\Vertex{A}
+\Vertex[x=4,y=0]{B}
+\Vertex[x=1,y=2]{C}
+\Edge[style={bend %left
+                   right}](B)(A)
+\Edge[style={bend %right
+                   left}](B)(C)
+\Edge[style={bend %right
+                   left}](C)(A)
+\Edges(A,B,C,A)
+\end{tikzpicture}
+\end{document}
