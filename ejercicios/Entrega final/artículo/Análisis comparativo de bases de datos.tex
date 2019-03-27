@@ -1,0 +1,158 @@
+% ###################    CONFIGURACIÓN ################### 
+
+% Configuración de estilos generales de la página
+\documentclass[12pt,
+               % twocolumn
+              ]{article}
+              
+\usepackage[paperheight=297mm,
+			paperwidth=210mm,
+			tmargin=28mm, 
+			headheight=0mm, 
+			headsep=15mm,
+			textheight=240mm,
+			footskip=7mm,
+			textwidth=159.2mm,
+			bindingoffset=10mm,
+			twoside
+			]{geometry} 
+% -------------------------------------------------------   
+
+
+% Configuración de párrafos
+% -------------------------------------------------------         
+\setlength{\parindent}{0em} % Tabulación de un párrafo nuevo
+\setlength{\parskip}{1em}   % Distancia en blanco entre un párrafo y otro.
+\setlength{\columnsep}{1em} % Margen izquierdo de columnas
+\renewcommand{\baselinestretch}{1.5} % Interlineado. Espacio entre dos renglones.
+% ------------------------------------------------------- 
+
+
+% Paquetes de idioma
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,english,es-tabla]{babel} % English para el abstract
+% ------------------------------------------------------- 
+
+% Paquetes generales
+\usepackage{enumitem} % Para configurar enumeraciones
+\usepackage[usenames,dvipsnames]{xcolor,colortbl}    % Para colores en el texto
+
+\usepackage{float} % para controlar la situación de los entornos flotantes
+
+\usepackage{graphicx} % figuras
+
+\usepackage{subcaption} % Para subfiguras
+
+\usepackage{wrapfig} % Para poner imagen al lado del texto
+
+\usepackage{fancyhdr} % Para los encabezados y pie de página
+
+% Definimos un nuevo color
+\definecolor{webred}{rgb}{0.5, 0, 0}   % less intense red
+
+% Colores para la tabla
+
+\definecolor{azulOscuro}{RGB}{102,101,205}
+\definecolor{azulClaro}{RGB}{235,244,255}
+\definecolor{amarilloSuave}{RGB}{255,252,158}
+\definecolor{verdeSuave}{RGB}{154,255,153}
+\definecolor{rojoSuave}{RGB}{253,104,100}
+
+\usepackage[bookmarks=true,
+			bookmarksnumbered=false, % true means bookmarks in 
+									 % left window are numbered                         
+			bookmarksopen=false,     % true means only level 1
+									 % are displayed.
+			colorlinks=true,
+			linkcolor=webred,
+			citecolor=webred,
+			%linkcolor=OliveGreen,
+			urlcolor=cyan]{hyperref} % Para hiperenlaces
+
+% Definimos una nueva orden para pintar una línea cuando escribamos \HRule
+\newcommand{\HRule}{\rule{\linewidth}{1mm}}
+
+% Se define el estilo de cabecera y pie de página
+
+\fancypagestyle{miEstilo}{
+   \lhead{\leftmark}
+   \rhead{Página \thepage}
+   \lfoot{}
+   \cfoot{}
+   \rfoot{}
+}
+
+
+% Definimos el título y autor de la página
+
+\title
+{	
+	\vspace{-3cm}
+	\begin{figure}[!h]
+				\centering
+				\includegraphics[scale=0.35]{images/logo_ugr}
+	\end{figure}
+	\pagestyle{empty}
+	\HRule 
+	\begin{figure}[!h]
+				\centering
+				\includegraphics[scale=0.5]{images/portada}
+	\end{figure}
+	\begin{center}
+		\Huge 
+		\texttt{Análisis comparativo de bases de datos relacionales y no relacionales}\\[6mm]
+	\end{center}
+	\HRule 
+}
+
+\author{\large Jonathan Martín Valera}
+
+
+% ###################   FIN CONFIGURACIÓN ################### 
+
+% ###################	INICIO DEL DOCUMENTO ###################
+
+\begin{document}
+
+\selectlanguage{spanish}
+
+\maketitle
+\thispagestyle{empty} % Se quita el número de página en la portada
+
+\newpage
+
+\input{abstract}
+
+\newpage
+
+\thispagestyle{empty}
+
+\tableofcontents
+
+\newpage
+
+\thispagestyle{empty}
+
+\listoffigures
+
+\newpage
+
+\pagestyle{miEstilo}
+
+\input{introduccion} % Sección 1
+
+\input{fundamentos_base_de_datos} % Sección 2
+
+\input{bases_de_datos_actualidad} % Sección 3
+
+\input{bases_datos_sql}  % Sección 4
+
+\input{bases_datos_nosql} % Sección 5
+
+\input{comparativa_sql_nosql} % Sección 6
+
+\input{conclusiones} % Sección 7
+
+\input{bibliografia}
+
+\end{document}
