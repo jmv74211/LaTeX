@@ -1,0 +1,196 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Conference/Event Timetable
+% LaTeX Template
+% Version 1.1 (24/9/18)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Evan Sultanik with modifications by 
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template requires the calendar.sty file to be in the same directory as the
+% .tex file. The calendar.sty file provides the necessary structure to create the
+% calendar.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt]{article} % Can also use 11pt for a larger overall font size
+
+\usepackage{calendar} % Use the calendar.sty style
+
+\usepackage[landscape, a4paper, margin=1cm]{geometry} % Page dimensions and margins
+
+\usepackage{palatino} % Use the Palatino font
+
+\begin{document}
+
+\pagestyle{empty} % Disable default headers and footers
+
+\setlength{\parindent}{0pt} % Stop paragraph indentation
+
+\StartingDayNumber=1 % Calendar starting day, default of 1 means Sunday, 2 for Monday, etc
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{center}
+	\textsc{\LARGE Conference X}\\ % Title
+	\textsc{\large February 2019} % Date
+\end{center}
+
+%----------------------------------------------------------------------------------------
+
+\begin{calendar}{\textwidth} % Calendar to be the entire width of the page
+
+\setcounter{calendardate}{4} % Day on which the calendar starts - note that you have to account for blank days
+
+%----------------------------------------------------------------------------------------
+%	FIRST DAY
+%----------------------------------------------------------------------------------------
+
+\BlankDay 
+
+%----------------------------------------------------------------------------------------
+%	SECOND DAY
+%----------------------------------------------------------------------------------------
+
+\BlankDay 
+
+%----------------------------------------------------------------------------------------
+%	THIRD DAY
+%----------------------------------------------------------------------------------------
+
+\BlankDay 
+
+%----------------------------------------------------------------------------------------
+%	FOURTH DAY
+%----------------------------------------------------------------------------------------
+
+\day{In Transit}{
+	\textbf{Depart} (PHL) @ 18:10 EDT\\
+	US Airways \# 740\\
+	US Airways record locator: EPYTWQ\\
+	Airline ticket number(s): 0377186181588-589
+}
+
+%----------------------------------------------------------------------------------------
+%	FIFTH DAY
+%----------------------------------------------------------------------------------------
+
+\day{Madrid}{
+	\textbf{Arrive} (MAD) @ 07:45 CEST\\\daysep
+	Hotel Senator Gran V\'ia\\
+	Calle Gran V\'ia, 21\\
+	28013 (Centro) MADRID\\
+	+34 915 31 41 51\\
+	Reservation code: 080131-98638\\
+	Cancellation code: 9860291\\\daysep
+	Palacio Real\\
+	Plaza Mayor\\
+	Reina Sof\'ia National Museum
+}
+
+%----------------------------------------------------------------------------------------
+%	SIXTH DAY
+%----------------------------------------------------------------------------------------
+
+\day{Toledo (Day Trip)}{
+	Cathedral\\
+	Sinagoga del Transito\\
+	Palace Alcazar\\
+	Sinagoga del Santa Maria la Blanca
+}
+
+%----------------------------------------------------------------------------------------
+%	SEVENTH DAY
+%----------------------------------------------------------------------------------------
+
+\day{Madrid}{
+	Real Academic de Bellas Artes\\Templo de Debod\\Museo del Prado\\\daysep
+	\textbf{Depart} Madrid @ 22:45 on SNCF 332
+}
+
+%----------------------------------------------------------------------------------------
+%	EIGHTH DAY
+%----------------------------------------------------------------------------------------
+
+\day{Lisbon}{
+	\textbf{Arrive} in Lisbon @ 08:00\\\daysep
+	Hotel Real Pal\'acio\\
+	Rua Tom\'as Ribeiro 115\\\ \\
+	Elevador de Santa Justa\\
+	Solar do Vinho do Porto\\
+	Castelo de S\~ao Jorge\\Mosteiro do Geron\'imos\\Torre de Bel\'em
+}
+
+%----------------------------------------------------------------------------------------
+%	NINTH DAY
+%----------------------------------------------------------------------------------------
+
+\day{Estoril}{
+	\textbf{Arrive} in Estoril\\\daysep
+	Hotel Alvorada\\
+	Rua de Lisboa, 3\\\daysep
+	OptMAS Workshop?\\
+}
+
+%----------------------------------------------------------------------------------------
+%	TENTH DAY
+%----------------------------------------------------------------------------------------
+
+\day{Estoril}{
+	DCR Workshop
+}
+
+%----------------------------------------------------------------------------------------
+%	ELEVENTH DAY
+%----------------------------------------------------------------------------------------
+
+\day{Estoril}{
+	FIPA Meeting 11:10--12:10\\
+	Poster Session w/``Drinks and Snacks'' 15:00--16:00
+}
+
+%----------------------------------------------------------------------------------------
+%	TWELFTH DAY
+%----------------------------------------------------------------------------------------
+
+\day{Estoril}{ 
+	AAMAS Demos\\
+	Conference Banquet @ 18:30
+}
+
+%----------------------------------------------------------------------------------------
+%	THIRTEENTH DAY
+%----------------------------------------------------------------------------------------
+
+\day{Estoril}{
+	\textbf{Depart} (LIS) @ 10:35 WEST\\
+	US Airways \#739\\
+	\textbf{Arrive} (PHL) @ 13:25 EST
+}
+
+%----------------------------------------------------------------------------------------
+%	FOURTEENTH DAY
+%----------------------------------------------------------------------------------------
+
+\BlankDay
+
+% Note: more days can be added to give the calendar a third or fourth week
+
+%----------------------------------------------------------------------------------------
+
+\finishCalendar
+\end{calendar}
+\end{document}
