@@ -1,0 +1,133 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Monthly Calendar
+% LaTeX Template
+% Version 1.1 (19/9/2018)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Evan Sultanik with modifications by 
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template requires the calendar.sty file to be in the same directory as the
+% .tex file. The calendar.sty file provides the necessary structure to create the
+% calendar.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt]{article} % Can also use 9pt or 11pt for a smaller or larger overall font size
+
+\usepackage{calendar} % Use the calendar.sty style
+
+\usepackage[landscape, a4paper, margin=1cm]{geometry} % Page dimensions and margins
+
+\usepackage{palatino} % Use the Palatino font
+
+\begin{document}
+
+\pagestyle{empty} % Disable default headers and footers
+
+\setlength{\parindent}{0pt} % Stop paragraph indentation
+
+\StartingDayNumber=1 % The starting day of the calendar, default of 1 means Sunday, 2 for Monday, etc
+
+%----------------------------------------------------------------------------------------
+%	CALENDAR HEADER
+%----------------------------------------------------------------------------------------
+
+\begin{center}
+	\textsc{\LARGE Month}\\ % Month
+	\textsc{\large Year} % Year
+\end{center}
+
+%----------------------------------------------------------------------------------------
+
+\begin{calendar}{\textwidth} % Calendar to be the entire width of the page
+
+%----------------------------------------------------------------------------------------
+%	BLANK DAYS BEFORE THE BEGINNING OF THE CALENDAR
+%----------------------------------------------------------------------------------------
+
+% This part defines the number of blank days at the beginning of the calendar before the first of the month starts. If you need this to be more than 4 (i.e. the first starts on a Friday or Saturday in a 31 day month), then you have two options: 
+% 1) You can uncomment another one or two \BlankDay's below which will make a new week (6 total) which makes the calendar too big for one page, remedy this by decreasing the size of each day by replacing 2.5cm below with a smaller number. 
+% 2) Make the spill-over days start at the top left of the calendar (i.e. the calendar starts with 31 then a few days blank then 1, 2, 3, etc). The second option can be configured by uncommenting the below:
+
+%\setcounter{calendardate}{31} % Begin the count with 31 so the top left day is 31; this can be changed to 29 or 30 as required
+%\day{}{\vspace{2.5cm}} % 31 - add another line identical to this if starting at 30 or earlier
+
+% You will need to comment out the 31 in the NUMBERED DAYS AND CALENDAR CONTENT section below for this as well as commenting out one of the \BlankDay's below. Play around with it and you will get it.
+
+\BlankDay
+\BlankDay
+%\BlankDay
+%\BlankDay
+%\BlankDay
+%\BlankDay
+
+%----------------------------------------------------------------------------------------
+%	NUMBERED DAYS AND CALENDAR CONTENT
+%----------------------------------------------------------------------------------------
+
+% These are the numbered days in the template - if there are less than 31 days simply comment out the days that aren't needed
+
+% \vspace{2.5cm} is only there to provide an even look to the calendar where each day is 2.5cm tall, it can be changed or removed to automatically adjust to the day in the week with the most content
+
+% Use \eventskip instead of \\ for newlines between events
+
+\setcounter{calendardate}{1} % Start the date counter at 1
+
+\day{Work}{10am Meeting with Boss \eventskip 12pm TPS Report Due} % 1 - Example of content: first argument is the heading, then the content of the day
+\day{Work}{9am Team Standup Meeting \eventskip \dayheader{Social}{}\eventskip 5:30pm Tennis with John, Janet and James} % 2 - Example of day with multiple headings
+\day{}{\vspace{2.5cm}} % 3
+\day{}{\vspace{2.5cm}} % 4
+\day{}{\vspace{2.5cm}} % 5
+\day{}{\vspace{2.5cm}} % 6
+\day{}{\vspace{2.5cm}} % 7
+\day{}{\vspace{2.5cm}} % 8
+\day{}{\vspace{2.5cm}} % 9
+\day{}{\vspace{2.5cm}} % 10
+\day{}{\vspace{2.5cm}} % 11
+\day{}{\vspace{2.5cm}} % 12
+\day{}{\vspace{2.5cm}} % 13
+\day{}{\vspace{2.5cm}} % 14
+\day{}{\vspace{2.5cm}} % 15
+\day{}{\vspace{2.5cm}} % 16
+\day{}{\vspace{2.5cm}} % 17
+\day{}{\vspace{2.5cm}} % 18
+\day{}{\vspace{2.5cm}} % 19
+\day{}{\vspace{2.5cm}} % 20 
+\day{}{\vspace{2.5cm}} % 21
+\day{}{\vspace{2.5cm}} % 22
+\day{}{\vspace{2.5cm}} % 23
+\day{}{\vspace{2.5cm}} % 24
+\day{}{\vspace{2.5cm}} % 25
+\day{}{\vspace{2.5cm}} % 26
+\day{}{\vspace{2.5cm}} % 27
+\day{}{\vspace{2.5cm}} % 28
+\day{}{\vspace{2.5cm}} % 29 
+\day{}{\vspace{2.5cm}} % 30 
+\day{}{\vspace{2.5cm}} % 31
+
+% Un-comment the \BlankDay below if the bottom line of the calendar is missing
+%\BlankDay
+
+% Un-comment to start counting again after 31
+%\setcounter{calendardate}{1}
+%\day{}{\vspace{2.5cm}} % 1
+%\day{}{\vspace{2.5cm}} % 2
+%\day{}{\vspace{2.5cm}} % 3
+
+%----------------------------------------------------------------------------------------
+
+\finishCalendar
+\end{calendar}
+\end{document}
