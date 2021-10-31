@@ -1,0 +1,114 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Classic Lined Title Page 
+% LaTeX Template
+% Version 2.0 (22/7/17)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Peter Wilson (herries.press@earthlink.net) with modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+% 
+% This template can be used in one of two ways:
+%
+% 1) Content can be added at the end of this file just before the \end{document}
+% to use this title page as the starting point for your document.
+%
+% 2) Alternatively, if you already have a document which you wish to add this
+% title page to, copy everything between the \begin{document} and
+% \end{document} and paste it where you would like the title page in your
+% document. You will then need to insert the packages and document 
+% configurations into your document carefully making sure you are not loading
+% the same package twice and that there are no clashes.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper, 11pt, oneside]{book} % A4 paper size, default 11pt font size and oneside for equal margins
+
+\usepackage[svgnames]{xcolor} % Required for colour specification
+
+\newcommand{\plogo}{\fbox{$\mathcal{PL}$}} % Generic dummy publisher logo
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{fouriernc} % Use the New Century Schoolbook font
+
+\begin{document} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage} % Suppresses headers and footers on the title page
+	
+	\centering % Centre everything on the title page
+	
+	%------------------------------------------------
+	%	Top rules
+	%------------------------------------------------
+	
+	\rule{\textwidth}{1pt} % Thick horizontal rule
+	
+	\vspace{2pt}\vspace{-\baselineskip} % Whitespace between rules
+	
+	\rule{\textwidth}{0.4pt} % Thin horizontal rule
+	
+	\vspace{0.1\textheight} % Whitespace between the top rules and title
+	
+	%------------------------------------------------
+	%	Title
+	%------------------------------------------------
+	
+	\textcolor{Red}{ % Red font color
+		{\Huge THE BIG BOOK}\\[0.5\baselineskip] % Title line 1
+		{\Large OF}\\[0.5\baselineskip] % Title line 2
+		{\Huge \LaTeX~Templates} % Title line 3
+	}
+	
+	\vspace{0.025\textheight} % Whitespace between the title and short horizontal rule
+	
+	\rule{0.3\textwidth}{0.4pt} % Short horizontal rule under the title
+	
+	\vspace{0.1\textheight} % Whitespace between the thin horizontal rule and the author name
+	
+	%------------------------------------------------
+	%	Author
+	%------------------------------------------------
+	
+	{\Large \textsc{gordon freeman}} % Author name
+	
+	\vfill % Whitespace between the author name and publisher
+	
+	%------------------------------------------------
+	%	Publisher
+	%------------------------------------------------
+	
+	{\large\textcolor{Red}{\plogo}}\\[0.5\baselineskip] % Publisher logo
+	
+	{\large\textsc{the publisher}} % Publisher
+	
+	\vspace{0.1\textheight} % Whitespace under the publisher text
+	
+	%------------------------------------------------
+	%	Bottom rules
+	%------------------------------------------------
+	
+	\rule{\textwidth}{0.4pt} % Thin horizontal rule
+	
+	\vspace{2pt}\vspace{-\baselineskip} % Whitespace between rules
+	
+	\rule{\textwidth}{1pt} % Thick horizontal rule
+	
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
